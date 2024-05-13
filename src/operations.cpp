@@ -86,12 +86,10 @@ intersect(const Shape & shape, const Shape & tool)
 Shape
 fillet(const Shape & shape, const std::vector<Edge> & edges, double radius)
 {
-    // FIXME
-    // BRepFilletAPI_MakeFillet flt(shape);
-    // for (auto & e : edges)
-    //     flt.Add(radius, e);
-    // return Shape(flt.Shape());
-    return Shape();
+    BRepFilletAPI_MakeFillet flt(shape);
+    for (auto & e : edges)
+        flt.Add(radius, e);
+    return Shape(flt.Shape());
 }
 
 Shape
@@ -100,19 +98,16 @@ hollow(const Shape & shape,
        double thickness,
        double tolerance)
 {
-    // FIXME
-    // TopTools_ListOfShape rem_faces;
-    // for (auto & face : faces_to_remove)
-    //     rem_faces.Append(face);
-    //
-    // BRepOffsetAPI_MakeThickSolid result;
-    // result.MakeThickSolidByJoin(shape, rem_faces, thickness, tolerance);
-    // result.Build();
-    // if (!result.IsDone())
-    //     throw Exception("hollow failed");
-    // return Shape(result.Shape());
+    TopTools_ListOfShape rem_faces;
+    for (auto & face : faces_to_remove)
+        rem_faces.Append(face);
 
-    return Shape();
+    BRepOffsetAPI_MakeThickSolid result;
+    result.MakeThickSolidByJoin(shape, rem_faces, thickness, tolerance);
+    result.Build();
+    if (!result.IsDone())
+        throw Exception("hollow failed");
+    return Shape(result.Shape());
 }
 
 Shape
