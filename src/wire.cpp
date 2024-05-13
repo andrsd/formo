@@ -7,6 +7,8 @@
 
 namespace formo {
 
+Wire::Wire(const TopoDS_Wire & wire) : wire(wire) {}
+
 Wire::Wire(const std::vector<Edge *> & edges)
 {
     if (edges.size())
