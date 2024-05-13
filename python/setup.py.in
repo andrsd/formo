@@ -1,0 +1,8 @@
+from setuptools import Extension, setup
+
+setup(
+    name='formo',
+    version='${PROJECT_VERSION}',
+    packages=['formo'],
+    package_dir={ '': '${CMAKE_CURRENT_SOURCE_DIR}/src' }
+)

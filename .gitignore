@@ -1,0 +1,7 @@
+/build*
+.DS_Store
+.idea
+
+# python
+__pycache__
+python/src/formo.egg-info
