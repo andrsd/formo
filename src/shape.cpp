@@ -50,7 +50,13 @@ Shape::color() const
 void
 Shape::set_color(const Color & color)
 {
-    this->clr = clr;
+    this->clr = color;
+}
+
+void
+Shape::set_shape(const TopoDS_Shape & shape)
+{
+    this->shp = shape;
 }
 
 Shape::operator TopoDS_Shape() const

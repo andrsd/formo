@@ -4,16 +4,14 @@
 #pragma once
 
 #include "formo/solid.h"
-#include "formo/shell.h"
 #include "formo/point.h"
-#include "BRepPrimAPI_MakeBox.hxx"
+#include "BRepPrimAPI_MakeSphere.hxx"
 
 namespace formo {
 
-/// Box
-class Box : public Solid {
+class Sphere : public Solid {
 public:
-    Box(const Point & pt1, const Point & pt2);
+    Sphere(const Point & center, double radius);
 };
 
 } // namespace formo

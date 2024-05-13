@@ -18,6 +18,12 @@ Solid::volume() const
     return props.Mass();
 }
 
+void
+Solid::set_solid(const TopoDS_Solid & solid)
+{
+    this->solid = solid;
+}
+
 Solid::operator TopoDS_Solid() const
 {
     return this->solid;

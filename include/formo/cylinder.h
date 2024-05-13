@@ -5,15 +5,14 @@
 
 #include "formo/solid.h"
 #include "formo/shell.h"
-#include "formo/point.h"
-#include "BRepPrimAPI_MakeBox.hxx"
+#include "formo/axis2.h"
+#include "BRepPrimAPI_MakeCylinder.hxx"
 
 namespace formo {
 
-/// Box
-class Box : public Solid {
+class Cylinder : public Solid {
 public:
-    Box(const Point & pt1, const Point & pt2);
+    Cylinder(const Axis2 & axis, double radius, double height);
 };
 
 } // namespace formo

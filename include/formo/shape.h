@@ -34,6 +34,9 @@ public:
     ///
     operator TopoDS_Shape() const;
 
+protected:
+    void set_shape(const TopoDS_Shape & shape);
+
 private:
     /// Shape name
     std::string nm;

@@ -4,16 +4,13 @@
 #pragma once
 
 #include "formo/solid.h"
-#include "formo/shell.h"
-#include "formo/point.h"
-#include "BRepPrimAPI_MakeBox.hxx"
+#include "formo/axis2.h"
 
 namespace formo {
 
-/// Box
-class Box : public Solid {
+class Cone : public Solid {
 public:
-    Box(const Point & pt1, const Point & pt2);
+    Cone(const Axis2 & axis, double radius1, double radius2, double height);
 };
 
 } // namespace formo

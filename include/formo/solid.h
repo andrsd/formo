@@ -20,6 +20,9 @@ public:
 
     operator TopoDS_Solid() const;
 
+protected:
+    void set_solid(const TopoDS_Solid & solid);
+
 private:
     TopoDS_Solid solid;
 };

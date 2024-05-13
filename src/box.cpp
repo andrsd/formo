@@ -7,17 +7,14 @@
 
 namespace formo {
 
-Box::Box(const Point & pt1, const Point & pt2) : Solid(), box(pt1, pt2)
+Box::Box(const Point & pt1, const Point & pt2) : Solid()
 {
-    this->box.Build();
-    if (!this->box.IsDone())
+    BRepPrimAPI_MakeBox box(pt1, pt2);
+    box.Build();
+    if (!box.IsDone())
         throw Exception("Box was not created");
-}
-
-Shell
-Box::shell()
-{
-    return Shell(this->box.Shell());
+    set_shape(box.Shape());
+    set_solid(box.Solid());
 }
 
 } // namespace formo
