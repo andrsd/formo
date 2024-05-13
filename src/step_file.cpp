@@ -12,6 +12,7 @@
 #include "XCAFDoc_ColorTool.hxx"
 #include "XCAFDoc_ColorType.hxx"
 #include "TDataStd_Name.hxx"
+#include "Quantity_Color.hxx"
 #include "Quantity_TypeOfColor.hxx"
 #include "STEPCAFControl_Writer.hxx"
 
@@ -46,13 +47,12 @@ STEPFile::write(std::vector<Shape> & shapes)
         if (!shp.name().empty())
             TDataStd_Name::Set(label, TCollection_ExtendedString(shp.name().c_str()));
 
-        // if (shp.has_color()) {
-        //     auto r = shp.color[0];
-        //     auto g = shp.color[1];
-        //     auto b = shp.color[2];
-        //     auto color = Quantity_Color(r, g, b, Quantity_TypeOfColor::Quantity_TOC_RGB);
-        //     color_tool->SetColor(label, color, XCAFDoc_ColorGen);
-        // }
+        auto clr = shp.color();
+        auto color = Quantity_Color(clr.redF(),
+                                    clr.greenF(),
+                                    clr.blueF(),
+                                    Quantity_TypeOfColor::Quantity_TOC_RGB);
+        color_tool->SetColor(label, color, XCAFDoc_ColorGen);
     }
 
     STEPCAFControl_Writer writer;

@@ -4,6 +4,7 @@
 #pragma once
 
 #include "formo/shape.h"
+#include "formo/color.h"
 #include "TopoDS_Shape.hxx"
 #include <string>
 
@@ -24,12 +25,20 @@ public:
     /// @param name New shape name
     void name(const std::string & name);
 
+    /// Get color
+    Color color() const;
+
+    /// Set color
+    void set_color(const Color & color);
+
     ///
     operator TopoDS_Shape() const;
 
 private:
     /// Shape name
     std::string nm;
+    /// Color of this shape
+    Color clr;
     /// Open CASCADE shape
     TopoDS_Shape shp;
 };
