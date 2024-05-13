@@ -11,6 +11,28 @@
 
 namespace formo {
 
+/// Translate a shape
+///
+/// @param shape Shape to translate
+/// @param v Translation vector
+/// @return Translated shape
+Shape translate(const Shape & shape, const Vector & v);
+
+/// Translate a shape
+///
+/// @param shape Shape to translate
+/// @param p1 Point one of the translation vector
+/// @param p2 Point two of the translation vector
+/// @return Translated shape
+Shape translate(const Shape & shape, const Point & p1, const Point & p2);
+
+/// Scale a shape
+///
+/// @param shape Shape to scale
+/// @param s Scale factor
+/// @return Scaled vector
+Shape scale(const Shape & shape, double s);
+
 /// Mirror a shape about an axis
 ///
 /// @param shape Shape to mirror

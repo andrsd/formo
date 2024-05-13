@@ -17,6 +17,33 @@
 namespace formo {
 
 Shape
+translate(const Shape & shape, const Vector & v)
+{
+    gp_Trsf trsf;
+    trsf.SetTranslation(v);
+    BRepBuilderAPI_Transform brep_trsf(shape, trsf);
+    return Shape(brep_trsf.Shape());
+}
+
+Shape
+translate(const Shape & shape, const Point & p1, const Point & p2)
+{
+    gp_Trsf trsf;
+    trsf.SetTranslation(p1, p2);
+    BRepBuilderAPI_Transform brep_trsf(shape, trsf);
+    return Shape(brep_trsf.Shape());
+}
+
+Shape
+scale(const Shape & shape, double s)
+{
+    gp_Trsf trsf;
+    trsf.SetScaleFactor(s);
+    BRepBuilderAPI_Transform brep_trsf(shape, trsf);
+    return Shape(brep_trsf.Shape());
+}
+
+Shape
 mirror(const Shape & shape, const Axis1 & axis)
 {
     gp_Trsf trsf;
