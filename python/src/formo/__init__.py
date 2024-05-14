@@ -27,5 +27,20 @@ __all__ = [
     "Spline",
     "STEPFile",
     "Vector",
-    "Wire"
+    "Wire",
+
+    "translate",
+    "scale",
+    "mirror",
+    "fuse",
+    "cut",
+    "intersect",
+    "fillet",
+    "hollow",
+    "extrude",
+    "revolve",
+    "rotate",
+    "section",
+    "write",
+    "read"
 ]
