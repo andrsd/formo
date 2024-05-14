@@ -119,6 +119,14 @@ Shape extrude(const Shape & shape, const Vector & vec);
 /// @return Resulting shape
 Shape revolve(const Shape & shape, const Axis1 & axis, double angle = 2. * M_PI);
 
+/// Rotate point about an axis
+///
+/// @param point Point to rotate
+/// @param axis Axis to rotate about
+/// @param angle Rotation angle (in radians)
+/// @return Resulting Point
+Point rotate(const Point & point, const Axis1 & axis, double angle);
+
 /// Rotate vector about an axis
 ///
 /// @param vector Vector to rotate

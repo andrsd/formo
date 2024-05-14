@@ -10,12 +10,13 @@ using namespace formo;
 
 namespace {
 
-double radians(double deg)
+double
+radians(double deg)
 {
     return deg * M_PI / 180.;
 }
 
-}
+} // namespace
 
 TEST(OperationsTest, translate_vec)
 {
@@ -105,8 +106,18 @@ TEST(OperationsTest, revolve)
     auto res = revolve(circ, ax);
 }
 
-TEST(OperationsTest, rotate_vec) {
+TEST(OperationsTest, rotate_vec)
+{
     Vector a(2, 0, 0);
+    auto b = rotate(a, Axis1(Point(0, 0, 0), Direction(0, 0, 1)), radians(45));
+    EXPECT_DOUBLE_EQ(b.x(), 2. / std::sqrt(2));
+    EXPECT_DOUBLE_EQ(b.y(), 2. / std::sqrt(2));
+    EXPECT_DOUBLE_EQ(b.z(), 0.);
+}
+
+TEST(OperationsTest, rotate_pnt)
+{
+    Point a(2, 0, 0);
     auto b = rotate(a, Axis1(Point(0, 0, 0), Direction(0, 0, 1)), radians(45));
     EXPECT_DOUBLE_EQ(b.x(), 2. / std::sqrt(2));
     EXPECT_DOUBLE_EQ(b.y(), 2. / std::sqrt(2));
