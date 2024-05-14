@@ -7,9 +7,14 @@
 
 namespace formo {
 
+class Vector;
+
 class Direction {
 public:
     Direction(double x, double y, double z);
+
+    /// Construct a `Direction` from a `Vector`
+    Direction(const Vector & vec);
 
     /// Get the x-component of the direction
     double x() const;

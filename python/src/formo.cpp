@@ -156,6 +156,7 @@ PYBIND11_MODULE(formo, m)
 
     py::class_<Direction>(m, "Direction")
         .def(py::init<double, double, double>())
+        .def(py::init<const Vector &>())
         .def("x", &Direction::x)
         .def("y", &Direction::y)
         .def("z", &Direction::z)
