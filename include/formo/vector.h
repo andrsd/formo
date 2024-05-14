@@ -7,10 +7,17 @@
 
 namespace formo {
 
+class Direction;
+
 /// Non-persistent vector in 3D space
 class Vector {
 public:
     Vector(double x, double y, double z);
+
+    /// Construct a `Vector` from a `Direction`
+    ///
+    /// @param dir Direction
+    Vector(const Direction & dir);
 
     /// Get the x-component of the vector
     double x() const;

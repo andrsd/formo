@@ -2,10 +2,13 @@
 // SPDX-License-Identifier: MIT
 
 #include "formo/vector.h"
+#include "formo/direction.h"
 
 namespace formo {
 
 Vector::Vector(double x, double y, double z) : vec(x, y, z) {}
+
+Vector::Vector(const Direction & dir) : vec(dir) {}
 
 double
 Vector::x() const
@@ -29,6 +32,5 @@ Vector::operator gp_Vec() const
 {
     return this->vec;
 }
-
 
 } // namespace formo
