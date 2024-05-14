@@ -14,6 +14,7 @@ Face::Face(const Wire & wire)
     make_face.Build();
     if (!make_face.IsDone())
         throw Exception("Face was not created");
+    set_shape(make_face.Shape());
     this->face = make_face.Face();
 }
 

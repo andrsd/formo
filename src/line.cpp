@@ -13,6 +13,7 @@ Line::Line(const Point & pt1, const Point & pt2)
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Edge was not created");
+    set_shape(maker.Shape());
     set_edge(maker.Edge());
 }
 

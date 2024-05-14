@@ -18,6 +18,7 @@ Circle::Circle(const Point & center, double radius, const Direction & normal) : 
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Circle was not created");
+    set_shape(maker.Shape());
     set_edge(maker.Edge());
     this->circ = make_circ.Value()->Circ();
 }
@@ -32,6 +33,7 @@ Circle::Circle(const Point & center, const Point & pt, const Direction & norm)
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Circle was not created");
+    set_shape(maker.Shape());
     set_edge(maker.Edge());
     this->circ = make_circ.Value()->Circ();
 }
@@ -45,6 +47,7 @@ Circle::Circle(const Point &pt1, const Point &pt2, const Point &pt3)
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Circle was not created");
+    set_shape(maker.Shape());
     set_edge(maker.Edge());
     this->circ = make_circ.Value()->Circ();
 }
@@ -66,6 +69,11 @@ Circle::location() const
 {
     auto pnt = this->circ.Location();
     return Point(pnt.X(), pnt.Y(), pnt.Z());
+}
+
+Circle::operator gp_Circ() const
+{
+    return this->circ;
 }
 
 } // namespace formo

@@ -48,6 +48,8 @@ public:
     /// Get circle location
     Point location() const;
 
+    operator gp_Circ() const;
+
 private:
     gp_Circ circ;
 };

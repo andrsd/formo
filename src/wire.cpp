@@ -19,6 +19,7 @@ Wire::Wire(const std::vector<Edge *> & edges)
     make_wire.Build();
     if (!make_wire.IsDone())
         throw Exception("Wire was not created");
+    set_shape(make_wire.Shape());
     this->wire = make_wire.Wire();
 }
 

@@ -13,6 +13,7 @@ Point::Point(double x, double y, double z) : Shape(), pnt(x, y, z)
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Point was not created");
+    set_shape(maker.Shape());
     this->vtx = maker.Vertex();
 }
 
@@ -22,6 +23,7 @@ Point::Point(const gp_Pnt & pt) : Shape(), pnt(pt)
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Point was not created");
+    set_shape(maker.Shape());
     this->vtx = maker.Vertex();
 }
 
