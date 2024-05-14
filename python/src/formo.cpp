@@ -45,31 +45,6 @@ PYBIND11_MODULE(formo, m)
     py::setattr(m, "version", py::str(FORMO_VERSION));
 
     // clang-format off
-    py::class_<Axis1>(m, "Axis1")
-        .def(py::init<const Point &, const Direction &>())
-        .def("location", &Axis1::location)
-        .def("direction", &Axis1::direction)
-    ;
-
-    py::class_<Axis2>(m, "Axis2")
-        .def(py::init<const Point &, const Direction &>())
-        .def("location", &Axis2::location)
-        .def("direction", &Axis2::direction)
-    ;
-
-    py::class_<Box, Solid>(m, "Box")
-        .def(py::init<const Point &, const Point &>())
-    ;
-
-    py::class_<Circle, Edge>(m, "Circle")
-        .def(py::init<const Point &, double, const Direction &>())
-        .def(py::init<const Point &, const Point &, const Direction &>())
-        .def(py::init<const Point &, const Point &, const Point &>())
-        .def("area", &Circle::area)
-        .def("radius", &Circle::radius)
-        .def("location", &Circle::location)
-    ;
-
     py::class_<Color>(m, "Color")
         .def(py::init<>())
         .def(py::init<int, int, int>())
@@ -168,12 +143,15 @@ PYBIND11_MODULE(formo, m)
         .def_readonly_static("blue7", &ColorMap::blue7)
     ;
 
-    py::class_<Cone, Solid>(m, "Cone")
-        .def(py::init<const Axis2 &, double, double, double>())
-    ;
+    //
 
-    py::class_<Cylinder, Solid>(m, "Cylinder")
-        .def(py::init<const Axis2 &, double, double>())
+    py::class_<Point>(m, "Point")
+        .def(py::init<double, double, double>())
+        .def("x", &Point::x)
+        .def("y", &Point::y)
+        .def("z", &Point::z)
+        .def("is_equal", &Point::is_equal)
+        .def("distance", &Point::distance)
     ;
 
     py::class_<Direction>(m, "Direction")
@@ -181,6 +159,48 @@ PYBIND11_MODULE(formo, m)
         .def("x", &Direction::x)
         .def("y", &Direction::y)
         .def("z", &Direction::z)
+    ;
+
+    py::class_<Vector>(m, "Vector")
+        .def(py::init<double, double, double>())
+    ;
+
+    py::class_<Geometry>(m, "Geometry")
+        .def_static("OX", &Geometry::OX)
+        .def_static("OY", &Geometry::OY)
+        .def_static("OZ", &Geometry::OZ)
+
+        .def_static("DX", &Geometry::DX)
+        .def_static("DY", &Geometry::DY)
+        .def_static("DZ", &Geometry::DZ)
+    ;
+
+    py::class_<Plane>(m, "Plane")
+        .def(py::init<const Point &, const Direction &>())
+        .def("location", &Plane::location)
+    ;
+
+    py::class_<Axis1>(m, "Axis1")
+        .def(py::init<const Point &, const Direction &>())
+        .def("location", &Axis1::location)
+        .def("direction", &Axis1::direction)
+    ;
+
+    py::class_<Axis2>(m, "Axis2")
+        .def(py::init<const Point &, const Direction &>())
+        .def("location", &Axis2::location)
+        .def("direction", &Axis2::direction)
+    ;
+
+    //
+
+    py::class_<Shape>(m, "Shape")
+        .def(py::init<>())
+        .def(py::init<const TopoDS_Shape &>())
+        .def("name", &Shape::name)
+        .def("set_name", &Shape::set_name)
+        .def("color", &Shape::color)
+        .def("set_color", &Shape::set_color)
     ;
 
     py::class_<Edge, Shape>(m, "Edge")
@@ -195,62 +215,9 @@ PYBIND11_MODULE(formo, m)
         .def("plane", &Face::plane)
     ;
 
-    py::class_<Geometry>(m, "Geometry")
-        .def_static("OX", &Geometry::OX)
-        .def_static("OY", &Geometry::OY)
-        .def_static("OZ", &Geometry::OZ)
-
-        .def_static("DX", &Geometry::DX)
-        .def_static("DY", &Geometry::DY)
-        .def_static("DZ", &Geometry::DZ)
-    ;
-
-    py::class_<IGESFile>(m, "IGESFile")
-        .def(py::init<const std::string &>())
-        .def("read", &IGESFile::read)
-        .def("write", &IGESFile::write)
-    ;
-
-    py::class_<IO>(m, "IO")
-        .def_static("write", &IO::write)
-        .def_static("read", &IO::read)
-    ;
-
-    py::class_<Line, Edge>(m, "Line")
-        .def(py::init<const Point &, const Point &>())
-    ;
-
-    py::class_<Plane>(m, "Plane")
-        .def(py::init<const Point &, const Direction &>())
-        .def("location", &Plane::location)
-    ;
-
-    py::class_<Point>(m, "Point")
-        .def(py::init<double, double, double>())
-        .def("x", &Point::x)
-        .def("y", &Point::y)
-        .def("z", &Point::z)
-        .def("is_equal", &Point::is_equal)
-        .def("distance", &Point::distance)
-    ;
-
-    py::class_<Polygon, Shape>(m, "Polygon")
-        .def(py::init<const std::vector<Point> &, bool>())
-        .def("as_edge", &Polygon::as_edge)
-        .def("as_wire", &Polygon::as_wire)
-    ;
-
-    py::class_<Prism, Shape>(m, "Prism")
-        .def(py::init<const Shape &, const Vector &>())
-    ;
-
-    py::class_<Shape>(m, "Shape")
-        .def(py::init<>())
-        .def(py::init<const TopoDS_Shape &>())
-        .def("name", &Shape::name)
-        .def("set_name", &Shape::set_name)
-        .def("color", &Shape::color)
-        .def("set_color", &Shape::set_color)
+    py::class_<Wire, Shape>(m, "Wire")
+        .def(py::init<const TopoDS_Wire &>())
+        .def(py::init<const std::vector<Edge> &>())
     ;
 
     py::class_<Shell, Shape>(m, "Shell")
@@ -263,8 +230,19 @@ PYBIND11_MODULE(formo, m)
         .def("volume", &Solid::volume)
     ;
 
-    py::class_<Sphere, Solid>(m, "Sphere")
-        .def(py::init<const Point &, double>())
+    //
+
+    py::class_<Line, Edge>(m, "Line")
+        .def(py::init<const Point &, const Point &>())
+    ;
+
+    py::class_<Circle, Edge>(m, "Circle")
+        .def(py::init<const Point &, double, const Direction &>())
+        .def(py::init<const Point &, const Point &, const Direction &>())
+        .def(py::init<const Point &, const Point &, const Point &>())
+        .def("area", &Circle::area)
+        .def("radius", &Circle::radius)
+        .def("location", &Circle::location)
     ;
 
     py::class_<Spline, Edge>(m, "Spline")
@@ -272,19 +250,51 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<const std::vector<Point> &, const Vector &, const Vector &>())
     ;
 
+    py::class_<Polygon, Shape>(m, "Polygon")
+        .def(py::init<const std::vector<Point> &, bool>())
+        .def("as_edge", &Polygon::as_edge)
+        .def("as_wire", &Polygon::as_wire)
+    ;
+
+    //
+
+    py::class_<Box, Solid>(m, "Box")
+        .def(py::init<const Point &, const Point &>())
+    ;
+
+    py::class_<Sphere, Solid>(m, "Sphere")
+        .def(py::init<const Point &, double>())
+    ;
+
+    py::class_<Cone, Solid>(m, "Cone")
+        .def(py::init<const Axis2 &, double, double, double>())
+    ;
+
+    py::class_<Cylinder, Solid>(m, "Cylinder")
+        .def(py::init<const Axis2 &, double, double>())
+    ;
+
+    py::class_<Prism, Shape>(m, "Prism")
+        .def(py::init<const Shape &, const Vector &>())
+    ;
+
+    //
+
+    py::class_<IO>(m, "IO")
+        .def_static("write", &IO::write)
+        .def_static("read", &IO::read)
+    ;
+
+    py::class_<IGESFile>(m, "IGESFile")
+        .def(py::init<const std::string &>())
+        .def("read", &IGESFile::read)
+        .def("write", &IGESFile::write)
+    ;
+
     py::class_<STEPFile>(m, "STEPFile")
         .def(py::init<const std::string &>())
         .def("read", &STEPFile::read)
         .def("write", &STEPFile::write)
-    ;
-
-    py::class_<Vector>(m, "Vector")
-        .def(py::init<double, double, double>())
-    ;
-
-    py::class_<Wire, Shape>(m, "Wire")
-        .def(py::init<const TopoDS_Wire &>())
-        .def(py::init<const std::vector<Edge> &>())
     ;
     // clang-format on
 }
