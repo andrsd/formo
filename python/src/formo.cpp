@@ -299,5 +299,29 @@ PYBIND11_MODULE(formo, m)
         .def("read", &STEPFile::read)
         .def("write", &STEPFile::write)
     ;
+
+    m.def("translate", py::overload_cast<const Shape &, const Vector &>(&translate));
+    m.def("translate", py::overload_cast<const Shape &, const Point &, const Point &>(&translate));
+
+    m.def("scale", py::overload_cast<const Shape &, double>(&scale));
+    m.def("scale", py::overload_cast<const Vector &, double>(&scale));
+
+    m.def("mirror", py::overload_cast<const Shape &, const Axis1 &>(&mirror));
+
+    m.def("fuse", py::overload_cast<const Shape &, const Shape &>(&fuse));
+
+    m.def("cut", py::overload_cast<const Shape &, const Shape &>(&cut));
+
+    m.def("intersect", py::overload_cast<const Shape &, const Shape &>(&intersect));
+
+    m.def("fillet", py::overload_cast<const std::vector<Edge> &, double>(&fillet));
+
+    m.def("hollow", py::overload_cast<const Shape &, const std::vector<Face> &, double, double>(&hollow));
+
+    m.def("extrude", py::overload_cast<const Shape &, const Vector &>(&extrude));
+
+    m.def("revolve", py::overload_cast<const Shape &, const Axis1 &, double>(&revolve));
+
+    m.def("section", py::overload_cast<const Shape &, const Plane &>(&section));
     // clang-format on
 }
