@@ -327,5 +327,8 @@ PYBIND11_MODULE(formo, m)
     m.def("rotate", py::overload_cast<const Vector &, const Axis1 &, double>(&rotate));
 
     m.def("section", py::overload_cast<const Shape &, const Plane &>(&section));
+
+    m.def("write", &IO::write);
+    m.def("read", &IO::read);
     // clang-format on
 }
