@@ -86,10 +86,11 @@ Shape intersect(const Shape & shape, const Shape & tool);
 
 /// Fillet
 ///
+/// @param shape Shape to fillet
 /// @param edges List of edges to fillet
 /// @param radius Radius of the fillet
 /// @return Resulting shape
-Shape fillet(const std::vector<Edge> & edges, double radius);
+Shape fillet(const Shape & shape, const std::vector<Edge> & edges, double radius);
 
 /// Hollow the shape
 ///

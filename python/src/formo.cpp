@@ -316,7 +316,7 @@ PYBIND11_MODULE(formo, m)
 
     m.def("intersect", py::overload_cast<const Shape &, const Shape &>(&intersect));
 
-    m.def("fillet", py::overload_cast<const std::vector<Edge> &, double>(&fillet));
+    m.def("fillet", py::overload_cast<const Shape &, const std::vector<Edge> &, double>(&fillet));
 
     m.def("hollow", py::overload_cast<const Shape &, const std::vector<Face> &, double, double>(&hollow));
 
