@@ -23,7 +23,7 @@ public:
     /// Set shape name
     ///
     /// @param name New shape name
-    void name(const std::string & name);
+    void set_name(const std::string & name);
 
     /// Get color
     Color color() const;

@@ -36,7 +36,7 @@ Shape::name() const
 }
 
 void
-Shape::name(const std::string & name)
+Shape::set_name(const std::string & name)
 {
     this->nm = name;
 }
