@@ -43,6 +43,14 @@ scale(const Shape & shape, double s)
     return Shape(brep_trsf.Shape());
 }
 
+Vector
+scale(const Vector & vec, double s)
+{
+    gp_Vec v(vec);
+    auto scaled = v.Scaled(s);
+    return Vector(scaled.X(), scaled.Y(), scaled.Z());
+}
+
 Shape
 mirror(const Shape & shape, const Axis1 & axis)
 {

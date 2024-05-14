@@ -30,8 +30,15 @@ Shape translate(const Shape & shape, const Point & p1, const Point & p2);
 ///
 /// @param shape Shape to scale
 /// @param s Scale factor
-/// @return Scaled vector
+/// @return Scaled shape
 Shape scale(const Shape & shape, double s);
+
+/// Scale a vector
+///
+/// @param vec Vector to scale
+/// @param s Scale factor
+/// @return Scaled vector
+Vector scale(const Vector & vec, double s);
 
 /// Mirror a shape about an axis
 ///

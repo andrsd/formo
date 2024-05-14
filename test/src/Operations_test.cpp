@@ -24,6 +24,15 @@ TEST(OperationsTest, scale)
     auto res = scale(box, 0.1);
 }
 
+TEST(OperationsTest, scale_vec)
+{
+    Vector a(1, 2, 3);
+    auto b = scale(a, 1.1);
+    EXPECT_DOUBLE_EQ(b.x(), 1.1);
+    EXPECT_DOUBLE_EQ(b.y(), 2.2);
+    EXPECT_DOUBLE_EQ(b.z(), 3.3);
+}
+
 TEST(OperationsTest, mirror)
 {
     Axis1 ax(Point(5, 0, 0), Direction(1, 0, 0));
