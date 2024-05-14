@@ -8,6 +8,15 @@
 
 using namespace formo;
 
+namespace {
+
+double radians(double deg)
+{
+    return deg * M_PI / 180.;
+}
+
+}
+
 TEST(OperationsTest, translate_vec)
 {
     Box box(Point(0, 0, 0), Point(1, 2, 3));
@@ -94,6 +103,14 @@ TEST(OperationsTest, revolve)
     Circle circ(Point(0, 0, 0), 2);
     Axis1 ax(Point(5, 0, 0), Direction(0, 1, 0));
     auto res = revolve(circ, ax);
+}
+
+TEST(OperationsTest, rotate_vec) {
+    Vector a(2, 0, 0);
+    auto b = rotate(a, Axis1(Point(0, 0, 0), Direction(0, 0, 1)), radians(45));
+    EXPECT_DOUBLE_EQ(b.x(), 2. / std::sqrt(2));
+    EXPECT_DOUBLE_EQ(b.y(), 2. / std::sqrt(2));
+    EXPECT_DOUBLE_EQ(b.z(), 0.);
 }
 
 TEST(OperationsTest, section)

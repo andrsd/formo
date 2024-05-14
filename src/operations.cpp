@@ -156,6 +156,14 @@ revolve(const Shape & shape, const Axis1 & axis, double angle)
     return Shape(result.Shape());
 }
 
+Vector
+rotate(const Vector & vector, const Axis1 & axis, double angle)
+{
+    gp_Vec vec(vector.x(), vector.y(), vector.z());
+    auto res = vec.Rotated(axis, angle);
+    return Vector(res.X(), res.Y(), res.Z());
+}
+
 Shape
 section(const Shape & shape, const Plane & plane)
 {

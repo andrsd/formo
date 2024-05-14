@@ -118,6 +118,14 @@ Shape extrude(const Shape & shape, const Vector & vec);
 /// @return Resulting shape
 Shape revolve(const Shape & shape, const Axis1 & axis, double angle = 2. * M_PI);
 
+/// Rotate vector about an axis
+///
+/// @param vector Vector to rotate
+/// @param axis Axis to rotate about
+/// @param angle Rotation angle (in radians)
+/// @return Resulting vector
+Vector rotate(const Vector & vector, const Axis1 & axis, double angle);
+
 /// Compute section between a shape and a plane
 ///
 /// @param shape Shape
