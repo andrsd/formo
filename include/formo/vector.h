@@ -8,6 +8,7 @@
 namespace formo {
 
 class Direction;
+class Point;
 
 /// Non-persistent vector in 3D space
 class Vector {
@@ -18,6 +19,12 @@ public:
     ///
     /// @param dir Direction
     Vector(const Direction & dir);
+
+    /// Construct a `Vector` from two `Points`
+    ///
+    /// @param pt1 First point
+    /// @param pt2 Second point
+    Vector(const Point & pt1, const Point & pt2);
 
     /// Get the x-component of the vector
     double x() const;

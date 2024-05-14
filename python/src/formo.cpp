@@ -164,6 +164,7 @@ PYBIND11_MODULE(formo, m)
     py::class_<Vector>(m, "Vector")
         .def(py::init<double, double, double>())
         .def(py::init<const Direction &>())
+        .def(py::init<const Point &, const Point &>())
     ;
 
     py::class_<Geometry>(m, "Geometry")
