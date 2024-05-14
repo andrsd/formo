@@ -4,6 +4,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include "formo/config.h"
+#include "formo/arc_of_circle.h"
 #include "formo/axis1.h"
 #include "formo/axis2.h"
 #include "formo/box.h"
@@ -234,6 +235,14 @@ PYBIND11_MODULE(formo, m)
     ;
 
     //
+
+    py::class_<ArcOfCircle, Edge>(m, "ArcOfCircle")
+        .def(py::init<const Point &, const Point &, const Point &>())
+        .def(py::init<const Circle &, const Point &, const Point &, bool>())
+        .def(py::init<const Point &, const Vector &, const Point &>())
+        .def("start_point", &ArcOfCircle::start_point)
+        .def("end_point", &ArcOfCircle::end_point)
+    ;
 
     py::class_<Line, Edge>(m, "Line")
         .def(py::init<const Point &, const Point &>())

@@ -1,6 +1,7 @@
 from .formo import *
 
 __all__ = [
+    "ArcOfCircle",
     "Axis1",
     "Axis2",
     "Box",
