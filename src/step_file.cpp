@@ -32,7 +32,7 @@ STEPFile::read()
 }
 
 void
-STEPFile::write(std::vector<Shape> & shapes)
+STEPFile::write(const std::vector<Shape> & shapes)
 {
     auto & msgr = Message::DefaultMessenger();
     auto & printers = msgr->Printers();

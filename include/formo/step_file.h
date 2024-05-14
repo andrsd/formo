@@ -20,7 +20,10 @@ public:
     /// @return The shape that is contained on the STEP file
     Shape read();
 
-    void write(std::vector<Shape> & shapes);
+    /// Write shapes into a file
+    ///
+    /// @param shapes Shapes to write
+    void write(const std::vector<Shape> & shapes);
 
 private:
     std::string fname;

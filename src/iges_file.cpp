@@ -31,7 +31,7 @@ IGESFile::read()
 }
 
 void
-IGESFile::write(std::vector<Shape> & shapes)
+IGESFile::write(const std::vector<Shape> & shapes)
 {
     auto & msgr = Message::DefaultMessenger();
     auto & printers = msgr->Printers();
