@@ -2,6 +2,7 @@
 #include "formo/operations.h"
 #include "formo/box.h"
 #include "formo/circle.h"
+#include "formo/axis1.h"
 #include <vector>
 
 using namespace formo;

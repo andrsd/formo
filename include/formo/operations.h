@@ -7,9 +7,10 @@
 #include "formo/edge.h"
 #include "formo/face.h"
 #include "formo/vector.h"
-#include "formo/axis1.h"
 
 namespace formo {
+
+class Axis1;
 
 /// Translate a shape
 ///

@@ -3,6 +3,7 @@
 
 #include "formo/operations.h"
 #include "formo/exception.h"
+#include "formo/axis1.h"
 #include "BRepBuilderAPI_Transform.hxx"
 #include "BRepBuilderAPI_MakeWire.hxx"
 #include "BRepAlgoAPI_Fuse.hxx"
