@@ -63,6 +63,20 @@ Vector mirror(const Vector & vector, const Axis1 & axis);
 /// @return Resulting vector
 Vector mirror(const Vector & vector, const Axis2 & axis);
 
+/// Mirror a point about an axis
+///
+/// @param point Point to mirror
+/// @param axis Axis to mirror about
+/// @return Resulting point
+Point mirror(const Point & point, const Axis1 & axis);
+
+/// Mirror a point about an axis
+///
+/// @param point Point to mirror
+/// @param axis Axis to mirror about
+/// @return Resulting point
+Point mirror(const Point & point, const Axis2 & axis);
+
 /// Fuse 2 shapes
 ///
 /// @param shape Shape

@@ -321,6 +321,8 @@ PYBIND11_MODULE(formo, m)
     m.def("mirror", py::overload_cast<const Shape &, const Axis1 &>(&mirror));
     m.def("mirror", py::overload_cast<const Vector &, const Axis1 &>(&mirror));
     m.def("mirror", py::overload_cast<const Vector &, const Axis2 &>(&mirror));
+    m.def("mirror", py::overload_cast<const Point &, const Axis1 &>(&mirror));
+    m.def("mirror", py::overload_cast<const Point &, const Axis2 &>(&mirror));
 
     m.def("fuse", py::overload_cast<const Shape &, const Shape &>(&fuse));
 

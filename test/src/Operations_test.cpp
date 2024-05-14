@@ -72,6 +72,26 @@ TEST(OperationsTest, mirror_vec2)
     EXPECT_DOUBLE_EQ(b.z(), 0);
 }
 
+TEST(OperationsTest, mirror_pnt1)
+{
+    Axis1 ax(Point(0, 0, 0), Direction(0, 1, 0));
+    Point a(1, 2, 0);
+    auto b = mirror(a, ax);
+    EXPECT_DOUBLE_EQ(b.x(), -1);
+    EXPECT_DOUBLE_EQ(b.y(), 2);
+    EXPECT_DOUBLE_EQ(b.z(), 0);
+}
+
+TEST(OperationsTest, mirror_pnt2)
+{
+    Axis2 ax(Point(0, 0, 0), Direction(0, 1, 0));
+    Point a(1, 2, 0);
+    auto b = mirror(a, ax);
+    EXPECT_DOUBLE_EQ(b.x(), 1);
+    EXPECT_DOUBLE_EQ(b.y(), -2);
+    EXPECT_DOUBLE_EQ(b.z(), 0);
+}
+
 TEST(OperationsTest, fuse)
 {
     Box box1(Point(0, 0, 0), Point(1, 2, 3));

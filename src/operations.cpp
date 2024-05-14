@@ -78,6 +78,22 @@ mirror(const Vector & vector, const Axis2 & axis)
     return Vector(res.X(), res.Y(), res.Z());
 }
 
+Point
+mirror(const Point & point, const Axis1 & axis)
+{
+    gp_Pnt pnt(point.x(), point.y(), point.z());
+    auto res = pnt.Mirrored(axis);
+    return Point(res);
+}
+
+Point
+mirror(const Point & point, const Axis2 & axis)
+{
+    gp_Pnt pnt(point.x(), point.y(), point.z());
+    auto res = pnt.Mirrored(axis);
+    return Point(res);
+}
+
 Shape
 fuse(const Shape & shape, const Shape & tool)
 {
