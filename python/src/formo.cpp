@@ -4,11 +4,287 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include "formo/config.h"
+#include "formo/axis1.h"
+#include "formo/axis2.h"
+#include "formo/box.h"
+#include "formo/circle.h"
+#include "formo/color.h"
+#include "formo/color_map.h"
+#include "formo/cone.h"
+#include "formo/cylinder.h"
+#include "formo/direction.h"
+#include "formo/edge.h"
+#include "formo/exception.h"
+#include "formo/face.h"
+#include "formo/geometry.h"
+#include "formo/iges_file.h"
+#include "formo/io.h"
+#include "formo/line.h"
+#include "formo/operations.h"
+#include "formo/plane.h"
+#include "formo/point.h"
+#include "formo/polygon.h"
+#include "formo/prism.h"
+#include "formo/shape.h"
+#include "formo/shape.h"
+#include "formo/shell.h"
+#include "formo/solid.h"
+#include "formo/sphere.h"
+#include "formo/spline.h"
+#include "formo/step_file.h"
+#include "formo/utils.h"
+#include "formo/vector.h"
+#include "formo/wire.h"
 
 namespace py = pybind11;
+using namespace formo;
 
 PYBIND11_MODULE(formo, m)
 {
     m.doc() = "pybind11 plugin for formo";
     py::setattr(m, "version", py::str(FORMO_VERSION));
+
+    // clang-format off
+    py::class_<Axis1>(m, "Axis1")
+        .def(py::init<const Point &, const Direction &>())
+        .def("location", &Axis1::location)
+        .def("direction", &Axis1::direction)
+    ;
+
+    py::class_<Axis2>(m, "Axis2")
+        .def(py::init<const Point &, const Direction &>())
+        .def("location", &Axis2::location)
+        .def("direction", &Axis2::direction)
+    ;
+
+    py::class_<Box, Solid>(m, "Box")
+        .def(py::init<const Point &, const Point &>())
+    ;
+
+    py::class_<Circle, Edge>(m, "Circle")
+        .def(py::init<const Point &, double, const Direction &>())
+        .def(py::init<const Point &, const Point &, const Direction &>())
+        .def(py::init<const Point &, const Point &, const Point &>())
+        .def("area", &Circle::area)
+        .def("radius", &Circle::radius)
+        .def("location", &Circle::location)
+    ;
+
+    py::class_<Color>(m, "Color")
+        .def(py::init<>())
+        .def(py::init<int, int, int>())
+        .def("red", &Color::red)
+        .def("redF", &Color::redF)
+        .def("green", &Color::green)
+        .def("greenF", &Color::greenF)
+        .def("blue", &Color::blue)
+        .def("blueF", &Color::blueF)
+    ;
+
+    py::class_<ColorMap>(m, "ColorMap")
+        .def_readonly_static("black", &ColorMap::black)
+        .def_readonly_static("blue", &ColorMap::blue)
+        .def_readonly_static("red", &ColorMap::red)
+
+        .def_readonly_static("medium_blue", &ColorMap::medium_blue)
+        .def_readonly_static("medium_grey", &ColorMap::medium_grey)
+        .def_readonly_static("dark_blue", &ColorMap::dark_blue)
+        .def_readonly_static("light_grey", &ColorMap::light_grey)
+        .def_readonly_static("light_blue", &ColorMap::light_blue)
+        .def_readonly_static("orange", &ColorMap::orange)
+        .def_readonly_static("dark_grey", &ColorMap::dark_grey)
+        .def_readonly_static("yellow", &ColorMap::yellow)
+
+        .def_readonly_static("grey1", &ColorMap::grey1)
+        .def_readonly_static("grey2", &ColorMap::grey2)
+        .def_readonly_static("grey3", &ColorMap::grey3)
+        .def_readonly_static("grey4", &ColorMap::grey4)
+        .def_readonly_static("grey5", &ColorMap::grey5)
+        .def_readonly_static("grey6", &ColorMap::grey6)
+        .def_readonly_static("grey7", &ColorMap::grey7)
+
+        .def_readonly_static("gold1", &ColorMap::gold1)
+        .def_readonly_static("gold2", &ColorMap::gold2)
+        .def_readonly_static("gold3", &ColorMap::gold3)
+        .def_readonly_static("gold4", &ColorMap::gold4)
+        .def_readonly_static("gold5", &ColorMap::gold5)
+        .def_readonly_static("gold6", &ColorMap::gold6)
+        .def_readonly_static("gold7", &ColorMap::gold7)
+
+        .def_readonly_static("silver1", &ColorMap::silver1)
+        .def_readonly_static("silver2", &ColorMap::silver2)
+        .def_readonly_static("silver3", &ColorMap::silver3)
+        .def_readonly_static("silver4", &ColorMap::silver4)
+        .def_readonly_static("silver5", &ColorMap::silver5)
+        .def_readonly_static("silver6", &ColorMap::silver6)
+        .def_readonly_static("silver7", &ColorMap::silver7)
+
+        .def_readonly_static("red1", &ColorMap::red1)
+        .def_readonly_static("red2", &ColorMap::red2)
+        .def_readonly_static("red3", &ColorMap::red3)
+        .def_readonly_static("red4", &ColorMap::red4)
+        .def_readonly_static("red5", &ColorMap::red5)
+        .def_readonly_static("red6", &ColorMap::red6)
+        .def_readonly_static("red7", &ColorMap::red7)
+
+        .def_readonly_static("orange1", &ColorMap::orange1)
+        .def_readonly_static("orange2", &ColorMap::orange2)
+        .def_readonly_static("orange3", &ColorMap::orange3)
+        .def_readonly_static("orange4", &ColorMap::orange4)
+        .def_readonly_static("orange5", &ColorMap::orange5)
+        .def_readonly_static("orange6", &ColorMap::orange6)
+        .def_readonly_static("orange7", &ColorMap::orange7)
+
+        .def_readonly_static("yellow1", &ColorMap::yellow1)
+        .def_readonly_static("yellow2", &ColorMap::yellow2)
+        .def_readonly_static("yellow3", &ColorMap::yellow3)
+        .def_readonly_static("yellow4", &ColorMap::yellow4)
+        .def_readonly_static("yellow5", &ColorMap::yellow5)
+        .def_readonly_static("yellow6", &ColorMap::yellow6)
+        .def_readonly_static("yellow7", &ColorMap::yellow7)
+
+        .def_readonly_static("green1", &ColorMap::green1)
+        .def_readonly_static("green2", &ColorMap::green2)
+        .def_readonly_static("green3", &ColorMap::green3)
+        .def_readonly_static("green4", &ColorMap::green4)
+        .def_readonly_static("green5", &ColorMap::green5)
+        .def_readonly_static("green6", &ColorMap::green6)
+        .def_readonly_static("green7", &ColorMap::green7)
+
+        .def_readonly_static("teal1", &ColorMap::teal1)
+        .def_readonly_static("teal2", &ColorMap::teal2)
+        .def_readonly_static("teal3", &ColorMap::teal3)
+        .def_readonly_static("teal4", &ColorMap::teal4)
+        .def_readonly_static("teal5", &ColorMap::teal5)
+        .def_readonly_static("teal6", &ColorMap::teal6)
+        .def_readonly_static("teal7", &ColorMap::teal7)
+
+        .def_readonly_static("blue1", &ColorMap::blue1)
+        .def_readonly_static("blue2", &ColorMap::blue2)
+        .def_readonly_static("blue3", &ColorMap::blue3)
+        .def_readonly_static("blue4", &ColorMap::blue4)
+        .def_readonly_static("blue5", &ColorMap::blue5)
+        .def_readonly_static("blue6", &ColorMap::blue6)
+        .def_readonly_static("blue7", &ColorMap::blue7)
+    ;
+
+    py::class_<Cone, Solid>(m, "Cone")
+        .def(py::init<const Axis2 &, double, double, double>())
+    ;
+
+    py::class_<Cylinder, Solid>(m, "Cylinder")
+        .def(py::init<const Axis2 &, double, double>())
+    ;
+
+    py::class_<Direction>(m, "Direction")
+        .def(py::init<double, double, double>())
+        .def("x", &Direction::x)
+        .def("y", &Direction::y)
+        .def("z", &Direction::z)
+    ;
+
+    py::class_<Edge, Shape>(m, "Edge")
+        .def(py::init<>())
+        .def(py::init<const TopoDS_Edge &>())
+        .def("length", &Edge::length)
+    ;
+
+    py::class_<Face, Shape>(m, "Face")
+        .def(py::init<const Wire &>())
+        .def("is_plane", &Face::is_plane)
+        .def("plane", &Face::plane)
+    ;
+
+    py::class_<Geometry>(m, "Geometry")
+        .def_static("OX", &Geometry::OX)
+        .def_static("OY", &Geometry::OY)
+        .def_static("OZ", &Geometry::OZ)
+
+        .def_static("DX", &Geometry::DX)
+        .def_static("DY", &Geometry::DY)
+        .def_static("DZ", &Geometry::DZ)
+    ;
+
+    py::class_<IGESFile>(m, "IGESFile")
+        .def(py::init<const std::string &>())
+        .def("read", &IGESFile::read)
+        .def("write", &IGESFile::write)
+    ;
+
+    py::class_<IO>(m, "IO")
+        .def_static("write", &IO::write)
+        .def_static("read", &IO::read)
+    ;
+
+    py::class_<Line, Edge>(m, "Line")
+        .def(py::init<const Point &, const Point &>())
+    ;
+
+    py::class_<Plane>(m, "Plane")
+        .def(py::init<const Point &, const Direction &>())
+        .def("location", &Plane::location)
+    ;
+
+    py::class_<Point>(m, "Point")
+        .def(py::init<double, double, double>())
+        .def("x", &Point::x)
+        .def("y", &Point::y)
+        .def("z", &Point::z)
+        .def("is_equal", &Point::is_equal)
+        .def("distance", &Point::distance)
+    ;
+
+    py::class_<Polygon, Shape>(m, "Polygon")
+        .def(py::init<const std::vector<Point> &, bool>())
+        .def("as_edge", &Polygon::as_edge)
+        .def("as_wire", &Polygon::as_wire)
+    ;
+
+    py::class_<Prism, Shape>(m, "Prism")
+        .def(py::init<const Shape &, const Vector &>())
+    ;
+
+    py::class_<Shape>(m, "Shape")
+        .def(py::init<>())
+        .def(py::init<const TopoDS_Shape &>())
+        .def("name", &Shape::name)
+        .def("set_name", &Shape::set_name)
+        .def("color", &Shape::color)
+        .def("set_color", &Shape::set_color)
+    ;
+
+    py::class_<Shell, Shape>(m, "Shell")
+        .def(py::init<const TopoDS_Shell &>())
+    ;
+
+    py::class_<Solid, Shape>(m, "Solid")
+        .def(py::init<>())
+        .def(py::init<const TopoDS_Solid &>())
+        .def("volume", &Solid::volume)
+    ;
+
+    py::class_<Sphere, Solid>(m, "Sphere")
+        .def(py::init<const Point &, double>())
+    ;
+
+    py::class_<Spline, Edge>(m, "Spline")
+        .def(py::init<const std::vector<Point> &>())
+        .def(py::init<const std::vector<Point> &, const Vector &, const Vector &>())
+    ;
+
+    py::class_<STEPFile>(m, "STEPFile")
+        .def(py::init<const std::string &>())
+        .def("read", &STEPFile::read)
+        .def("write", &STEPFile::write)
+    ;
+
+    py::class_<Vector>(m, "Vector")
+        .def(py::init<double, double, double>())
+    ;
+
+    py::class_<Wire, Shape>(m, "Wire")
+        .def(py::init<const TopoDS_Wire &>())
+        .def(py::init<const std::vector<Edge> &>())
+    ;
+    // clang-format on
 }
