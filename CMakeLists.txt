@@ -55,7 +55,7 @@ target_include_directories(
 
 target_link_libraries(
     libformo
-    PRIVATE
+    PUBLIC
         ${OpenCASCADE_DataExchange_LIBRARIES}
         ${OpenCASCADE_ModelingAlgorithms_LIBRARIES}
         fmt::fmt

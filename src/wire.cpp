@@ -9,13 +9,13 @@ namespace formo {
 
 Wire::Wire(const TopoDS_Wire & wire) : wire(wire) {}
 
-Wire::Wire(const std::vector<Edge *> & edges)
+Wire::Wire(const std::vector<Edge> & edges)
 {
-    if (edges.size())
+    if (edges.size() == 0)
         throw Exception("The list of edges is empty");
     BRepBuilderAPI_MakeWire make_wire;
     for (auto & edge : edges)
-        make_wire.Add(*edge);
+        make_wire.Add(edge);
     make_wire.Build();
     if (!make_wire.IsDone())
         throw Exception("Wire was not created");

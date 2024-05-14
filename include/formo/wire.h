@@ -13,7 +13,7 @@ namespace formo {
 class Wire : public Shape {
 public:
     explicit Wire(const TopoDS_Wire & wire);
-    Wire(const std::vector<Edge *> & edges);
+    Wire(const std::vector<Edge> & edges);
 
     operator TopoDS_Wire() const;
 
