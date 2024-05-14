@@ -3,7 +3,7 @@ find_package(pybind11 2.9 REQUIRED)
 pybind11_add_module(formo formo.cpp)
 
 target_include_directories(
-        formo
+    formo
     PRIVATE
         ${CMAKE_BINARY_DIR}/include
         ${CMAKE_SOURCE_DIR}/include

@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
+include(CMakePackageConfigHelpers)
+include(GNUInstallDirs)
 include(FetchContent)
 include(CodeCoverage)
 
@@ -94,3 +96,46 @@ if(FORMO_BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif()
+
+# install
+
+configure_package_config_file(
+    ${PROJECT_SOURCE_DIR}/cmake/formoConfig.cmake.in
+    formoConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
+    NO_SET_AND_CHECK_MACRO
+)
+write_basic_package_version_file(formoConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+install(
+    TARGETS libformo
+    EXPORT formoTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING PATTERN "*.h"
+)
+
+install(
+    EXPORT formoTargets
+    FILE formoTargets.cmake
+    NAMESPACE formo::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
+)
+
+install(
+    FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/formoConfig.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/formoConfigVersion.cmake"
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
+)
