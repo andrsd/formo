@@ -31,7 +31,7 @@ file(GLOB_RECURSE SRCS CONFIGURE_DEPENDS src/*.cpp)
 
 add_library(libformo SHARED ${SRCS})
 if(NOT MSVC)
-    set_target_properties(${NAME} PROPERTIES OUTPUT_NAME formo)
+    set_target_properties(libformo PROPERTIES OUTPUT_NAME formo)
 endif()
 
 target_code_coverage(libformo)

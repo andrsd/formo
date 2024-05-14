@@ -32,7 +32,7 @@ if(FORMO_CODE_COVERAGE)
 
         set(CODE_COVERAGE_BINS
             --object=${PROJECT_BINARY_DIR}/test/formo-test
-            --object=${PROJECT_BINARY_DIR}/src/libformo${CMAKE_SHARED_LIBRARY_SUFFIX}
+            --object=${PROJECT_BINARY_DIR}/libformo${CMAKE_SHARED_LIBRARY_SUFFIX}
         )
 
         set(MERGED_PROFDATA ${PROJECT_BINARY_DIR}/all-merged.profdata)
