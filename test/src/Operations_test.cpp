@@ -3,6 +3,7 @@
 #include "formo/box.h"
 #include "formo/circle.h"
 #include "formo/axis1.h"
+#include "formo/axis2.h"
 #include <vector>
 
 using namespace formo;
@@ -39,6 +40,26 @@ TEST(OperationsTest, mirror)
     Axis1 ax(Point(5, 0, 0), Direction(1, 0, 0));
     Box box(Point(0, 0, 0), Point(1, 2, 3));
     auto res = mirror(box, ax);
+}
+
+TEST(OperationsTest, mirror_vec1)
+{
+    Axis1 ax(Point(0, 0, 0), Direction(0, 1, 0));
+    Vector a(1, 2, 0);
+    auto b = mirror(a, ax);
+    EXPECT_DOUBLE_EQ(b.x(), -1);
+    EXPECT_DOUBLE_EQ(b.y(), 2);
+    EXPECT_DOUBLE_EQ(b.z(), 0);
+}
+
+TEST(OperationsTest, mirror_vec2)
+{
+    Axis2 ax(Point(0, 0, 0), Direction(0, 1, 0));
+    Vector a(1, 2, 0);
+    auto b = mirror(a, ax);
+    EXPECT_DOUBLE_EQ(b.x(), 1);
+    EXPECT_DOUBLE_EQ(b.y(), -2);
+    EXPECT_DOUBLE_EQ(b.z(), 0);
 }
 
 TEST(OperationsTest, fuse)

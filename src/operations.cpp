@@ -4,6 +4,7 @@
 #include "formo/operations.h"
 #include "formo/exception.h"
 #include "formo/axis1.h"
+#include "formo/axis2.h"
 #include "BRepBuilderAPI_Transform.hxx"
 #include "BRepBuilderAPI_MakeWire.hxx"
 #include "BRepAlgoAPI_Fuse.hxx"
@@ -59,6 +60,22 @@ mirror(const Shape & shape, const Axis1 & axis)
     trsf.SetMirror(axis);
     BRepBuilderAPI_Transform brep_trsf(shape, trsf);
     return Shape(brep_trsf.Shape());
+}
+
+Vector
+mirror(const Vector & vector, const Axis1 & axis)
+{
+    gp_Vec vec(vector.x(), vector.y(), vector.z());
+    auto res = vec.Mirrored(axis);
+    return Vector(res.X(), res.Y(), res.Z());
+}
+
+Vector
+mirror(const Vector & vector, const Axis2 & axis)
+{
+    gp_Vec vec(vector.x(), vector.y(), vector.z());
+    auto res = vec.Mirrored(axis);
+    return Vector(res.X(), res.Y(), res.Z());
 }
 
 Shape

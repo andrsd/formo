@@ -11,6 +11,7 @@
 namespace formo {
 
 class Axis1;
+class Axis2;
 
 /// Translate a shape
 ///
@@ -47,6 +48,20 @@ Vector scale(const Vector & vec, double s);
 /// @param axis Axis to mirror about
 /// @return Resulting shape
 Shape mirror(const Shape & shape, const Axis1 & axis);
+
+/// Mirror a vector about an axis
+///
+/// @param shape Vector to mirror
+/// @param axis Axis to mirror about
+/// @return Resulting vector
+Vector mirror(const Vector & vector, const Axis1 & axis);
+
+/// Mirror a vector about an axis
+///
+/// @param shape Vector to mirror
+/// @param axis Axis to mirror about
+/// @return Resulting vector
+Vector mirror(const Vector & vector, const Axis2 & axis);
 
 /// Fuse 2 shapes
 ///
