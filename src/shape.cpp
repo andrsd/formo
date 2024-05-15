@@ -27,7 +27,7 @@ get_next_color()
 
 Shape::Shape() : clr(ColorMap::light_blue) {}
 
-Shape::Shape(const TopoDS_Shape & shape) : clr(ColorMap::light_blue) {}
+Shape::Shape(const TopoDS_Shape & shape) : clr(ColorMap::light_blue), shp(shape) {}
 
 std::string
 Shape::name() const
