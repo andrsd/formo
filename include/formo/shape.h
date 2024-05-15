@@ -37,6 +37,8 @@ public:
 protected:
     void set_shape(const TopoDS_Shape & shape);
 
+    void assign_color();
+
 private:
     /// Shape name
     std::string nm;

@@ -19,15 +19,15 @@ get_next_color()
 {
     static int color_index = 0;
     Color clr = shape_color[color_index];
-    color_index++;
+    color_index = (color_index + 1) % shape_color.size();
     return clr;
 }
 
 } // namespace
 
-Shape::Shape() : clr(get_next_color()) {}
+Shape::Shape() : clr(ColorMap::light_blue) {}
 
-Shape::Shape(const TopoDS_Shape & shape) : clr(get_next_color()) {}
+Shape::Shape(const TopoDS_Shape & shape) : clr(ColorMap::light_blue) {}
 
 std::string
 Shape::name() const
@@ -57,6 +57,12 @@ void
 Shape::set_shape(const TopoDS_Shape & shape)
 {
     this->shp = shape;
+}
+
+void
+Shape::assign_color()
+{
+    this->clr = get_next_color();
 }
 
 Shape::operator TopoDS_Shape() const

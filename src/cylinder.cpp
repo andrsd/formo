@@ -15,6 +15,7 @@ Cylinder::Cylinder(const Axis2 & axis, double radius, double height) :
         throw Exception("Cylinder was not created");
     set_shape(cyl.Shape());
     set_solid(cyl.Solid());
+    assign_color();
 }
 
 } // namespace formo

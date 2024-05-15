@@ -15,6 +15,7 @@ Cone::Cone(const Axis2 & axis, double radius1, double radius2, double height)
         throw Exception("Cone was not created");
     set_shape(cone.Shape());
     set_solid(cone.Solid());
+    assign_color();
 }
 
 } // namespace formo

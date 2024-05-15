@@ -14,6 +14,7 @@ Sphere::Sphere(const Point & center, double radius) : Solid()
         throw Exception("Sphere was not created");
     set_shape(sphere.Shape());
     set_solid(sphere.Solid());
+    assign_color();
 }
 
 

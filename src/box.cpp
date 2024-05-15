@@ -15,6 +15,7 @@ Box::Box(const Point & pt1, const Point & pt2) : Solid()
         throw Exception("Box was not created");
     set_shape(box.Shape());
     set_solid(box.Solid());
+    assign_color();
 }
 
 } // namespace formo

@@ -48,17 +48,19 @@ STEPFile::write(const std::vector<Shape> & shapes)
             TDataStd_Name::Set(label, TCollection_ExtendedString(shp.name().c_str()));
 
         auto clr = shp.color();
-        auto color = Quantity_Color(clr.redF(),
-                                    clr.greenF(),
-                                    clr.blueF(),
-                                    Quantity_TypeOfColor::Quantity_TOC_RGB);
+        Quantity_Color color(clr.redF(),
+                             clr.greenF(),
+                             clr.blueF(),
+                             Quantity_TypeOfColor::Quantity_TOC_RGB);
         color_tool->SetColor(label, color, XCAFDoc_ColorGen);
     }
 
     STEPCAFControl_Writer writer;
     writer.SetNameMode(true);
-    writer.Transfer(doc, STEPControl_AsIs);
-    writer.Write(this->fname.c_str());
+    writer.SetColorMode(true);
+    if (writer.Transfer(doc, STEPControl_AsIs)) {
+        writer.Write(this->fname.c_str());
+    }
 
     for (int idx = 0; idx < printers.Size(); idx++)
         msgr->AddPrinter(printers.Value(idx + 1));
