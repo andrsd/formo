@@ -7,10 +7,7 @@ namespace formo {
 
 Plane::Plane(const Point & pt, const Direction & normal) : pln(pt, normal) {}
 
-Plane::Plane(const gp_Pln & pln)
-{
-    this->pln = pln;
-}
+Plane::Plane(const gp_Pln & pln) : pln(pln) {}
 
 Point
 Plane::location() const
