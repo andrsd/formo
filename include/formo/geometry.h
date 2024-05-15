@@ -9,13 +9,13 @@ namespace formo {
 
 class Geometry {
 public:
-    static Axis1 OX();
-    static Axis1 OY();
-    static Axis1 OZ();
+    static Axis1 OX;
+    static Axis1 OY;
+    static Axis1 OZ;
 
-    static Direction DX();
-    static Direction DY();
-    static Direction DZ();
+    static Direction DX;
+    static Direction DY;
+    static Direction DZ;
 };
 
 } // namespace formo

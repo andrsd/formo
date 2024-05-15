@@ -5,46 +5,16 @@
 
 namespace formo {
 
-Axis1
-Geometry::OX()
-{
-    Point pt(0, 0, 0);
-    Direction direction(1, 0, 0);
-    return Axis1(pt, direction);
-}
+Axis1 Geometry::OX = Axis1(Point(0, 0, 0), Direction(1, 0, 0));
 
-Axis1
-Geometry::OY()
-{
-    Point pt(0, 0, 0);
-    Direction direction(0, 1, 0);
-    return Axis1(pt, direction);
-}
+Axis1 Geometry::OY = Axis1(Point(0, 0, 0), Direction(0, 1, 0));
 
-Axis1
-Geometry::OZ()
-{
-    Point pt(0, 0, 0);
-    Direction direction(0, 0, 1);
-    return Axis1(pt, direction);
-}
+Axis1 Geometry::OZ = Axis1(Point(0, 0, 0), Direction(0, 0, 1));
 
-Direction
-Geometry::DX()
-{
-    return Direction(1, 0, 0);
-}
+Direction Geometry::DX = Direction(1, 0, 0);
 
-Direction
-Geometry::DY()
-{
-    return Direction(0, 1, 0);
-}
+Direction Geometry::DY = Direction(0, 1, 0);
 
-Direction
-Geometry::DZ()
-{
-    return Direction(0, 0, 1);
-}
+Direction Geometry::DZ = Direction(0, 0, 1);
 
 } // namespace formo

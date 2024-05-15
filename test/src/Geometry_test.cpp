@@ -5,7 +5,7 @@ using namespace formo;
 
 TEST(GeometryTest, ox)
 {
-    auto ox = Geometry::OX();
+    auto ox = Geometry::OX;
     EXPECT_DOUBLE_EQ(ox.location().x(), 0.);
     EXPECT_DOUBLE_EQ(ox.location().y(), 0.);
     EXPECT_DOUBLE_EQ(ox.location().z(), 0.);
@@ -16,7 +16,7 @@ TEST(GeometryTest, ox)
 
 TEST(GeometryTest, oy)
 {
-    auto oy = Geometry::OY();
+    auto oy = Geometry::OY;
     EXPECT_DOUBLE_EQ(oy.location().x(), 0.);
     EXPECT_DOUBLE_EQ(oy.location().y(), 0.);
     EXPECT_DOUBLE_EQ(oy.location().z(), 0.);
@@ -27,7 +27,7 @@ TEST(GeometryTest, oy)
 
 TEST(GeometryTest, oz)
 {
-    auto oz = Geometry::OZ();
+    auto oz = Geometry::OZ;
     EXPECT_DOUBLE_EQ(oz.location().x(), 0.);
     EXPECT_DOUBLE_EQ(oz.location().y(), 0.);
     EXPECT_DOUBLE_EQ(oz.location().z(), 0.);
@@ -38,7 +38,7 @@ TEST(GeometryTest, oz)
 
 TEST(GeometryTest, dx)
 {
-    auto dx = Geometry::DX();
+    auto dx = Geometry::DX;
     EXPECT_DOUBLE_EQ(dx.x(), 1.);
     EXPECT_DOUBLE_EQ(dx.y(), 0.);
     EXPECT_DOUBLE_EQ(dx.z(), 0.);
@@ -46,7 +46,7 @@ TEST(GeometryTest, dx)
 
 TEST(GeometryTest, dy)
 {
-    auto dy = Geometry::DY();
+    auto dy = Geometry::DY;
     EXPECT_DOUBLE_EQ(dy.x(), 0.);
     EXPECT_DOUBLE_EQ(dy.y(), 1.);
     EXPECT_DOUBLE_EQ(dy.z(), 0.);
@@ -54,7 +54,7 @@ TEST(GeometryTest, dy)
 
 TEST(GeometryTest, dz)
 {
-    auto dz = Geometry::DZ();
+    auto dz = Geometry::DZ;
     EXPECT_DOUBLE_EQ(dz.x(), 0.);
     EXPECT_DOUBLE_EQ(dz.y(), 0.);
     EXPECT_DOUBLE_EQ(dz.z(), 1.);

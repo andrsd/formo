@@ -173,13 +173,13 @@ PYBIND11_MODULE(formo, m)
     ;
 
     py::class_<Geometry>(m, "Geometry")
-        .def_static("OX", &Geometry::OX)
-        .def_static("OY", &Geometry::OY)
-        .def_static("OZ", &Geometry::OZ)
+        .def_readonly_static("OX", &Geometry::OX)
+        .def_readonly_static("OY", &Geometry::OY)
+        .def_readonly_static("OZ", &Geometry::OZ)
 
-        .def_static("DX", &Geometry::DX)
-        .def_static("DY", &Geometry::DY)
-        .def_static("DZ", &Geometry::DZ)
+        .def_readonly_static("DX", &Geometry::DX)
+        .def_readonly_static("DY", &Geometry::DY)
+        .def_readonly_static("DZ", &Geometry::DZ)
     ;
 
     py::class_<Plane>(m, "Plane")
