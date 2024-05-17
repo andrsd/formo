@@ -1,0 +1,79 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    name: "${{ matrix.os }}, ${{ matrix.build-type }}, py-${{ matrix.python-version }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            build-type: Release
+            python-version: '3.9'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+      - name: Set up miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.9
+          auto-update-conda: false
+          channels: andrsd,defaults
+
+      - name: Install dependencies
+        shell: bash -l {0}
+        run: |
+          conda install \
+            cmake \
+            clang-14 \
+            libcxx \
+            make \
+            occt=7.7 \
+            fmt=9.1 \
+            flake8
+
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Configure
+        run: |
+          cmake -S . -B ${{ github.workspace }}/build \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
+            -DBUILD_SHARED_LIBS=ON \
+            -DFORMO_BUILD_TESTS=OFF \
+            -DFORMO_CODE_COVERAGE=OFF
+
+      - name: Build
+        run: make -C ${{ github.workspace }}/build
+
+      - name: Run tests
+        run: make -C ${{ github.workspace }}/build test
+
+      - name: Generate code coverage
+        run: make -C ${{ github.workspace }}/build coverage
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-${{ matrix.os }}
+          path: ${{ github.workspace }}/build/coverage.info
+
+  upload-to-codecov:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
