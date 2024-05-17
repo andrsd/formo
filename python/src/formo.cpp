@@ -48,7 +48,8 @@ PYBIND11_MODULE(formo, m)
     // clang-format off
     py::class_<Color>(m, "Color")
         .def(py::init<>())
-        .def(py::init<int, int, int>())
+        .def(py::init<int, int, int>(),
+            py::arg("red"), py::arg("green"), py::arg("blue"))
         .def("red", &Color::red)
         .def("redF", &Color::redF)
         .def("green", &Color::green)
@@ -147,16 +148,20 @@ PYBIND11_MODULE(formo, m)
     //
 
     py::class_<Point>(m, "Point")
-        .def(py::init<double, double, double>())
+        .def(py::init<double, double, double>(),
+            py::arg("x"), py::arg("y"), py::arg("z"))
         .def("x", &Point::x)
         .def("y", &Point::y)
         .def("z", &Point::z)
-        .def("is_equal", &Point::is_equal)
-        .def("distance", &Point::distance)
+        .def("is_equal", &Point::is_equal,
+            py::arg("other"), py::arg("tol"))
+        .def("distance", &Point::distance,
+            py::arg("pt"))
     ;
 
     py::class_<Direction>(m, "Direction")
-        .def(py::init<double, double, double>())
+        .def(py::init<double, double, double>(),
+            py::arg("x"), py::arg("y"), py::arg("z"))
         .def(py::init<const Vector &>())
         .def("x", &Direction::x)
         .def("y", &Direction::y)
@@ -164,9 +169,12 @@ PYBIND11_MODULE(formo, m)
     ;
 
     py::class_<Vector>(m, "Vector")
-        .def(py::init<double, double, double>())
-        .def(py::init<const Direction &>())
-        .def(py::init<const Point &, const Point &>())
+        .def(py::init<double, double, double>(),
+            py::arg("x"), py::arg("y"), py::arg("z"))
+        .def(py::init<const Direction &>(),
+            py::arg("direction"))
+        .def(py::init<const Point &, const Point &>(),
+            py::arg("pt1"), py::arg("pt2"))
         .def("x", &Vector::x)
         .def("y", &Vector::y)
         .def("z", &Vector::z)
@@ -183,18 +191,21 @@ PYBIND11_MODULE(formo, m)
     ;
 
     py::class_<Plane>(m, "Plane")
-        .def(py::init<const Point &, const Direction &>())
+        .def(py::init<const Point &, const Direction &>(),
+            py::arg("point"), py::arg("normal"))
         .def("location", &Plane::location)
     ;
 
     py::class_<Axis1>(m, "Axis1")
-        .def(py::init<const Point &, const Direction &>())
+        .def(py::init<const Point &, const Direction &>(),
+            py::arg("point"), py::arg("direction"))
         .def("location", &Axis1::location)
         .def("direction", &Axis1::direction)
     ;
 
     py::class_<Axis2>(m, "Axis2")
-        .def(py::init<const Point &, const Direction &>())
+        .def(py::init<const Point &, const Direction &>(),
+            py::arg("point"), py::arg("direction"))
         .def("location", &Axis2::location)
         .def("direction", &Axis2::direction)
     ;
@@ -203,70 +214,89 @@ PYBIND11_MODULE(formo, m)
 
     py::class_<Shape>(m, "Shape")
         .def(py::init<>())
-        .def(py::init<const TopoDS_Shape &>())
+        .def(py::init<const TopoDS_Shape &>(),
+            py::arg("shape"))
         .def("name", &Shape::name)
-        .def("set_name", &Shape::set_name)
+        .def("set_name", &Shape::set_name,
+            py::arg("name"))
         .def("color", &Shape::color)
-        .def("set_color", &Shape::set_color)
+        .def("set_color", &Shape::set_color,
+            py::arg("color"))
     ;
 
     py::class_<Edge, Shape>(m, "Edge")
         .def(py::init<>())
-        .def(py::init<const TopoDS_Edge &>())
+        .def(py::init<const TopoDS_Edge &>(),
+            py::arg("edge"))
         .def("length", &Edge::length)
     ;
 
     py::class_<Face, Shape>(m, "Face")
-        .def(py::init<const Wire &>())
+        .def(py::init<const Wire &>(),
+            py::arg("wire"))
         .def("is_plane", &Face::is_plane)
         .def("plane", &Face::plane)
     ;
 
     py::class_<Wire, Shape>(m, "Wire")
-        .def(py::init<const TopoDS_Wire &>())
-        .def(py::init<const std::vector<Edge> &>())
+        .def(py::init<const TopoDS_Wire &>(),
+            py::arg("wire"))
+        .def(py::init<const std::vector<Edge> &>(),
+            py::arg("edges"))
     ;
 
     py::class_<Shell, Shape>(m, "Shell")
-        .def(py::init<const TopoDS_Shell &>())
+        .def(py::init<const TopoDS_Shell &>(),
+            py::arg("shell"))
     ;
 
     py::class_<Solid, Shape>(m, "Solid")
         .def(py::init<>())
-        .def(py::init<const TopoDS_Solid &>())
+        .def(py::init<const TopoDS_Solid &>(),
+            py::arg("solid"))
         .def("volume", &Solid::volume)
     ;
 
     //
 
     py::class_<ArcOfCircle, Edge>(m, "ArcOfCircle")
-        .def(py::init<const Point &, const Point &, const Point &>())
-        .def(py::init<const Circle &, const Point &, const Point &, bool>())
-        .def(py::init<const Point &, const Vector &, const Point &>())
+        .def(py::init<const Point &, const Point &, const Point &>(),
+            py::arg("pt1"), py::arg("pt2"), py::arg("pt3"))
+        .def(py::init<const Circle &, const Point &, const Point &, bool>(),
+            py::arg("circ"), py::arg("pt1"), py::arg("pt2"), py::arg("sense") = true)
+        .def(py::init<const Point &, const Vector &, const Point &>(),
+            py::arg("pt1"), py::arg("tangent"), py::arg("pt2"))
         .def("start_point", &ArcOfCircle::start_point)
         .def("end_point", &ArcOfCircle::end_point)
     ;
 
     py::class_<Line, Edge>(m, "Line")
-        .def(py::init<const Point &, const Point &>())
+        .def(py::init<const Point &, const Point &>(),
+            py::arg("pt1"), py::arg("pt2"))
     ;
 
     py::class_<Circle, Edge>(m, "Circle")
-        .def(py::init<const Point &, double, const Direction &>())
-        .def(py::init<const Point &, const Point &, const Direction &>())
-        .def(py::init<const Point &, const Point &, const Point &>())
+        .def(py::init<const Point &, double, const Direction &>(),
+            py::arg("center"), py::arg("radius"), py::arg("normal") = Direction(0., 0., 1.))
+        .def(py::init<const Point &, const Point &, const Direction &>(),
+            py::arg("center"), py::arg("point"), py::arg("normal") = Direction(0., 0., 1.))
+        .def(py::init<const Point &, const Point &, const Point &>(),
+            py::arg("pt1"), py::arg("pt2"), py::arg("pt3"))
         .def("area", &Circle::area)
         .def("radius", &Circle::radius)
         .def("location", &Circle::location)
     ;
 
     py::class_<Spline, Edge>(m, "Spline")
-        .def(py::init<const std::vector<Point> &>())
-        .def(py::init<const std::vector<Point> &, const Vector &, const Vector &>())
+        .def(py::init<const std::vector<Point> &>(),
+            py::arg("points"))
+        .def(py::init<const std::vector<Point> &, const Vector &, const Vector &>(),
+            py::arg("points"), py::arg("initial_tangent"), py::arg("final_tangent"))
     ;
 
     py::class_<Polygon, Shape>(m, "Polygon")
-        .def(py::init<const std::vector<Point> &, bool>())
+        .def(py::init<const std::vector<Point> &, bool>(),
+            py::arg("points"), py::arg("closed") = true)
         .def("as_edge", &Polygon::as_edge)
         .def("as_wire", &Polygon::as_wire)
     ;
@@ -274,76 +304,108 @@ PYBIND11_MODULE(formo, m)
     //
 
     py::class_<Box, Solid>(m, "Box")
-        .def(py::init<const Point &, const Point &>())
+        .def(py::init<const Point &, const Point &>(),
+            py::arg("pt1"), py::arg("pt2"))
     ;
 
     py::class_<Sphere, Solid>(m, "Sphere")
-        .def(py::init<const Point &, double>())
+        .def(py::init<const Point &, double>(),
+            py::arg("center"), py::arg("radius"))
     ;
 
     py::class_<Cone, Solid>(m, "Cone")
-        .def(py::init<const Axis2 &, double, double, double>())
+        .def(py::init<const Axis2 &, double, double, double>(),
+            py::arg("axis"), py::arg("radius1"), py::arg("radius2"), py::arg("height"))
     ;
 
     py::class_<Cylinder, Solid>(m, "Cylinder")
-        .def(py::init<const Axis2 &, double, double>())
+        .def(py::init<const Axis2 &, double, double>(),
+            py::arg("axis"), py::arg("radius"), py::arg("height"))
     ;
 
     py::class_<Prism, Shape>(m, "Prism")
-        .def(py::init<const Shape &, const Vector &>())
+        .def(py::init<const Shape &, const Vector &>(),
+            py::arg("shape"), py::arg("vector"))
     ;
 
     //
 
     py::class_<IO>(m, "IO")
-        .def_static("write", &IO::write)
-        .def_static("read", &IO::read)
+        .def_static("write", &IO::write,
+            py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step")
+        .def_static("read", &IO::read,
+            py::arg("file_name"))
     ;
 
     py::class_<IGESFile>(m, "IGESFile")
-        .def(py::init<const std::string &>())
+        .def(py::init<const std::string &>(),
+            py::arg("file_name"))
         .def("read", &IGESFile::read)
-        .def("write", &IGESFile::write)
+        .def("write", &IGESFile::write,
+            py::arg("shapes"))
     ;
 
     py::class_<STEPFile>(m, "STEPFile")
-        .def(py::init<const std::string &>())
+        .def(py::init<const std::string &>(),
+            py::arg("file_name"))
         .def("read", &STEPFile::read)
-        .def("write", &STEPFile::write)
+        .def("write", &STEPFile::write,
+            py::arg("shapes"))
     ;
 
-    m.def("translate", py::overload_cast<const Shape &, const Vector &>(&translate));
-    m.def("translate", py::overload_cast<const Shape &, const Point &, const Point &>(&translate));
+    m.def("translate", py::overload_cast<const Shape &, const Vector &>(&translate),
+        py::arg("shape"), py::arg("vector"));
+    m.def("translate", py::overload_cast<const Shape &, const Point &, const Point &>(&translate),
+        py::arg("shape"), py::arg("pt1"), py::arg("pt2"));
 
-    m.def("scale", py::overload_cast<const Shape &, double>(&scale));
-    m.def("scale", py::overload_cast<const Vector &, double>(&scale));
+    m.def("scale", py::overload_cast<const Shape &, double>(&scale),
+        py::arg("shape"), py::arg("scale_factor"));
+    m.def("scale", py::overload_cast<const Vector &, double>(&scale),
+        py::arg("vector"), py::arg("scale_factor"));
 
-    m.def("mirror", py::overload_cast<const Shape &, const Axis1 &>(&mirror));
-    m.def("mirror", py::overload_cast<const Vector &, const Axis1 &>(&mirror));
-    m.def("mirror", py::overload_cast<const Vector &, const Axis2 &>(&mirror));
-    m.def("mirror", py::overload_cast<const Point &, const Axis1 &>(&mirror));
-    m.def("mirror", py::overload_cast<const Point &, const Axis2 &>(&mirror));
+    m.def("mirror", py::overload_cast<const Shape &, const Axis1 &>(&mirror),
+        py::arg("shape"), py::arg("axis1"));
+    m.def("mirror", py::overload_cast<const Vector &, const Axis1 &>(&mirror),
+        py::arg("vector"), py::arg("axis1"));
+    m.def("mirror", py::overload_cast<const Vector &, const Axis2 &>(&mirror),
+        py::arg("vector"), py::arg("axis2"));
+    m.def("mirror", py::overload_cast<const Point &, const Axis1 &>(&mirror),
+        py::arg("point"), py::arg("axis1"));
+    m.def("mirror", py::overload_cast<const Point &, const Axis2 &>(&mirror),
+        py::arg("point"), py::arg("axis2"));
 
-    m.def("fuse", py::overload_cast<const Shape &, const Shape &>(&fuse));
+    m.def("fuse", py::overload_cast<const Shape &, const Shape &>(&fuse),
+        py::arg("shape"), py::arg("tool"));
 
-    m.def("cut", py::overload_cast<const Shape &, const Shape &>(&cut));
+    m.def("cut", py::overload_cast<const Shape &, const Shape &>(&cut),
+        py::arg("shape"), py::arg("tool"));
 
-    m.def("intersect", py::overload_cast<const Shape &, const Shape &>(&intersect));
+    m.def("intersect", py::overload_cast<const Shape &, const Shape &>(&intersect),
+        py::arg("shape"), py::arg("tool"));
 
-    m.def("fillet", py::overload_cast<const Shape &, const std::vector<Edge> &, double>(&fillet));
+    m.def("fillet", py::overload_cast<const Shape &, const std::vector<Edge> &, double>(&fillet),
+        py::arg("shape"), py::arg("edges"), py::arg("radius"));
 
-    m.def("hollow", py::overload_cast<const Shape &, const std::vector<Face> &, double, double>(&hollow));
+    m.def("hollow", py::overload_cast<const Shape &, const std::vector<Face> &, double, double>(&hollow),
+        py::arg("shape"), py::arg("faces_to_remove"), py::arg("thickness"), py::arg("tolerance"));
 
-    m.def("extrude", py::overload_cast<const Shape &, const Vector &>(&extrude));
+    m.def("extrude", py::overload_cast<const Shape &, const Vector &>(&extrude),
+        py::arg("shape"), py::arg("vector"));
 
-    m.def("revolve", py::overload_cast<const Shape &, const Axis1 &, double>(&revolve));
+    m.def("revolve", py::overload_cast<const Shape &, const Axis1 &, double>(&revolve),
+        py::arg("shape"), py::arg("axis1"), py::arg("angle") = 2. * M_PI);
 
-    m.def("rotate", py::overload_cast<const Point &, const Axis1 &, double>(&rotate));
-    m.def("rotate", py::overload_cast<const Vector &, const Axis1 &, double>(&rotate));
+    m.def("rotate", py::overload_cast<const Point &, const Axis1 &, double>(&rotate),
+        py::arg("point"), py::arg("axis"), py::arg("angle"));
+    m.def("rotate", py::overload_cast<const Vector &, const Axis1 &, double>(&rotate),
+        py::arg("point"), py::arg("axis1"), py::arg("angle"));
 
-    m.def("section", py::overload_cast<const Shape &, const Plane &>(&section));
+    m.def("section", py::overload_cast<const Shape &, const Plane &>(&section),
+        py::arg("shape"), py::arg("plane"));
 
-    m.def("write", &IO::write);
-    m.def("read", &IO::read);
+    m.def("write", &IO::write,
+        py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step");
+    m.def("read", &IO::read,
+        py::arg("file_name"));
     // clang-format on
 }
