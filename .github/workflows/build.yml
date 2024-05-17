@@ -43,7 +43,9 @@ jobs:
             occt=7.7 \
             fmt=9.1 \
             pybind11 \
-            flake8
+            pytest \
+            flake8 \
+            lcov
 
       - name: Checkout source
         uses: actions/checkout@v3
@@ -53,8 +55,8 @@ jobs:
           cmake -S . -B ${{ github.workspace }}/build \
             -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
             -DBUILD_SHARED_LIBS=ON \
-            -DFORMO_BUILD_TESTS=OFF \
-            -DFORMO_CODE_COVERAGE=OFF
+            -DFORMO_BUILD_TESTS=ON \
+            -DFORMO_CODE_COVERAGE=ON
 
       - name: Build
         run: make -C ${{ github.workspace }}/build
