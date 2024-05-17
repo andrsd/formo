@@ -4,6 +4,7 @@
 #pragma once
 
 #include "formo/shape.h"
+#include <vector>
 #include <string>
 
 namespace formo {
