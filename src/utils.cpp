@@ -6,17 +6,18 @@
 namespace formo {
 namespace utils {
 
-std::string to_lower(const std::string & name)
+std::string
+to_lower(const std::string & name)
 {
     std::string lower(name);
     std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
     return lower;
 }
 
-bool ends_with(const std::string & str, const std::string & end)
+bool
+ends_with(const std::string & str, const std::string & end)
 {
-    return str.size() >= end.size() &&
-           str.compare(str.size() - end.size(), end.size(), end) == 0;
+    return str.size() >= end.size() && str.compare(str.size() - end.size(), end.size(), end) == 0;
 }
 
 } // namespace utils

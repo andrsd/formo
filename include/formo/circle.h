@@ -33,7 +33,7 @@ public:
     /// @param pt1 First point
     /// @param pt2 Second point
     /// @param pt3 Third point
-    Circle(const Point &pt1, const Point &pt2, const Point &pt3);
+    Circle(const Point & pt1, const Point & pt2, const Point & pt3);
 
     /// Get circle area
     ///

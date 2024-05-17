@@ -13,7 +13,8 @@ TEST(VectorTest, ctor1)
     EXPECT_DOUBLE_EQ(pt.z(), 3);
 }
 
-TEST(VectorTest, ctor2) {
+TEST(VectorTest, ctor2)
+{
     Direction dir(1, 0, 0);
     Vector vec(dir);
     EXPECT_DOUBLE_EQ(vec.x(), 1);
@@ -21,7 +22,8 @@ TEST(VectorTest, ctor2) {
     EXPECT_DOUBLE_EQ(vec.z(), 0);
 }
 
-TEST(VectorTest, ctor3) {
+TEST(VectorTest, ctor3)
+{
     Point pt1(1, 2, 3);
     Point pt2(2, -1, 3);
     Vector vec(pt1, pt2);

@@ -21,9 +21,9 @@ Face::Face(const Wire & wire)
 bool
 Face::is_plane() const
 {
-     BRepAdaptor_Surface surf(this->face, true);
-     auto surf_type = surf.GetType();
-     return surf_type == GeomAbs_Plane;
+    BRepAdaptor_Surface surf(this->face, true);
+    auto surf_type = surf.GetType();
+    return surf_type == GeomAbs_Plane;
 }
 
 Plane

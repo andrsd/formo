@@ -6,8 +6,7 @@
 
 namespace formo {
 
-Cylinder::Cylinder(const Axis2 & axis, double radius, double height) :
-    Solid()
+Cylinder::Cylinder(const Axis2 & axis, double radius, double height) : Solid()
 {
     BRepPrimAPI_MakeCylinder cyl(axis, radius, height);
     cyl.Build();

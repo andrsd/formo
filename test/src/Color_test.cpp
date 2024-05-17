@@ -19,6 +19,6 @@ TEST(ColorTest, test)
     EXPECT_EQ(clr.blue(), 17);
 
     EXPECT_DOUBLE_EQ(clr.redF(), 0.2);
-    EXPECT_DOUBLE_EQ(clr.greenF(), 1./3.);
-    EXPECT_DOUBLE_EQ(clr.blueF(), 1./15.);
+    EXPECT_DOUBLE_EQ(clr.greenF(), 1. / 3.);
+    EXPECT_DOUBLE_EQ(clr.blueF(), 1. / 15.);
 }

@@ -22,13 +22,16 @@ Spline::Spline(const std::vector<Point> & points) : Edge()
     BRepBuilderAPI_MakeEdge make_edge(mk.Curve());
     make_edge.Build();
     if (!make_edge.IsDone())
-            throw Exception("Edge was not created");
+        throw Exception("Edge was not created");
     set_shape(make_edge.Shape());
     set_edge(make_edge.Edge());
     this->spline = mk.Curve();
 }
 
-Spline::Spline(const std::vector<Point> & points, const Vector & initial_tg, const Vector & final_tg) : Edge()
+Spline::Spline(const std::vector<Point> & points,
+               const Vector & initial_tg,
+               const Vector & final_tg) :
+    Edge()
 {
     auto n = points.size();
     Handle(TColgp_HArray1OfPnt) pnts = new TColgp_HArray1OfPnt(1, n);

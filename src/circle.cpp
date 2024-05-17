@@ -38,7 +38,7 @@ Circle::Circle(const Point & center, const Point & pt, const Direction & norm)
     this->circ = make_circ.Value()->Circ();
 }
 
-Circle::Circle(const Point &pt1, const Point &pt2, const Point &pt3)
+Circle::Circle(const Point & pt1, const Point & pt2, const Point & pt3)
 {
     GC_MakeCircle make_circ(pt1, pt2, pt3);
     if (!make_circ.IsDone())

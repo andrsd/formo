@@ -45,5 +45,4 @@ Color::blueF() const
     return this->b / 255.;
 }
 
-
 } // namespace formo
