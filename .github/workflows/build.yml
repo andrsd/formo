@@ -35,6 +35,7 @@ jobs:
             make \
             occt=7.7 \
             fmt=9.1 \
+            pybind11 \
             flake8
 
       - name: Checkout source
