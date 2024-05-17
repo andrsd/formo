@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #include "formo/utils.h"
+#include <algorithm>
 
 namespace formo {
 namespace utils {

@@ -17,5 +17,4 @@ Sphere::Sphere(const Point & center, double radius) : Solid()
     assign_color();
 }
 
-
 } // namespace formo
