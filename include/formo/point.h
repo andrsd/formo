@@ -29,7 +29,6 @@ public:
     double z() const;
 
     operator gp_Pnt() const;
-    operator TopoDS_Vertex() const;
 
     bool is_equal(const Point & other, double tol = 1e-15) const;
 
