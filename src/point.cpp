@@ -62,9 +62,4 @@ Point::operator gp_Pnt() const
     return this->pnt;
 }
 
-Point::operator TopoDS_Vertex() const
-{
-    return this->vtx;
-}
-
 } // namespace formo

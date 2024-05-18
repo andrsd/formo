@@ -9,7 +9,7 @@ namespace formo {
 
 Line::Line(const Point & pt1, const Point & pt2)
 {
-    BRepBuilderAPI_MakeEdge maker((gp_Pnt) pt1, (gp_Pnt) pt2);
+    BRepBuilderAPI_MakeEdge maker(pt1, pt2);
     maker.Build();
     if (!maker.IsDone())
         throw Exception("Edge was not created");

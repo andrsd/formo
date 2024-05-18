@@ -30,11 +30,11 @@ IO::write(const std::string & file_name,
 std::vector<Shape>
 IO::read(const std::string & file_name)
 {
-    if (utils::ends_with(file_name, ".step")) {
+    if (utils::ends_with(file_name, utils::to_lower(".step"))) {
         STEPFile step(file_name);
         return { step.read() };
     }
-    else if (utils::ends_with(file_name, ".iges")) {
+    else if (utils::ends_with(file_name, utils::to_lower(".iges"))) {
         IGESFile iges(file_name);
         return { iges.read() };
     }
