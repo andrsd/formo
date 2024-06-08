@@ -154,6 +154,6 @@ Vector rotate(const Vector & vector, const Axis1 & axis, double angle);
 /// @param shape Shape
 /// @param plane Plane
 /// @return Wire that forms the computed section
-Shape section(const Shape & shape, const Plane & plane);
+Wire section(const Shape & shape, const Plane & plane);
 
 } // namespace formo

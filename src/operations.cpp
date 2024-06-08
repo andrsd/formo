@@ -188,7 +188,7 @@ rotate(const Vector & vector, const Axis1 & axis, double angle)
     return Vector(res.X(), res.Y(), res.Z());
 }
 
-Shape
+Wire
 section(const Shape & shape, const Plane & plane)
 {
     BRepAlgoAPI_Section result(shape, plane);
