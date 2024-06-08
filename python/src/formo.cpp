@@ -236,6 +236,7 @@ PYBIND11_MODULE(formo, m)
             py::arg("wire"))
         .def("is_plane", &Face::is_plane)
         .def("plane", &Face::plane)
+        .def("area", &Face::area)
     ;
 
     py::class_<Wire, Shape>(m, "Wire")

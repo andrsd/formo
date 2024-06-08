@@ -19,4 +19,6 @@ TEST(FaceTest, wire)
 
     EXPECT_TRUE(face.is_plane());
     auto pln = face.plane();
+
+    EXPECT_DOUBLE_EQ(face.area(), 0.5);
 }

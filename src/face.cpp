@@ -5,6 +5,8 @@
 #include "formo/exception.h"
 #include "BRepBuilderAPI_MakeFace.hxx"
 #include "BRepAdaptor_Surface.hxx"
+#include "GProp_GProps.hxx"
+#include "BRepGProp.hxx"
 
 namespace formo {
 
@@ -31,6 +33,14 @@ Face::plane() const
 {
     BRepAdaptor_Surface pln(this->face, true);
     return Plane(pln.Plane());
+}
+
+double
+Face::area() const
+{
+    GProp_GProps props;
+    BRepGProp::SurfaceProperties(this->face, props);
+    return props.Mass();
 }
 
 Face::operator TopoDS_Face() const
