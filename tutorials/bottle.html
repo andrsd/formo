@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bottle &mdash; formo  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Geometry" href="../geometry.html" />
+    <link rel="prev" title="2D geometry" href="2d-geometry.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            formo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primer.html">Formo Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../names-and-colors.html">Names and Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../export.html">Export</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2d-geometry.html">2D geometry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bottle</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes.html">Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">Input/Output</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">formo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bottle</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bottle">
+<h1>Bottle<a class="headerlink" href="#bottle" title="Link to this heading"></a></h1>
+<p>This is reimplementation of the <a class="reference external" href="bottle_tut">Bottle tutorial</a> from OpenCasdade reference manual.
+The <a class="reference external" href="python_bottle_tut">python version</a> of the same tutorial using <a class="reference external" href="https://github.com/tpaviot/pythonocc-core">pythonocc-core</a> for your
+reference.</p>
+<p>In this tutorial, we will build a model of this bottle:</p>
+<img alt="../_images/bottle-drawing.png" src="../_images/bottle-drawing.png" />
+<ol class="arabic">
+<li><p>We first define some parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">THICKNESS</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</li>
+<li><p>To build the body, we will need to define the bottom face first.</p>
+<p>The following code will create three <code class="docutils literal notranslate"><span class="pre">edges</span></code> - two straight and one curved side.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pt1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">4.</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt3</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt4</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">4.</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt5</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">arc</span> <span class="o">=</span> <span class="n">ArcOfCircle</span><span class="p">(</span><span class="n">pt2</span><span class="p">,</span> <span class="n">pt3</span><span class="p">,</span> <span class="n">pt4</span><span class="p">)</span>
+<span class="n">segment1</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">)</span>
+<span class="n">segment2</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">pt4</span><span class="p">,</span> <span class="n">pt5</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/bottom-face-sketch-half.png" src="../_images/bottom-face-sketch-half.png" />
+<p>Now, we connect the edges into a <code class="docutils literal notranslate"><span class="pre">wire</span></code>, so we can work with it as with a single piece of
+geometry.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wire</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">([</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">,</span> <span class="n">edge3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Next, we mirror the wire by the x-axis.
+To do that, we create an <code class="docutils literal notranslate"><span class="pre">x_axis</span></code> variable that will represent the x-axis.
+Then, we call <code class="docutils literal notranslate"><span class="pre">mirror</span></code> method on the wire to get the <code class="docutils literal notranslate"><span class="pre">mirrored_wire</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x_axis</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">OX</span><span class="p">()</span>
+<span class="n">mirrored_wire</span> <span class="o">=</span> <span class="n">mirror</span><span class="p">(</span><span class="n">wire</span><span class="p">,</span> <span class="n">x_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To build the bottom face, we join the 2 wires into a one.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wire_profile</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">([</span><span class="n">wire</span><span class="p">,</span> <span class="n">mirrored_wire</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>And then, we build a <code class="docutils literal notranslate"><span class="pre">face</span></code> from the wire.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">face_profile</span> <span class="o">=</span> <span class="n">Face</span><span class="p">(</span><span class="n">wire_profile</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/bottom-face-sketch.png" src="../_images/bottom-face-sketch.png" />
+<p>Now that we have the face, we can extrude it using the <code class="docutils literal notranslate"><span class="pre">extrude</span></code> method.
+We will need a <code class="docutils literal notranslate"><span class="pre">vector</span></code> to define the direction of extrusion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prism_vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">extrude</span><span class="p">(</span><span class="n">face_profile</span><span class="p">,</span> <span class="n">prism_vec</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the next step, we will apply a <code class="docutils literal notranslate"><span class="pre">fillet</span></code> to get the rounded edges.
+To do that we get all the edged via <code class="docutils literal notranslate"><span class="pre">edges</span></code> method.
+And then, we call the <code class="docutils literal notranslate"><span class="pre">fillet</span></code> method with the list of edges and the radius of the fillet.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">fillet</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/body-fillet.png" src="../_images/body-fillet.png" />
+</li>
+<li><p>In this next step, we build the neck of the bottle.
+We do that by creating a cylinder that will sit on top of the body.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neck_location</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+<span class="n">neck_axis</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">DZ</span><span class="p">()</span>
+<span class="n">neck_ax2</span> <span class="o">=</span> <span class="n">Axis2</span><span class="p">(</span><span class="n">neck_location</span><span class="p">,</span> <span class="n">neck_axis</span><span class="p">)</span>
+
+<span class="n">neck_radius</span> <span class="o">=</span> <span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">4.</span>
+<span class="n">neck_height</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="n">neck</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="n">neck_ax2</span><span class="p">,</span> <span class="n">neck_radius</span><span class="p">,</span> <span class="n">neck_height</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, we simply join the neck with the body using the <code class="docutils literal notranslate"><span class="pre">fuse()</span></code> method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">fuse</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">neck</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/body-w-neck.png" src="../_images/body-w-neck.png" />
+</li>
+<li><p>In the last step, we hollow out the body.</p>
+<p>For that, we will need to find the top face of the neck.
+This face will be removed to create the top opening.
+We can achieve this with the following simple code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span>
+<span class="n">top_face</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">faces</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">face</span><span class="o">.</span><span class="n">is_plane</span><span class="p">():</span>
+        <span class="n">plane</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">plane</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">plane</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">&gt;</span> <span class="n">z_max</span><span class="p">:</span>
+            <span class="n">z_max</span> <span class="o">=</span> <span class="n">plane</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span>
+            <span class="n">top_face</span> <span class="o">=</span> <span class="n">face</span>
+</pre></div>
+</div>
+<p>To hollow out the body we call the <code class="docutils literal notranslate"><span class="pre">hollow</span></code> method with the faces we want to remove, thickness
+and tolerance.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">hollow</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="p">[</span><span class="n">top_face</span><span class="p">],</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/bottle.png" src="../_images/bottle.png" />
+</li>
+<li><p>This last segment is specific to <code class="docutils literal notranslate"><span class="pre">formo</span></code> and is not part of the original tutorial.
+This is the way how we tell the code which shapes should be exported into the output file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;bottle.step&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">body</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The complete script is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">formo</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">THICKNESS</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">pt1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">4.</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt3</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt4</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">4.</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt5</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">arc</span> <span class="o">=</span> <span class="n">ArcOfCircle</span><span class="p">(</span><span class="n">pt2</span><span class="p">,</span> <span class="n">pt3</span><span class="p">,</span> <span class="n">pt4</span><span class="p">)</span>
+<span class="n">segment1</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">)</span>
+<span class="n">segment2</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">pt4</span><span class="p">,</span> <span class="n">pt5</span><span class="p">)</span>
+
+<span class="n">wire</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">([</span><span class="n">segment1</span><span class="p">,</span> <span class="n">arc</span><span class="p">,</span> <span class="n">segment2</span><span class="p">])</span>
+
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">OX</span><span class="p">()</span>
+<span class="n">mirrored_wire</span> <span class="o">=</span> <span class="n">mirror</span><span class="p">(</span><span class="n">wire</span><span class="p">,</span> <span class="n">x_axis</span><span class="p">)</span>
+
+<span class="n">wire_profile</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">([</span><span class="n">wire</span><span class="p">,</span> <span class="n">mirrored_wire</span><span class="p">])</span>
+
+<span class="n">face_profile</span> <span class="o">=</span> <span class="n">Face</span><span class="p">(</span><span class="n">wire_profile</span><span class="p">)</span>
+
+<span class="n">prism_vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">extrude</span><span class="p">(</span><span class="n">face_profile</span><span class="p">,</span> <span class="n">prism_vec</span><span class="p">)</span>
+
+<span class="n">edges</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">fillet</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">)</span>
+
+<span class="n">neck_location</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+<span class="n">neck_axis</span> <span class="o">=</span> <span class="n">Geometry</span><span class="o">.</span><span class="n">DZ</span><span class="p">()</span>
+<span class="n">neck_ax2</span> <span class="o">=</span> <span class="n">Axis2</span><span class="p">(</span><span class="n">neck_location</span><span class="p">,</span> <span class="n">neck_axis</span><span class="p">)</span>
+
+<span class="n">neck_radius</span> <span class="o">=</span> <span class="n">THICKNESS</span> <span class="o">/</span> <span class="mf">4.</span>
+<span class="n">neck_height</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="n">neck</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="n">neck_ax2</span><span class="p">,</span> <span class="n">neck_radius</span><span class="p">,</span> <span class="n">neck_height</span><span class="p">)</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="n">fuse</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">neck</span><span class="p">)</span>
+
+<span class="n">z_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span>
+<span class="n">top_face</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">faces</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">face</span><span class="o">.</span><span class="n">is_plane</span><span class="p">():</span>
+        <span class="n">plane</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">plane</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">plane</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">&gt;</span> <span class="n">z_max</span><span class="p">:</span>
+            <span class="n">z_max</span> <span class="o">=</span> <span class="n">plane</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span>
+            <span class="n">top_face</span> <span class="o">=</span> <span class="n">face</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">hollow</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="p">[</span><span class="n">top_face</span><span class="p">],</span> <span class="o">-</span><span class="n">THICKNESS</span> <span class="o">/</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="n">write</span><span class="p">(</span><span class="s2">&quot;bottle.step&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">body</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2d-geometry.html" class="btn btn-neutral float-left" title="2D geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../geometry.html" class="btn btn-neutral float-right" title="Geometry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, David Andrs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

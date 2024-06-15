@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geometry &mdash; formo  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shapes" href="shapes.html" />
+    <link rel="prev" title="Bottle" href="tutorials/bottle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">Formo Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="names-and-colors.html">Names and Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export.html">Export</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/2d-geometry.html">2D geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/bottle.html">Bottle</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Geometry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#axis1">Axis1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Axis1E"><code class="docutils literal notranslate"><span class="pre">Axis1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N5formo5Axis15Axis1ERK5PointRK9Direction"><code class="docutils literal notranslate"><span class="pre">Axis1::Axis1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo5Axis18locationEv"><code class="docutils literal notranslate"><span class="pre">Axis1::location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo5Axis19directionEv"><code class="docutils literal notranslate"><span class="pre">Axis1::direction()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#axis2">Axis2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Axis2E"><code class="docutils literal notranslate"><span class="pre">Axis2</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo5Axis28locationEv"><code class="docutils literal notranslate"><span class="pre">Axis2::location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo5Axis29directionEv"><code class="docutils literal notranslate"><span class="pre">Axis2::direction()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#direction">Direction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo9DirectionE"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N5formo9Direction9DirectionERK6Vector"><code class="docutils literal notranslate"><span class="pre">Direction::Direction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo9Direction1xEv"><code class="docutils literal notranslate"><span class="pre">Direction::x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo9Direction1yEv"><code class="docutils literal notranslate"><span class="pre">Direction::y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo9Direction1zEv"><code class="docutils literal notranslate"><span class="pre">Direction::z()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vector">Vector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6VectorE"><code class="docutils literal notranslate"><span class="pre">Vector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N5formo6Vector6VectorERK9Direction"><code class="docutils literal notranslate"><span class="pre">Vector::Vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N5formo6Vector6VectorERK5PointRK5Point"><code class="docutils literal notranslate"><span class="pre">Vector::Vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo6Vector1xEv"><code class="docutils literal notranslate"><span class="pre">Vector::x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo6Vector1yEv"><code class="docutils literal notranslate"><span class="pre">Vector::y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo6Vector1zEv"><code class="docutils literal notranslate"><span class="pre">Vector::z()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plane">Plane</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5PlaneE"><code class="docutils literal notranslate"><span class="pre">Plane</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N5formo5Plane5PlaneERK5PointRK9Direction"><code class="docutils literal notranslate"><span class="pre">Plane::Plane()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK5formo5Plane8locationEv"><code class="docutils literal notranslate"><span class="pre">Plane::location()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shapes.html">Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Geometry</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="geometry">
+<h1>Geometry<a class="headerlink" href="#geometry" title="Link to this heading"></a></h1>
+<section id="axis1">
+<h2>Axis1<a class="headerlink" href="#axis1" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Axis1E">
+<span id="_CPPv3N5formo5Axis1E"></span><span id="_CPPv2N5formo5Axis1E"></span><span id="formo::Axis1"></span><span class="target" id="classformo_1_1_axis1"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Axis1</span></span></span><a class="headerlink" href="#_CPPv4N5formo5Axis1E" title="Link to this definition"></a><br /></dt>
+<dd><p>Describes an axis in 3D space. </p>
+<p>An axis is defined by:</p>
+<p><ul class="simple">
+<li><p>its origin (also referred to as its “Location point”), and</p></li>
+<li><p>its unit vector (referred to as its “Direction” or “main Direction”).</p></li>
+</ul>
+</p>
+<p>An axis is used:</p>
+<p><ul class="simple">
+<li><p>to describe 3D geometric entities (for example, the axis of a revolution entity). It serves the same purpose as the STEP function “axis placement one axis”, or</p></li>
+<li><p>to define geometric transformations (axis of symmetry, axis of rotation, and so on). For example, this entity can be used to locate a geometric entity or to define a symmetry axis. </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Axis15Axis1ERK5PointRK9Direction">
+<span id="_CPPv3N5formo5Axis15Axis1ERK5PointRK9Direction"></span><span id="_CPPv2N5formo5Axis15Axis1ERK5PointRK9Direction"></span><span id="formo::Axis1::Axis1__PointCR.DirectionCR"></span><span class="target" id="classformo_1_1_axis1_1a192f975b26ef8b6099a8bea7501f47d5"></span><span class="sig-name descname"><span class="n"><span class="pre">Axis1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Axis15Axis1ERK5PointRK9Direction" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> – <code class="docutils literal notranslate"><a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref"><span class="pre">Point</span></span></a></code> the location point </p></li>
+<li><p><strong>direction</strong> – <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref"><span class="pre">Direction</span></span></a></code> the direction of the axis </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis18locationEv">
+<span id="_CPPv3NK5formo5Axis18locationEv"></span><span id="_CPPv2NK5formo5Axis18locationEv"></span><span id="formo::Axis1::locationC"></span><span class="target" id="classformo_1_1_axis1_1ad154c35e587d996dec7aa8ab019d0ef9"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">location</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis18locationEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get location. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Location </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis19directionEv">
+<span id="_CPPv3NK5formo5Axis19directionEv"></span><span id="_CPPv2NK5formo5Axis19directionEv"></span><span id="formo::Axis1::directionC"></span><span class="target" id="classformo_1_1_axis1_1a22f9b9ad4f617368cdafc5078152ebfd"></span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">direction</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis19directionEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref">Direction</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="axis2">
+<h2>Axis2<a class="headerlink" href="#axis2" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Axis2E">
+<span id="_CPPv3N5formo5Axis2E"></span><span id="_CPPv2N5formo5Axis2E"></span><span id="formo::Axis2"></span><span class="target" id="classformo_1_1_axis2"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Axis2</span></span></span><a class="headerlink" href="#_CPPv4N5formo5Axis2E" title="Link to this definition"></a><br /></dt>
+<dd><p>Describes a right-handed coordinate system in 3D space. </p>
+<p>A coordinate system is defined by:</p>
+<p><ul class="simple">
+<li><p>its origin (also referred to as its “Location point”), and</p></li>
+<li><p>three orthogonal unit vectors, termed respectively the “X Direction”, the “Y Direction” and the “Direction” (also referred to as the “main Direction”). The “Direction” of the coordinate system is called its “main Direction” because whenever this unit vector is modified, the “X Direction” and the “Y Direction” are recomputed. However, when we modify either the “X Direction” or the “Y Direction”, “Direction” is not modified. The “main Direction” is also the “Z Direction”. Since an Ax2 coordinate system is right-handed, its “main Direction” is always equal to the cross product of its “X Direction” and “Y Direction”. To define a left-handed coordinate system, use <code class="docutils literal notranslate"><span class="pre">Axis3</span></code>.</p></li>
+</ul>
+</p>
+<p>A coordinate system is used:</p>
+<p><ul class="simple">
+<li><p>to describe geometric entities, in particular to position them. The local coordinate system of a geometric entity serves the same purpose as the STEP function “axis placement two axes”, or</p></li>
+<li><p>to define geometric transformations.</p></li>
+</ul>
+</p>
+<p>Note: we refer to the “X Axis”, “Y Axis” and “Z Axis”, respectively, as to axes having:</p>
+<p><ul class="simple">
+<li><p>the origin of the coordinate system as their origin, and</p></li>
+<li><p>the unit vectors “X Direction”, “Y Direction” and “main Direction”, respectively, as their unit vectors. The “Z Axis” is also the “main Axis”. </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis28locationEv">
+<span id="_CPPv3NK5formo5Axis28locationEv"></span><span id="_CPPv2NK5formo5Axis28locationEv"></span><span id="formo::Axis2::locationC"></span><span class="target" id="classformo_1_1_axis2_1a533bd81bdc1567a4556c8ef0cb157f40"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">location</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis28locationEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get location. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Location </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis29directionEv">
+<span id="_CPPv3NK5formo5Axis29directionEv"></span><span id="_CPPv2NK5formo5Axis29directionEv"></span><span id="formo::Axis2::directionC"></span><span class="target" id="classformo_1_1_axis2_1ad9505e02fc8485d2a68470ad9c44e757"></span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">direction</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis29directionEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref">Direction</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="direction">
+<h2>Direction<a class="headerlink" href="#direction" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo9DirectionE">
+<span id="_CPPv3N5formo9DirectionE"></span><span id="_CPPv2N5formo9DirectionE"></span><span id="formo::Direction"></span><span class="target" id="classformo_1_1_direction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Direction</span></span></span><a class="headerlink" href="#_CPPv4N5formo9DirectionE" title="Link to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo9Direction9DirectionERK6Vector">
+<span id="_CPPv3N5formo9Direction9DirectionERK6Vector"></span><span id="_CPPv2N5formo9Direction9DirectionERK6Vector"></span><span id="formo::Direction::Direction__VectorCR"></span><span class="target" id="classformo_1_1_direction_1a6e2874f29e8c36d7c1ba65817910aca7"></span><span class="sig-name descname"><span class="n"><span class="pre">Direction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo9Direction9DirectionERK6Vector" title="Link to this definition"></a><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref"><span class="pre">Direction</span></span></a></code> from a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_vector"><span class="std std-ref"><span class="pre">Vector</span></span></a></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction1xEv">
+<span id="_CPPv3NK5formo9Direction1xEv"></span><span id="_CPPv2NK5formo9Direction1xEv"></span><span id="formo::Direction::xC"></span><span class="target" id="classformo_1_1_direction_1aaf8acc5084a22b2721af172442e77b84"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">x</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction1xEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the x-component of the direction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction1yEv">
+<span id="_CPPv3NK5formo9Direction1yEv"></span><span id="_CPPv2NK5formo9Direction1yEv"></span><span id="formo::Direction::yC"></span><span class="target" id="classformo_1_1_direction_1a150308fd67c2db541e33a5f73b7ad2b9"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction1yEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the y-component of the direction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction1zEv">
+<span id="_CPPv3NK5formo9Direction1zEv"></span><span id="_CPPv2NK5formo9Direction1zEv"></span><span id="formo::Direction::zC"></span><span class="target" id="classformo_1_1_direction_1acb6a2f1e25d087b39c8c117efeeb8bbb"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction1zEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the z-component of the direction. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="vector">
+<h2>Vector<a class="headerlink" href="#vector" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6VectorE">
+<span id="_CPPv3N5formo6VectorE"></span><span id="_CPPv2N5formo6VectorE"></span><span id="formo::Vector"></span><span class="target" id="classformo_1_1_vector"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vector</span></span></span><a class="headerlink" href="#_CPPv4N5formo6VectorE" title="Link to this definition"></a><br /></dt>
+<dd><p>Non-persistent vector in 3D space. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6Vector6VectorERK9Direction">
+<span id="_CPPv3N5formo6Vector6VectorERK9Direction"></span><span id="_CPPv2N5formo6Vector6VectorERK9Direction"></span><span id="formo::Vector::Vector__DirectionCR"></span><span class="target" id="classformo_1_1_vector_1a68e088cc8765ea364c5edb3789d569ed"></span><span class="sig-name descname"><span class="n"><span class="pre">Vector</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6Vector6VectorERK9Direction" title="Link to this definition"></a><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_vector"><span class="std std-ref"><span class="pre">Vector</span></span></a></code> from a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref"><span class="pre">Direction</span></span></a></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dir</strong> – <a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref">Direction</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6Vector6VectorERK5PointRK5Point">
+<span id="_CPPv3N5formo6Vector6VectorERK5PointRK5Point"></span><span id="_CPPv2N5formo6Vector6VectorERK5PointRK5Point"></span><span id="formo::Vector::Vector__PointCR.PointCR"></span><span class="target" id="classformo_1_1_vector_1ad4e23f0fc16ce66a4c1fbf660f144064"></span><span class="sig-name descname"><span class="n"><span class="pre">Vector</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt1</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6Vector6VectorERK5PointRK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_vector"><span class="std std-ref"><span class="pre">Vector</span></span></a></code> from two <code class="docutils literal notranslate"><span class="pre">Points</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt1</strong> – First point </p></li>
+<li><p><strong>pt2</strong> – Second point </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector1xEv">
+<span id="_CPPv3NK5formo6Vector1xEv"></span><span id="_CPPv2NK5formo6Vector1xEv"></span><span id="formo::Vector::xC"></span><span class="target" id="classformo_1_1_vector_1aca36f951492ee8cd231373c6515f9817"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">x</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector1xEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the x-component of the vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector1yEv">
+<span id="_CPPv3NK5formo6Vector1yEv"></span><span id="_CPPv2NK5formo6Vector1yEv"></span><span id="formo::Vector::yC"></span><span class="target" id="classformo_1_1_vector_1a041e6875536c8e5df5f4ee53b9c5b797"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector1yEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the y-component of the vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector1zEv">
+<span id="_CPPv3NK5formo6Vector1zEv"></span><span id="_CPPv2NK5formo6Vector1zEv"></span><span id="formo::Vector::zC"></span><span class="target" id="classformo_1_1_vector_1a40df54fc539fc47c4f15dfcfb7f90485"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector1zEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the z-component of the vector. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="plane">
+<h2>Plane<a class="headerlink" href="#plane" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5PlaneE">
+<span id="_CPPv3N5formo5PlaneE"></span><span id="_CPPv2N5formo5PlaneE"></span><span id="formo::Plane"></span><span class="target" id="classformo_1_1_plane"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Plane</span></span></span><a class="headerlink" href="#_CPPv4N5formo5PlaneE" title="Link to this definition"></a><br /></dt>
+<dd><p>Describes a plane. </p>
+<p>A plane is positioned in space with a coordinate system (a <code class="docutils literal notranslate"><span class="pre">gp_Ax3</span></code> object), such that the plane is defined by the origin, “X Direction” and “Y Direction” of this coordinate system, which is the “local coordinate system” of the plane. The “main Direction” of the coordinate system is a vector normal to the plane. It gives the plane an implicit orientation such that the plane is said to be “direct”, if the coordinate system is right-handed, or “indirect” in the other case. Note: when a <code class="docutils literal notranslate"><span class="pre">gp_Pln</span></code> plane is converted into a <code class="docutils literal notranslate"><span class="pre">Geom_Plane</span></code> plane, some implicit properties of its local coordinate system are used explicitly:</p>
+<p><ul class="simple">
+<li><p>its origin defines the origin of the two parameters of the planar surface,</p></li>
+<li><p>its implicit orientation is also that of the <code class="docutils literal notranslate"><span class="pre">Geom_Plane</span></code>. See Also <code class="docutils literal notranslate"><span class="pre">gce_MakePln</span></code> which provides functions for more complex plane constructions, <code class="docutils literal notranslate"><span class="pre">Geom_Plane</span></code> which provides additional functions for constructing planes and works, in particular, with the parametric equations of planes </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Plane5PlaneERK5PointRK9Direction">
+<span id="_CPPv3N5formo5Plane5PlaneERK5PointRK9Direction"></span><span id="_CPPv2N5formo5Plane5PlaneERK5PointRK9Direction"></span><span id="formo::Plane::Plane__PointCR.DirectionCR"></span><span class="target" id="classformo_1_1_plane_1ae0ec30457d1bd6f9ba4c9a5c1276e72c"></span><span class="sig-name descname"><span class="n"><span class="pre">Plane</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">normal</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Plane5PlaneERK5PointRK9Direction" title="Link to this definition"></a><br /></dt>
+<dd><p>Construct a plane with location <code class="docutils literal notranslate"><span class="pre">pt</span></code> and normal direction <code class="docutils literal notranslate"><span class="pre">normal</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> – Location of the plane </p></li>
+<li><p><strong>normal</strong> – Normal direction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Plane8locationEv">
+<span id="_CPPv3NK5formo5Plane8locationEv"></span><span id="_CPPv2NK5formo5Plane8locationEv"></span><span id="formo::Plane::locationC"></span><span class="target" id="classformo_1_1_plane_1a21fac39c61cb09c8ee045585ce1863c3"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">location</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Plane8locationEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Location of this plane. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials/bottle.html" class="btn btn-neutral float-left" title="Bottle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shapes.html" class="btn btn-neutral float-right" title="Shapes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, David Andrs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

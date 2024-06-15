@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formo Primer &mdash; formo  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Units" href="units.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Formo Primer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-concepts">Basic Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-oriented-models">Object-Oriented Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-entities-together">Putting Entities Together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-modeling-primitives">Using Modeling Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-formo">Running formo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="names-and-colors.html">Names and Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export.html">Export</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/2d-geometry.html">2D geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/bottle.html">Bottle</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shapes.html">Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Formo Primer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="formo-primer">
+<h1>Formo Primer<a class="headerlink" href="#formo-primer" title="Link to this heading"></a></h1>
+<p>Formo is build on top of <a class="reference external" href="https://www.opencascade.com/">Open Cascade technology</a>, which is a
+modelling engine using <a class="reference external" href="https://en.wikipedia.org/wiki/Boundary_representation">boundary representation</a>
+with very rich API and coming with a lot of capabilities.
+This can be quite overwhelming for a new-comer and this is one of the reasons formo was created.</p>
+<p>Formo tries to offer intuitive API to allow users to create their paramerical models easily.
+It provides simple modeling primitives like <code class="docutils literal notranslate"><span class="pre">Point</span></code>, <code class="docutils literal notranslate"><span class="pre">Line</span></code>, <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, <code class="docutils literal notranslate"><span class="pre">Box</span></code>, <code class="docutils literal notranslate"><span class="pre">Cylinder</span></code>, etc.
+that can be used to build complex geometries.</p>
+<p>The final models can be exported to industry standard file formats like <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_10303">STEP</a>.
+These files can then be used for further processing.</p>
+<section id="basic-concepts">
+<h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Link to this heading"></a></h2>
+<p>The basic concept is based on object-oriented approach to models.
+This allows users to use composition and inheritance to create more complicated models.</p>
+<p>Core modeling entities (like lines, arcs, etc.) can be combined into higher-level entities (like
+shapes).</p>
+<p>Formo comes with a python wrapper, so all models can be scripted using the power of python language.</p>
+</section>
+<section id="object-oriented-models">
+<h2>Object-Oriented Models<a class="headerlink" href="#object-oriented-models" title="Link to this heading"></a></h2>
+<p>Since the modeling entities in formo are objects, the user doesn’t deal with ID-based models.
+Compare the following two approaches:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+formo</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pt1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Cubit</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">vertex</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="n">create</span> <span class="n">vertex</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span>
+<span class="n">create</span> <span class="n">curve</span> <span class="n">vertex</span> <span class="mi">1</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In the Cubit example, there is no notion that the command <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">vertex</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">0</span></code> created a vertex
+with ID 1 that can be passed into the <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">curve</span> <span class="pre">command</span></code>.
+In formo, since all entities are objects, they are referred to via their variable names.
+This leads to a great robustness of the script that produces the final model.</p>
+</section>
+<section id="putting-entities-together">
+<h2>Putting Entities Together<a class="headerlink" href="#putting-entities-together" title="Link to this heading"></a></h2>
+<p>The model can be build from bottom up.
+Starting from points that are connected into edges, that are used to create wires, which are then
+used to build face which can then be used to build solid shapes.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Simple 3D shape</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pt1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pt3</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">triangle</span> <span class="o">=</span> <span class="n">Face</span><span class="p">(</span><span class="n">Polygon</span><span class="p">([</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">,</span> <span class="n">pt3</span><span class="p">])</span><span class="o">.</span><span class="n">wire</span><span class="p">())</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">solid</span> <span class="o">=</span> <span class="n">extrude</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="n">vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-modeling-primitives">
+<h2>Using Modeling Primitives<a class="headerlink" href="#using-modeling-primitives" title="Link to this heading"></a></h2>
+<p>Modeling primitives like <code class="docutils literal notranslate"><span class="pre">Cylinder</span></code>, <code class="docutils literal notranslate"><span class="pre">Box</span></code>, <code class="docutils literal notranslate"><span class="pre">Sphere</span></code>, etc. are available to create solid objects quickly.
+Those can then be combined together to create more complicated models.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Combining Primitives</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">z_vec</span> <span class="o">=</span> <span class="n">Direction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">axis</span> <span class="o">=</span> <span class="n">Axis2</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">z_vec</span><span class="p">)</span>
+<span class="n">cyl</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">sph_ctr</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sph</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="n">sph_ctr</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">solid</span> <span class="o">=</span> <span class="n">fuse</span><span class="p">(</span><span class="n">cyl</span><span class="p">,</span> <span class="n">sph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-formo">
+<h2>Running formo<a class="headerlink" href="#running-formo" title="Link to this heading"></a></h2>
+<p>You can create a standalone python file that can be executed in the usual manner:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Python file</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">example.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">formo</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="o">&lt;</span><span class="n">formo</span> <span class="n">objects</span><span class="o">&gt;</span>
+
+<span class="n">write</span><span class="p">(</span><span class="s2">&quot;prim.step&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">objects</span> <span class="n">to</span> <span class="n">export</span><span class="o">&gt;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python example.py
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="units.html" class="btn btn-neutral float-right" title="Units" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, David Andrs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
