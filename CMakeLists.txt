@@ -139,3 +139,7 @@ install(
         "${CMAKE_CURRENT_BINARY_DIR}/formoConfigVersion.cmake"
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
 )
+
+#
+
+add_subdirectory(docs)

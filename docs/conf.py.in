@@ -1,0 +1,30 @@
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
+
+project = 'formo'
+copyright = '2024, David Andrs'
+author = 'David Andrs'
+
+master_doc = 'index'
+templates_path = ['_templates']
+
+exclude_patterns = []
+
+html_theme = 'sphinx_rtd_theme'
+html_static_path = []
+html_show_sourcelink = False
+
+extensions = [
+    'sphinx.ext.autodoc',
+    'breathe',
+    'sphinx_design'
+]
+
+autoclass_content = "init"
+autodoc_default_options = {
+    'undoc-members': True
+}
+
+breathe_projects = {"formo": "@PROJECT_BINARY_DIR@/docs/xml/"}
+breathe_default_project = "formo"
