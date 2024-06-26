@@ -12,4 +12,5 @@ find_package_handle_standard_args(
     formo
     REQUIRED_VARS FORMO_LIBRARY FORMO_INCLUDE_DIR
     VERSION_VAR FORMO_VERSION
+    FOUND_VAR FORMO_FOUND
 )
