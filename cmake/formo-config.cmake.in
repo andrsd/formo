@@ -2,7 +2,7 @@ set(FORMO_VERSION @PROJECT_VERSION@)
 
 @PACKAGE_INIT@
 
-include("${CMAKE_CURRENT_LIST_DIR}/formoTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/formo-targets.cmake")
 include(FindPackageHandleStandardArgs)
 
 find_library(FORMO_LIBRARY NAMES formo HINTS ${PACKAGE_PREFIX_DIR}/lib NO_DEFAULT_PATH)
