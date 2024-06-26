@@ -100,12 +100,11 @@ endif()
 # install
 
 configure_package_config_file(
-    ${PROJECT_SOURCE_DIR}/cmake/formoConfig.cmake.in
-    formoConfig.cmake
+    ${PROJECT_SOURCE_DIR}/cmake/formo-config.cmake.in formo-config.cmake
     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
     NO_SET_AND_CHECK_MACRO
 )
-write_basic_package_version_file(formoConfigVersion.cmake
+write_basic_package_version_file(formo-config-version.cmake
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY AnyNewerVersion
 )
@@ -128,15 +127,15 @@ install(
 
 install(
     EXPORT formoTargets
-    FILE formoTargets.cmake
+    FILE formo-targets.cmake
     NAMESPACE formo::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
 )
 
 install(
     FILES
-        "${CMAKE_CURRENT_BINARY_DIR}/formoConfig.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/formoConfigVersion.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/formo-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/formo-config-version.cmake"
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/formo
 )
 
