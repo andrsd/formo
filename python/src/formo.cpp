@@ -9,6 +9,7 @@
 #include "formo/axis2.h"
 #include "formo/box.h"
 #include "formo/circle.h"
+#include "formo/circular_pattern.h"
 #include "formo/color.h"
 #include "formo/color_map.h"
 #include "formo/cone.h"
@@ -369,6 +370,11 @@ PYBIND11_MODULE(formo, m)
             py::arg("origin"), py::arg("nx"), py::arg("dx"))
         .def(py::init<const Axis2 &, int, int, double, double>(),
             py::arg("origin"), py::arg("nx"), py::arg("ny"), py::arg("dx"), py::arg("dy"))
+    ;
+
+    py::class_<CircularPattern, Pattern>(m, "CircularPattern")
+        .def(py::init<const Axis2 &, double, int>(),
+            py::arg("center"), py::arg("radius"), py::arg("divisions"))
     ;
 
     py::class_<HexagonalPattern, Pattern>(m, "HexagonalPattern")
