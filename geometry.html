@@ -69,12 +69,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo5Axis2E"><code class="docutils literal notranslate"><span class="pre">Axis2</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Axis25Axis2ERK5PointRK9DirectionRK9Direction"><code class="docutils literal notranslate"><span class="pre">Axis2::Axis2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Axis28locationEv"><code class="docutils literal notranslate"><span class="pre">Axis2::location()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Axis29directionEv"><code class="docutils literal notranslate"><span class="pre">Axis2::direction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Axis211x_directionEv"><code class="docutils literal notranslate"><span class="pre">Axis2::x_direction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Axis211y_directionEv"><code class="docutils literal notranslate"><span class="pre">Axis2::y_direction()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo9DirectionE"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo9Direction9DirectionERK6Vector"><code class="docutils literal notranslate"><span class="pre">Direction::Direction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo9Direction9DirectionERK6gp_Dir"><code class="docutils literal notranslate"><span class="pre">Direction::Direction()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction1xEv"><code class="docutils literal notranslate"><span class="pre">Direction::x()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction1yEv"><code class="docutils literal notranslate"><span class="pre">Direction::y()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction1zEv"><code class="docutils literal notranslate"><span class="pre">Direction::z()</span></code></a></li>
@@ -205,6 +209,18 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Axis25Axis2ERK5PointRK9DirectionRK9Direction">
+<span id="_CPPv3N5formo5Axis25Axis2ERK5PointRK9DirectionRK9Direction"></span><span id="_CPPv2N5formo5Axis25Axis2ERK5PointRK9DirectionRK9Direction"></span><span id="formo::Axis2::Axis2__PointCR.DirectionCR.DirectionCR"></span><span class="target" id="classformo_1_1_axis2_1ab5df871aeac6337077009aaa65fe8c8b"></span><span class="sig-name descname"><span class="n"><span class="pre">Axis2</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v_x</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Axis25Axis2ERK5PointRK9DirectionRK9Direction" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates an axis placement with an origin <code class="docutils literal notranslate"><span class="pre">pt</span></code> such that: </p>
+<p><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> is the <a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref">Direction</span></a>, and</p></li>
+<li><p>the “X direction” is normal to <code class="docutils literal notranslate"><span class="pre">n</span></code>, in the plane defined by the vectors (<code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">v_x</span></code>): “X Direction” = (n ^ v_x) ^ n,</p></li>
+</ul>
+</p>
+<p>Raises <code class="docutils literal notranslate"><span class="pre">Exception</span></code> if N and Vx are parallel (same or opposite orientation). </p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis28locationEv">
 <span id="_CPPv3NK5formo5Axis28locationEv"></span><span id="_CPPv2NK5formo5Axis28locationEv"></span><span id="formo::Axis2::locationC"></span><span class="target" id="classformo_1_1_axis2_1a533bd81bdc1567a4556c8ef0cb157f40"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">location</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis28locationEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Get location. </p>
@@ -226,6 +242,28 @@
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis211x_directionEv">
+<span id="_CPPv3NK5formo5Axis211x_directionEv"></span><span id="_CPPv2NK5formo5Axis211x_directionEv"></span><span id="formo::Axis2::x_directionC"></span><span class="target" id="classformo_1_1_axis2_1aec13e983f88d0c00706b4fef99225211"></span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">x_direction</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis211x_directionEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get x-direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>x-direction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Axis211y_directionEv">
+<span id="_CPPv3NK5formo5Axis211y_directionEv"></span><span id="_CPPv2NK5formo5Axis211y_directionEv"></span><span id="formo::Axis2::y_directionC"></span><span class="target" id="classformo_1_1_axis2_1a393b26be53b16d5510fbc10a41e59d72"></span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y_direction</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Axis211y_directionEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get y-direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>x-direction </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -238,6 +276,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5formo9Direction9DirectionERK6Vector">
 <span id="_CPPv3N5formo9Direction9DirectionERK6Vector"></span><span id="_CPPv2N5formo9Direction9DirectionERK6Vector"></span><span id="formo::Direction::Direction__VectorCR"></span><span class="target" id="classformo_1_1_direction_1a6e2874f29e8c36d7c1ba65817910aca7"></span><span class="sig-name descname"><span class="n"><span class="pre">Direction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo9Direction9DirectionERK6Vector" title="Link to this definition"></a><br /></dt>
 <dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref"><span class="pre">Direction</span></span></a></code> from a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_vector"><span class="std std-ref"><span class="pre">Vector</span></span></a></code></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo9Direction9DirectionERK6gp_Dir">
+<span id="_CPPv3N5formo9Direction9DirectionERK6gp_Dir"></span><span id="_CPPv2N5formo9Direction9DirectionERK6gp_Dir"></span><span id="formo::Direction::Direction__gp_DirCR"></span><span class="target" id="classformo_1_1_direction_1a841a39bf14ae549d6df341d0fa6a0dba"></span><span class="sig-name descname"><span class="n"><span class="pre">Direction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">gp_Dir</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo9Direction9DirectionERK6gp_Dir" title="Link to this definition"></a><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classformo_1_1_direction"><span class="std std-ref"><span class="pre">Direction</span></span></a></code> from a <code class="docutils literal notranslate"><span class="pre">gp_Dir</span></code></p>
 </dd></dl>
 
 <dl class="cpp function">
