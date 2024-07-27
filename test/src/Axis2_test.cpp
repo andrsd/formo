@@ -14,3 +14,19 @@ TEST(Axis2Test, test)
     EXPECT_DOUBLE_EQ(ax2.direction().y(), 0);
     EXPECT_DOUBLE_EQ(ax2.direction().z(), 0);
 }
+
+TEST(Axis2Test, ctor_n_dir)
+{
+    Axis2 ax2(Point(0, 0, 0), Direction(0, 0, 1), Direction(0, 1, 0));
+    EXPECT_DOUBLE_EQ(ax2.direction().x(), 0);
+    EXPECT_DOUBLE_EQ(ax2.direction().y(), 0);
+    EXPECT_DOUBLE_EQ(ax2.direction().z(), 1);
+
+    EXPECT_DOUBLE_EQ(ax2.x_direction().x(), 0);
+    EXPECT_DOUBLE_EQ(ax2.x_direction().y(), 1);
+    EXPECT_DOUBLE_EQ(ax2.x_direction().z(), 0);
+
+    EXPECT_DOUBLE_EQ(ax2.y_direction().x(), -1);
+    EXPECT_DOUBLE_EQ(ax2.y_direction().y(), 0);
+    EXPECT_DOUBLE_EQ(ax2.y_direction().z(), 0);
+}
