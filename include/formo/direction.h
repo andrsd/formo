@@ -16,6 +16,9 @@ public:
     /// Construct a `Direction` from a `Vector`
     Direction(const Vector & vec);
 
+    /// Construct a `Direction` from a `gp_Dir`
+    Direction(const gp_Dir & dir);
+
     /// Get the x-component of the direction
     double x() const;
     /// Get the y-component of the direction

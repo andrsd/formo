@@ -5,23 +5,32 @@
 
 namespace formo {
 
-Axis2::Axis2(const Point & pt, const Direction & direction) :
-    loc(pt),
-    dir(direction),
-    ax2(pt, direction)
-{
-}
+Axis2::Axis2(const Point & pt, const Direction & direction) : ax2(pt, direction) {}
+
+Axis2::Axis2(const Point & pt, const Direction & n, const Direction & v_x) : ax2(pt, n, v_x) {}
 
 Point
 Axis2::location() const
 {
-    return this->loc;
+    return Point(this->ax2.Location());
 }
 
 Direction
 Axis2::direction() const
 {
-    return this->dir;
+    return this->ax2.Direction();
+}
+
+Direction
+Axis2::x_direction() const
+{
+    return this->ax2.XDirection();
+}
+
+Direction
+Axis2::y_direction() const
+{
+    return this->ax2.YDirection();
 }
 
 Axis2::operator gp_Ax2() const

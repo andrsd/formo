@@ -36,6 +36,14 @@ class Axis2 {
 public:
     Axis2(const Point & pt, const Direction & direction);
 
+    /// Creates an axis placement with an origin `pt` such that:
+    /// - `n` is the Direction, and
+    /// - the "X direction" is normal to `n`, in the plane defined by the vectors (`n`, `v_x`):
+    ///   "X Direction" = (n ^ v_x) ^ n,
+    ///
+    /// Raises `Exception` if N and Vx are parallel (same or opposite orientation).
+    Axis2(const Point & pt, const Direction & n, const Direction & v_x);
+
     /// Get location
     ///
     /// @return Location
@@ -46,11 +54,19 @@ public:
     /// @return Direction
     Direction direction() const;
 
+    /// Get x-direction
+    ///
+    /// @return x-direction
+    Direction x_direction() const;
+
+    /// Get y-direction
+    ///
+    /// @return x-direction
+    Direction y_direction() const;
+
     operator gp_Ax2() const;
 
 private:
-    Point loc;
-    Direction dir;
     gp_Ax2 ax2;
 };
 
