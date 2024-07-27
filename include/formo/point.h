@@ -14,6 +14,8 @@ class Vector;
 /// Defines a 3D cartesian point
 class Point : public Shape {
 public:
+    Point() = default;
+
     /// Creates a point with its 3 cartesian coordinates
     ///
     /// @param x x-coordinate

@@ -17,11 +17,13 @@
 #include "formo/edge.h"
 #include "formo/exception.h"
 #include "formo/face.h"
+#include "formo/hexagonal_pattern.h"
 #include "formo/geometry.h"
 #include "formo/iges_file.h"
 #include "formo/io.h"
 #include "formo/line.h"
 #include "formo/operations.h"
+#include "formo/pattern.h"
 #include "formo/plane.h"
 #include "formo/point.h"
 #include "formo/polygon.h"
@@ -354,6 +356,16 @@ PYBIND11_MODULE(formo, m)
         .def("read", &STEPFile::read)
         .def("write", &STEPFile::write,
             py::arg("shapes"))
+    ;
+
+    py::class_<Pattern>(m, "Pattern")
+        .def(py::init<>())
+        .def("points", &Pattern::points)
+    ;
+
+    py::class_<HexagonalPattern, Pattern>(m, "HexagonalPattern")
+        .def(py::init<const Axis2 &, double, int>(),
+            py::arg("center"), py::arg("flat_to_flat"), py::arg("side_segs"))
     ;
 
     m.def("translate", py::overload_cast<const Shape &, const Vector &>(&translate),
