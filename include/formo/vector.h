@@ -36,6 +36,11 @@ public:
     /// Get the z-component of the vector
     double z() const;
 
+    /// Computes the magnitude of this vector
+    ///
+    /// @return Magnitude of the vector
+    double magnitude() const;
+
     /// Rotates a vector.
     ///
     /// @param ax1 The axis of the rotation.

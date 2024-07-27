@@ -34,6 +34,12 @@ Vector::z() const
     return this->vec.Z();
 }
 
+double
+Vector::magnitude() const
+{
+    return this->vec.Magnitude();
+}
+
 Vector
 Vector::rotated(const Axis1 & ax1, const double angle) const
 {

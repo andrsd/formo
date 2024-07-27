@@ -42,6 +42,12 @@ TEST(VectorTest, op_mult_scalar)
     EXPECT_NEAR(b.z(), 6., 1e-15);
 }
 
+TEST(VectorTest, magnitude)
+{
+    Vector a(3, 0, 4);
+    EXPECT_NEAR(a.magnitude(), 5., 1e-15);
+}
+
 TEST(VectorTest, rotated)
 {
     Vector vec(1, 0, 0);
