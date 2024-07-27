@@ -9,10 +9,13 @@ namespace formo {
 
 class Direction;
 class Point;
+class Axis1;
 
 /// Non-persistent vector in 3D space
 class Vector {
 public:
+    Vector(const gp_Vec & vec);
+
     Vector(double x, double y, double z);
 
     /// Construct a `Vector` from a `Direction`
@@ -32,6 +35,12 @@ public:
     double y() const;
     /// Get the z-component of the vector
     double z() const;
+
+    /// Rotates a vector.
+    ///
+    /// @param ax1 The axis of the rotation.
+    /// @param angle The angular value of the rotation in radians.
+    Vector rotated(const Axis1 & ax1, const double angle) const;
 
     operator gp_Vec() const;
 
