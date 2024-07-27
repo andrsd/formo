@@ -1,4 +1,5 @@
 #include "gmock/gmock.h"
+#include "formo/axis1.h"
 #include "formo/vector.h"
 #include "formo/direction.h"
 #include "formo/point.h"
@@ -39,4 +40,14 @@ TEST(VectorTest, op_mult_scalar)
     EXPECT_NEAR(b.x(), 2., 1e-15);
     EXPECT_NEAR(b.y(), 4., 1e-15);
     EXPECT_NEAR(b.z(), 6., 1e-15);
+}
+
+TEST(VectorTest, rotated)
+{
+    Vector vec(1, 0, 0);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 0, 1));
+    auto r = vec.rotated(ax1, 0.5 * M_PI);
+    EXPECT_NEAR(r.x(), 0., 1e-15);
+    EXPECT_NEAR(r.y(), 1., 1e-15);
+    EXPECT_NEAR(r.z(), 0., 1e-15);
 }

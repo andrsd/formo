@@ -4,8 +4,11 @@
 #include "formo/vector.h"
 #include "formo/direction.h"
 #include "formo/point.h"
+#include "formo/axis1.h"
 
 namespace formo {
+
+Vector::Vector(const gp_Vec & vec) : vec(vec) {}
 
 Vector::Vector(double x, double y, double z) : vec(x, y, z) {}
 
@@ -29,6 +32,12 @@ double
 Vector::z() const
 {
     return this->vec.Z();
+}
+
+Vector
+Vector::rotated(const Axis1 & ax1, const double angle) const
+{
+    return Vector(this->vec.Rotated(ax1, angle));
 }
 
 Vector::operator gp_Vec() const
