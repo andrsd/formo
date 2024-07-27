@@ -178,6 +178,7 @@ PYBIND11_MODULE(formo, m)
         .def("x", &Vector::x)
         .def("y", &Vector::y)
         .def("z", &Vector::z)
+        .def("magnitude", &Vector::magnitude)
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
     ;
 
