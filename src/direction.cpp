@@ -10,6 +10,8 @@ Direction::Direction(double x, double y, double z) : dir(x, y, z) {}
 
 Direction::Direction(const Vector & vec) : dir(vec) {}
 
+Direction::Direction(const gp_Dir & dir) : dir(dir) {}
+
 double
 Direction::x() const
 {
