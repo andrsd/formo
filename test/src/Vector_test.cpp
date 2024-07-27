@@ -31,3 +31,12 @@ TEST(VectorTest, ctor3)
     EXPECT_DOUBLE_EQ(vec.y(), -3);
     EXPECT_DOUBLE_EQ(vec.z(), 0);
 }
+
+TEST(VectorTest, op_mult_scalar)
+{
+    Vector a(1, 2, 3);
+    auto b = 2. * a;
+    EXPECT_NEAR(b.x(), 2., 1e-15);
+    EXPECT_NEAR(b.y(), 4., 1e-15);
+    EXPECT_NEAR(b.z(), 6., 1e-15);
+}
