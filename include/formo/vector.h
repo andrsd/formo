@@ -39,4 +39,10 @@ private:
     gp_Vec vec;
 };
 
+/// Multiply vector by a scalar
+///
+/// @param alpha Scalar to multiply the vector with
+/// @return Resulting vector
+Vector operator*(double alpha, const Vector & vec);
+
 } // namespace formo

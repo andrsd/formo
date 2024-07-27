@@ -36,4 +36,10 @@ Vector::operator gp_Vec() const
     return this->vec;
 }
 
+Vector
+operator*(double alpha, const Vector & vec)
+{
+    return Vector(alpha * vec.x(), alpha * vec.y(), alpha * vec.z());
+}
+
 } // namespace formo
