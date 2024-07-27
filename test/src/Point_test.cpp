@@ -1,5 +1,6 @@
 #include "gmock/gmock.h"
 #include "formo/point.h"
+#include "formo/vector.h"
 
 using namespace formo;
 
@@ -30,4 +31,12 @@ TEST(PointTest, distance)
 {
     Point pt(0, 0, 0);
     EXPECT_DOUBLE_EQ(pt.distance(Point(2, 0, 0)), 2.);
+}
+
+TEST(PointTest, op_plus_pt_vec)
+{
+    Point pt(1, 1, 0);
+    Vector vec(1, 2, 4);
+    auto b = pt + vec;
+    EXPECT_NEAR(b.distance(Point(2, 3, 4)), 0., 1e-15);
 }
