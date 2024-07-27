@@ -3,6 +3,7 @@
 
 #include "formo/point.h"
 #include "formo/exception.h"
+#include "formo/vector.h"
 #include "BRepBuilderAPI_MakeVertex.hxx"
 
 namespace formo {
@@ -60,6 +61,12 @@ Point::distance(const Point & pt) const
 Point::operator gp_Pnt() const
 {
     return this->pnt;
+}
+
+Point
+operator+(const Point & pt, const Vector & v)
+{
+    return Point(pt.x() + v.x(), pt.y() + v.y(), pt.z() + v.z());
 }
 
 } // namespace formo

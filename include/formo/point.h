@@ -9,6 +9,8 @@
 
 namespace formo {
 
+class Vector;
+
 /// Defines a 3D cartesian point
 class Point : public Shape {
 public:
@@ -38,5 +40,8 @@ private:
     gp_Pnt pnt;
     TopoDS_Vertex vtx;
 };
+
+/// Operator for `Point` + `Vector`
+Point operator+(const Point & pt, const Vector & v);
 
 } // namespace formo
