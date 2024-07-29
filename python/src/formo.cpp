@@ -293,6 +293,8 @@ PYBIND11_MODULE(formo, m)
     ;
 
     py::class_<Circle, Edge>(m, "Circle")
+        .def(py::init<const Axis2 &, double>(),
+            py::arg("origin"), py::arg("radius"))
         .def(py::init<const Point &, double, const Direction &>(),
             py::arg("center"), py::arg("radius"), py::arg("normal") = Direction(0., 0., 1.))
         .def(py::init<const Point &, const Point &, const Direction &>(),
