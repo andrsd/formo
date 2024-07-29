@@ -3,27 +3,25 @@
 
 #pragma once
 
-#include "formo/shape.h"
 #include "formo/point.h"
-#include "formo/edge.h"
 #include "formo/wire.h"
+#include "BRepBuilderAPI_MakePolygon.hxx"
 #include <vector>
 
 namespace formo {
 
-class Polygon : public Shape {
+class Axis2;
+class Point;
+class Vector;
+
+class Polygon : public Wire {
 public:
+    Polygon() = default;
     Polygon(const std::vector<Point> & points, bool closed = true);
 
-    /// Polygon as edge
-    Edge as_edge() const;
-
-    /// Polygon as wire
-    Wire as_wire() const;
-
-private:
-    TopoDS_Edge edge;
-    TopoDS_Wire wire;
+protected:
+    std::vector<Point> build_points(const Axis2 & ax2, const Vector & vec, int n_sides);
+    BRepBuilderAPI_MakePolygon build_polygon(const std::vector<Point> & points, bool closed);
 };
 
 } // namespace formo

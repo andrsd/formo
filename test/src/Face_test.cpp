@@ -14,8 +14,7 @@ TEST(FaceTest, wire)
     Point pt2(1, 0, 0);
     Point pt3(1, 1, 0);
     Polygon pl({ pt1, pt2, pt3 });
-    auto wire = pl.as_wire();
-    Face face(wire);
+    Face face(pl);
 
     EXPECT_TRUE(face.is_plane());
     auto pln = face.plane();
