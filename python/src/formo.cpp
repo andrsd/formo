@@ -212,6 +212,8 @@ PYBIND11_MODULE(formo, m)
     py::class_<Axis2>(m, "Axis2")
         .def(py::init<const Point &, const Direction &>(),
             py::arg("point"), py::arg("direction"))
+        .def(py::init<const Point &, const Direction &, const Direction &>(),
+            py::arg("point"), py::arg("n"), py::arg("v_x"))
         .def("location", &Axis2::location)
         .def("direction", &Axis2::direction)
     ;
