@@ -2,12 +2,27 @@
 // SPDX-License-Identifier: MIT
 
 #include "formo/circle.h"
+#include "formo/axis2.h"
 #include "formo/exception.h"
 #include "GC_MakeCircle.hxx"
 #include "BRepBuilderAPI_MakeEdge.hxx"
 #include "gp_Circ.hxx"
 
 namespace formo {
+
+Circle::Circle(const Axis2 & origin, double radius) : Edge()
+{
+    GC_MakeCircle make_circ(origin, radius);
+    if (!make_circ.IsDone())
+        throw Exception("Circle was not created");
+    BRepBuilderAPI_MakeEdge maker(make_circ.Value());
+    maker.Build();
+    if (!maker.IsDone())
+        throw Exception("Circle was not created");
+    set_shape(maker.Shape());
+    set_edge(maker.Edge());
+    this->circ = make_circ.Value()->Circ();
+}
 
 Circle::Circle(const Point & center, double radius, const Direction & normal) : Edge()
 {

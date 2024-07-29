@@ -10,10 +10,18 @@
 
 namespace formo {
 
+class Axis2;
+
 /// Describes a circle in 3D space. A circle is defined by its radius and positioned in space with a
 /// coordinate system.
 class Circle : public Edge {
 public:
+    /// Construct a circle from an origin and a radius.
+    ///
+    /// @param origin Center point
+    /// @param radius Radius
+    Circle(const Axis2 & origin, double radius);
+
     /// Construct a circle from a center point and a radius.
     ///
     /// @param center Center point
