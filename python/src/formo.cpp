@@ -10,6 +10,7 @@
 #include "formo/box.h"
 #include "formo/circle.h"
 #include "formo/circular_pattern.h"
+#include "formo/circumscribed_polygon.h"
 #include "formo/color.h"
 #include "formo/color_map.h"
 #include "formo/cone.h"
@@ -262,6 +263,13 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<const TopoDS_Solid &>(),
             py::arg("solid"))
         .def("volume", &Solid::volume)
+    ;
+
+    py::class_<CircumscribedPolygon, Wire>(m, "CircumscribedPolygon")
+        .def(py::init<const Axis2 &, double, int>(),
+            py::arg("ax2"), py::arg("radius"), py::arg("sides"))
+        .def(py::init<const Axis2 &, const Point &, int>(),
+            py::arg("ax2"), py::arg("pt1"), py::arg("sides"))
     ;
 
     //

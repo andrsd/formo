@@ -23,6 +23,12 @@ Wire::Wire(const std::vector<Edge> & edges)
     this->wire = make_wire.Wire();
 }
 
+void
+Wire::set_wire(const TopoDS_Wire & wire)
+{
+    this->wire = wire;
+}
+
 Wire::operator TopoDS_Wire() const
 {
     return this->wire;

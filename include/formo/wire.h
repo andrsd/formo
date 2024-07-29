@@ -12,10 +12,14 @@ namespace formo {
 
 class Wire : public Shape {
 public:
+    Wire() = default;
     explicit Wire(const TopoDS_Wire & wire);
     Wire(const std::vector<Edge> & edges);
 
     operator TopoDS_Wire() const;
+
+protected:
+    void set_wire(const TopoDS_Wire & wire);
 
 private:
     TopoDS_Wire wire;
