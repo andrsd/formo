@@ -48,6 +48,16 @@ TEST(VectorTest, magnitude)
     EXPECT_NEAR(a.magnitude(), 5., 1e-15);
 }
 
+TEST(VectorTest, rotate)
+{
+    Vector vec(1, 0, 0);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 0, 1));
+    vec.rotate(ax1, 0.5 * M_PI);
+    EXPECT_NEAR(vec.x(), 0., 1e-15);
+    EXPECT_NEAR(vec.y(), 1., 1e-15);
+    EXPECT_NEAR(vec.z(), 0., 1e-15);
+}
+
 TEST(VectorTest, rotated)
 {
     Vector vec(1, 0, 0);
