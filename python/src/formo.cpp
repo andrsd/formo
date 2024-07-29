@@ -23,6 +23,7 @@
 #include "formo/geometry.h"
 #include "formo/iges_file.h"
 #include "formo/io.h"
+#include "formo/inscribed_polygon.h"
 #include "formo/line.h"
 #include "formo/linear_pattern.h"
 #include "formo/operations.h"
@@ -268,6 +269,13 @@ PYBIND11_MODULE(formo, m)
     ;
 
     py::class_<CircumscribedPolygon, Wire>(m, "CircumscribedPolygon")
+        .def(py::init<const Axis2 &, double, int>(),
+            py::arg("ax2"), py::arg("radius"), py::arg("sides"))
+        .def(py::init<const Axis2 &, const Point &, int>(),
+            py::arg("ax2"), py::arg("pt1"), py::arg("sides"))
+    ;
+
+    py::class_<InscribedPolygon, Wire>(m, "InscribedPolygon")
         .def(py::init<const Axis2 &, double, int>(),
             py::arg("ax2"), py::arg("radius"), py::arg("sides"))
         .def(py::init<const Axis2 &, const Point &, int>(),
