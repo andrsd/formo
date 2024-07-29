@@ -40,6 +40,12 @@ Vector::magnitude() const
     return this->vec.Magnitude();
 }
 
+void
+Vector::rotate(const Axis1 & ax1, const double angle)
+{
+    this->vec.Rotate(ax1, angle);
+}
+
 Vector
 Vector::rotated(const Axis1 & ax1, const double angle) const
 {
