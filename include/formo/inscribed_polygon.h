@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "formo/wire.h"
+#include "formo/polygon.h"
 #include <vector>
 
 namespace formo {
@@ -12,7 +12,7 @@ class Axis2;
 class Point;
 class Vector;
 
-class InscribedPolygon : public Wire {
+class InscribedPolygon : public Polygon {
 public:
     /// Create circumscribed polygon from radius and number of sides
     ///
@@ -27,9 +27,6 @@ public:
     InscribedPolygon(const Axis2 & ax2, const Point & pt1, int sides);
 
 private:
-    std::vector<Point> build_points(const Axis2 & ax2, const Vector & vec);
-    TopoDS_Wire build_polygon(const std::vector<Point> & points);
-
     /// Radius of the circle
     double radius;
     /// Number of sides

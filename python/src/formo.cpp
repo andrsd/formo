@@ -324,8 +324,6 @@ PYBIND11_MODULE(formo, m)
     py::class_<Polygon, Shape>(m, "Polygon")
         .def(py::init<const std::vector<Point> &, bool>(),
             py::arg("points"), py::arg("closed") = true)
-        .def("as_edge", &Polygon::as_edge)
-        .def("as_wire", &Polygon::as_wire)
     ;
 
     //
