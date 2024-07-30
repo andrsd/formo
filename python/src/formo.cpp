@@ -173,9 +173,9 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<double, double, double>(),
             py::arg("x"), py::arg("y"), py::arg("z"))
         .def(py::init<const Vector &>())
-        .def("x", &Direction::x)
-        .def("y", &Direction::y)
-        .def("z", &Direction::z)
+        .def_property_readonly("x", &Direction::x)
+        .def_property_readonly("y", &Direction::y)
+        .def_property_readonly("z", &Direction::z)
     ;
 
     py::class_<Vector>(m, "Vector")
