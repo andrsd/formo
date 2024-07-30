@@ -163,6 +163,10 @@ PYBIND11_MODULE(formo, m)
             py::arg("other"), py::arg("tol"))
         .def("distance", &Point::distance,
             py::arg("pt"))
+        .def("rotate", &Point::rotate,
+            py::arg("ax1"), py::arg("angle"))
+        .def("rotated", &Point::rotated,
+            py::arg("ax1"), py::arg("angle"))
     ;
 
     py::class_<Direction>(m, "Direction")

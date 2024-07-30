@@ -10,6 +10,7 @@
 namespace formo {
 
 class Vector;
+class Axis1;
 
 /// Defines a 3D cartesian point
 class Point : public Shape {
@@ -37,6 +38,19 @@ public:
     bool is_equal(const Point & other, double tol = 1e-15) const;
 
     double distance(const Point & pt) const;
+
+    /// Rotate the point
+    ///
+    /// @param ax1 The axis of the rotation.
+    /// @param angle The angular value of the rotation in radians.
+    void rotate(const Axis1 & ax1, double angle);
+
+    /// Rotate the point
+    ///
+    /// @param ax1 The axis of the rotation.
+    /// @param angle The angular value of the rotation in radians.
+    /// @return Rotate point
+    Point rotated(const Axis1 & ax1, double angle) const;
 
 private:
     gp_Pnt pnt;

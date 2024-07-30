@@ -1,6 +1,8 @@
 #include "gmock/gmock.h"
 #include "formo/point.h"
 #include "formo/vector.h"
+#include "formo/axis1.h"
+#include "formo/direction.h"
 
 using namespace formo;
 
@@ -39,4 +41,24 @@ TEST(PointTest, op_plus_pt_vec)
     Vector vec(1, 2, 4);
     auto b = pt + vec;
     EXPECT_NEAR(b.distance(Point(2, 3, 4)), 0., 1e-15);
+}
+
+TEST(PointTest, rotate)
+{
+    Point pt(1, 0, 2);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 0, 1));
+    pt.rotate(ax1, M_PI / 2.);
+    EXPECT_NEAR(pt.x(), 0, 1e-15);
+    EXPECT_NEAR(pt.y(), 1, 1e-15);
+    EXPECT_NEAR(pt.z(), 2, 1e-15);
+}
+
+TEST(PointTest, rotated)
+{
+    Point pt(1, 0, 2);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 0, 1));
+    auto npt = pt.rotated(ax1, M_PI / 2.);
+    EXPECT_NEAR(npt.x(), 0, 1e-15);
+    EXPECT_NEAR(npt.y(), 1, 1e-15);
+    EXPECT_NEAR(npt.z(), 2, 1e-15);
 }

@@ -4,6 +4,7 @@
 #include "formo/point.h"
 #include "formo/exception.h"
 #include "formo/vector.h"
+#include "formo/axis1.h"
 #include "BRepBuilderAPI_MakeVertex.hxx"
 
 namespace formo {
@@ -56,6 +57,18 @@ double
 Point::distance(const Point & pt) const
 {
     return this->pnt.Distance(pt);
+}
+
+void
+Point::rotate(const Axis1 & ax1, double angle)
+{
+    this->pnt.Rotate(ax1, angle);
+}
+
+Point
+Point::rotated(const Axis1 & ax1, double angle) const
+{
+    return Point(this->pnt.Rotated(ax1, angle));
 }
 
 Point::operator gp_Pnt() const
