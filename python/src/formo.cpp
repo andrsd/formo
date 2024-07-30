@@ -185,9 +185,9 @@ PYBIND11_MODULE(formo, m)
             py::arg("direction"))
         .def(py::init<const Point &, const Point &>(),
             py::arg("pt1"), py::arg("pt2"))
-        .def("x", &Vector::x)
-        .def("y", &Vector::y)
-        .def("z", &Vector::z)
+        .def_property_readonly("x", &Vector::x)
+        .def_property_readonly("y", &Vector::y)
+        .def_property_readonly("z", &Vector::z)
         .def("magnitude", &Vector::magnitude)
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
     ;
