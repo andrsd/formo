@@ -52,6 +52,18 @@ public:
     /// @return Rotate point
     Point rotated(const Axis1 & ax1, double angle) const;
 
+    /// Translates a point in the direction of the vector `vec`. The magnitude of the translation is
+    /// the vector's magnitude.
+    ///
+    /// @param vec The vector of translation
+    void translate(const Vector & vec);
+
+    /// Translates a point in the direction of the vector `vec`. The magnitude of the translation is
+    /// the vector's magnitude.
+    ///
+    /// @param vec The vector of translation
+    Point translated(const Vector & vec) const;
+
 private:
     gp_Pnt pnt;
     TopoDS_Vertex vtx;

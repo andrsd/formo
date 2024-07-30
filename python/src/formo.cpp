@@ -167,6 +167,10 @@ PYBIND11_MODULE(formo, m)
             py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Point::rotated,
             py::arg("ax1"), py::arg("angle"))
+        .def("translate", &Point::translate,
+            py::arg("vec"))
+        .def("translated", &Point::translated,
+            py::arg("vec"))
     ;
 
     py::class_<Direction>(m, "Direction")

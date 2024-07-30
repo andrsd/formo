@@ -71,6 +71,18 @@ Point::rotated(const Axis1 & ax1, double angle) const
     return Point(this->pnt.Rotated(ax1, angle));
 }
 
+void
+Point::translate(const Vector & vec)
+{
+    this->pnt.Translate(vec);
+}
+
+Point
+Point::translated(const Vector & vec) const
+{
+    return Point(this->pnt.Translated(vec));
+}
+
 Point::operator gp_Pnt() const
 {
     return this->pnt;
