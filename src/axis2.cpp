@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #include "formo/axis2.h"
+#include "formo/axis1.h"
 
 namespace formo {
 
@@ -13,6 +14,12 @@ Point
 Axis2::location() const
 {
     return Point(this->ax2.Location());
+}
+
+Axis1
+Axis2::axis() const
+{
+    return Axis1(this->ax2.Axis());
 }
 
 Direction

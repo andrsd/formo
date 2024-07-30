@@ -49,6 +49,11 @@ public:
     /// @return Location
     Point location() const;
 
+    /// Returns the main axis
+    ///
+    /// @return The main location point and the main direction
+    Axis1 axis() const;
+
     /// Get direction
     ///
     /// @return Direction
