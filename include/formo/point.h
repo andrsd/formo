@@ -94,6 +94,19 @@ public:
     /// @return Rotate point
     Point rotated(const Axis1 & ax1, double angle) const;
 
+    /// Scales a point
+    ///
+    /// @param pt Point that the scaling is relative to
+    /// @param s The scaling value.
+    void scale(const Point & pt, double s);
+
+    /// Scales a point
+    ///
+    /// @param pt Point that the scaling is relative to
+    /// @param s The scaling value.
+    /// @return Scaled point
+    Point scaled(const Point & pt, double s) const;
+
     /// Translates a point in the direction of the vector `vec`. The magnitude of the translation is
     /// the vector's magnitude.
     ///

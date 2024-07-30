@@ -109,6 +109,18 @@ Point::rotated(const Axis1 & ax1, double angle) const
 }
 
 void
+Point::scale(const Point & pt, double s)
+{
+    this->pnt.Scale(pt, s);
+}
+
+Point
+Point::scaled(const Point & pt, double s) const
+{
+    return Point(this->pnt.Scaled(pt, s));
+}
+
+void
 Point::translate(const Vector & vec)
 {
     this->pnt.Translate(vec);
