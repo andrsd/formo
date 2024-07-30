@@ -223,6 +223,8 @@ PYBIND11_MODULE(formo, m)
             py::arg("point"), py::arg("n"), py::arg("v_x"))
         .def("location", &Axis2::location)
         .def("direction", &Axis2::direction)
+        .def("x_direction", &Axis2::x_direction)
+        .def("y_direction", &Axis2::y_direction)
     ;
 
     //
