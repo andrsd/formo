@@ -68,6 +68,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point1xEv"><code class="docutils literal notranslate"><span class="pre">Point::x()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point1yEv"><code class="docutils literal notranslate"><span class="pre">Point::y()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point1zEv"><code class="docutils literal notranslate"><span class="pre">Point::z()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point6rotateERK5Axis1d"><code class="docutils literal notranslate"><span class="pre">Point::rotate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point7rotatedERK5Axis1d"><code class="docutils literal notranslate"><span class="pre">Point::rotated()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4LineE"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a></li>
@@ -187,6 +189,37 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point1zEv">
 <span id="_CPPv3NK5formo5Point1zEv"></span><span id="_CPPv2NK5formo5Point1zEv"></span><span id="formo::Point::zC"></span><span class="target" id="classformo_1_1_point_1a527ff28ec25db3d75f9817d601d1e17b"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point1zEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Z-coordinate of this point. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Point6rotateERK5Axis1d">
+<span id="_CPPv3N5formo5Point6rotateERK5Axis1d"></span><span id="_CPPv2N5formo5Point6rotateERK5Axis1d"></span><span id="formo::Point::rotate__Axis1CR.double"></span><span class="target" id="classformo_1_1_point_1acaf3cf0bc575dfbd1b9538a6e49f0f4f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax1</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Point6rotateERK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Rotate the point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax1</strong> – The axis of the rotation. </p></li>
+<li><p><strong>angle</strong> – The angular value of the rotation in radians. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point7rotatedERK5Axis1d">
+<span id="_CPPv3NK5formo5Point7rotatedERK5Axis1d"></span><span id="_CPPv2NK5formo5Point7rotatedERK5Axis1d"></span><span id="formo::Point::rotated__Axis1CR.doubleC"></span><span class="target" id="classformo_1_1_point_1a5e6cce4c6b80424c3fce0f150a2972c9"></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotated</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax1</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point7rotatedERK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Rotate the point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax1</strong> – The axis of the rotation. </p></li>
+<li><p><strong>angle</strong> – The angular value of the rotation in radians. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rotate point </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
