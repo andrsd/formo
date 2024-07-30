@@ -37,6 +37,10 @@ public:
 
     bool is_equal(const Point & other, double tol = 1e-15) const;
 
+    /// Computes the distance between two points.
+    ///
+    /// @param pt Point to measure distance to
+    /// @return Distance between this point and `pt`
     double distance(const Point & pt) const;
 
     /// Rotate the point
