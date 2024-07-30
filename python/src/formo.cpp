@@ -156,9 +156,9 @@ PYBIND11_MODULE(formo, m)
     py::class_<Point>(m, "Point")
         .def(py::init<double, double, double>(),
             py::arg("x"), py::arg("y"), py::arg("z"))
-        .def("x", &Point::x)
-        .def("y", &Point::y)
-        .def("z", &Point::z)
+        .def_property_readonly("x", &Point::x)
+        .def_property_readonly("y", &Point::y)
+        .def_property_readonly("z", &Point::z)
         .def("is_equal", &Point::is_equal,
             py::arg("other"), py::arg("tol"))
         .def("distance", &Point::distance,
@@ -173,9 +173,9 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<double, double, double>(),
             py::arg("x"), py::arg("y"), py::arg("z"))
         .def(py::init<const Vector &>())
-        .def("x", &Direction::x)
-        .def("y", &Direction::y)
-        .def("z", &Direction::z)
+        .def_property_readonly("x", &Direction::x)
+        .def_property_readonly("y", &Direction::y)
+        .def_property_readonly("z", &Direction::z)
     ;
 
     py::class_<Vector>(m, "Vector")
@@ -185,10 +185,11 @@ PYBIND11_MODULE(formo, m)
             py::arg("direction"))
         .def(py::init<const Point &, const Point &>(),
             py::arg("pt1"), py::arg("pt2"))
-        .def("x", &Vector::x)
-        .def("y", &Vector::y)
-        .def("z", &Vector::z)
+        .def_property_readonly("x", &Vector::x)
+        .def_property_readonly("y", &Vector::y)
+        .def_property_readonly("z", &Vector::z)
         .def("magnitude", &Vector::magnitude)
+        .def("rotate", &Vector::rotate, py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
     ;
 
@@ -222,6 +223,8 @@ PYBIND11_MODULE(formo, m)
             py::arg("point"), py::arg("n"), py::arg("v_x"))
         .def("location", &Axis2::location)
         .def("direction", &Axis2::direction)
+        .def("x_direction", &Axis2::x_direction)
+        .def("y_direction", &Axis2::y_direction)
     ;
 
     //
