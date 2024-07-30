@@ -2,6 +2,7 @@
 #include "formo/point.h"
 #include "formo/vector.h"
 #include "formo/axis1.h"
+#include "formo/axis2.h"
 #include "formo/direction.h"
 
 using namespace formo;
@@ -79,4 +80,64 @@ TEST(PointTest, translated)
     EXPECT_NEAR(npt.x(), 2, 1e-15);
     EXPECT_NEAR(npt.y(), -1, 1e-15);
     EXPECT_NEAR(npt.z(), 4, 1e-15);
+}
+
+TEST(PointTest, mirror_pt)
+{
+    Point pt(1, 0, -2);
+    Point symm(0, 0, 0);
+    pt.mirror(symm);
+    EXPECT_NEAR(pt.x(), -1, 1e-15);
+    EXPECT_NEAR(pt.y(), 0, 1e-15);
+    EXPECT_NEAR(pt.z(), 2, 1e-15);
+}
+
+TEST(PointTest, mirror_ax1)
+{
+    Point pt(1, 0, -2);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 1, 0));
+    pt.mirror(ax1);
+    EXPECT_NEAR(pt.x(), -1, 1e-15);
+    EXPECT_NEAR(pt.y(), 0, 1e-15);
+    EXPECT_NEAR(pt.z(), 2, 1e-15);
+}
+
+TEST(PointTest, mirror_ax2)
+{
+    Point pt(1, 0, -2);
+    Axis2 ax2(Point(0, 0, 0), Direction(1, 0, 0));
+    pt.mirror(ax2);
+    EXPECT_NEAR(pt.x(), -1, 1e-15);
+    EXPECT_NEAR(pt.y(), 0, 1e-15);
+    EXPECT_NEAR(pt.z(), -2, 1e-15);
+}
+
+TEST(PointTest, mirrored_pt)
+{
+    Point pt(1, 0, -2);
+    Point symm(0, 0, 0);
+    auto npt = pt.mirrored(symm);
+    EXPECT_NEAR(npt.x(), -1, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), 2, 1e-15);
+}
+
+TEST(PointTest, mirrored_ax1)
+{
+    Point pt(1, 0, -2);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 1, 0));
+    auto npt = pt.mirrored(ax1);
+    EXPECT_NEAR(npt.x(), -1, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), 2, 1e-15);
+}
+
+TEST(PointTest, mirrored_ax2)
+{
+    Point pt(1, 0, -2);
+    Axis2 ax2(Point(0, 0, 0), Direction(1, 0, 0));
+    auto npt = pt.mirrored(ax2);
+    EXPECT_NEAR(npt.x(), -1, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), -2, 1e-15);
 }

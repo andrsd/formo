@@ -5,6 +5,7 @@
 #include "formo/exception.h"
 #include "formo/vector.h"
 #include "formo/axis1.h"
+#include "formo/axis2.h"
 #include "BRepBuilderAPI_MakeVertex.hxx"
 
 namespace formo {
@@ -57,6 +58,42 @@ double
 Point::distance(const Point & pt) const
 {
     return this->pnt.Distance(pt);
+}
+
+void
+Point::mirror(const Point & pt)
+{
+    this->pnt.Mirror(pt);
+}
+
+void
+Point::mirror(const Axis1 & ax1)
+{
+    this->pnt.Mirror(ax1);
+}
+
+void
+Point::mirror(const Axis2 & ax2)
+{
+    this->pnt.Mirror(ax2);
+}
+
+Point
+Point::mirrored(const Point & pt) const
+{
+    return Point(this->pnt.Mirrored(pt));
+}
+
+Point
+Point::mirrored(const Axis1 & ax1) const
+{
+    return Point(this->pnt.Mirrored(ax1));
+}
+
+Point
+Point::mirrored(const Axis2 & ax2) const
+{
+    return Point(this->pnt.Mirrored(ax2));
 }
 
 void
