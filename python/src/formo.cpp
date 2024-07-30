@@ -156,9 +156,9 @@ PYBIND11_MODULE(formo, m)
     py::class_<Point>(m, "Point")
         .def(py::init<double, double, double>(),
             py::arg("x"), py::arg("y"), py::arg("z"))
-        .def("x", &Point::x)
-        .def("y", &Point::y)
-        .def("z", &Point::z)
+        .def_property_readonly("x", &Point::x)
+        .def_property_readonly("y", &Point::y)
+        .def_property_readonly("z", &Point::z)
         .def("is_equal", &Point::is_equal,
             py::arg("other"), py::arg("tol"))
         .def("distance", &Point::distance,
