@@ -67,3 +67,21 @@ TEST(VectorTest, rotated)
     EXPECT_NEAR(r.y(), 1., 1e-15);
     EXPECT_NEAR(r.z(), 0., 1e-15);
 }
+
+TEST(VectorTest, scale)
+{
+    Vector vec(1, 2, 3);
+    vec.scale(2.5);
+    EXPECT_NEAR(vec.x(), 2.5, 1e-15);
+    EXPECT_NEAR(vec.y(), 5.0, 1e-15);
+    EXPECT_NEAR(vec.z(), 7.5, 1e-15);
+}
+
+TEST(VectorTest, scaled)
+{
+    Vector vec(1, 2, 3);
+    auto nvec = vec.scaled(2.5);
+    EXPECT_NEAR(nvec.x(), 2.5, 1e-15);
+    EXPECT_NEAR(nvec.y(), 5.0, 1e-15);
+    EXPECT_NEAR(nvec.z(), 7.5, 1e-15);
+}

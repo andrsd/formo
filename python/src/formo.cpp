@@ -190,6 +190,8 @@ PYBIND11_MODULE(formo, m)
         .def("z", &Vector::z)
         .def("magnitude", &Vector::magnitude)
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
+        .def("scale", &Vector::scale, py::arg("s"))
+        .def("scaled", &Vector::scaled, py::arg("s"))
     ;
 
     py::class_<Geometry>(m, "Geometry")

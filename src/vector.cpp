@@ -52,6 +52,18 @@ Vector::rotated(const Axis1 & ax1, const double angle) const
     return Vector(this->vec.Rotated(ax1, angle));
 }
 
+void
+Vector::scale(double s)
+{
+    this->vec.Scale(s);
+}
+
+Vector
+Vector::scaled(double s) const
+{
+    return Vector(this->vec.Scaled(s));
+}
+
 Vector::operator gp_Vec() const
 {
     return this->vec;

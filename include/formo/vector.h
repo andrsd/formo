@@ -53,6 +53,16 @@ public:
     /// @param angle The angular value of the rotation in radians.
     Vector rotated(const Axis1 & ax1, const double angle) const;
 
+    /// Scales a vector
+    ///
+    /// @param s The scaling value
+    void scale(double s);
+
+    /// Scales a vector
+    ///
+    /// @param s The scaling value
+    Vector scaled(double s) const;
+
     operator gp_Vec() const;
 
 private:
