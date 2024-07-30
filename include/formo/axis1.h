@@ -22,6 +22,8 @@ namespace formo {
 /// For example, this entity can be used to locate a geometric entity or to define a symmetry axis.
 class Axis1 {
 public:
+    Axis1(const gp_Ax1 & ax1);
+
     /// @param pt `Point` the location point
     /// @param direction `Direction` the direction of the axis
     Axis1(const Point & pt, const Direction & dir);
@@ -39,8 +41,6 @@ public:
     operator gp_Ax1() const;
 
 private:
-    Point loc;
-    Direction dir;
     gp_Ax1 ax1;
 };
 

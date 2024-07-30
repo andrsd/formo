@@ -5,18 +5,20 @@
 
 namespace formo {
 
-Axis1::Axis1(const Point & pt, const Direction & dir) : loc(pt), dir(dir), ax1(pt, dir) {}
+Axis1::Axis1(const gp_Ax1 & ax1) : ax1(ax1) {}
+
+Axis1::Axis1(const Point & pt, const Direction & dir) : ax1(pt, dir) {}
 
 Point
 Axis1::location() const
 {
-    return this->loc;
+    return Point(this->ax1.Location());
 }
 
 Direction
 Axis1::direction() const
 {
-    return this->dir;
+    return Direction(this->ax1.Direction());
 }
 
 Axis1::operator gp_Ax1() const
