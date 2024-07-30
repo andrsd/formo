@@ -113,11 +113,25 @@ public:
     /// @param vec The vector of translation
     void translate(const Vector & vec);
 
+    /// Translates a point from point `p1` to point `p2`
+    ///
+    /// @param p1 First point
+    /// @param p2 Second point
+    void translate(const Point & p1, const Point & p2);
+
     /// Translates a point in the direction of the vector `vec`. The magnitude of the translation is
     /// the vector's magnitude.
     ///
     /// @param vec The vector of translation
+    /// @return Translated point
     Point translated(const Vector & vec) const;
+
+    /// Translates a point from point `p1` to point `p2`
+    ///
+    /// @param p1 First point
+    /// @param p2 Second point
+    /// @return Translated point
+    Point translated(const Point & p1, const Point & p2) const;
 
 private:
     gp_Pnt pnt;
