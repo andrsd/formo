@@ -7,7 +7,10 @@
 
 namespace formo {
 
-CircularPattern::CircularPattern(const Axis2 & center, double radius, int divisions) :
+CircularPattern::CircularPattern(const Axis2 & center,
+                                 double radius,
+                                 int divisions,
+                                 double start_angle) :
     Pattern(),
     center(center),
     radius(radius),
@@ -16,6 +19,7 @@ CircularPattern::CircularPattern(const Axis2 & center, double radius, int divisi
     std::vector<Point> points;
     auto ctr = center.location();
     auto x_vec = radius * Vector(center.x_direction());
+    x_vec.rotate(center.axis(), start_angle);
     Axis1 ctr_ax1(ctr, center.direction());
     double dangle = 2. * M_PI / divs;
     for (int i = 0; i < divs; i++) {
