@@ -80,7 +80,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point5scaleERK5Pointd"><code class="docutils literal notranslate"><span class="pre">Point::scale()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point6scaledERK5Pointd"><code class="docutils literal notranslate"><span class="pre">Point::scaled()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point9translateERK6Vector"><code class="docutils literal notranslate"><span class="pre">Point::translate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point9translateERK5PointRK5Point"><code class="docutils literal notranslate"><span class="pre">Point::translate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point10translatedERK6Vector"><code class="docutils literal notranslate"><span class="pre">Point::translated()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point10translatedERK5PointRK5Point"><code class="docutils literal notranslate"><span class="pre">Point::translated()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4LineE"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a></li>
@@ -366,6 +368,20 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Point9translateERK5PointRK5Point">
+<span id="_CPPv3N5formo5Point9translateERK5PointRK5Point"></span><span id="_CPPv2N5formo5Point9translateERK5PointRK5Point"></span><span id="formo::Point::translate__PointCR.PointCR"></span><span class="target" id="classformo_1_1_point_1aef068341ccc3c6831b95bcf8da84643e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">p1</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">p2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Point9translateERK5PointRK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Translates a point from point <code class="docutils literal notranslate"><span class="pre">p1</span></code> to point <code class="docutils literal notranslate"><span class="pre">p2</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p1</strong> – First point </p></li>
+<li><p><strong>p2</strong> – Second point </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point10translatedERK6Vector">
 <span id="_CPPv3NK5formo5Point10translatedERK6Vector"></span><span id="_CPPv2NK5formo5Point10translatedERK6Vector"></span><span id="formo::Point::translated__VectorCRC"></span><span class="target" id="classformo_1_1_point_1a4f6af605941db0d10e4351a71228f578"></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translated</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point10translatedERK6Vector" title="Link to this definition"></a><br /></dt>
 <dd><p>Translates a point in the direction of the vector <code class="docutils literal notranslate"><span class="pre">vec</span></code>. </p>
@@ -373,6 +389,26 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>vec</strong> – The vector of translation </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Translated point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point10translatedERK5PointRK5Point">
+<span id="_CPPv3NK5formo5Point10translatedERK5PointRK5Point"></span><span id="_CPPv2NK5formo5Point10translatedERK5PointRK5Point"></span><span id="formo::Point::translated__PointCR.PointCRC"></span><span class="target" id="classformo_1_1_point_1aaa8fc86d48e7ba012f9868a21c6d2373"></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translated</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">p1</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">p2</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point10translatedERK5PointRK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Translates a point from point <code class="docutils literal notranslate"><span class="pre">p1</span></code> to point <code class="docutils literal notranslate"><span class="pre">p2</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p1</strong> – First point </p></li>
+<li><p><strong>p2</strong> – Second point </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Translated point </p>
 </dd>
 </dl>
 </dd></dl>
