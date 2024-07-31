@@ -163,6 +163,18 @@ PYBIND11_MODULE(formo, m)
             py::arg("other"), py::arg("tol"))
         .def("distance", &Point::distance,
             py::arg("pt"))
+        .def("mirror", static_cast<void (Point::*)(const Point &)>(&Point::mirror),
+            py::arg("pt"))
+        .def("mirror", static_cast<void (Point::*)(const Axis1 &)>(&Point::mirror),
+            py::arg("ax1"))
+        .def("mirror", static_cast<void (Point::*)(const Axis2 &)>(&Point::mirror),
+            py::arg("ax2"))
+        .def("mirrored", static_cast<Point (Point::*)(const Point &) const>(&Point::mirrored),
+            py::arg("pt"))
+        .def("mirrored", static_cast<Point (Point::*)(const Axis1 &) const>(&Point::mirrored),
+            py::arg("ax1"))
+        .def("mirrored", static_cast<Point (Point::*)(const Axis2 &) const>(&Point::mirrored),
+            py::arg("ax2"))
         .def("rotate", &Point::rotate,
             py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Point::rotated,

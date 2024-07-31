@@ -11,6 +11,7 @@ namespace formo {
 
 class Vector;
 class Axis1;
+class Axis2;
 
 /// Defines a 3D cartesian point
 class Point : public Shape {
@@ -37,7 +38,48 @@ public:
 
     bool is_equal(const Point & other, double tol = 1e-15) const;
 
+    /// Computes the distance between two points.
+    ///
+    /// @param pt Point to measure distance to
+    /// @return Distance between this point and `pt`
     double distance(const Point & pt) const;
+
+    /// Performs the symmetrical transformation of a point with respect to the point `pt` which is
+    /// the center of the symmetry.
+    ///
+    /// @param pt Point of symmetry
+    void mirror(const Point & pt);
+
+    /// Performs the symmetrical transformation of a point with respect to an axis placement which
+    /// is the axis of the symmetry
+    ///
+    /// @param ax1 Axis placement
+    void mirror(const Axis1 & ax1);
+
+    /// Performs the symmetrical transformation of a point with respect to a plane.
+    ///
+    /// @param ax2 The axis placement ax2 locates the plane of the symmetry
+    void mirror(const Axis2 & ax2);
+
+    /// Performs the symmetrical transformation of a point with respect to the point `pt` which is
+    /// the center of the symmetry.
+    ///
+    /// @param pt Point of symmetry
+    /// @return Mirrored point
+    Point mirrored(const Point & pt) const;
+
+    /// Performs the symmetrical transformation of a point with respect to the point `pt` which is
+    /// the center of the symmetry.
+    ///
+    /// @param ax1 Axis placement
+    /// @return Mirrored point
+    Point mirrored(const Axis1 & ax1) const;
+
+    /// Performs the symmetrical transformation of a point with respect to a plane.
+    ///
+    /// @param ax2 The axis placement ax2 locates the plane of the symmetry
+    /// @return Mirrored point
+    Point mirrored(const Axis2 & ax2) const;
 
     /// Rotate the point
     ///
