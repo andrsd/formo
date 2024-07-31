@@ -91,10 +91,28 @@ TEST(PointTest, translate)
     EXPECT_NEAR(pt.z(), 4, 1e-15);
 }
 
+TEST(PointTest, translate_2pts)
+{
+    Point pt(1, 0, 2);
+    pt.translate(Point(0, 0, 0), Point(1, -1, 2));
+    EXPECT_NEAR(pt.x(), 2, 1e-15);
+    EXPECT_NEAR(pt.y(), -1, 1e-15);
+    EXPECT_NEAR(pt.z(), 4, 1e-15);
+}
+
 TEST(PointTest, translated)
 {
     Point pt(1, 0, 2);
     auto npt = pt.translated(Vector(1, -1, 2));
+    EXPECT_NEAR(npt.x(), 2, 1e-15);
+    EXPECT_NEAR(npt.y(), -1, 1e-15);
+    EXPECT_NEAR(npt.z(), 4, 1e-15);
+}
+
+TEST(PointTest, translated_2pts)
+{
+    Point pt(1, 0, 2);
+    auto npt = pt.translated(Point(0, 0, 0), Point(1, -1, 2));
     EXPECT_NEAR(npt.x(), 2, 1e-15);
     EXPECT_NEAR(npt.y(), -1, 1e-15);
     EXPECT_NEAR(npt.z(), 4, 1e-15);

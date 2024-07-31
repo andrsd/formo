@@ -126,10 +126,22 @@ Point::translate(const Vector & vec)
     this->pnt.Translate(vec);
 }
 
+void
+Point::translate(const Point & p1, const Point & p2)
+{
+    this->pnt.Translate(p1, p2);
+}
+
 Point
 Point::translated(const Vector & vec) const
 {
     return Point(this->pnt.Translated(vec));
+}
+
+Point
+Point::translated(const Point & p1, const Point & p2) const
+{
+    return Point(this->pnt.Translated(p1, p2));
 }
 
 Point::operator gp_Pnt() const
