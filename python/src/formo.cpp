@@ -421,8 +421,8 @@ PYBIND11_MODULE(formo, m)
     ;
 
     py::class_<CircularPattern, Pattern>(m, "CircularPattern")
-        .def(py::init<const Axis2 &, double, int>(),
-            py::arg("center"), py::arg("radius"), py::arg("divisions"))
+        .def(py::init<const Axis2 &, double, int, double>(),
+            py::arg("center"), py::arg("radius"), py::arg("divisions"), py::arg("start_angle") = 0.)
     ;
 
     py::class_<HexagonalPattern, Pattern>(m, "HexagonalPattern")
