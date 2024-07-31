@@ -68,6 +68,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point1xEv"><code class="docutils literal notranslate"><span class="pre">Point::x()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point1yEv"><code class="docutils literal notranslate"><span class="pre">Point::y()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point1zEv"><code class="docutils literal notranslate"><span class="pre">Point::z()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point8distanceERK5Point"><code class="docutils literal notranslate"><span class="pre">Point::distance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point6mirrorERK5Point"><code class="docutils literal notranslate"><span class="pre">Point::mirror()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point6mirrorERK5Axis1"><code class="docutils literal notranslate"><span class="pre">Point::mirror()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point6mirrorERK5Axis2"><code class="docutils literal notranslate"><span class="pre">Point::mirror()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point8mirroredERK5Point"><code class="docutils literal notranslate"><span class="pre">Point::mirrored()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point8mirroredERK5Axis1"><code class="docutils literal notranslate"><span class="pre">Point::mirrored()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point8mirroredERK5Axis2"><code class="docutils literal notranslate"><span class="pre">Point::mirrored()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point6rotateERK5Axis1d"><code class="docutils literal notranslate"><span class="pre">Point::rotate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Point7rotatedERK5Axis1d"><code class="docutils literal notranslate"><span class="pre">Point::rotated()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Point9translateERK6Vector"><code class="docutils literal notranslate"><span class="pre">Point::translate()</span></code></a></li>
@@ -191,6 +198,95 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point1zEv">
 <span id="_CPPv3NK5formo5Point1zEv"></span><span id="_CPPv2NK5formo5Point1zEv"></span><span id="formo::Point::zC"></span><span class="target" id="classformo_1_1_point_1a527ff28ec25db3d75f9817d601d1e17b"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point1zEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Z-coordinate of this point. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point8distanceERK5Point">
+<span id="_CPPv3NK5formo5Point8distanceERK5Point"></span><span id="_CPPv2NK5formo5Point8distanceERK5Point"></span><span id="formo::Point::distance__PointCRC"></span><span class="target" id="classformo_1_1_point_1aa37af98969f4e702773210590775a95c"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">distance</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point8distanceERK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the distance between two points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pt</strong> – <a class="reference internal" href="#classformo_1_1_point"><span class="std std-ref">Point</span></a> to measure distance to </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distance between this point and <code class="docutils literal notranslate"><span class="pre">pt</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Point6mirrorERK5Point">
+<span id="_CPPv3N5formo5Point6mirrorERK5Point"></span><span id="_CPPv2N5formo5Point6mirrorERK5Point"></span><span id="formo::Point::mirror__PointCR"></span><span class="target" id="classformo_1_1_point_1aec06eb74fa251341e7665d21eca74689"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Point6mirrorERK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a point with respect to the point <code class="docutils literal notranslate"><span class="pre">pt</span></code> which is the center of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pt</strong> – <a class="reference internal" href="#classformo_1_1_point"><span class="std std-ref">Point</span></a> of symmetry </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Point6mirrorERK5Axis1">
+<span id="_CPPv3N5formo5Point6mirrorERK5Axis1"></span><span id="_CPPv2N5formo5Point6mirrorERK5Axis1"></span><span id="formo::Point::mirror__Axis1CR"></span><span class="target" id="classformo_1_1_point_1a2a103666ef30563003697cbb23efd45d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax1</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Point6mirrorERK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a point with respect to an axis placement which is the axis of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax1</strong> – Axis placement </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Point6mirrorERK5Axis2">
+<span id="_CPPv3N5formo5Point6mirrorERK5Axis2"></span><span id="_CPPv2N5formo5Point6mirrorERK5Axis2"></span><span id="formo::Point::mirror__Axis2CR"></span><span class="target" id="classformo_1_1_point_1ac21071e0cb423aa74e0aaa9756cc4b1f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Point6mirrorERK5Axis2" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a point with respect to a plane. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax2</strong> – The axis placement ax2 locates the plane of the symmetry </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point8mirroredERK5Point">
+<span id="_CPPv3NK5formo5Point8mirroredERK5Point"></span><span id="_CPPv2NK5formo5Point8mirroredERK5Point"></span><span id="formo::Point::mirrored__PointCRC"></span><span class="target" id="classformo_1_1_point_1a0d928a0502aa34582bdeddb234efe16a"></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirrored</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pt</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point8mirroredERK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a point with respect to the point <code class="docutils literal notranslate"><span class="pre">pt</span></code> which is the center of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pt</strong> – <a class="reference internal" href="#classformo_1_1_point"><span class="std std-ref">Point</span></a> of symmetry </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mirrored point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point8mirroredERK5Axis1">
+<span id="_CPPv3NK5formo5Point8mirroredERK5Axis1"></span><span id="_CPPv2NK5formo5Point8mirroredERK5Axis1"></span><span id="formo::Point::mirrored__Axis1CRC"></span><span class="target" id="classformo_1_1_point_1ab37e8f302da946911aa62915b86d7e04"></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirrored</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax1</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point8mirroredERK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a point with respect to the point <code class="docutils literal notranslate"><span class="pre">pt</span></code> which is the center of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax1</strong> – Axis placement </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mirrored point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Point8mirroredERK5Axis2">
+<span id="_CPPv3NK5formo5Point8mirroredERK5Axis2"></span><span id="_CPPv2NK5formo5Point8mirroredERK5Axis2"></span><span id="formo::Point::mirrored__Axis2CRC"></span><span class="target" id="classformo_1_1_point_1ad8720178d4df1fd27e02eeef18145fde"></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirrored</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax2</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Point8mirroredERK5Axis2" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a point with respect to a plane. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax2</strong> – The axis placement ax2 locates the plane of the symmetry </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mirrored point </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="cpp function">
