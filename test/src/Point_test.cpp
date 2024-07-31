@@ -64,6 +64,24 @@ TEST(PointTest, rotated)
     EXPECT_NEAR(npt.z(), 2, 1e-15);
 }
 
+TEST(PointTest, scale)
+{
+    Point pt(1, 0, 2);
+    pt.scale(Point(0, 0, 0), 2);
+    EXPECT_NEAR(pt.x(), 2, 1e-15);
+    EXPECT_NEAR(pt.y(), 0, 1e-15);
+    EXPECT_NEAR(pt.z(), 4, 1e-15);
+}
+
+TEST(PointTest, scaled)
+{
+    Point pt(1, 0, 2);
+    auto npt = pt.scaled(Point(0, 0, 0), 2);
+    EXPECT_NEAR(npt.x(), 2, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), 4, 1e-15);
+}
+
 TEST(PointTest, translate)
 {
     Point pt(1, 0, 2);
