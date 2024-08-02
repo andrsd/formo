@@ -165,4 +165,11 @@ Vector operator*(double alpha, const Vector & vec);
 /// @return Dot product
 double dot_product(const Vector & v1, const Vector & v2);
 
+/// Computes the cross product between `v1` and `v2`
+///
+/// @param v1 First vector
+/// @param v2 Second vector
+/// @return Cross product
+Vector cross_product(const Vector & v1, const Vector & v2);
+
 } // namespace formo

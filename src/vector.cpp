@@ -161,4 +161,11 @@ dot_product(const Vector & v1, const Vector & v2)
     return v.Dot(v2);
 }
 
+Vector
+cross_product(const Vector & v1, const Vector & v2)
+{
+    gp_Vec v(v1);
+    return Vector(v.Crossed(v2));
+}
+
 } // namespace formo

@@ -206,3 +206,11 @@ TEST(VectorTest, dot_product)
     auto dot = dot_product(Vector(1, 2, 3), Vector(-2, 3, 5));
     EXPECT_NEAR(dot, 19, 1e-15);
 }
+
+TEST(VectorTest, cross_product)
+{
+    auto cp = cross_product(Vector(1, 0, 0), Vector(0, 1, 0));
+    EXPECT_NEAR(cp.x(), 0., 1e-15);
+    EXPECT_NEAR(cp.y(), 0., 1e-15);
+    EXPECT_NEAR(cp.z(), 1., 1e-15);
+}
