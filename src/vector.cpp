@@ -99,4 +99,22 @@ operator*(double alpha, const Vector & vec)
     return Vector(alpha * vec.x(), alpha * vec.y(), alpha * vec.z());
 }
 
+Vector
+Vector::operator+(const Vector & other) const
+{
+    return Vector(x() + other.x(), y() + other.y(), z() + other.z());
+}
+
+Vector
+Vector::operator-(const Vector & other) const
+{
+    return Vector(x() - other.x(), y() - other.y(), z() - other.z());
+}
+
+Vector
+Vector::operator*(double scalar) const
+{
+    return Vector(scalar * x(), scalar * y(), scalar * z());
+}
+
 } // namespace formo

@@ -232,6 +232,10 @@ PYBIND11_MODULE(formo, m)
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
         .def("scale", &Vector::scale, py::arg("s"))
         .def("scaled", &Vector::scaled, py::arg("s"))
+        .def(py::self + py::self)
+        .def(py::self - py::self)
+        .def(float() * py::self)
+        .def(py::self * float())
     ;
 
     py::class_<Geometry>(m, "Geometry")

@@ -113,3 +113,29 @@ TEST(VectorTest, scaled)
     EXPECT_NEAR(nvec.y(), 5.0, 1e-15);
     EXPECT_NEAR(nvec.z(), 7.5, 1e-15);
 }
+
+TEST(VectorTest, op_add)
+{
+    Vector vec(1, 2, 3);
+    auto res = vec + Vector(2, -3, 1);
+    EXPECT_NEAR(res.x(), 3, 1e-15);
+    EXPECT_NEAR(res.y(), -1, 1e-15);
+    EXPECT_NEAR(res.z(), 4, 1e-15);
+}
+
+TEST(VectorTest, op_sub)
+{
+    Vector vec(1, 2, 3);
+    auto res = vec - Vector(2, -3, 1);
+    EXPECT_NEAR(res.x(), -1, 1e-15);
+    EXPECT_NEAR(res.y(), 5, 1e-15);
+    EXPECT_NEAR(res.z(), 2, 1e-15);
+}
+
+TEST(VectorTest, op_mult_scalar_post)
+{
+    auto res = Vector(1, 2, 3) * 1.5;
+    EXPECT_NEAR(res.x(), 1.5, 1e-15);
+    EXPECT_NEAR(res.y(), 3., 1e-15);
+    EXPECT_NEAR(res.z(), 4.5, 1e-15);
+}

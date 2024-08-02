@@ -92,6 +92,24 @@ public:
 
     operator gp_Vec() const;
 
+    /// Add 2 vectors
+    ///
+    /// @param other Other vector to add
+    /// @return Resulting vector
+    Vector operator+(const Vector & other) const;
+
+    /// Subtract 2 vectors
+    ///
+    /// @param other Other vector to subtract
+    /// @return Resulting vector
+    Vector operator-(const Vector & other) const;
+
+    /// Multiplies a vector by a scalar
+    ///
+    /// @param scalar Scalr to multiply the vector with
+    /// @return Resulting vector
+    Vector operator*(double scalar) const;
+
 private:
     gp_Vec vec;
 };
