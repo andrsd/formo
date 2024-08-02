@@ -104,6 +104,12 @@ public:
     /// @return Resulting vector
     Vector operator-(const Vector & other) const;
 
+    /// Multiplies a vector by a scalar
+    ///
+    /// @param scalar Scalr to multiply the vector with
+    /// @return Resulting vector
+    Vector operator*(double scalar) const;
+
 private:
     gp_Vec vec;
 };

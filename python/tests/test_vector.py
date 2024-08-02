@@ -77,3 +77,17 @@ def test_op_sub():
     assert(math.isclose(vec.x, -1., abs_tol=1e-15))
     assert(math.isclose(vec.y, 5., abs_tol=1e-15))
     assert(math.isclose(vec.z, 2., abs_tol=1e-15))
+
+
+def test_op_mult_scalar():
+    vec = 1.5 * formo.Vector(1, 2, 3)
+    assert(math.isclose(vec.x, 1.5, abs_tol=1e-15))
+    assert(math.isclose(vec.y, 3., abs_tol=1e-15))
+    assert(math.isclose(vec.z, 4.5, abs_tol=1e-15))
+
+
+def test_op_mult_scalar_post():
+    vec = formo.Vector(1, 2, 3) * 1.5
+    assert(math.isclose(vec.x, 1.5, abs_tol=1e-15))
+    assert(math.isclose(vec.y, 3., abs_tol=1e-15))
+    assert(math.isclose(vec.z, 4.5, abs_tol=1e-15))
