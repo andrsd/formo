@@ -200,3 +200,9 @@ TEST(VectorTest, op_mult_scalar_post)
     EXPECT_NEAR(res.y(), 3., 1e-15);
     EXPECT_NEAR(res.z(), 4.5, 1e-15);
 }
+
+TEST(VectorTest, dot_product)
+{
+    auto dot = dot_product(Vector(1, 2, 3), Vector(-2, 3, 5));
+    EXPECT_NEAR(dot, 19, 1e-15);
+}
