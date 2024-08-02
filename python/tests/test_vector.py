@@ -150,3 +150,10 @@ def test_op_mult_scalar_post():
 def test_dot_product():
     dot = formo.dot_product(formo.Vector(1, 2, 3), formo.Vector(-2, 3, 5))
     assert(math.isclose(dot, 19, abs_tol=1e-15))
+
+
+def test_cross_product():
+    cp = formo.cross_product(formo.Vector(1, 0, 0), formo.Vector(0, 1, 0))
+    assert(math.isclose(cp.x, 0., abs_tol=1e-15))
+    assert(math.isclose(cp.y, 0., abs_tol=1e-15))
+    assert(math.isclose(cp.z, 1., abs_tol=1e-15))

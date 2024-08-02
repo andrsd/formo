@@ -522,6 +522,8 @@ PYBIND11_MODULE(formo, m)
 
     m.def("dot_product", dot_product,
         py::arg("v1"), py::arg("v2"));
+    m.def("cross_product", cross_product,
+        py::arg("v1"), py::arg("v2"));
 
     // clang-format on
 }
