@@ -157,3 +157,12 @@ def test_cross_product():
     assert(math.isclose(cp.x, 0., abs_tol=1e-15))
     assert(math.isclose(cp.y, 0., abs_tol=1e-15))
     assert(math.isclose(cp.z, 1., abs_tol=1e-15))
+
+
+def test_normalize():
+    vec = formo.Vector(1, 2, 3)
+    vec.normalize();
+    assert(math.isclose(vec.magnitude(), 1., abs_tol=1e-15))
+    assert(math.isclose(vec.x, 1. / math.sqrt(14), abs_tol=1e-15))
+    assert(math.isclose(vec.y, 2. / math.sqrt(14), abs_tol=1e-15))
+    assert(math.isclose(vec.z, 3. / math.sqrt(14), abs_tol=1e-15))

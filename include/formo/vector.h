@@ -148,6 +148,9 @@ public:
     /// @return Resulting vector
     Vector operator*(double scalar) const;
 
+    /// Normalizes a vector
+    void normalize();
+
 private:
     gp_Vec vec;
 };

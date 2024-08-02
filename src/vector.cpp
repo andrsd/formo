@@ -125,6 +125,12 @@ Vector::scaled(double s) const
     return Vector(this->vec.Scaled(s));
 }
 
+void
+Vector::normalize()
+{
+    this->vec.Normalize();
+}
+
 Vector::operator gp_Vec() const
 {
     return this->vec;
