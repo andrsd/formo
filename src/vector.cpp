@@ -46,6 +46,12 @@ Vector::is_normal(const Vector & other, double ang_tol) const
     return this->vec.IsNormal(other, ang_tol);
 }
 
+bool
+Vector::is_opposite(const Vector & other, double ang_tol) const
+{
+    return this->vec.IsOpposite(other, ang_tol);
+}
+
 double
 Vector::magnitude() const
 {

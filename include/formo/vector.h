@@ -50,6 +50,12 @@ public:
     /// @return `true` if abs(<me>.angle(other) - PI/2.) <= ang_tol
     bool is_normal(const Vector & other, double ang_tol) const;
 
+    /// Check if another vector is opposite to this vector
+    ///
+    /// @param other Other vector
+    /// @param Angular tolerance
+    bool is_opposite(const Vector & other, double ang_tol) const;
+
     /// Computes the magnitude of this vector
     ///
     /// @return Magnitude of the vector
