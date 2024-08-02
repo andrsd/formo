@@ -68,8 +68,8 @@ public:
     /// @return Mirrored point
     Point mirrored(const Point & pt) const;
 
-    /// Performs the symmetrical transformation of a point with respect to the point `pt` which is
-    /// the center of the symmetry.
+    /// Performs the symmetrical transformation of a point with respect to an axis placement which
+    /// is the axis of the symmetry
     ///
     /// @param ax1 Axis placement
     /// @return Mirrored point
