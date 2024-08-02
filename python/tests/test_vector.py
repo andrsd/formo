@@ -31,6 +31,33 @@ def test_magnitude():
     assert(math.isclose(a.magnitude(), 5., abs_tol=1e-14))
 
 
+def test_mirror_pt():
+    vec = formo.Vector(1, 0, -2)
+    symm = formo.Vector(0, 0, 1)
+    vec.mirror(symm)
+    assert(math.isclose(vec.x, -1, abs_tol=1e-15))
+    assert(math.isclose(vec.y, 0, abs_tol=1e-15))
+    assert(math.isclose(vec.z, -2, abs_tol=1e-15))
+
+
+def test_mirror_ax1():
+    vec = formo.Vector(1, 0, -2)
+    ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 1, 0))
+    vec.mirror(ax1)
+    assert(math.isclose(vec.x, -1, abs_tol=1e-15))
+    assert(math.isclose(vec.y, 0, abs_tol=1e-15))
+    assert(math.isclose(vec.z, 2, abs_tol=1e-15))
+
+
+def test_mirror_ax2():
+    vec = formo.Vector(1, 0, -2)
+    ax2 = formo.Axis2(formo.Point(0, 0, 0), formo.Direction(1, 0, 0))
+    vec.mirror(ax2)
+    assert(math.isclose(vec.x, -1, abs_tol=1e-15))
+    assert(math.isclose(vec.y, 0, abs_tol=1e-15))
+    assert(math.isclose(vec.z, -2, abs_tol=1e-15))
+
+
 def test_rotate():
     vec = formo.Vector(1, 0, 0)
     ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 0, 1))

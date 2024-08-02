@@ -10,6 +10,7 @@ namespace formo {
 class Direction;
 class Point;
 class Axis1;
+class Axis2;
 
 /// Non-persistent vector in 3D space
 class Vector {
@@ -67,6 +68,23 @@ public:
     ///
     /// @return Magnitude of the vector
     double magnitude() const;
+
+    /// Performs the symmetrical transformation of a vector with respect to the vector `vec` which
+    /// is the center of the symmetry.
+    ///
+    /// @param v Center of symmetry
+    void mirror(const Vector & v);
+
+    /// Performs the symmetrical transformation of a vector with respect to an axis placement which
+    /// is the axis of the symmetry
+    ///
+    /// @param ax1 Axis placement
+    void mirror(const Axis1 & ax1);
+
+    /// Performs the symmetrical transformation of a vector with respect to a plane.
+    ///
+    /// @param ax2 The axis placement `ax2` locates the plane of the symmetry
+    void mirror(const Axis2 & ax2);
 
     /// Rotate the vector
     ///

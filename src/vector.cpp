@@ -5,6 +5,7 @@
 #include "formo/direction.h"
 #include "formo/point.h"
 #include "formo/axis1.h"
+#include "formo/axis2.h"
 
 namespace formo {
 
@@ -62,6 +63,24 @@ double
 Vector::magnitude() const
 {
     return this->vec.Magnitude();
+}
+
+void
+Vector::mirror(const Vector & v)
+{
+    this->vec.Mirror(v);
+}
+
+void
+Vector::mirror(const Axis1 & ax1)
+{
+    this->vec.Mirror(ax1);
+}
+
+void
+Vector::mirror(const Axis2 & ax2)
+{
+    this->vec.Mirror(ax2);
 }
 
 void
