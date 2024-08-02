@@ -221,6 +221,8 @@ PYBIND11_MODULE(formo, m)
         .def_property_readonly("z", &Vector::z)
         .def("is_equal", &Vector::is_equal,
             py::arg("other"), py::arg("lin_tol"), py::arg("ang_tol"))
+        .def("is_normal", &Vector::is_normal,
+            py::arg("other"), py::arg("ang_tol"))
         .def("magnitude", &Vector::magnitude)
         .def("rotate", &Vector::rotate, py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))

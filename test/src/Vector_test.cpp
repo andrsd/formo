@@ -40,6 +40,13 @@ TEST(VectorTest, is_equal)
     EXPECT_FALSE(vec.is_equal(Vector(-1, -2, -3), 1e-14, 1e-14));
 }
 
+TEST(VectorTest, is_normal)
+{
+    Vector vec(1, 0, 0);
+    EXPECT_TRUE(vec.is_normal(Vector(0, 1, 0), 1e-14));
+    EXPECT_FALSE(vec.is_normal(Vector(-1, -2, -3), 1e-14));
+}
+
 TEST(VectorTest, op_mult_scalar)
 {
     Vector a(1, 2, 3);

@@ -43,6 +43,13 @@ public:
     /// @param ang_tol Precision value for the direction
     bool is_equal(const Vector & other, double lin_tol, double ang_tol) const;
 
+    /// Check if another vector is normal to this vector
+    ///
+    /// @param other Other vector
+    /// @param ang_tol Angular tolerance
+    /// @return `true` if abs(<me>.angle(other) - PI/2.) <= ang_tol
+    bool is_normal(const Vector & other, double ang_tol) const;
+
     /// Computes the magnitude of this vector
     ///
     /// @return Magnitude of the vector

@@ -8,6 +8,12 @@ def test_is_equal():
     assert(not a.is_equal(formo.Vector(-1, -2, 3), 1e-14, 1e-14))
 
 
+def test_is_normal():
+    vec = formo.Vector(1, 0, 0);
+    assert(vec.is_normal(formo.Vector(0, 1, 0), 1e-14))
+    assert(not vec.is_normal(formo.Vector(-1, -2, -3), 1e-14))
+
+
 def test_magnitude():
     a = formo.Vector(3, 0, 4);
     assert(math.isclose(a.magnitude(), 5., abs_tol=1e-14))
