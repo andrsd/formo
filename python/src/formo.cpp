@@ -179,6 +179,10 @@ PYBIND11_MODULE(formo, m)
             py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Point::rotated,
             py::arg("ax1"), py::arg("angle"))
+        .def("scale", &Point::scale,
+            py::arg("pt"), py::arg("s"))
+        .def("scaled", &Point::scaled,
+            py::arg("pt"), py::arg("s"))
         .def("translate", static_cast<void (Point::*)(const Vector &)>(&Point::translate),
             py::arg("vec"))
         .def("translate", static_cast<void (Point::*)(const Point &, const Point &)>(&Point::translate),
