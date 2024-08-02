@@ -56,6 +56,13 @@ public:
     /// @param Angular tolerance
     bool is_opposite(const Vector & other, double ang_tol) const;
 
+    /// Check if another vector is parallel to this vector
+    ///
+    /// @param other Other vector
+    /// @param Angular tolerance
+    /// @return `true` if the vectors are parallel, `false` otherwise
+    bool is_parallel(const Vector & other, double ang_tol) const;
+
     /// Computes the magnitude of this vector
     ///
     /// @return Magnitude of the vector

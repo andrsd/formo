@@ -54,6 +54,13 @@ TEST(VectorTest, is_opposite)
     EXPECT_FALSE(vec.is_opposite(Vector(0, 2, -3), 1e-14));
 }
 
+TEST(VectorTest, is_parallel)
+{
+    Vector vec(1, 2, 3);
+    EXPECT_TRUE(vec.is_parallel(Vector(-1, -2, -3), 1e-14));
+    EXPECT_FALSE(vec.is_parallel(Vector(0, 2, -3), 1e-14));
+}
+
 TEST(VectorTest, op_mult_scalar)
 {
     Vector a(1, 2, 3);

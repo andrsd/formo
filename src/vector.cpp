@@ -52,6 +52,12 @@ Vector::is_opposite(const Vector & other, double ang_tol) const
     return this->vec.IsOpposite(other, ang_tol);
 }
 
+bool
+Vector::is_parallel(const Vector & other, double ang_tol) const
+{
+    return this->vec.IsParallel(other, ang_tol);
+}
+
 double
 Vector::magnitude() const
 {

@@ -20,6 +20,12 @@ def test_is_opposite():
     assert(not vec.is_normal(formo.Vector(0, 2, -3), 1e-14))
 
 
+def test_is_parallel():
+    vec = formo.Vector(1, 2, 3);
+    assert(vec.is_parallel(formo.Vector(-1, -2, -3), 1e-14))
+    assert(not vec.is_parallel(formo.Vector(0, 2, -3), 1e-14))
+
+
 def test_magnitude():
     a = formo.Vector(3, 0, 4);
     assert(math.isclose(a.magnitude(), 5., abs_tol=1e-14))
