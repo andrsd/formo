@@ -154,4 +154,11 @@ Vector::operator*(double scalar) const
     return Vector(scalar * x(), scalar * y(), scalar * z());
 }
 
+double
+dot_product(const Vector & v1, const Vector & v2)
+{
+    gp_Vec v(v1);
+    return v.Dot(v2);
+}
+
 } // namespace formo

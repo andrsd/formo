@@ -145,3 +145,8 @@ def test_op_mult_scalar_post():
     assert(math.isclose(vec.x, 1.5, abs_tol=1e-15))
     assert(math.isclose(vec.y, 3., abs_tol=1e-15))
     assert(math.isclose(vec.z, 4.5, abs_tol=1e-15))
+
+
+def test_dot_product():
+    dot = formo.dot_product(formo.Vector(1, 2, 3), formo.Vector(-2, 3, 5))
+    assert(math.isclose(dot, 19, abs_tol=1e-15))

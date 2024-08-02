@@ -519,5 +519,9 @@ PYBIND11_MODULE(formo, m)
         py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step");
     m.def("read", &IO::read,
         py::arg("file_name"));
+
+    m.def("dot_product", dot_product,
+        py::arg("v1"), py::arg("v2"));
+
     // clang-format on
 }
