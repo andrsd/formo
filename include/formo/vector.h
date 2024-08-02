@@ -106,6 +106,14 @@ public:
     /// @return Mirrored point
     Vector mirrored(const Axis2 & ax2) const;
 
+    /// Normalizes a vector
+    void normalize();
+
+    /// Normalizes a vector
+    ///
+    /// @return Normalized vector
+    Vector normalized() const;
+
     /// Rotate the vector
     ///
     /// @param ax1 The axis of the rotation.

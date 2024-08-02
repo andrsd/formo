@@ -175,6 +175,26 @@ TEST(VectorTest, scaled)
     EXPECT_NEAR(nvec.z(), 7.5, 1e-15);
 }
 
+TEST(VectorTest, normalize)
+{
+    Vector vec(1, 2, 3);
+    vec.normalize();
+    EXPECT_NEAR(vec.magnitude(), 1., 1e-15);
+    EXPECT_NEAR(vec.x(), 1. / std::sqrt(14), 1e-15);
+    EXPECT_NEAR(vec.y(), 2. / std::sqrt(14), 1e-15);
+    EXPECT_NEAR(vec.z(), 3. / std::sqrt(14), 1e-15);
+}
+
+TEST(VectorTest, normalized)
+{
+    Vector vec(1, 2, 3);
+    auto n = vec.normalized();
+    EXPECT_NEAR(n.magnitude(), 1., 1e-15);
+    EXPECT_NEAR(n.x(), 1. / std::sqrt(14), 1e-15);
+    EXPECT_NEAR(n.y(), 2. / std::sqrt(14), 1e-15);
+    EXPECT_NEAR(n.z(), 3. / std::sqrt(14), 1e-15);
+}
+
 TEST(VectorTest, op_add)
 {
     Vector vec(1, 2, 3);
