@@ -113,3 +113,12 @@ TEST(VectorTest, scaled)
     EXPECT_NEAR(nvec.y(), 5.0, 1e-15);
     EXPECT_NEAR(nvec.z(), 7.5, 1e-15);
 }
+
+TEST(VectorTest, op_add)
+{
+    Vector vec(1, 2, 3);
+    auto res = vec + Vector(2, -3, 1);
+    EXPECT_NEAR(res.x(), 3, 1e-15);
+    EXPECT_NEAR(res.y(), -1, 1e-15);
+    EXPECT_NEAR(res.z(), 4, 1e-15);
+}

@@ -63,3 +63,9 @@ def test_scaled():
     assert(math.isclose(nvec.x, 2.5, abs_tol=1e-15))
     assert(math.isclose(nvec.y, 5.0, abs_tol=1e-15))
     assert(math.isclose(nvec.z, 7.5, abs_tol=1e-15))
+
+def test_op_add():
+    vec = formo.Vector(1, 2, 3) + formo.Vector(2, -3, 1)
+    assert(math.isclose(vec.x, 3., abs_tol=1e-15))
+    assert(math.isclose(vec.y, -1., abs_tol=1e-15))
+    assert(math.isclose(vec.z, 4., abs_tol=1e-15))

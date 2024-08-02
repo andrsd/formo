@@ -92,6 +92,12 @@ public:
 
     operator gp_Vec() const;
 
+    /// Add 2 vectors
+    ///
+    /// @param other Other vector to add
+    /// @return Resulting vector
+    Vector operator+(const Vector & other) const;
+
 private:
     gp_Vec vec;
 };
