@@ -98,6 +98,12 @@ public:
     /// @return Resulting vector
     Vector operator+(const Vector & other) const;
 
+    /// Subtract 2 vectors
+    ///
+    /// @param other Other vector to subtract
+    /// @return Resulting vector
+    Vector operator-(const Vector & other) const;
+
 private:
     gp_Vec vec;
 };
