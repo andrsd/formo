@@ -33,6 +33,13 @@ TEST(VectorTest, ctor3)
     EXPECT_DOUBLE_EQ(vec.z(), 0);
 }
 
+TEST(VectorTest, is_equal)
+{
+    Vector vec(1, 2, 3);
+    EXPECT_TRUE(vec.is_equal(Vector(1, 2, 3), 1e-14, 1e-14));
+    EXPECT_FALSE(vec.is_equal(Vector(-1, -2, -3), 1e-14, 1e-14));
+}
+
 TEST(VectorTest, op_mult_scalar)
 {
     Vector a(1, 2, 3);
