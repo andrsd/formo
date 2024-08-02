@@ -34,6 +34,12 @@ Vector::z() const
     return this->vec.Z();
 }
 
+bool
+Vector::is_equal(const Vector & other, double lin_tol, double ang_tol) const
+{
+    return this->vec.IsEqual(other, lin_tol, ang_tol);
+}
+
 double
 Vector::magnitude() const
 {

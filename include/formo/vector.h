@@ -36,6 +36,13 @@ public:
     /// Get the z-component of the vector
     double z() const;
 
+    /// Check if 2 vectors have the same magnitude value and the same direction.
+    ///
+    /// @param other Other vector to compare
+    /// @param lin_tol Precision value for the magnitude
+    /// @param ang_tol Precision value for the direction
+    bool is_equal(const Vector & other, double lin_tol, double ang_tol) const;
+
     /// Computes the magnitude of this vector
     ///
     /// @return Magnitude of the vector
