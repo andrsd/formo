@@ -106,6 +106,14 @@ public:
     /// @return Mirrored point
     Vector mirrored(const Axis2 & ax2) const;
 
+    /// Normalizes a vector
+    void normalize();
+
+    /// Normalizes a vector
+    ///
+    /// @return Normalized vector
+    Vector normalized() const;
+
     /// Rotate the vector
     ///
     /// @param ax1 The axis of the rotation.
@@ -147,9 +155,6 @@ public:
     /// @param scalar Scalr to multiply the vector with
     /// @return Resulting vector
     Vector operator*(double scalar) const;
-
-    /// Normalizes a vector
-    void normalize();
 
 private:
     gp_Vec vec;

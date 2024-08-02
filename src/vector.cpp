@@ -131,6 +131,12 @@ Vector::normalize()
     this->vec.Normalize();
 }
 
+Vector
+Vector::normalized() const
+{
+    return Vector(this->vec.Normalized());
+}
+
 Vector::operator gp_Vec() const
 {
     return this->vec;

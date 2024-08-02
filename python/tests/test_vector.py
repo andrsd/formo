@@ -166,3 +166,12 @@ def test_normalize():
     assert(math.isclose(vec.x, 1. / math.sqrt(14), abs_tol=1e-15))
     assert(math.isclose(vec.y, 2. / math.sqrt(14), abs_tol=1e-15))
     assert(math.isclose(vec.z, 3. / math.sqrt(14), abs_tol=1e-15))
+
+
+def test_normalized():
+    vec = formo.Vector(1, 2, 3)
+    n = vec.normalized();
+    assert(math.isclose(n.magnitude(), 1., abs_tol=1e-15))
+    assert(math.isclose(n.x, 1. / math.sqrt(14), abs_tol=1e-15))
+    assert(math.isclose(n.y, 2. / math.sqrt(14), abs_tol=1e-15))
+    assert(math.isclose(n.z, 3. / math.sqrt(14), abs_tol=1e-15))
