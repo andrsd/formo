@@ -40,6 +40,12 @@ Vector::is_equal(const Vector & other, double lin_tol, double ang_tol) const
     return this->vec.IsEqual(other, lin_tol, ang_tol);
 }
 
+bool
+Vector::is_normal(const Vector & other, double ang_tol) const
+{
+    return this->vec.IsNormal(other, ang_tol);
+}
+
 double
 Vector::magnitude() const
 {
