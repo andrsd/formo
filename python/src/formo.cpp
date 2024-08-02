@@ -223,6 +223,8 @@ PYBIND11_MODULE(formo, m)
             py::arg("other"), py::arg("lin_tol"), py::arg("ang_tol"))
         .def("is_normal", &Vector::is_normal,
             py::arg("other"), py::arg("ang_tol"))
+        .def("is_opposite", &Vector::is_opposite,
+            py::arg("other"), py::arg("ang_tol"))
         .def("magnitude", &Vector::magnitude)
         .def("rotate", &Vector::rotate, py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
