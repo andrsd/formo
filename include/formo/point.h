@@ -138,6 +138,9 @@ private:
     TopoDS_Vertex vtx;
 };
 
+/// Operator for `Point` + `Point`
+Point operator+(const Point & a, const Point & b);
+
 /// Operator for `Point` + `Vector`
 Point operator+(const Point & pt, const Vector & v);
 

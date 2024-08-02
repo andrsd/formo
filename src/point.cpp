@@ -150,6 +150,12 @@ Point::operator gp_Pnt() const
 }
 
 Point
+operator+(const Point & a, const Point & b)
+{
+    return Point(a.x() + b.x(), a.y() + b.y(), a.z() + b.z());
+}
+
+Point
 operator+(const Point & pt, const Vector & v)
 {
     return Point(pt.x() + v.x(), pt.y() + v.y(), pt.z() + v.z());

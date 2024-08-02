@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #include <pybind11/pybind11.h>
+#include <pybind11/operators.h>
 #include <pybind11/stl.h>
 #include "formo/config.h"
 #include "formo/arc_of_circle.h"
@@ -191,6 +192,12 @@ PYBIND11_MODULE(formo, m)
             py::arg("vec"))
         .def("translated", static_cast<Point (Point::*)(const Point &, const Point &) const>(&Point::translated),
             py::arg("p1"), py::arg("p2"))
+        .def("__add__", [](const Point & a, const Point & b) {
+            return a + b;
+        }, py::is_operator())
+        .def("__add__", [](const Point & a, const Vector & b) {
+            return a + b;
+        }, py::is_operator())
     ;
 
     py::class_<Direction>(m, "Direction")
