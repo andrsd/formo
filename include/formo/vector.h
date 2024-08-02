@@ -86,6 +86,26 @@ public:
     /// @param ax2 The axis placement `ax2` locates the plane of the symmetry
     void mirror(const Axis2 & ax2);
 
+    /// Performs the symmetrical transformation of a vector with respect to the vector `v` which is
+    /// the center of the symmetry.
+    ///
+    /// @param v Center of symmetry
+    /// @return Mirrored point
+    Vector mirrored(const Vector & v) const;
+
+    /// Performs the symmetrical transformation of a vector with respect to an axis placement which
+    /// is the axis of the symmetry
+    ///
+    /// @param ax1 Axis placement
+    /// @return Mirrored point
+    Vector mirrored(const Axis1 & ax1) const;
+
+    /// Performs the symmetrical transformation of a vector with respect to a plane.
+    ///
+    /// @param ax2 The axis placement ax2 locates the plane of the symmetry
+    /// @return Mirrored point
+    Vector mirrored(const Axis2 & ax2) const;
+
     /// Rotate the vector
     ///
     /// @param ax1 The axis of the rotation.

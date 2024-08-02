@@ -58,6 +58,33 @@ def test_mirror_ax2():
     assert(math.isclose(vec.z, -2, abs_tol=1e-15))
 
 
+def test_mirrored_pt():
+    vec = formo.Vector(1, 0, -2)
+    symm = formo.Vector(0, 0, 1)
+    npt = vec.mirrored(symm)
+    assert(math.isclose(npt.x, -1, abs_tol=1e-15))
+    assert(math.isclose(npt.y, 0, abs_tol=1e-15))
+    assert(math.isclose(npt.z, -2, abs_tol=1e-15))
+
+
+def test_mirrored_ax1():
+    vec = formo.Vector(1, 0, -2)
+    ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 1, 0))
+    npt = vec.mirrored(ax1)
+    assert(math.isclose(npt.x, -1, abs_tol=1e-15))
+    assert(math.isclose(npt.y, 0, abs_tol=1e-15))
+    assert(math.isclose(npt.z, 2, abs_tol=1e-15))
+
+
+def test_mirrored_ax2():
+    pt = formo.Vector(1, 0, -2)
+    ax2 = formo.Axis2(formo.Point(0, 0, 0), formo.Direction(1, 0, 0))
+    npt = pt.mirrored(ax2)
+    assert(math.isclose(npt.x, -1, abs_tol=1e-15))
+    assert(math.isclose(npt.y, 0, abs_tol=1e-15))
+    assert(math.isclose(npt.z, -2, abs_tol=1e-15))
+
+
 def test_rotate():
     vec = formo.Vector(1, 0, 0)
     ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 0, 1))

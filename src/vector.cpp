@@ -83,6 +83,24 @@ Vector::mirror(const Axis2 & ax2)
     this->vec.Mirror(ax2);
 }
 
+Vector
+Vector::mirrored(const Vector & v) const
+{
+    return Vector(this->vec.Mirrored(v));
+}
+
+Vector
+Vector::mirrored(const Axis1 & ax1) const
+{
+    return Vector(this->vec.Mirrored(ax1));
+}
+
+Vector
+Vector::mirrored(const Axis2 & ax2) const
+{
+    return Vector(this->vec.Mirrored(ax2));
+}
+
 void
 Vector::rotate(const Axis1 & ax1, const double angle)
 {

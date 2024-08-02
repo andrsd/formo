@@ -107,6 +107,36 @@ TEST(VectorTest, mirror_ax2)
     EXPECT_NEAR(vec.z(), -2, 1e-15);
 }
 
+TEST(VectorTest, mirrored_pt)
+{
+    Vector vec(1, 0, -2);
+    Vector symm(0, 0, 1);
+    auto npt = vec.mirrored(symm);
+    EXPECT_NEAR(npt.x(), -1, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), -2, 1e-15);
+}
+
+TEST(VectorTest, mirrored_ax1)
+{
+    Vector vec(1, 0, -2);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 1, 0));
+    auto npt = vec.mirrored(ax1);
+    EXPECT_NEAR(npt.x(), -1, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), 2, 1e-15);
+}
+
+TEST(VectorTest, mirrored_ax2)
+{
+    Vector vec(1, 0, -2);
+    Axis2 ax2(Point(0, 0, 0), Direction(1, 0, 0));
+    auto npt = vec.mirrored(ax2);
+    EXPECT_NEAR(npt.x(), -1, 1e-15);
+    EXPECT_NEAR(npt.y(), 0, 1e-15);
+    EXPECT_NEAR(npt.z(), -2, 1e-15);
+}
+
 TEST(VectorTest, rotate)
 {
     Vector vec(1, 0, 0);

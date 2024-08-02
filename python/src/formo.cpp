@@ -234,6 +234,12 @@ PYBIND11_MODULE(formo, m)
             py::arg("ax1"))
         .def("mirror", static_cast<void (Vector::*)(const Axis2 &)>(&Vector::mirror),
             py::arg("ax2"))
+        .def("mirrored", static_cast<Vector (Vector::*)(const Vector &) const>(&Vector::mirrored),
+            py::arg("v"))
+        .def("mirrored", static_cast<Vector (Vector::*)(const Axis1 &) const>(&Vector::mirrored),
+            py::arg("ax1"))
+        .def("mirrored", static_cast<Vector (Vector::*)(const Axis2 &) const>(&Vector::mirrored),
+            py::arg("ax2"))
         .def("rotate", &Vector::rotate, py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
         .def("scale", &Vector::scale, py::arg("s"))
