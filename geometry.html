@@ -96,6 +96,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector11is_oppositeERK6Vectord"><code class="docutils literal notranslate"><span class="pre">Vector::is_opposite()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector11is_parallelERK6Vectord"><code class="docutils literal notranslate"><span class="pre">Vector::is_parallel()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector9magnitudeEv"><code class="docutils literal notranslate"><span class="pre">Vector::magnitude()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6Vector6mirrorERK6Vector"><code class="docutils literal notranslate"><span class="pre">Vector::mirror()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6Vector6mirrorERK5Axis1"><code class="docutils literal notranslate"><span class="pre">Vector::mirror()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6Vector6mirrorERK5Axis2"><code class="docutils literal notranslate"><span class="pre">Vector::mirror()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector8mirroredERK6Vector"><code class="docutils literal notranslate"><span class="pre">Vector::mirrored()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector8mirroredERK5Axis1"><code class="docutils literal notranslate"><span class="pre">Vector::mirrored()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector8mirroredERK5Axis2"><code class="docutils literal notranslate"><span class="pre">Vector::mirrored()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6Vector6rotateERK5Axis1Kd"><code class="docutils literal notranslate"><span class="pre">Vector::rotate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector7rotatedERK5Axis1Kd"><code class="docutils literal notranslate"><span class="pre">Vector::rotated()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6Vector5scaleEd"><code class="docutils literal notranslate"><span class="pre">Vector::scale()</span></code></a></li>
@@ -448,6 +454,81 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Magnitude of the vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6Vector6mirrorERK6Vector">
+<span id="_CPPv3N5formo6Vector6mirrorERK6Vector"></span><span id="_CPPv2N5formo6Vector6mirrorERK6Vector"></span><span id="formo::Vector::mirror__VectorCR"></span><span class="target" id="classformo_1_1_vector_1a1db8c253c6156157fc93479063243414"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6Vector6mirrorERK6Vector" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a vector with respect to the vector <code class="docutils literal notranslate"><span class="pre">vec</span></code> which is the center of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> – Center of symmetry </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6Vector6mirrorERK5Axis1">
+<span id="_CPPv3N5formo6Vector6mirrorERK5Axis1"></span><span id="_CPPv2N5formo6Vector6mirrorERK5Axis1"></span><span id="formo::Vector::mirror__Axis1CR"></span><span class="target" id="classformo_1_1_vector_1aafb8076c8d6e986293a00c04dc5bd31b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax1</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6Vector6mirrorERK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a vector with respect to an axis placement which is the axis of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax1</strong> – Axis placement </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6Vector6mirrorERK5Axis2">
+<span id="_CPPv3N5formo6Vector6mirrorERK5Axis2"></span><span id="_CPPv2N5formo6Vector6mirrorERK5Axis2"></span><span id="formo::Vector::mirror__Axis2CR"></span><span class="target" id="classformo_1_1_vector_1a0e3eb188b5f7d04a6a528cd7637ca2fa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6Vector6mirrorERK5Axis2" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a vector with respect to a plane. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax2</strong> – The axis placement <code class="docutils literal notranslate"><span class="pre">ax2</span></code> locates the plane of the symmetry </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector8mirroredERK6Vector">
+<span id="_CPPv3NK5formo6Vector8mirroredERK6Vector"></span><span id="_CPPv2NK5formo6Vector8mirroredERK6Vector"></span><span id="formo::Vector::mirrored__VectorCRC"></span><span class="target" id="classformo_1_1_vector_1a3aaebef4c6178565b82da35b7ae68594"></span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirrored</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector8mirroredERK6Vector" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a vector with respect to the vector <code class="docutils literal notranslate"><span class="pre">v</span></code> which is the center of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> – Center of symmetry </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mirrored point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector8mirroredERK5Axis1">
+<span id="_CPPv3NK5formo6Vector8mirroredERK5Axis1"></span><span id="_CPPv2NK5formo6Vector8mirroredERK5Axis1"></span><span id="formo::Vector::mirrored__Axis1CRC"></span><span class="target" id="classformo_1_1_vector_1a555660e6a3847b5216277fc0e6debcd6"></span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirrored</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax1</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector8mirroredERK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a vector with respect to an axis placement which is the axis of the symmetry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax1</strong> – Axis placement </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mirrored point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector8mirroredERK5Axis2">
+<span id="_CPPv3NK5formo6Vector8mirroredERK5Axis2"></span><span id="_CPPv2NK5formo6Vector8mirroredERK5Axis2"></span><span id="formo::Vector::mirrored__Axis2CRC"></span><span class="target" id="classformo_1_1_vector_1a737c9f1efa25a25ad9dd9791b2a609c2"></span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mirrored</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ax2</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector8mirroredERK5Axis2" title="Link to this definition"></a><br /></dt>
+<dd><p>Performs the symmetrical transformation of a vector with respect to a plane. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax2</strong> – The axis placement ax2 locates the plane of the symmetry </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mirrored point </p>
 </dd>
 </dl>
 </dd></dl>
