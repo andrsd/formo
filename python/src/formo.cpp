@@ -228,6 +228,18 @@ PYBIND11_MODULE(formo, m)
         .def("is_parallel", &Vector::is_parallel,
             py::arg("other"), py::arg("ang_tol"))
         .def("magnitude", &Vector::magnitude)
+        .def("mirror", static_cast<void (Vector::*)(const Vector &)>(&Vector::mirror),
+            py::arg("pt"))
+        .def("mirror", static_cast<void (Vector::*)(const Axis1 &)>(&Vector::mirror),
+            py::arg("ax1"))
+        .def("mirror", static_cast<void (Vector::*)(const Axis2 &)>(&Vector::mirror),
+            py::arg("ax2"))
+        .def("mirrored", static_cast<Vector (Vector::*)(const Vector &) const>(&Vector::mirrored),
+            py::arg("v"))
+        .def("mirrored", static_cast<Vector (Vector::*)(const Axis1 &) const>(&Vector::mirrored),
+            py::arg("ax1"))
+        .def("mirrored", static_cast<Vector (Vector::*)(const Axis2 &) const>(&Vector::mirrored),
+            py::arg("ax2"))
         .def("rotate", &Vector::rotate, py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Vector::rotated, py::arg("ax1"), py::arg("angle"))
         .def("scale", &Vector::scale, py::arg("s"))
