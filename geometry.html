@@ -91,6 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector1xEv"><code class="docutils literal notranslate"><span class="pre">Vector::x()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector1yEv"><code class="docutils literal notranslate"><span class="pre">Vector::y()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector1zEv"><code class="docutils literal notranslate"><span class="pre">Vector::z()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector8is_equalERK6Vectordd"><code class="docutils literal notranslate"><span class="pre">Vector::is_equal()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector9magnitudeEv"><code class="docutils literal notranslate"><span class="pre">Vector::magnitude()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo6Vector6rotateERK5Axis1Kd"><code class="docutils literal notranslate"><span class="pre">Vector::rotate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo6Vector7rotatedERK5Axis1Kd"><code class="docutils literal notranslate"><span class="pre">Vector::rotated()</span></code></a></li>
@@ -369,6 +370,21 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector1zEv">
 <span id="_CPPv3NK5formo6Vector1zEv"></span><span id="_CPPv2NK5formo6Vector1zEv"></span><span id="formo::Vector::zC"></span><span class="target" id="classformo_1_1_vector_1a40df54fc539fc47c4f15dfcfb7f90485"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector1zEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Get the z-component of the vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo6Vector8is_equalERK6Vectordd">
+<span id="_CPPv3NK5formo6Vector8is_equalERK6Vectordd"></span><span id="_CPPv2NK5formo6Vector8is_equalERK6Vectordd"></span><span id="formo::Vector::is_equal__VectorCR.double.doubleC"></span><span class="target" id="classformo_1_1_vector_1a6ce02490836d597435241e5bdcfb24ee"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_equal</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lin_tol</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ang_tol</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo6Vector8is_equalERK6Vectordd" title="Link to this definition"></a><br /></dt>
+<dd><p>Check if 2 vectors have the same magnitude value and the same direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> – Other vector to compare </p></li>
+<li><p><strong>lin_tol</strong> – Precision value for the magnitude </p></li>
+<li><p><strong>ang_tol</strong> – Precision value for the direction </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="cpp function">
