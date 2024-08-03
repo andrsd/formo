@@ -6,11 +6,13 @@
 #include "formo/point.h"
 #include "formo/edge.h"
 #include "formo/face.h"
+#include "formo/solid.h"
 #include "TopExp_Explorer.hxx"
 #include "TopTools_DataMapOfShapeInteger.hxx"
 #include "TopoDS.hxx"
 #include "TopoDS_Vertex.hxx"
 #include "TopoDS_Edge.hxx"
+#include "TopoDS_Solid.hxx"
 #include "BRep_Tool.hxx"
 #include <vector>
 
@@ -123,6 +125,23 @@ Shape::faces() const
         }
     }
     return faces;
+}
+
+std::vector<Solid>
+Shape::solids() const
+{
+    std::vector<Solid> solids;
+    TopExp_Explorer exp0;
+    TopTools_DataMapOfShapeInteger id_map;
+    for (exp0.Init(this->shp, TopAbs_SOLID); exp0.More(); exp0.Next()) {
+        auto solid = TopoDS::Solid(exp0.Current());
+        if (!id_map.IsBound(solid)) {
+            auto id = solids.size() + 1;
+            id_map.Bind(solid, id);
+            solids.emplace_back(Solid(solid));
+        }
+    }
+    return solids;
 }
 
 Shape::operator TopoDS_Shape() const

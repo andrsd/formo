@@ -64,3 +64,10 @@ TEST(ShapeTest, faces)
     auto faces = box.faces();
     EXPECT_EQ(faces.size(), 6);
 }
+
+TEST(ShapeTest, solids)
+{
+    Box box(Point(0, 0, 0), Point(1, 2, 3));
+    auto solids = box.solids();
+    EXPECT_EQ(solids.size(), 1);
+}
