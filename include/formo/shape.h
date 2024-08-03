@@ -3,12 +3,14 @@
 
 #pragma once
 
-#include "formo/shape.h"
 #include "formo/color.h"
 #include "TopoDS_Shape.hxx"
 #include <string>
+#include <vector>
 
 namespace formo {
+
+class Point;
 
 class Shape {
 public:
@@ -30,6 +32,11 @@ public:
 
     /// Set color
     void set_color(const Color & color);
+
+    /// Get all vertices of this shape
+    ///
+    /// @return All vertices of this shape
+    std::vector<Point> vertices() const;
 
     ///
     operator TopoDS_Shape() const;
