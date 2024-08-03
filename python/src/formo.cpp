@@ -20,6 +20,7 @@
 #include "formo/edge.h"
 #include "formo/exception.h"
 #include "formo/face.h"
+#include "formo/helix.h"
 #include "formo/hexagonal_pattern.h"
 #include "formo/geometry.h"
 #include "formo/iges_file.h"
@@ -393,6 +394,10 @@ PYBIND11_MODULE(formo, m)
             py::arg("points"), py::arg("closed") = true)
     ;
 
+    py::class_<Helix, Edge>(m, "Helix")
+        .def(py::init<const Axis2 &, double, double, double, double>(),
+            py::arg("ax2"), py::arg("radius"), py::arg("height"), py::arg("turns"), py::arg("start_angle") = 0.)
+    ;
     //
 
     py::class_<Box, Solid>(m, "Box")
