@@ -11,6 +11,7 @@
 namespace formo {
 
 class Point;
+class Edge;
 
 class Shape {
 public:
@@ -37,6 +38,11 @@ public:
     ///
     /// @return All vertices of this shape
     std::vector<Point> vertices() const;
+
+    /// Get all edges of this shape
+    ///
+    /// @return All edges of this shape
+    std::vector<Edge> edges() const;
 
     ///
     operator TopoDS_Shape() const;

@@ -4,10 +4,12 @@
 #include "formo/shape.h"
 #include "formo/color_map.h"
 #include "formo/point.h"
+#include "formo/edge.h"
 #include "TopExp_Explorer.hxx"
 #include "TopTools_DataMapOfShapeInteger.hxx"
 #include "TopoDS.hxx"
 #include "TopoDS_Vertex.hxx"
+#include "TopoDS_Edge.hxx"
 #include "BRep_Tool.hxx"
 #include <vector>
 
@@ -86,6 +88,23 @@ Shape::vertices() const
         }
     }
     return vertices;
+}
+
+std::vector<Edge>
+Shape::edges() const
+{
+    std::vector<Edge> edges;
+    TopExp_Explorer exp0;
+    TopTools_DataMapOfShapeInteger id_map;
+    for (exp0.Init(this->shp, TopAbs_EDGE); exp0.More(); exp0.Next()) {
+        auto edge = TopoDS::Edge(exp0.Current());
+        if (!id_map.IsBound(edge)) {
+            auto id = edges.size() + 1;
+            id_map.Bind(edge, id);
+            edges.emplace_back(Edge(edge));
+        }
+    }
+    return edges;
 }
 
 Shape::operator TopoDS_Shape() const

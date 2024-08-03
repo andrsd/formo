@@ -2,6 +2,7 @@
 #include "gtest/gtest.h"
 #include "formo/box.h"
 #include "formo/shape.h"
+#include "formo/edge.h"
 #include "formo/color.h"
 
 using namespace formo;
@@ -47,4 +48,11 @@ TEST(ShapeTest, vertices)
                                      Eq(Point(1, 0, 0)),
                                      Eq(Point(1, 2, 3)),
                                      Eq(Point(1, 2, 0))));
+}
+
+TEST(ShapeTest, edges)
+{
+    Box box(Point(0, 0, 0), Point(1, 2, 3));
+    auto edges = box.edges();
+    EXPECT_EQ(edges.size(), 12);
 }
