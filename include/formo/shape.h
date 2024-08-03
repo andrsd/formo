@@ -12,6 +12,7 @@ namespace formo {
 
 class Point;
 class Edge;
+class Face;
 
 class Shape {
 public:
@@ -43,6 +44,11 @@ public:
     ///
     /// @return All edges of this shape
     std::vector<Edge> edges() const;
+
+    /// Get all faces of this shape
+    ///
+    /// @return All faces of this shape
+    std::vector<Face> faces() const;
 
     ///
     operator TopoDS_Shape() const;

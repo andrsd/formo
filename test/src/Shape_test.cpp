@@ -3,6 +3,7 @@
 #include "formo/box.h"
 #include "formo/shape.h"
 #include "formo/edge.h"
+#include "formo/face.h"
 #include "formo/color.h"
 
 using namespace formo;
@@ -55,4 +56,11 @@ TEST(ShapeTest, edges)
     Box box(Point(0, 0, 0), Point(1, 2, 3));
     auto edges = box.edges();
     EXPECT_EQ(edges.size(), 12);
+}
+
+TEST(ShapeTest, faces)
+{
+    Box box(Point(0, 0, 0), Point(1, 2, 3));
+    auto faces = box.faces();
+    EXPECT_EQ(faces.size(), 6);
 }

@@ -14,6 +14,8 @@ class Face : public Shape {
 public:
     explicit Face(const Wire & wire);
 
+    explicit Face(const TopoDS_Face & face);
+
     /// Compute the area of the face
     ///
     /// @return Area of the face

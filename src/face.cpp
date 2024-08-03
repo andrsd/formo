@@ -20,6 +20,8 @@ Face::Face(const Wire & wire)
     this->face = make_face.Face();
 }
 
+Face::Face(const TopoDS_Face & face) : Shape(), face(face) {}
+
 bool
 Face::is_plane() const
 {

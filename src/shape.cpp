@@ -5,6 +5,7 @@
 #include "formo/color_map.h"
 #include "formo/point.h"
 #include "formo/edge.h"
+#include "formo/face.h"
 #include "TopExp_Explorer.hxx"
 #include "TopTools_DataMapOfShapeInteger.hxx"
 #include "TopoDS.hxx"
@@ -105,6 +106,23 @@ Shape::edges() const
         }
     }
     return edges;
+}
+
+std::vector<Face>
+Shape::faces() const
+{
+    std::vector<Face> faces;
+    TopExp_Explorer exp0;
+    TopTools_DataMapOfShapeInteger id_map;
+    for (exp0.Init(this->shp, TopAbs_FACE); exp0.More(); exp0.Next()) {
+        auto face = TopoDS::Face(exp0.Current());
+        if (!id_map.IsBound(face)) {
+            auto id = faces.size() + 1;
+            id_map.Bind(face, id);
+            faces.emplace_back(Face(face));
+        }
+    }
+    return faces;
 }
 
 Shape::operator TopoDS_Shape() const
