@@ -119,6 +119,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Shape8set_nameERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Shape::set_name()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape5colorEv"><code class="docutils literal notranslate"><span class="pre">Shape::color()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Shape9set_colorERK5Color"><code class="docutils literal notranslate"><span class="pre">Shape::set_color()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape8verticesEv"><code class="docutils literal notranslate"><span class="pre">Shape::vertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape5edgesEv"><code class="docutils literal notranslate"><span class="pre">Shape::edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape5facesEv"><code class="docutils literal notranslate"><span class="pre">Shape::faces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape6solidsEv"><code class="docutils literal notranslate"><span class="pre">Shape::solids()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4EdgeE"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a><ul>
@@ -686,6 +690,50 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5formo5Shape9set_colorERK5Color">
 <span id="_CPPv3N5formo5Shape9set_colorERK5Color"></span><span id="_CPPv2N5formo5Shape9set_colorERK5Color"></span><span id="formo::Shape::set_color__ColorCR"></span><span class="target" id="classformo_1_1_shape_1a7b6da95e933b95b657f4d8a312e8290d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_color</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">Color</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">color</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Shape9set_colorERK5Color" title="Link to this definition"></a><br /></dt>
 <dd><p>Set color. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape8verticesEv">
+<span id="_CPPv3NK5formo5Shape8verticesEv"></span><span id="_CPPv2NK5formo5Shape8verticesEv"></span><span id="formo::Shape::verticesC"></span><span class="target" id="classformo_1_1_shape_1a5b0417ada688f390ca13de69e1118c8f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vertices</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape8verticesEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get all vertices of this shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All vertices of this shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape5edgesEv">
+<span id="_CPPv3NK5formo5Shape5edgesEv"></span><span id="_CPPv2NK5formo5Shape5edgesEv"></span><span id="formo::Shape::edgesC"></span><span class="target" id="classformo_1_1_shape_1a06834d778820ae78c663ad1a101d10cf"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N5formo4EdgeE" title="formo::Edge"><span class="n"><span class="pre">Edge</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">edges</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape5edgesEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get all edges of this shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All edges of this shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape5facesEv">
+<span id="_CPPv3NK5formo5Shape5facesEv"></span><span id="_CPPv2NK5formo5Shape5facesEv"></span><span id="formo::Shape::facesC"></span><span class="target" id="classformo_1_1_shape_1a06810cec8eab9977fed0a24f588cb2e3"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N5formo4FaceE" title="formo::Face"><span class="n"><span class="pre">Face</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">faces</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape5facesEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get all faces of this shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All faces of this shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape6solidsEv">
+<span id="_CPPv3NK5formo5Shape6solidsEv"></span><span id="_CPPv2NK5formo5Shape6solidsEv"></span><span id="formo::Shape::solidsC"></span><span class="target" id="classformo_1_1_shape_1a9e3b64c44231e674e7928a89b1742da3"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N5formo5SolidE" title="formo::Solid"><span class="n"><span class="pre">Solid</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">solids</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape6solidsEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get all solids of this shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All solid of this shape </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
