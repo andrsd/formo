@@ -80,6 +80,18 @@ Direction::rotated(const Axis1 & ax1, const double angle) const
     return Direction(this->dir.Rotated(ax1, angle));
 }
 
+void
+Direction::reverse()
+{
+    this->dir.Reverse();
+}
+
+Direction
+Direction::reversed() const
+{
+    return Direction(this->dir.Reversed());
+}
+
 Direction::operator gp_Dir() const
 {
     return this->dir;

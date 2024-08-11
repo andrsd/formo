@@ -77,6 +77,14 @@ public:
     /// @param angle The angular value of the rotation in radians.
     Direction rotated(const Axis1 & ax1, const double angle) const;
 
+    /// Reverses the orientation of the direction
+    void reverse();
+
+    /// Reverses the orientation of the direction
+    ///
+    /// @return Direction with inverted orientation
+    Direction reversed() const;
+
     operator gp_Dir() const;
 
     /// Invert the orientation of the direction

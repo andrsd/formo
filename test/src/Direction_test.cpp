@@ -107,6 +107,26 @@ TEST(DirectionTest, rotated)
     EXPECT_NEAR(r.z(), 0., 1e-15);
 }
 
+TEST(DirectionTest, reverse)
+{
+    auto sqrt5 = std::sqrt(5);
+    Direction dir(1, 0, -2);
+    dir.reverse();
+    EXPECT_NEAR(dir.x(), -1. / sqrt5, 1e-15);
+    EXPECT_NEAR(dir.y(), 0., 1e-15);
+    EXPECT_NEAR(dir.z(), 2. / sqrt5, 1e-15);
+}
+
+TEST(DirectionTest, reversed)
+{
+    auto sqrt5 = std::sqrt(5);
+    Direction dir(1, 0, -2);
+    auto rev = dir.reversed();
+    EXPECT_NEAR(rev.x(), -1. / sqrt5, 1e-15);
+    EXPECT_NEAR(rev.y(), 0., 1e-15);
+    EXPECT_NEAR(rev.z(), 2. / sqrt5, 1e-15);
+}
+
 TEST(DirectionTest, op_minus_unary)
 {
     Direction a(1, 0, 0);
