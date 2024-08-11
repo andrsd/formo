@@ -3,6 +3,8 @@
 
 #include "formo/direction.h"
 #include "formo/vector.h"
+#include "formo/axis1.h"
+#include "formo/axis2.h"
 
 namespace formo {
 
@@ -28,6 +30,42 @@ double
 Direction::z() const
 {
     return this->dir.Z();
+}
+
+void
+Direction::mirror(const Direction & v)
+{
+    this->dir.Mirror(v);
+}
+
+void
+Direction::mirror(const Axis1 & ax1)
+{
+    this->dir.Mirror(ax1);
+}
+
+void
+Direction::mirror(const Axis2 & ax2)
+{
+    this->dir.Mirror(ax2);
+}
+
+Direction
+Direction::mirrored(const Direction & v) const
+{
+    return Direction(this->dir.Mirrored(v));
+}
+
+Direction
+Direction::mirrored(const Axis1 & ax1) const
+{
+    return Direction(this->dir.Mirrored(ax1));
+}
+
+Direction
+Direction::mirrored(const Axis2 & ax2) const
+{
+    return Direction(this->dir.Mirrored(ax2));
 }
 
 Direction::operator gp_Dir() const
