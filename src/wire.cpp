@@ -3,7 +3,11 @@
 
 #include "formo/wire.h"
 #include "formo/exception.h"
+#include "formo/direction.h"
+#include "formo/shell.h"
 #include "BRepBuilderAPI_MakeWire.hxx"
+#include "BRepOffsetAPI_MakeDraft.hxx"
+#include "TopoDS.hxx"
 
 namespace formo {
 
@@ -27,6 +31,18 @@ void
 Wire::set_wire(const TopoDS_Wire & wire)
 {
     this->wire = wire;
+}
+
+Shell
+Wire::draft(const Direction & dir, double angle, double length) const
+{
+    BRepOffsetAPI_MakeDraft mk(this->wire, dir, angle);
+    mk.Perform(length);
+    mk.Build();
+    if (mk.IsDone())
+        return TopoDS::Shell(mk.Shape());
+    else
+        throw Exception("Draft of wire failed to create");
 }
 
 Wire::operator TopoDS_Wire() const

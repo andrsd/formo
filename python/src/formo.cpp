@@ -294,6 +294,9 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<const Point &, const Direction &>(),
             py::arg("point"), py::arg("normal"))
         .def("location", &Plane::location)
+        .def("axis", &Plane::axis)
+        .def("x_axis", &Plane::x_axis)
+        .def("y_axis", &Plane::y_axis)
     ;
 
     py::class_<Axis1>(m, "Axis1")
@@ -327,6 +330,10 @@ PYBIND11_MODULE(formo, m)
         .def("color", &Shape::color)
         .def("set_color", &Shape::set_color,
             py::arg("color"))
+        .def("vertices", &Shape::vertices)
+        .def("edges", &Shape::edges)
+        .def("faces", &Shape::faces)
+        .def("solids", &Shape::solids)
     ;
 
     py::class_<Edge, Shape>(m, "Edge")
@@ -349,6 +356,8 @@ PYBIND11_MODULE(formo, m)
             py::arg("wire"))
         .def(py::init<const std::vector<Edge> &>(),
             py::arg("edges"))
+        .def("draft", &Wire::draft,
+            py::arg("dir"), py::arg("angle"), py::arg("length"))
     ;
 
     py::class_<Shell, Shape>(m, "Shell")
@@ -416,7 +425,7 @@ PYBIND11_MODULE(formo, m)
             py::arg("points"), py::arg("initial_tangent"), py::arg("final_tangent"))
     ;
 
-    py::class_<Polygon, Shape>(m, "Polygon")
+    py::class_<Polygon, Wire>(m, "Polygon")
         .def(py::init<const std::vector<Point> &, bool>(),
             py::arg("points"), py::arg("closed") = true)
     ;
@@ -548,6 +557,9 @@ PYBIND11_MODULE(formo, m)
 
     m.def("section", py::overload_cast<const Shape &, const Plane &>(&section),
         py::arg("shape"), py::arg("plane"));
+
+    m.def("draft", py::overload_cast<const Shape &, const Plane &, const std::vector<Face> &, double>(&draft),
+        py::arg("shape"), py::arg("pln"), py::arg("faces"), py::arg("angle"));
 
     m.def("write", &IO::write,
         py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step");

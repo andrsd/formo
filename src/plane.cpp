@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #include "formo/plane.h"
+#include "formo/axis1.h"
 
 namespace formo {
 
@@ -13,6 +14,24 @@ Point
 Plane::location() const
 {
     return Point(this->pln.Location());
+}
+
+Axis1
+Plane::axis() const
+{
+    return Axis1(this->pln.Axis());
+}
+
+Axis1
+Plane::x_axis() const
+{
+    return Axis1(this->pln.XAxis());
+}
+
+Axis1
+Plane::y_axis() const
+{
+    return Axis1(this->pln.YAxis());
 }
 
 Plane::operator gp_Pln() const

@@ -5,6 +5,7 @@
 #include "formo/exception.h"
 #include "formo/axis1.h"
 #include "formo/axis2.h"
+#include "formo/plane.h"
 #include "BRepBuilderAPI_Transform.hxx"
 #include "BRepBuilderAPI_MakeWire.hxx"
 #include "BRepAlgoAPI_Fuse.hxx"
@@ -15,6 +16,7 @@
 #include "BRepPrimAPI_MakePrism.hxx"
 #include "BRepPrimAPI_MakeRevol.hxx"
 #include "BRepAlgoAPI_Section.hxx"
+#include "BRepOffsetAPI_DraftAngle.hxx"
 
 namespace formo {
 
@@ -202,6 +204,23 @@ section(const Shape & shape, const Plane & plane)
     if (!wire.IsDone())
         throw Exception("Wire was not created");
     return Wire(wire.Wire());
+}
+
+Shape
+draft(const Shape & shape, const Plane & pln, const std::vector<Face> & faces, double angle)
+{
+    auto dir = pln.axis().direction();
+    BRepOffsetAPI_DraftAngle drft(shape);
+    for (auto & f : faces) {
+        drft.Add(f, dir, angle, pln);
+        if (!drft.AddDone())
+            throw Exception("Faulty face was given");
+    }
+    drft.Build();
+    if (drft.IsDone())
+        return Shape(drft.Shape());
+    else
+        throw Exception("Draft was not constructed");
 }
 
 } // namespace formo

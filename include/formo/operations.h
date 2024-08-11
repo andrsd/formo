@@ -156,4 +156,16 @@ Vector rotate(const Vector & vector, const Axis1 & axis, double angle);
 /// @return Wire that forms the computed section
 Wire section(const Shape & shape, const Plane & plane);
 
+/// Taper-adding transformations on a shape. The resulting shape is constructed by defining one face
+/// to be tapered after another one, as well as the geometric properties of their tapered
+/// transformation. Each tapered transformation is propagated along the series of faces which are
+/// tangential to one another and which contains the face to be tapered.
+///
+/// @param shape Shape to taper
+/// @param pln Neutral plane
+/// @param faces Faces to taper
+/// @param angle Tapering angle
+/// @return Tapered shape
+Shape draft(const Shape & shape, const Plane & pln, const std::vector<Face> & faces, double angle);
+
 } // namespace formo

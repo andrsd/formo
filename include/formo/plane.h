@@ -9,6 +9,8 @@
 
 namespace formo {
 
+class Axis1;
+
 /// Describes a plane.
 ///
 /// A plane is positioned in space with a coordinate system (a `gp_Ax3` object), such that the plane
@@ -36,6 +38,15 @@ public:
 
     /// Location of this plane
     Point location() const;
+
+    /// Returns the plane's normal axis
+    Axis1 axis() const;
+
+    /// Returns the X axis of the plane
+    Axis1 x_axis() const;
+
+    /// Returns the Y axis of the plane
+    Axis1 y_axis() const;
 
     operator gp_Pln() const;
 
