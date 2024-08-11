@@ -163,3 +163,9 @@ TEST(DirectionTest, op_minus_unary)
     EXPECT_NEAR(b.y(), 0., 1e-15);
     EXPECT_NEAR(b.z(), 0., 1e-15);
 }
+
+TEST(DirectionTest, dot_product)
+{
+    auto dot = dot_product(Direction(1, 2, 3), Direction(-2, 3, 5));
+    EXPECT_NEAR(dot, 0.82375447104791411, 1e-15);
+}

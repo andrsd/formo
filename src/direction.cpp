@@ -127,4 +127,11 @@ Direction::operator-() const
     return Direction(this->dir.Reversed());
 }
 
+double
+dot_product(const Direction & v1, const Direction & v2)
+{
+    gp_Dir v(v1);
+    return v.Dot(v2);
+}
+
 } // namespace formo
