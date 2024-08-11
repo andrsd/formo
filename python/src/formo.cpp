@@ -208,6 +208,25 @@ PYBIND11_MODULE(formo, m)
         .def_property_readonly("x", &Direction::x)
         .def_property_readonly("y", &Direction::y)
         .def_property_readonly("z", &Direction::z)
+        .def("mirror", static_cast<void (Direction::*)(const Direction &)>(&Direction::mirror),
+            py::arg("pt"))
+        .def("mirror", static_cast<void (Direction::*)(const Axis1 &)>(&Direction::mirror),
+            py::arg("ax1"))
+        .def("mirror", static_cast<void (Direction::*)(const Axis2 &)>(&Direction::mirror),
+            py::arg("ax2"))
+        .def("mirrored", static_cast<Direction (Direction::*)(const Direction &) const>(&Direction::mirrored),
+            py::arg("pt"))
+        .def("mirrored", static_cast<Direction (Direction::*)(const Axis1 &) const>(&Direction::mirrored),
+            py::arg("ax1"))
+        .def("mirrored", static_cast<Direction (Direction::*)(const Axis2 &) const>(&Direction::mirrored),
+            py::arg("ax2"))
+        .def("rotate", &Direction::rotate, py::arg("ax1"), py::arg("angle"))
+        .def("rotated", &Direction::rotated, py::arg("ax1"), py::arg("angle"))
+        .def("reverse", &Direction::reverse)
+        .def("reversed", &Direction::reversed)
+        .def("__neg__", [](const Direction & a) {
+            return -a;
+        }, py::is_operator())
     ;
 
     py::class_<Vector>(m, "Vector")
