@@ -330,6 +330,10 @@ PYBIND11_MODULE(formo, m)
         .def("color", &Shape::color)
         .def("set_color", &Shape::set_color,
             py::arg("color"))
+        .def("vertices", &Shape::vertices)
+        .def("edges", &Shape::edges)
+        .def("faces", &Shape::faces)
+        .def("solids", &Shape::solids)
     ;
 
     py::class_<Edge, Shape>(m, "Edge")
