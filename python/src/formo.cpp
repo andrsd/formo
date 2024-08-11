@@ -208,6 +208,14 @@ PYBIND11_MODULE(formo, m)
         .def_property_readonly("x", &Direction::x)
         .def_property_readonly("y", &Direction::y)
         .def_property_readonly("z", &Direction::z)
+        .def("is_equal", &Direction::is_equal,
+            py::arg("other"), py::arg("ang_tol"))
+        .def("is_normal", &Direction::is_normal,
+            py::arg("other"), py::arg("ang_tol"))
+        .def("is_opposite", &Direction::is_opposite,
+            py::arg("other"), py::arg("ang_tol"))
+        .def("is_parallel", &Direction::is_parallel,
+            py::arg("other"), py::arg("ang_tol"))
         .def("mirror", static_cast<void (Direction::*)(const Direction &)>(&Direction::mirror),
             py::arg("pt"))
         .def("mirror", static_cast<void (Direction::*)(const Axis1 &)>(&Direction::mirror),

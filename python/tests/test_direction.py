@@ -3,6 +3,30 @@ import formo
 import math
 
 
+def test_is_equal():
+    dir = formo.Direction(1, 2, 3)
+    assert(dir.is_equal(formo.Direction(1, 2, 3), 1e-14))
+    assert(not dir.is_equal(formo.Direction(-1, -2, 3), 1e-14))
+
+
+def test_is_normal():
+    dir = formo.Direction(1, 0, 0);
+    assert(dir.is_normal(formo.Direction(0, 1, 0), 1e-14))
+    assert(not dir.is_normal(formo.Direction(-1, -2, -3), 1e-14))
+
+
+def test_is_opposite():
+    dir = formo.Direction(1, 2, 3);
+    assert(dir.is_opposite(formo.Direction(-1, -2, -3), 1e-14))
+    assert(not dir.is_normal(formo.Direction(0, 2, -3), 1e-14))
+
+
+def test_is_parallel():
+    dir = formo.Direction(1, 2, 3);
+    assert(dir.is_parallel(formo.Direction(-1, -2, -3), 1e-14))
+    assert(not dir.is_parallel(formo.Direction(0, 2, -3), 1e-14))
+
+
 def test_mirror_pt():
     dir = formo.Direction(1, 0, -2)
     symm = formo.Direction(0, 0, 1)
