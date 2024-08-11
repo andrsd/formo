@@ -349,6 +349,8 @@ PYBIND11_MODULE(formo, m)
             py::arg("wire"))
         .def(py::init<const std::vector<Edge> &>(),
             py::arg("edges"))
+        .def("draft", &Wire::draft,
+            py::arg("dir"), py::arg("angle"), py::arg("length"))
     ;
 
     py::class_<Shell, Shape>(m, "Shell")
@@ -416,7 +418,7 @@ PYBIND11_MODULE(formo, m)
             py::arg("points"), py::arg("initial_tangent"), py::arg("final_tangent"))
     ;
 
-    py::class_<Polygon, Shape>(m, "Polygon")
+    py::class_<Polygon, Wire>(m, "Polygon")
         .def(py::init<const std::vector<Point> &, bool>(),
             py::arg("points"), py::arg("closed") = true)
     ;
