@@ -129,7 +129,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo4Edge6lengthEv"><code class="docutils literal notranslate"><span class="pre">Edge::length()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4WireE"><code class="docutils literal notranslate"><span class="pre">Wire</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4WireE"><code class="docutils literal notranslate"><span class="pre">Wire</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo4Wire5draftERK9Directiondd"><code class="docutils literal notranslate"><span class="pre">Wire::draft()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4FaceE"><code class="docutils literal notranslate"><span class="pre">Face</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo4Face4areaEv"><code class="docutils literal notranslate"><span class="pre">Face::area()</span></code></a></li>
 </ul>
@@ -763,6 +766,24 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5formo4WireE">
 <span id="_CPPv3N5formo4WireE"></span><span id="_CPPv2N5formo4WireE"></span><span id="formo::Wire"></span><span class="target" id="classformo_1_1_wire"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wire</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><a class="headerlink" href="#_CPPv4N5formo4WireE" title="Link to this definition"></a><br /></dt>
 <dd><p>Subclassed by <a class="reference internal" href="#classformo_1_1_polygon"><span class="std std-ref">formo::Polygon</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo4Wire5draftERK9Directiondd">
+<span id="_CPPv3NK5formo4Wire5draftERK9Directiondd"></span><span id="_CPPv2NK5formo4Wire5draftERK9Directiondd"></span><span id="formo::Wire::draft__DirectionCR.double.doubleC"></span><span class="target" id="classformo_1_1_wire_1a8b52382747d70e0f6fba4115db232cab"></span><a class="reference internal" href="#_CPPv4N5formo5ShellE" title="formo::Shell"><span class="n"><span class="pre">Shell</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">draft</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dir</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo4Wire5draftERK9Directiondd" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs the draft surface object defined by the wire, the direction, and the angle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_direction"><span class="std std-ref">Direction</span></a></p></li>
+<li><p><strong>angle</strong> – Angle [radians] </p></li>
+<li><p><strong>length</strong> – Length of the draft </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="cpp class">
