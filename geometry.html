@@ -83,6 +83,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction1xEv"><code class="docutils literal notranslate"><span class="pre">Direction::x()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction1yEv"><code class="docutils literal notranslate"><span class="pre">Direction::y()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction1zEv"><code class="docutils literal notranslate"><span class="pre">Direction::z()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction8is_equalERK9Directiond"><code class="docutils literal notranslate"><span class="pre">Direction::is_equal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction9is_normalERK9Directiond"><code class="docutils literal notranslate"><span class="pre">Direction::is_normal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction11is_oppositeERK9Directiond"><code class="docutils literal notranslate"><span class="pre">Direction::is_opposite()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo9Direction11is_parallelERK9Directiond"><code class="docutils literal notranslate"><span class="pre">Direction::is_parallel()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo9Direction6mirrorERK9Direction"><code class="docutils literal notranslate"><span class="pre">Direction::mirror()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo9Direction6mirrorERK5Axis1"><code class="docutils literal notranslate"><span class="pre">Direction::mirror()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo9Direction6mirrorERK5Axis2"><code class="docutils literal notranslate"><span class="pre">Direction::mirror()</span></code></a></li>
@@ -343,6 +347,74 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction1zEv">
 <span id="_CPPv3NK5formo9Direction1zEv"></span><span id="_CPPv2NK5formo9Direction1zEv"></span><span id="formo::Direction::zC"></span><span class="target" id="classformo_1_1_direction_1acb6a2f1e25d087b39c8c117efeeb8bbb"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction1zEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Get the z-component of the direction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction8is_equalERK9Directiond">
+<span id="_CPPv3NK5formo9Direction8is_equalERK9Directiond"></span><span id="_CPPv2NK5formo9Direction8is_equalERK9Directiond"></span><span id="formo::Direction::is_equal__DirectionCR.doubleC"></span><span class="target" id="classformo_1_1_direction_1a8b2cace4cf58cdc3c29c7760056feb0e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_equal</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ang_tol</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction8is_equalERK9Directiond" title="Link to this definition"></a><br /></dt>
+<dd><p>Check if 2 directions are equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> – Other direction to compare </p></li>
+<li><p><strong>ang_tol</strong> – Precision value for the direction </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the angle between the two directions is lower or equal to <code class="docutils literal notranslate"><span class="pre">ang_tol</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction9is_normalERK9Directiond">
+<span id="_CPPv3NK5formo9Direction9is_normalERK9Directiond"></span><span id="_CPPv2NK5formo9Direction9is_normalERK9Directiond"></span><span id="formo::Direction::is_normal__DirectionCR.doubleC"></span><span class="target" id="classformo_1_1_direction_1a40ab34c60c8e00017941d83e41a419fb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_normal</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ang_tol</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction9is_normalERK9Directiond" title="Link to this definition"></a><br /></dt>
+<dd><p>Check if another direction is normal to this direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> – Other direction </p></li>
+<li><p><strong>ang_tol</strong> – Angular tolerance </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the angle between this unit vector and the unit vector <code class="docutils literal notranslate"><span class="pre">other</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">PI/2</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction11is_oppositeERK9Directiond">
+<span id="_CPPv3NK5formo9Direction11is_oppositeERK9Directiond"></span><span id="_CPPv2NK5formo9Direction11is_oppositeERK9Directiond"></span><span id="formo::Direction::is_opposite__DirectionCR.doubleC"></span><span class="target" id="classformo_1_1_direction_1ae24ea2c0df97d7047fd312fefa1c86b1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_opposite</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ang_tol</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction11is_oppositeERK9Directiond" title="Link to this definition"></a><br /></dt>
+<dd><p>Check if another direction is opposite to this direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> – Other direction </p></li>
+<li><p><strong>Angular</strong> – tolerance </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the directions have opposite orientations, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo9Direction11is_parallelERK9Directiond">
+<span id="_CPPv3NK5formo9Direction11is_parallelERK9Directiond"></span><span id="_CPPv2NK5formo9Direction11is_parallelERK9Directiond"></span><span id="formo::Direction::is_parallel__DirectionCR.doubleC"></span><span class="target" id="classformo_1_1_direction_1a1a7636644e20b10c35ff62d0d7393155"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_parallel</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5formo9DirectionE" title="formo::Direction"><span class="n"><span class="pre">Direction</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ang_tol</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo9Direction11is_parallelERK9Directiond" title="Link to this definition"></a><br /></dt>
+<dd><p>Check if another direction is parallel to this direction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> – Other direction </p></li>
+<li><p><strong>Angular</strong> – tolerance </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the directions are parallel, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="cpp function">
