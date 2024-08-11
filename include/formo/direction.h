@@ -125,4 +125,18 @@ private:
     gp_Dir dir;
 };
 
+/// Computes the scalar product between v1 and v2
+///
+/// @param v1 First direction
+/// @param v2 Second direction
+/// @return Dot product
+double dot_product(const Direction & v1, const Direction & v2);
+
+/// Computes the cross product between `v1` and `v2`
+///
+/// @param v1 First direction
+/// @param v2 Second direction
+/// @return Cross product
+Direction cross_product(const Direction & v1, const Direction & v2);
+
 } // namespace formo

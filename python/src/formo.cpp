@@ -554,9 +554,13 @@ PYBIND11_MODULE(formo, m)
     m.def("read", &IO::read,
         py::arg("file_name"));
 
-    m.def("dot_product", dot_product,
+    m.def("dot_product", static_cast<double (*)(const Vector &, const Vector &)>(&dot_product),
         py::arg("v1"), py::arg("v2"));
-    m.def("cross_product", cross_product,
+    m.def("dot_product", static_cast<double (*)(const Direction &, const Direction &)>(&dot_product),
+        py::arg("v1"), py::arg("v2"));
+    m.def("cross_product", static_cast<Vector (*)(const Vector &, const Vector &)>(&cross_product),
+        py::arg("v1"), py::arg("v2"));
+    m.def("cross_product", static_cast<Direction (*)(const Direction &, const Direction &)>(&cross_product),
         py::arg("v1"), py::arg("v2"));
 
     // clang-format on
