@@ -558,7 +558,9 @@ PYBIND11_MODULE(formo, m)
         py::arg("v1"), py::arg("v2"));
     m.def("dot_product", static_cast<double (*)(const Direction &, const Direction &)>(&dot_product),
         py::arg("v1"), py::arg("v2"));
-    m.def("cross_product", cross_product,
+    m.def("cross_product", static_cast<Vector (*)(const Vector &, const Vector &)>(&cross_product),
+        py::arg("v1"), py::arg("v2"));
+    m.def("cross_product", static_cast<Direction (*)(const Direction &, const Direction &)>(&cross_product),
         py::arg("v1"), py::arg("v2"));
 
     // clang-format on

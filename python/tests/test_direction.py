@@ -130,3 +130,10 @@ def test_invert():
 def test_dot_product():
     dot = formo.dot_product(formo.Direction(1, 2, 3), formo.Direction(-2, 3, 5))
     assert(math.isclose(dot, 0.82375447104791411, abs_tol=1e-15))
+
+
+def test_cross_product():
+    cp = formo.cross_product(formo.Direction(1, 0, 0), formo.Direction(0, 1, 0))
+    assert(math.isclose(cp.x, 0., abs_tol=1e-15))
+    assert(math.isclose(cp.y, 0., abs_tol=1e-15))
+    assert(math.isclose(cp.z, 1., abs_tol=1e-15))

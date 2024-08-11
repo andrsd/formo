@@ -169,3 +169,11 @@ TEST(DirectionTest, dot_product)
     auto dot = dot_product(Direction(1, 2, 3), Direction(-2, 3, 5));
     EXPECT_NEAR(dot, 0.82375447104791411, 1e-15);
 }
+
+TEST(DirectionTest, cross_product)
+{
+    auto cp = cross_product(Direction(1, 0, 0), Direction(0, 1, 0));
+    EXPECT_NEAR(cp.x(), 0., 1e-15);
+    EXPECT_NEAR(cp.y(), 0., 1e-15);
+    EXPECT_NEAR(cp.z(), 1., 1e-15);
+}

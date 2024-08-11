@@ -134,4 +134,11 @@ dot_product(const Direction & v1, const Direction & v2)
     return v.Dot(v2);
 }
 
+Direction
+cross_product(const Direction & v1, const Direction & v2)
+{
+    gp_Dir v(v1);
+    return Direction(v.Crossed(v2));
+}
+
 } // namespace formo
