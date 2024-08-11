@@ -23,6 +23,34 @@ TEST(DirectionTest, ctor2)
     EXPECT_DOUBLE_EQ(dir.z(), 5. / std::sqrt(50));
 }
 
+TEST(DirectionTest, is_equal)
+{
+    Direction dir(1, 2, 3);
+    EXPECT_TRUE(dir.is_equal(Direction(1, 2, 3), 1e-14));
+    EXPECT_FALSE(dir.is_equal(Direction(-1, -2, -3), 1e-14));
+}
+
+TEST(DirectionTest, is_normal)
+{
+    Direction dir(1, 0, 0);
+    EXPECT_TRUE(dir.is_normal(Vector(0, 1, 0), 1e-14));
+    EXPECT_FALSE(dir.is_normal(Vector(-1, -2, -3), 1e-14));
+}
+
+TEST(DirectionTest, is_opposite)
+{
+    Direction dir(1, 2, 3);
+    EXPECT_TRUE(dir.is_opposite(Vector(-1, -2, -3), 1e-14));
+    EXPECT_FALSE(dir.is_opposite(Vector(0, 2, -3), 1e-14));
+}
+
+TEST(DirectionTest, is_parallel)
+{
+    Direction dir(1, 2, 3);
+    EXPECT_TRUE(dir.is_parallel(Vector(-1, -2, -3), 1e-14));
+    EXPECT_FALSE(dir.is_parallel(Vector(0, 2, -3), 1e-14));
+}
+
 TEST(DirectionTest, mirror_vec)
 {
     Direction dir(1, 0, -2);

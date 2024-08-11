@@ -28,6 +28,35 @@ public:
     /// Get the z-component of the direction
     double z() const;
 
+    /// Check if 2 directions are equal.
+    ///
+    /// @param other Other direction to compare
+    /// @param ang_tol Precision value for the direction
+    /// @return `true` if the angle between the two directions is lower or equal to `ang_tol`
+    bool is_equal(const Direction & other, double ang_tol) const;
+
+    /// Check if another direction is normal to this direction
+    ///
+    /// @param other Other direction
+    /// @param ang_tol Angular tolerance
+    /// @return `true` if the angle between this unit vector and the unit vector `other` is equal to
+    /// `PI/2`
+    bool is_normal(const Direction & other, double ang_tol) const;
+
+    /// Check if another direction is opposite to this direction
+    ///
+    /// @param other Other direction
+    /// @param Angular tolerance
+    /// @return `true` if the directions have opposite orientations, `false` otherwise
+    bool is_opposite(const Direction & other, double ang_tol) const;
+
+    /// Check if another direction is parallel to this direction
+    ///
+    /// @param other Other direction
+    /// @param Angular tolerance
+    /// @return `true` if the directions are parallel, `false` otherwise
+    bool is_parallel(const Direction & other, double ang_tol) const;
+
     /// Performs the symmetrical transformation of a vector with respect to the vector `vec` which
     /// is the center of the symmetry.
     ///

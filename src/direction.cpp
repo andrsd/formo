@@ -32,6 +32,30 @@ Direction::z() const
     return this->dir.Z();
 }
 
+bool
+Direction::is_equal(const Direction & other, double ang_tol) const
+{
+    return this->dir.IsEqual(other, ang_tol);
+}
+
+bool
+Direction::is_normal(const Direction & other, double ang_tol) const
+{
+    return this->dir.IsNormal(other, ang_tol);
+}
+
+bool
+Direction::is_opposite(const Direction & other, double ang_tol) const
+{
+    return this->dir.IsOpposite(other, ang_tol);
+}
+
+bool
+Direction::is_parallel(const Direction & other, double ang_tol) const
+{
+    return this->dir.IsParallel(other, ang_tol);
+}
+
 void
 Direction::mirror(const Direction & v)
 {
