@@ -558,6 +558,9 @@ PYBIND11_MODULE(formo, m)
     m.def("section", py::overload_cast<const Shape &, const Plane &>(&section),
         py::arg("shape"), py::arg("plane"));
 
+    m.def("draft", py::overload_cast<const Shape &, const Plane &, const std::vector<Face> &, double>(&draft),
+        py::arg("shape"), py::arg("pln"), py::arg("faces"), py::arg("angle"));
+
     m.def("write", &IO::write,
         py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step");
     m.def("read", &IO::read,

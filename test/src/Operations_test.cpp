@@ -4,6 +4,7 @@
 #include "formo/circle.h"
 #include "formo/axis1.h"
 #include "formo/axis2.h"
+#include "formo/plane.h"
 #include <vector>
 
 using namespace formo;
@@ -149,4 +150,19 @@ TEST(OperationsTest, section)
     Box box1(Point(0, 0, 0), Point(1, 2, 3));
     Plane pln(Point(0.5, 0, 0), Direction(1, 0, 0));
     auto res = section(box1, pln);
+}
+
+TEST(OperationsTest, draft)
+{
+    Box box(Point(0, 0, 0), Point(1, 2, 3));
+    std::vector<Face> faces;
+    for (auto & f : box.faces()) {
+        auto pln = f.plane();
+        auto n = pln.axis().direction();
+        if (std::abs(n.z()) < 1e-14)
+            faces.emplace_back(f);
+    }
+
+    Plane neutral_plane(Point(0, 0, 0), Direction(0, 0, 1));
+    auto shape = draft(box, neutral_plane, faces, radians(3));
 }
