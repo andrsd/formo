@@ -294,6 +294,9 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<const Point &, const Direction &>(),
             py::arg("point"), py::arg("normal"))
         .def("location", &Plane::location)
+        .def("axis", &Plane::axis)
+        .def("x_axis", &Plane::x_axis)
+        .def("y_axis", &Plane::y_axis)
     ;
 
     py::class_<Axis1>(m, "Axis1")
