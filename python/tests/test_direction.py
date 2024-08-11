@@ -77,3 +77,11 @@ def test_rotated():
     assert(math.isclose(r.x, 0, abs_tol=1e-15))
     assert(math.isclose(r.y, 1, abs_tol=1e-15))
     assert(math.isclose(r.z, 0, abs_tol=1e-15))
+
+
+def test_invert():
+    dir = formo.Direction(1, 0, 0)
+    opos = -dir;
+    assert(math.isclose(opos.x, -1, abs_tol=1e-15))
+    assert(math.isclose(opos.y, 0, abs_tol=1e-15))
+    assert(math.isclose(opos.z, 0, abs_tol=1e-15))

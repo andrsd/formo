@@ -222,6 +222,9 @@ PYBIND11_MODULE(formo, m)
             py::arg("ax2"))
         .def("rotate", &Direction::rotate, py::arg("ax1"), py::arg("angle"))
         .def("rotated", &Direction::rotated, py::arg("ax1"), py::arg("angle"))
+        .def("__neg__", [](const Direction & a) {
+            return -a;
+        }, py::is_operator())
     ;
 
     py::class_<Vector>(m, "Vector")

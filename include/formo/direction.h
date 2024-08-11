@@ -79,6 +79,11 @@ public:
 
     operator gp_Dir() const;
 
+    /// Invert the orientation of the direction
+    ///
+    /// @return Direction with opposite orientation
+    Direction operator-() const;
+
 private:
     gp_Dir dir;
 };

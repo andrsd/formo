@@ -106,3 +106,12 @@ TEST(DirectionTest, rotated)
     EXPECT_NEAR(r.y(), 1., 1e-15);
     EXPECT_NEAR(r.z(), 0., 1e-15);
 }
+
+TEST(DirectionTest, op_minus_unary)
+{
+    Direction a(1, 0, 0);
+    auto b = -a;
+    EXPECT_NEAR(b.x(), -1., 1e-15);
+    EXPECT_NEAR(b.y(), 0., 1e-15);
+    EXPECT_NEAR(b.z(), 0., 1e-15);
+}

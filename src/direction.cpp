@@ -85,4 +85,10 @@ Direction::operator gp_Dir() const
     return this->dir;
 }
 
+Direction
+Direction::operator-() const
+{
+    return Direction(this->dir.Reversed());
+}
+
 } // namespace formo
