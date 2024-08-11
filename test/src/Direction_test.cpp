@@ -86,3 +86,23 @@ TEST(DirectionTest, mirrored_ax2)
     EXPECT_NEAR(npt.y(), 0, 1e-15);
     EXPECT_NEAR(npt.z(), -2 / sqrt5, 1e-15);
 }
+
+TEST(DirectionTest, rotate)
+{
+    Direction dir(1, 0, 0);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 0, 1));
+    dir.rotate(ax1, 0.5 * M_PI);
+    EXPECT_NEAR(dir.x(), 0., 1e-15);
+    EXPECT_NEAR(dir.y(), 1., 1e-15);
+    EXPECT_NEAR(dir.z(), 0., 1e-15);
+}
+
+TEST(DirectionTest, rotated)
+{
+    Direction dir(1, 0, 0);
+    Axis1 ax1(Point(0, 0, 0), Direction(0, 0, 1));
+    auto r = dir.rotated(ax1, 0.5 * M_PI);
+    EXPECT_NEAR(r.x(), 0., 1e-15);
+    EXPECT_NEAR(r.y(), 1., 1e-15);
+    EXPECT_NEAR(r.z(), 0., 1e-15);
+}

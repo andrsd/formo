@@ -59,3 +59,21 @@ def test_mirrored_ax2():
     assert(math.isclose(npt.x, -1. / sqrt5, abs_tol=1e-15))
     assert(math.isclose(npt.y, 0, abs_tol=1e-15))
     assert(math.isclose(npt.z, -2. / sqrt5, abs_tol=1e-15))
+
+
+def test_rotate():
+    dir = formo.Direction(1, 0, 0)
+    ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 0, 1))
+    dir.rotate(ax1, 0.5 * math.pi);
+    assert(math.isclose(dir.x, 0, abs_tol=1e-15))
+    assert(math.isclose(dir.y, 1, abs_tol=1e-15))
+    assert(math.isclose(dir.z, 0, abs_tol=1e-15))
+
+
+def test_rotated():
+    dir = formo.Direction(1, 0, 0)
+    ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 0, 1))
+    r = dir.rotated(ax1, 0.5 * math.pi);
+    assert(math.isclose(r.x, 0, abs_tol=1e-15))
+    assert(math.isclose(r.y, 1, abs_tol=1e-15))
+    assert(math.isclose(r.z, 0, abs_tol=1e-15))

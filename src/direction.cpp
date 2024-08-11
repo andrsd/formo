@@ -68,6 +68,18 @@ Direction::mirrored(const Axis2 & ax2) const
     return Direction(this->dir.Mirrored(ax2));
 }
 
+void
+Direction::rotate(const Axis1 & ax1, const double angle)
+{
+    this->dir.Rotate(ax1, angle);
+}
+
+Direction
+Direction::rotated(const Axis1 & ax1, const double angle) const
+{
+    return Direction(this->dir.Rotated(ax1, angle));
+}
+
 Direction::operator gp_Dir() const
 {
     return this->dir;

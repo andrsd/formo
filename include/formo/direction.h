@@ -65,6 +65,18 @@ public:
     /// @return Mirrored point
     Direction mirrored(const Axis2 & ax2) const;
 
+    /// Rotate the vector
+    ///
+    /// @param ax1 The axis of the rotation.
+    /// @param angle The angular value of the rotation in radians.
+    void rotate(const Axis1 & ax1, const double angle);
+
+    /// Rotates a vector.
+    ///
+    /// @param ax1 The axis of the rotation.
+    /// @param angle The angular value of the rotation in radians.
+    Direction rotated(const Axis1 & ax1, const double angle) const;
+
     operator gp_Dir() const;
 
 private:

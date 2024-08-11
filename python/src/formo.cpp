@@ -220,6 +220,8 @@ PYBIND11_MODULE(formo, m)
             py::arg("ax1"))
         .def("mirrored", static_cast<Direction (Direction::*)(const Axis2 &) const>(&Direction::mirrored),
             py::arg("ax2"))
+        .def("rotate", &Direction::rotate, py::arg("ax1"), py::arg("angle"))
+        .def("rotated", &Direction::rotated, py::arg("ax1"), py::arg("angle"))
     ;
 
     py::class_<Vector>(m, "Vector")
