@@ -17,6 +17,7 @@
 #include "BRepPrimAPI_MakeRevol.hxx"
 #include "BRepAlgoAPI_Section.hxx"
 #include "BRepOffsetAPI_DraftAngle.hxx"
+#include "BRepFeat_MakeCylindricalHole.hxx"
 
 namespace formo {
 
@@ -221,6 +222,32 @@ draft(const Shape & shape, const Plane & pln, const std::vector<Face> & faces, d
         return Shape(drft.Shape());
     else
         throw Exception("Draft was not constructed");
+}
+
+Shape
+hole(const Shape & shape, const Axis1 & axis, double radius)
+{
+    BRepFeat_MakeCylindricalHole h;
+    h.Init(shape, axis);
+    h.Perform(radius);
+    h.Build();
+    if (h.Status() == BRepFeat_NoError)
+        return Shape(h.Shape());
+    else
+        throw Exception("Hole did not generate");
+}
+
+Shape
+hole(const Shape & shape, const Axis1 & axis, double radius, double length)
+{
+    BRepFeat_MakeCylindricalHole h;
+    h.Init(shape, axis);
+    h.PerformBlind(radius, length);
+    h.Build();
+    if (h.Status() == BRepFeat_NoError)
+        return Shape(h.Shape());
+    else
+        throw Exception("Hole did not generate");
 }
 
 } // namespace formo

@@ -561,6 +561,11 @@ PYBIND11_MODULE(formo, m)
     m.def("draft", py::overload_cast<const Shape &, const Plane &, const std::vector<Face> &, double>(&draft),
         py::arg("shape"), py::arg("pln"), py::arg("faces"), py::arg("angle"));
 
+    m.def("hole", py::overload_cast<const Shape &, const Axis1 &, double>(&hole),
+        py::arg("shape"), py::arg("axis"), py::arg("radius"));
+    m.def("hole", py::overload_cast<const Shape &, const Axis1 &, double, double>(&hole),
+        py::arg("shape"), py::arg("axis"), py::arg("radius"), py::arg("length"));
+
     m.def("write", &IO::write,
         py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step");
     m.def("read", &IO::read,
