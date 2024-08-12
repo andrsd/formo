@@ -356,6 +356,7 @@ PYBIND11_MODULE(formo, m)
             py::arg("wire"))
         .def(py::init<const std::vector<Edge> &>(),
             py::arg("edges"))
+        .def("length", &Wire::length)
         .def("draft", &Wire::draft,
             py::arg("dir"), py::arg("angle"), py::arg("length"))
     ;

@@ -8,6 +8,8 @@
 #include "BRepBuilderAPI_MakeWire.hxx"
 #include "BRepOffsetAPI_MakeDraft.hxx"
 #include "TopoDS.hxx"
+#include "GProp_GProps.hxx"
+#include "BRepGProp.hxx"
 
 namespace formo {
 
@@ -31,6 +33,14 @@ void
 Wire::set_wire(const TopoDS_Wire & wire)
 {
     this->wire = wire;
+}
+
+double
+Wire::length() const
+{
+    GProp_GProps props;
+    BRepGProp::LinearProperties(this->wire, props);
+    return props.Mass();
 }
 
 Shell
