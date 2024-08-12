@@ -18,6 +18,7 @@
 #include "BRepAlgoAPI_Section.hxx"
 #include "BRepOffsetAPI_DraftAngle.hxx"
 #include "BRepFeat_MakeCylindricalHole.hxx"
+#include "BRepOffsetAPI_MakePipe.hxx"
 
 namespace formo {
 
@@ -248,6 +249,17 @@ hole(const Shape & shape, const Axis1 & axis, double radius, double length)
         return Shape(h.Shape());
     else
         throw Exception("Hole did not generate");
+}
+
+Shape
+sweep(const Shape & profile, const Wire & spine)
+{
+    BRepOffsetAPI_MakePipe mk(spine, profile);
+    mk.Build();
+    if (mk.IsDone())
+        return Shape(mk.Shape());
+    else
+        throw Exception("Sweep was not constructed");
 }
 
 } // namespace formo

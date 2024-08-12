@@ -183,4 +183,11 @@ Shape hole(const Shape & shape, const Axis1 & axis, double radius);
 /// @param length Lenght of the hole
 Shape hole(const Shape & shape, const Axis1 & axis, double radius, double length);
 
+/// Constructs a pipe by sweeping the `profile` along the `spine`
+///
+/// @param profile Profile to sweep
+/// @param spine Sweep path
+/// @return Resulting shape
+Shape sweep(const Shape & profile, const Wire & spine);
+
 } // namespace formo
