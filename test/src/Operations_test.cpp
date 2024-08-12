@@ -5,6 +5,7 @@
 #include "formo/axis1.h"
 #include "formo/axis2.h"
 #include "formo/plane.h"
+#include "formo/step_file.h"
 #include <vector>
 
 using namespace formo;
@@ -165,4 +166,18 @@ TEST(OperationsTest, draft)
 
     Plane neutral_plane(Point(0, 0, 0), Direction(0, 0, 1));
     auto shape = draft(box, neutral_plane, faces, radians(3));
+}
+
+TEST(OperationsTest, hole)
+{
+    Box box(Point(0, 0, 0), Point(1, 1, 1));
+    Axis1 ax1(Point(1.5, 0.5, 0.25), Direction(-1, 0, 0));
+    auto shape = hole(box, ax1, 0.1);
+}
+
+TEST(OperationsTest, hole_blind)
+{
+    Box box(Point(0, 0, 0), Point(1, 1, 1));
+    Axis1 ax1(Point(0, 0.5, 0.25), Direction(1, 0, 0));
+    auto shape = hole(box, ax1, 0.1, 0.5);
 }
