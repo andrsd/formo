@@ -19,6 +19,11 @@ public:
     explicit Wire(const TopoDS_Wire & wire);
     Wire(const std::vector<Edge> & edges);
 
+    /// Compute the length of the edge
+    ///
+    /// @return Length of the edge
+    double length() const;
+
     /// Constructs the draft surface object defined by the wire, the direction, and the angle.
     ///
     /// @param dir Direction
