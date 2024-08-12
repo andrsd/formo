@@ -1,10 +1,13 @@
 #include "gmock/gmock.h"
+#include "formo/arc_of_circle.h"
+#include "formo/exception.h"
 #include "formo/operations.h"
 #include "formo/box.h"
 #include "formo/circle.h"
 #include "formo/axis1.h"
 #include "formo/axis2.h"
 #include "formo/plane.h"
+#include "formo/line.h"
 #include "formo/step_file.h"
 #include <vector>
 
@@ -180,4 +183,17 @@ TEST(OperationsTest, hole_blind)
     Box box(Point(0, 0, 0), Point(1, 1, 1));
     Axis1 ax1(Point(0, 0.5, 0.25), Direction(1, 0, 0));
     auto shape = hole(box, ax1, 0.1, 0.5);
+}
+
+TEST(OperationsTest, sweep)
+{
+    Line l1(Point(0, 0, 0), Point(0, 1, 0));
+    ArcOfCircle arc(Point(0, 1, 0), Vector(0, 1, 0), Point(1, 2, 0));
+    Line l2(Point(1, 2, 0), Point(2, 2, 0));
+    Wire path({ l1, arc, l2 });
+
+    Circle circ(Axis2(Point(0, 0, 0), Direction(0, 1, 0)), 0.1);
+    Face profile(Wire({ circ }));
+
+    auto shape = sweep(profile, path);
 }
