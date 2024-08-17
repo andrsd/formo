@@ -137,3 +137,10 @@ def test_cross_product():
     assert(math.isclose(cp.x, 0., abs_tol=1e-15))
     assert(math.isclose(cp.y, 0., abs_tol=1e-15))
     assert(math.isclose(cp.z, 1., abs_tol=1e-15))
+
+
+def test_scale_op():
+    vec = 12.34 * formo.Direction(1, 0, 0)
+    assert(math.isclose(vec.x, 12.34, abs_tol=1e-15))
+    assert(math.isclose(vec.y, 0., abs_tol=1e-15))
+    assert(math.isclose(vec.z, 0., abs_tol=1e-15))

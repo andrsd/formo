@@ -166,6 +166,12 @@ private:
 /// @return Resulting vector
 Vector operator*(double alpha, const Vector & vec);
 
+/// Multiply direction by a scalar
+///
+/// @param alpha Scalar to multiply the direction with
+/// @return Resulting vector
+Vector operator*(double alpha, const Direction & dir);
+
 /// Computes the scalar product between v1 and v2
 ///
 /// @param v1 First vector

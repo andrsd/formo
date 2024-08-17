@@ -234,3 +234,12 @@ TEST(VectorTest, cross_product)
     EXPECT_NEAR(cp.y(), 0., 1e-15);
     EXPECT_NEAR(cp.z(), 1., 1e-15);
 }
+
+TEST(VectorTest, scale_dir_op)
+{
+    auto dir = Direction(1, 0, 0);
+    auto vec = 12.34 * dir;
+    EXPECT_NEAR(vec.x(), 12.34, 1e-15);
+    EXPECT_NEAR(vec.y(), 0., 1e-15);
+    EXPECT_NEAR(vec.z(), 0., 1e-15);
+}
