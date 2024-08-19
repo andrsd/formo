@@ -149,6 +149,12 @@ operator*(double alpha, const Vector & vec)
 }
 
 Vector
+operator*(double alpha, const Direction & dir)
+{
+    return Vector(alpha * dir.x(), alpha * dir.y(), alpha * dir.z());
+}
+
+Vector
 Vector::operator+(const Vector & other) const
 {
     return Vector(x() + other.x(), y() + other.y(), z() + other.z());

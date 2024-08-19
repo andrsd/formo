@@ -235,6 +235,9 @@ PYBIND11_MODULE(formo, m)
         .def("__neg__", [](const Direction & a) {
             return -a;
         }, py::is_operator())
+        .def("__rmul__", [](const Direction & dir, double alpha) {
+            return alpha * dir;
+        }, py::is_operator())
     ;
 
     py::class_<Vector>(m, "Vector")
