@@ -60,6 +60,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shapes.html">Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a></li>
 </ul>
 
@@ -140,6 +141,8 @@
 </li>
       <li><a href="shapes.html#_CPPv4N5formo4ConeE">formo::Cone (C++ class)</a>
 </li>
+      <li><a href="operations.html#_CPPv4N5formo3cutERK5ShapeRK5Shape">formo::cut (C++ function)</a>
+</li>
       <li><a href="shapes.html#_CPPv4N5formo8CylinderE">formo::Cylinder (C++ class)</a>
 </li>
       <li><a href="geometry.html#_CPPv4N5formo9DirectionE">formo::Direction (C++ class)</a>
@@ -174,13 +177,25 @@
 </li>
       <li><a href="geometry.html#_CPPv4NK5formo9Direction1zEv">formo::Direction::z (C++ function)</a>
 </li>
+      <li><a href="operations.html#_CPPv4N5formo5draftERK5ShapeRK5PlaneRKNSt6vectorI4FaceEEd">formo::draft (C++ function)</a>
+</li>
       <li><a href="shapes.html#_CPPv4N5formo4EdgeE">formo::Edge (C++ class)</a>
 </li>
       <li><a href="shapes.html#_CPPv4NK5formo4Edge6lengthEv">formo::Edge::length (C++ function)</a>
 </li>
+      <li><a href="operations.html#_CPPv4N5formo7extrudeERK5ShapeRK6Vector">formo::extrude (C++ function)</a>
+</li>
       <li><a href="shapes.html#_CPPv4N5formo4FaceE">formo::Face (C++ class)</a>
 </li>
       <li><a href="shapes.html#_CPPv4NK5formo4Face4areaEv">formo::Face::area (C++ function)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd">formo::fillet (C++ function)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo4fuseERK5ShapeRK5Shape">formo::fuse (C++ function)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo4holeERK5ShapeRK5Axis1d">formo::hole (C++ function)</a>, <a href="operations.html#_CPPv4N5formo4holeERK5ShapeRK5Axis1dd">[1]</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo6hollowERK5ShapeRKNSt6vectorI4FaceEEdd">formo::hollow (C++ function)</a>
 </li>
       <li><a href="io.html#_CPPv4N5formo8IGESFileE">formo::IGESFile (C++ class)</a>
 </li>
@@ -190,6 +205,8 @@
 </li>
       <li><a href="io.html#_CPPv4N5formo8IGESFile5writeERKNSt6vectorI5ShapeEE">formo::IGESFile::write (C++ function)</a>
 </li>
+      <li><a href="operations.html#_CPPv4N5formo9intersectERK5ShapeRK5Shape">formo::intersect (C++ function)</a>
+</li>
       <li><a href="io.html#_CPPv4N5formo2IOE">formo::IO (C++ class)</a>
 </li>
       <li><a href="io.html#_CPPv4N5formo2IO4readERKNSt6stringE">formo::IO::read (C++ function)</a>
@@ -197,6 +214,8 @@
       <li><a href="io.html#_CPPv4N5formo2IO5writeERKNSt6stringERKNSt6vectorI5ShapeEERKNSt6stringE">formo::IO::write (C++ function)</a>
 </li>
       <li><a href="shapes.html#_CPPv4N5formo4LineE">formo::Line (C++ class)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo6mirrorERK5PointRK5Axis1">formo::mirror (C++ function)</a>, <a href="operations.html#_CPPv4N5formo6mirrorERK5PointRK5Axis2">[1]</a>, <a href="operations.html#_CPPv4N5formo6mirrorERK5ShapeRK5Axis1">[2]</a>, <a href="operations.html#_CPPv4N5formo6mirrorERK6VectorRK5Axis1">[3]</a>, <a href="operations.html#_CPPv4N5formo6mirrorERK6VectorRK5Axis2">[4]</a>
 </li>
       <li><a href="geometry.html#_CPPv4N5formo5PlaneE">formo::Plane (C++ class)</a>
 </li>
@@ -208,10 +227,10 @@
 </li>
       <li><a href="geometry.html#_CPPv4NK5formo5Plane6x_axisEv">formo::Plane::x_axis (C++ function)</a>
 </li>
-      <li><a href="geometry.html#_CPPv4NK5formo5Plane6y_axisEv">formo::Plane::y_axis (C++ function)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="geometry.html#_CPPv4NK5formo5Plane6y_axisEv">formo::Plane::y_axis (C++ function)</a>
+</li>
       <li><a href="shapes.html#_CPPv4N5formo5PointE">formo::Point (C++ class)</a>
 </li>
       <li><a href="shapes.html#_CPPv4NK5formo5Point8distanceERK5Point">formo::Point::distance (C++ function)</a>
@@ -241,6 +260,14 @@
       <li><a href="shapes.html#_CPPv4NK5formo5Point1zEv">formo::Point::z (C++ function)</a>
 </li>
       <li><a href="shapes.html#_CPPv4N5formo7PolygonE">formo::Polygon (C++ class)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo7revolveERK5ShapeRK5Axis1d">formo::revolve (C++ function)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo6rotateERK5PointRK5Axis1d">formo::rotate (C++ function)</a>, <a href="operations.html#_CPPv4N5formo6rotateERK5ShapeRK5Axis1d">[1]</a>, <a href="operations.html#_CPPv4N5formo6rotateERK6VectorRK5Axis1d">[2]</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo5scaleERK5Shaped">formo::scale (C++ function)</a>, <a href="operations.html#_CPPv4N5formo5scaleERK6Vectord">[1]</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo7sectionERK5ShapeRK5Plane">formo::section (C++ function)</a>
 </li>
       <li><a href="shapes.html#_CPPv4N5formo5ShapeE">formo::Shape (C++ class)</a>
 </li>
@@ -279,6 +306,10 @@
       <li><a href="io.html#_CPPv4N5formo8STEPFile8STEPFileERKNSt6stringE">formo::STEPFile::STEPFile (C++ function)</a>
 </li>
       <li><a href="io.html#_CPPv4N5formo8STEPFile5writeERKNSt6vectorI5ShapeEE">formo::STEPFile::write (C++ function)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo5sweepERK5ShapeRK4Wire">formo::sweep (C++ function)</a>
+</li>
+      <li><a href="operations.html#_CPPv4N5formo9translateERK5ShapeRK5PointRK5Point">formo::translate (C++ function)</a>, <a href="operations.html#_CPPv4N5formo9translateERK5ShapeRK6Vector">[1]</a>
 </li>
       <li><a href="geometry.html#_CPPv4N5formo6VectorE">formo::Vector (C++ class)</a>
 </li>

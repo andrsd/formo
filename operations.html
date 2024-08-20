@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operations &mdash; formo  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Input/Output" href="io.html" />
+    <link rel="prev" title="Shapes" href="shapes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">Formo Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="names-and-colors.html">Names and Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export.html">Export</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/2d-geometry.html">2D geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/bottle.html">Bottle</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shapes.html">Shapes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo9translateERK5ShapeRK6Vector"><code class="docutils literal notranslate"><span class="pre">translate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo9translateERK5ShapeRK5PointRK5Point"><code class="docutils literal notranslate"><span class="pre">translate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo5scaleERK5Shaped"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo5scaleERK6Vectord"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK5ShapeRK5Axis1"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK6VectorRK5Axis1"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK6VectorRK5Axis2"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK5PointRK5Axis1"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK5PointRK5Axis2"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4fuseERK5ShapeRK5Shape"><code class="docutils literal notranslate"><span class="pre">fuse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo3cutERK5ShapeRK5Shape"><code class="docutils literal notranslate"><span class="pre">cut()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo9intersectERK5ShapeRK5Shape"><code class="docutils literal notranslate"><span class="pre">intersect()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd"><code class="docutils literal notranslate"><span class="pre">fillet()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6hollowERK5ShapeRKNSt6vectorI4FaceEEdd"><code class="docutils literal notranslate"><span class="pre">hollow()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo7extrudeERK5ShapeRK6Vector"><code class="docutils literal notranslate"><span class="pre">extrude()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo7revolveERK5ShapeRK5Axis1d"><code class="docutils literal notranslate"><span class="pre">revolve()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6rotateERK5PointRK5Axis1d"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6rotateERK6VectorRK5Axis1d"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6rotateERK5ShapeRK5Axis1d"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo7sectionERK5ShapeRK5Plane"><code class="docutils literal notranslate"><span class="pre">section()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo5draftERK5ShapeRK5PlaneRKNSt6vectorI4FaceEEd"><code class="docutils literal notranslate"><span class="pre">draft()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4holeERK5ShapeRK5Axis1d"><code class="docutils literal notranslate"><span class="pre">hole()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4holeERK5ShapeRK5Axis1dd"><code class="docutils literal notranslate"><span class="pre">hole()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo5sweepERK5ShapeRK4Wire"><code class="docutils literal notranslate"><span class="pre">sweep()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Operations</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="operations">
+<h1>Operations<a class="headerlink" href="#operations" title="Link to this heading"></a></h1>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo9translateERK5ShapeRK6Vector">
+<span id="_CPPv3N5formo9translateERK5ShapeRK6Vector"></span><span id="_CPPv2N5formo9translateERK5ShapeRK6Vector"></span><span id="formo::translate__ShapeCR.VectorCR"></span><span class="target" id="operations_8h_1afd13c3a5917a7e2bb04ebd06f10857fe"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo9translateERK5ShapeRK6Vector" title="Link to this definition"></a><br /></dt>
+<dd><p>Translate a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to translate </p></li>
+<li><p><strong>v</strong> – Translation vector </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Translated shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo9translateERK5ShapeRK5PointRK5Point">
+<span id="_CPPv3N5formo9translateERK5ShapeRK5PointRK5Point"></span><span id="_CPPv2N5formo9translateERK5ShapeRK5PointRK5Point"></span><span id="formo::translate__ShapeCR.PointCR.PointCR"></span><span class="target" id="operations_8h_1ae80f5e3eb62454575ee07e060d7ad462"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">p1</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">p2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo9translateERK5ShapeRK5PointRK5Point" title="Link to this definition"></a><br /></dt>
+<dd><p>Translate a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to translate </p></li>
+<li><p><strong>p1</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref">Point</span></a> one of the translation vector </p></li>
+<li><p><strong>p2</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref">Point</span></a> two of the translation vector </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Translated shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5scaleERK5Shaped">
+<span id="_CPPv3N5formo5scaleERK5Shaped"></span><span id="_CPPv2N5formo5scaleERK5Shaped"></span><span id="formo::scale__ShapeCR.double"></span><span class="target" id="operations_8h_1a58b1e9dfcca956e96f01419f6f00285c"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">scale</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5scaleERK5Shaped" title="Link to this definition"></a><br /></dt>
+<dd><p>Scale a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to scale </p></li>
+<li><p><strong>s</strong> – Scale factor </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Scaled shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5scaleERK6Vectord">
+<span id="_CPPv3N5formo5scaleERK6Vectord"></span><span id="_CPPv2N5formo5scaleERK6Vectord"></span><span id="formo::scale__VectorCR.double"></span><span class="target" id="operations_8h_1ac266aae025b2815bb501cc7f10d84d1d"></span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">scale</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5scaleERK6Vectord" title="Link to this definition"></a><br /></dt>
+<dd><p>Scale a vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vec</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_vector"><span class="std std-ref">Vector</span></a> to scale </p></li>
+<li><p><strong>s</strong> – Scale factor </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Scaled vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6mirrorERK5ShapeRK5Axis1">
+<span id="_CPPv3N5formo6mirrorERK5ShapeRK5Axis1"></span><span id="_CPPv2N5formo6mirrorERK5ShapeRK5Axis1"></span><span id="formo::mirror__ShapeCR.Axis1CR"></span><span class="target" id="operations_8h_1ad8814f49d43ecb24e0b8f5ff0eb960bb"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6mirrorERK5ShapeRK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Mirror a shape about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to mirror </p></li>
+<li><p><strong>axis</strong> – Axis to mirror about </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6mirrorERK6VectorRK5Axis1">
+<span id="_CPPv3N5formo6mirrorERK6VectorRK5Axis1"></span><span id="_CPPv2N5formo6mirrorERK6VectorRK5Axis1"></span><span id="formo::mirror__VectorCR.Axis1CR"></span><span class="target" id="operations_8h_1a1bb6dba6c43deaa06b801f811ab91863"></span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6mirrorERK6VectorRK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Mirror a vector about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_vector"><span class="std std-ref">Vector</span></a> to mirror </p></li>
+<li><p><strong>axis</strong> – Axis to mirror about </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6mirrorERK6VectorRK5Axis2">
+<span id="_CPPv3N5formo6mirrorERK6VectorRK5Axis2"></span><span id="_CPPv2N5formo6mirrorERK6VectorRK5Axis2"></span><span id="formo::mirror__VectorCR.Axis2CR"></span><span class="target" id="operations_8h_1a53d1cde0903489d72ed3d31cb0bba87d"></span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6mirrorERK6VectorRK5Axis2" title="Link to this definition"></a><br /></dt>
+<dd><p>Mirror a vector about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_vector"><span class="std std-ref">Vector</span></a> to mirror </p></li>
+<li><p><strong>axis</strong> – Axis to mirror about </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6mirrorERK5PointRK5Axis1">
+<span id="_CPPv3N5formo6mirrorERK5PointRK5Axis1"></span><span id="_CPPv2N5formo6mirrorERK5PointRK5Axis1"></span><span id="formo::mirror__PointCR.Axis1CR"></span><span class="target" id="operations_8h_1a1d597e9b36df3b0d9b1ef7a5dad758db"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6mirrorERK5PointRK5Axis1" title="Link to this definition"></a><br /></dt>
+<dd><p>Mirror a point about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref">Point</span></a> to mirror </p></li>
+<li><p><strong>axis</strong> – Axis to mirror about </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6mirrorERK5PointRK5Axis2">
+<span id="_CPPv3N5formo6mirrorERK5PointRK5Axis2"></span><span id="_CPPv2N5formo6mirrorERK5PointRK5Axis2"></span><span id="formo::mirror__PointCR.Axis2CR"></span><span class="target" id="operations_8h_1a3249ee42a8ae64f6bdcec8af891fa371"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">mirror</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6mirrorERK5PointRK5Axis2" title="Link to this definition"></a><br /></dt>
+<dd><p>Mirror a point about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref">Point</span></a> to mirror </p></li>
+<li><p><strong>axis</strong> – Axis to mirror about </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting point </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo4fuseERK5ShapeRK5Shape">
+<span id="_CPPv3N5formo4fuseERK5ShapeRK5Shape"></span><span id="_CPPv2N5formo4fuseERK5ShapeRK5Shape"></span><span id="formo::fuse__ShapeCR.ShapeCR"></span><span class="target" id="operations_8h_1a572225073de86cee2c21e5baf91e22c9"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">fuse</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo4fuseERK5ShapeRK5Shape" title="Link to this definition"></a><br /></dt>
+<dd><p>Fuse 2 shapes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a></p></li>
+<li><p><strong>tool</strong> – Tool </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting fused shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo3cutERK5ShapeRK5Shape">
+<span id="_CPPv3N5formo3cutERK5ShapeRK5Shape"></span><span id="_CPPv2N5formo3cutERK5ShapeRK5Shape"></span><span id="formo::cut__ShapeCR.ShapeCR"></span><span class="target" id="operations_8h_1a18b5724f19025aed870204c7ee336f68"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">cut</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo3cutERK5ShapeRK5Shape" title="Link to this definition"></a><br /></dt>
+<dd><p>Cut a shape with a tool. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to cut </p></li>
+<li><p><strong>tool</strong> – Cutting tool </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo9intersectERK5ShapeRK5Shape">
+<span id="_CPPv3N5formo9intersectERK5ShapeRK5Shape"></span><span id="_CPPv2N5formo9intersectERK5ShapeRK5Shape"></span><span id="formo::intersect__ShapeCR.ShapeCR"></span><span class="target" id="operations_8h_1a99ac975ef62a125b9d3d383e3c4173c4"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">intersect</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo9intersectERK5ShapeRK5Shape" title="Link to this definition"></a><br /></dt>
+<dd><p>Intersect 2 shapes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a></p></li>
+<li><p><strong>tool</strong> – Tool </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd">
+<span id="_CPPv3N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd"></span><span id="_CPPv2N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd"></span><span id="formo::fillet__ShapeCR.std::vector:Edge:CR.double"></span><span class="target" id="operations_8h_1a046bf30ee0ded1f91e4547f4a06331a1"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">fillet</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="shapes.html#_CPPv4N5formo4EdgeE" title="formo::Edge"><span class="n"><span class="pre">Edge</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">edges</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd" title="Link to this definition"></a><br /></dt>
+<dd><p>Fillet. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to fillet </p></li>
+<li><p><strong>edges</strong> – List of edges to fillet </p></li>
+<li><p><strong>radius</strong> – Radius of the fillet </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6hollowERK5ShapeRKNSt6vectorI4FaceEEdd">
+<span id="_CPPv3N5formo6hollowERK5ShapeRKNSt6vectorI4FaceEEdd"></span><span id="_CPPv2N5formo6hollowERK5ShapeRKNSt6vectorI4FaceEEdd"></span><span id="formo::hollow__ShapeCR.std::vector:Face:CR.double.double"></span><span class="target" id="operations_8h_1a8e63ae53a7d26ad9f297cba82c19b835"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hollow</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="shapes.html#_CPPv4N5formo4FaceE" title="formo::Face"><span class="n"><span class="pre">Face</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">faces_to_remove</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">thickness</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6hollowERK5ShapeRKNSt6vectorI4FaceEEdd" title="Link to this definition"></a><br /></dt>
+<dd><p>Hollow the shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to hollow </p></li>
+<li><p><strong>faces_to_remove</strong> – Faces to open </p></li>
+<li><p><strong>thickness</strong> – Desired wall thickness </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hollowed out shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo7extrudeERK5ShapeRK6Vector">
+<span id="_CPPv3N5formo7extrudeERK5ShapeRK6Vector"></span><span id="_CPPv2N5formo7extrudeERK5ShapeRK6Vector"></span><span id="formo::extrude__ShapeCR.VectorCR"></span><span class="target" id="operations_8h_1adf7cfda479edb52b6fe92011bac441c7"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">extrude</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vec</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo7extrudeERK5ShapeRK6Vector" title="Link to this definition"></a><br /></dt>
+<dd><p>Extrude a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to extrude </p></li>
+<li><p><strong>vec</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_vector"><span class="std std-ref">Vector</span></a> of extrusion </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo7revolveERK5ShapeRK5Axis1d">
+<span id="_CPPv3N5formo7revolveERK5ShapeRK5Axis1d"></span><span id="_CPPv2N5formo7revolveERK5ShapeRK5Axis1d"></span><span id="formo::revolve__ShapeCR.Axis1CR.double"></span><span class="target" id="operations_8h_1a74af0edda8cf25cdd9e0c71fccdd88bb"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">revolve</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2.</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><span class="n"><span class="pre">M_PI</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo7revolveERK5ShapeRK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Revolve shape about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to revolve </p></li>
+<li><p><strong>axis</strong> – Axis to revolve about </p></li>
+<li><p><strong>angle</strong> – Angle to revolve </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6rotateERK5PointRK5Axis1d">
+<span id="_CPPv3N5formo6rotateERK5PointRK5Axis1d"></span><span id="_CPPv2N5formo6rotateERK5PointRK5Axis1d"></span><span id="formo::rotate__PointCR.Axis1CR.double"></span><span class="target" id="operations_8h_1acd6f8662c9b7e77dfbf147fa23451d43"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6rotateERK5PointRK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Rotate point about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref">Point</span></a> to rotate </p></li>
+<li><p><strong>axis</strong> – Axis to rotate about </p></li>
+<li><p><strong>angle</strong> – Rotation angle (in radians) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting <a class="reference internal" href="shapes.html#classformo_1_1_point"><span class="std std-ref">Point</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6rotateERK6VectorRK5Axis1d">
+<span id="_CPPv3N5formo6rotateERK6VectorRK5Axis1d"></span><span id="_CPPv2N5formo6rotateERK6VectorRK5Axis1d"></span><span id="formo::rotate__VectorCR.Axis1CR.double"></span><span class="target" id="operations_8h_1a8ceb60f0fe980db48e33aef0dd7c3c4a"></span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo6VectorE" title="formo::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6rotateERK6VectorRK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Rotate vector about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vector</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_vector"><span class="std std-ref">Vector</span></a> to rotate </p></li>
+<li><p><strong>axis</strong> – Axis to rotate about </p></li>
+<li><p><strong>angle</strong> – Rotation angle (in radians) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo6rotateERK5ShapeRK5Axis1d">
+<span id="_CPPv3N5formo6rotateERK5ShapeRK5Axis1d"></span><span id="_CPPv2N5formo6rotateERK5ShapeRK5Axis1d"></span><span id="formo::rotate__ShapeCR.Axis1CR.double"></span><span class="target" id="operations_8h_1ac16db94788aa62034571916b195e19f4"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo6rotateERK5ShapeRK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Rotate a shape about an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to rotate </p></li>
+<li><p><strong>axis</strong> – Axis to rotate about </p></li>
+<li><p><strong>angle</strong> – Rotation angle (in radians) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting <code class="docutils literal notranslate"><a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref"><span class="pre">Shape</span></span></a></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo7sectionERK5ShapeRK5Plane">
+<span id="_CPPv3N5formo7sectionERK5ShapeRK5Plane"></span><span id="_CPPv2N5formo7sectionERK5ShapeRK5Plane"></span><span id="formo::section__ShapeCR.PlaneCR"></span><span class="target" id="operations_8h_1a786d05cb374ff51ac1860a3143dad321"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo4WireE" title="formo::Wire"><span class="n"><span class="pre">Wire</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">section</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5PlaneE" title="formo::Plane"><span class="n"><span class="pre">Plane</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">plane</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo7sectionERK5ShapeRK5Plane" title="Link to this definition"></a><br /></dt>
+<dd><p>Compute section between a shape and a plane. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a></p></li>
+<li><p><strong>plane</strong> – <a class="reference internal" href="geometry.html#classformo_1_1_plane"><span class="std std-ref">Plane</span></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="shapes.html#classformo_1_1_wire"><span class="std std-ref">Wire</span></a> that forms the computed section </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5draftERK5ShapeRK5PlaneRKNSt6vectorI4FaceEEd">
+<span id="_CPPv3N5formo5draftERK5ShapeRK5PlaneRKNSt6vectorI4FaceEEd"></span><span id="_CPPv2N5formo5draftERK5ShapeRK5PlaneRKNSt6vectorI4FaceEEd"></span><span id="formo::draft__ShapeCR.PlaneCR.std::vector:Face:CR.double"></span><span class="target" id="operations_8h_1a3c78f70b8c5da9ee4ed53821397e3f40"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">draft</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5PlaneE" title="formo::Plane"><span class="n"><span class="pre">Plane</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pln</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="shapes.html#_CPPv4N5formo4FaceE" title="formo::Face"><span class="n"><span class="pre">Face</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">faces</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5draftERK5ShapeRK5PlaneRKNSt6vectorI4FaceEEd" title="Link to this definition"></a><br /></dt>
+<dd><p>Taper-adding transformations on a shape. </p>
+<p>The resulting shape is constructed by defining one face to be tapered after another one, as well as the geometric properties of their tapered transformation. Each tapered transformation is propagated along the series of faces which are tangential to one another and which contains the face to be tapered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> to taper </p></li>
+<li><p><strong>pln</strong> – Neutral plane </p></li>
+<li><p><strong>faces</strong> – Faces to taper </p></li>
+<li><p><strong>angle</strong> – Tapering angle </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tapered shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo4holeERK5ShapeRK5Axis1d">
+<span id="_CPPv3N5formo4holeERK5ShapeRK5Axis1d"></span><span id="_CPPv2N5formo4holeERK5ShapeRK5Axis1d"></span><span id="formo::hole__ShapeCR.Axis1CR.double"></span><span class="target" id="operations_8h_1a7ad3b35563ab689e333f82dfc192c61b"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hole</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo4holeERK5ShapeRK5Axis1d" title="Link to this definition"></a><br /></dt>
+<dd><p>Make cylindrical hole on a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> on which hole will be performed </p></li>
+<li><p><strong>axis</strong> – Axis of the hole </p></li>
+<li><p><strong>radius</strong> – Radius of the hole </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo4holeERK5ShapeRK5Axis1dd">
+<span id="_CPPv3N5formo4holeERK5ShapeRK5Axis1dd"></span><span id="_CPPv2N5formo4holeERK5ShapeRK5Axis1dd"></span><span id="formo::hole__ShapeCR.Axis1CR.double.double"></span><span class="target" id="operations_8h_1acb4d2a60a39bc1417f905a0ebc4b0165"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hole</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis1E" title="formo::Axis1"><span class="n"><span class="pre">Axis1</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo4holeERK5ShapeRK5Axis1dd" title="Link to this definition"></a><br /></dt>
+<dd><p>Make cylindrical hole on a shape with specified depth. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a> on which hole will be performed </p></li>
+<li><p><strong>axis</strong> – Axis of the hole </p></li>
+<li><p><strong>radius</strong> – Radius of the hole </p></li>
+<li><p><strong>length</strong> – Length of the hole </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5sweepERK5ShapeRK4Wire">
+<span id="_CPPv3N5formo5sweepERK5ShapeRK4Wire"></span><span id="_CPPv2N5formo5sweepERK5ShapeRK4Wire"></span><span id="formo::sweep__ShapeCR.WireCR"></span><span class="target" id="operations_8h_1adf7bd4557ea96b0454c359d572ea5356"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">sweep</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">profile</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo4WireE" title="formo::Wire"><span class="n"><span class="pre">Wire</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">spine</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5sweepERK5ShapeRK4Wire" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a pipe by sweeping the <code class="docutils literal notranslate"><span class="pre">profile</span></code> along the <code class="docutils literal notranslate"><span class="pre">spine</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>profile</strong> – Profile to sweep </p></li>
+<li><p><strong>spine</strong> – Sweep path </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shapes.html" class="btn btn-neutral float-left" title="Shapes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="io.html" class="btn btn-neutral float-right" title="Input/Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, David Andrs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
