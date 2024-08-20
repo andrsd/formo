@@ -180,7 +180,7 @@ Shape hole(const Shape & shape, const Axis1 & axis, double radius);
 /// @param shape Shape on which hole will be performed
 /// @param axis Axis of the hole
 /// @param radius Radius of the hole
-/// @param length Lenght of the hole
+/// @param length Length of the hole
 Shape hole(const Shape & shape, const Axis1 & axis, double radius, double length);
 
 /// Constructs a pipe by sweeping the `profile` along the `spine`
