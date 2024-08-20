@@ -149,6 +149,12 @@ TEST(OperationsTest, rotate_pnt)
     EXPECT_DOUBLE_EQ(b.z(), 0.);
 }
 
+TEST(OperationsTest, rotate_shape)
+{
+    Box a(Point(2, 0, 0), Point(3, 2, 3));
+    auto b = rotate(a, Axis1(Point(0, 0, 0), Direction(0, 0, 1)), radians(45));
+}
+
 TEST(OperationsTest, section)
 {
     Box box1(Point(0, 0, 0), Point(1, 2, 3));

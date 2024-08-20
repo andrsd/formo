@@ -192,6 +192,15 @@ rotate(const Vector & vector, const Axis1 & axis, double angle)
     return Vector(res.X(), res.Y(), res.Z());
 }
 
+Shape
+rotate(const Shape & shape, const Axis1 & axis, double angle)
+{
+    gp_Trsf trsf;
+    trsf.SetRotation(axis, angle);
+    BRepBuilderAPI_Transform brep_trsf(shape, trsf);
+    return Shape(brep_trsf.Shape());
+}
+
 Wire
 section(const Shape & shape, const Plane & plane)
 {

@@ -38,3 +38,9 @@ def test_sweep():
     profile = formo.Face(formo.Wire([ circ ]));
 
     shape = formo.sweep(profile, path);
+
+
+def test_rotate_shape():
+    box = formo.Box(formo.Point(0, 0, 0), formo.Point(1, 1, 1))
+    ax1 = formo.Axis1(formo.Point(0, 0, 0), formo.Direction(0, 0, 1))
+    box = formo.rotate(box, ax1, 45)

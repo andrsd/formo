@@ -558,6 +558,8 @@ PYBIND11_MODULE(formo, m)
         py::arg("point"), py::arg("axis"), py::arg("angle"));
     m.def("rotate", py::overload_cast<const Vector &, const Axis1 &, double>(&rotate),
         py::arg("point"), py::arg("axis1"), py::arg("angle"));
+    m.def("rotate", py::overload_cast<const Shape &, const Axis1 &, double>(&rotate),
+        py::arg("shape"), py::arg("axis1"), py::arg("angle"));
 
     m.def("section", py::overload_cast<const Shape &, const Plane &>(&section),
         py::arg("shape"), py::arg("plane"));
