@@ -7,9 +7,7 @@ option(FORMO_CODE_COVERAGE "Builds targets with code coverage instrumentation" O
 if(FORMO_CODE_COVERAGE)
 
     set(COVERAGE_INFO ${PROJECT_BINARY_DIR}/coverage.info)
-    mark_as_advanced(FORCE
-        COVERAGE_INFO
-    )
+    mark_as_advanced(FORCE COVERAGE_INFO)
     set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_CLEAN_FILES "${COVERAGE_INFO}")
 
     if(CMAKE_C_COMPILER_ID MATCHES "(Apple)?[Cc]lang" OR CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?[Cc]lang")
@@ -36,7 +34,6 @@ if(FORMO_CODE_COVERAGE)
         )
 
         set(MERGED_PROFDATA ${PROJECT_BINARY_DIR}/all-merged.profdata)
-
 
         add_custom_target(coverage DEPENDS ${COVERAGE_INFO})
 
@@ -68,7 +65,10 @@ if(FORMO_CODE_COVERAGE)
                 ${CODE_COVERAGE_PROFRAWS}
         )
 
-        add_custom_target(htmlcov DEPENDS ${PROJECT_BINARY_DIR}/htmlcov/index.html)
+        add_custom_target(htmlcov
+            DEPENDS ${PROJECT_BINARY_DIR}/htmlcov/index.html
+            COMMENT "Open ${PROJECT_BINARY_DIR}/htmlcov/index.html in your browser to view the coverage report."
+        )
         add_custom_command(
             OUTPUT
                 ${PROJECT_BINARY_DIR}/htmlcov/index.html
@@ -83,14 +83,6 @@ if(FORMO_CODE_COVERAGE)
                 ${EXCLUDE_REGEX}
             DEPENDS
                 ${COVERAGE_INFO}
-        )
-
-        add_custom_command(
-            TARGET htmlcov
-            POST_BUILD
-            COMMAND ;
-            COMMENT
-                "Open ${PROJECT_BINARY_DIR}/htmlcov/index.html in your browser to view the coverage report."
         )
 
         function(target_code_coverage TARGET_NAME)
@@ -136,7 +128,10 @@ if(FORMO_CODE_COVERAGE)
                 ${EXCLUDE_REGEX}
         )
 
-        add_custom_target(htmlcov DEPENDS ${PROJECT_BINARY_DIR}/htmlcov/index.html)
+        add_custom_target(htmlcov
+            DEPENDS ${PROJECT_BINARY_DIR}/htmlcov/index.html
+            COMMENT "Open ${PROJECT_BINARY_DIR}/htmlcov/index.html in your browser to view the coverage report."
+        )
         add_custom_command(
             OUTPUT
                 ${PROJECT_BINARY_DIR}/htmlcov/index.html
@@ -146,14 +141,6 @@ if(FORMO_CODE_COVERAGE)
                 ${COVERAGE_INFO}
             DEPENDS
                 ${COVERAGE_INFO}
-        )
-
-        add_custom_command(
-            TARGET htmlcov
-            POST_BUILD
-            COMMAND ;
-            COMMENT
-                "Open ${PROJECT_BINARY_DIR}/htmlcov/index.html in your browser to view the coverage report."
         )
 
         function(target_code_coverage TARGET_NAME)
