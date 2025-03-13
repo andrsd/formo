@@ -7,11 +7,14 @@
 #include "formo/edge.h"
 #include "formo/face.h"
 #include "formo/solid.h"
+#include "formo/shell.h"
+#include "formo/exception.h"
 #include "TopExp_Explorer.hxx"
 #include "TopTools_DataMapOfShapeInteger.hxx"
 #include "TopoDS.hxx"
 #include "TopoDS_Vertex.hxx"
 #include "TopoDS_Edge.hxx"
+#include "TopoDS_Shell.hxx"
 #include "TopoDS_Solid.hxx"
 #include "BRep_Tool.hxx"
 #include <vector>
@@ -147,6 +150,24 @@ Shape::solids() const
 Shape::operator TopoDS_Shape() const
 {
     return this->shp;
+}
+
+Shell
+Shape::make_shell(const Shape & shape)
+{
+    auto shl = TopoDS::Shell(shape);
+    if (shl.IsNull())
+        throw Exception("Shape is not a shell");
+    return Shell(shl);
+}
+
+Solid
+Shape::make_solid(const Shape & shape)
+{
+    auto sld = TopoDS::Solid(shape);
+    if (sld.IsNull())
+        throw Exception("Shape is not a solid");
+    return Solid(sld);
 }
 
 } // namespace formo

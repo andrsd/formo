@@ -339,6 +339,9 @@ PYBIND11_MODULE(formo, m)
         .def("solids", &Shape::solids)
     ;
 
+    m.def("make_shell", &Shape::make_shell);
+    m.def("make_solid", &Shape::make_solid);
+
     py::class_<Edge, Shape>(m, "Edge")
         .def(py::init<>())
         .def(py::init<const TopoDS_Edge &>(),
