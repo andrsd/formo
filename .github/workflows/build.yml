@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         uses: ConorMacBride/install-package@v1
         with:
-          apt: libgl1-mesa-dev
+          apt:
           brew:
           choco:
 
@@ -43,10 +43,10 @@ jobs:
         run: |
           conda install \
             cmake \
-            clang-14 \
-            libcxx \
             make \
-            occt=7.7 \
+            gcc_linux-64 \
+            gxx_linux-64 \
+            occt=7.9.* \
             fmt=9.1 \
             pybind11 \
             pytest \
@@ -69,27 +69,3 @@ jobs:
 
       - name: Run tests
         run: make -C ${{ github.workspace }}/build test
-
-      - name: Generate code coverage
-        run: make -C ${{ github.workspace }}/build coverage
-
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-${{ matrix.os }}-${{ matrix.build-type }}-${{ matrix.python-version }}
-          path: ${{ github.workspace }}/build/coverage.info
-
-  upload-to-codecov:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-
-      - name: Upload to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}

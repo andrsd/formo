@@ -32,9 +32,7 @@ jobs:
           conda install \
             cmake \
             make \
-            clang-14 \
-            libcxx \
-            occt=7.7 \
+            occt=7.9.* \
             fmt==9.1.0 \
             doxygen \
             pybind11 \
