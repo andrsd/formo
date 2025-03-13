@@ -371,6 +371,8 @@ PYBIND11_MODULE(formo, m)
 
     py::class_<Solid, Shape>(m, "Solid")
         .def(py::init<>())
+        .def(py::init<const Shell &>(),
+            py::arg("shell"))
         .def(py::init<const TopoDS_Solid &>(),
             py::arg("solid"))
         .def("volume", &Solid::volume)

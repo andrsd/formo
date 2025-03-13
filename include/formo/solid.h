@@ -8,10 +8,18 @@
 
 namespace formo {
 
+class Shell;
+
 class Solid : public Shape {
 public:
     Solid() = default;
+
     explicit Solid(const TopoDS_Solid & solid);
+
+    /// Create a solid from a shell
+    ///
+    /// @param shell Shell to create the solid from
+    explicit Solid(const Shell & shell);
 
     /// Compute the volume of the shape
     ///
