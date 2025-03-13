@@ -11,15 +11,15 @@ namespace formo {
 
 class IGESFile {
 public:
-    /// New IGES file
+    /// IGES file
     ///
-    /// @param file_name Name of the file to read
+    /// @param file_name Name of the file to work with
     explicit IGESFile(const std::string & file_name);
 
     /// Read the file
     ///
-    /// @return The shape that is contained on the IGES file
-    Shape read();
+    /// @return Shapes that were contained in the IGES file
+    std::vector<Shape> read();
 
     /// Write shapes into a file
     ///
