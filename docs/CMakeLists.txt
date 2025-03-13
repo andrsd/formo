@@ -49,19 +49,22 @@ else()
 
     add_custom_command(
         TARGET doc
-        COMMENT "Unable to generate documentation:"
+        POST_BUILD
+        COMMAND echo "Unable to generate documentation:"
     )
     if (NOT DOXYGEN_FOUND)
         add_custom_command(
             TARGET doc
-            COMMENT "- 'doxygen' is not installed."
+            POST_BUILD
+            COMMAND echo "- 'doxygen' is not installed."
         )
     endif()
 
     if (${SPHINX_BUILD} STREQUAL SPHINX_BUILD-NOTFOUND)
         add_custom_command(
             TARGET doc
-            COMMENT "- 'sphinx-build' is not installed."
+            POST_BUILD
+            COMMAND echo  "- 'sphinx-build' is not installed."
         )
     endif()
 endif()
