@@ -72,7 +72,7 @@ jobs:
         run: make -C ${{ github.workspace }}/build test
 
       - name: Generate code coverage
-        run: make -C ${{ github.workspace }}/build coverage
+        run: make -C ${{ github.workspace }}/build coverage VERBOSE=1
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4

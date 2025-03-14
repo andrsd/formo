@@ -100,6 +100,7 @@ if(FORMO_CODE_COVERAGE)
         set(GCOV "gcov" CACHE STRING "Path to gcov")
 
         find_program(GCOV_PATH NAMES ${GCOV})
+        message(STATUS "Using gcov: ${GCOV_PATH}")
         find_program(LCOV_PATH lcov)
         find_program(GENHTML_PATH genhtml)
         mark_as_advanced(FORCE
