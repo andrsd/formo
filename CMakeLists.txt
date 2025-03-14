@@ -21,9 +21,10 @@ option(FORMO_BUILD_TESTS "Build tests" NO)
 
 find_package(fmt 9.0 REQUIRED)
 find_package(OpenCASCADE REQUIRED)
-if(OpenCASCADE_FOUND)
+if (OpenCASCADE_FOUND)
     message(STATUS "Found OpenCASCADE: ${OpenCASCADE_LIBRARY_DIR} (version ${OpenCASCADE_VERSION})")
-    if(OpenCASCADE_VERSION VERSION_LESS 7.7.0)
+    if (OpenCASCADE_VERSION VERSION_LESS 7.9.0)
+        message(FATAL_ERROR "OpenCASCADE version 7.9.0 or higher is required")
     endif()
 endif()
 
