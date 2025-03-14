@@ -62,10 +62,35 @@ jobs:
             -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
             -DBUILD_SHARED_LIBS=ON \
             -DFORMO_BUILD_TESTS=ON \
-            -DFORMO_CODE_COVERAGE=ON
+            -DFORMO_CODE_COVERAGE=ON \
+            -DGCOV=x86_64-conda-linux-gnu-gcov
 
       - name: Build
         run: make -C ${{ github.workspace }}/build
 
       - name: Run tests
         run: make -C ${{ github.workspace }}/build test
+
+      - name: Generate code coverage
+        run: make -C ${{ github.workspace }}/build coverage
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.os }}-${{ matrix.build-type }}-${{ matrix.python-version }}
+          path: ${{ github.workspace }}/build/coverage.info
+
+  upload-to-codecov:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
