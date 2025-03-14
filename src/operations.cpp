@@ -19,6 +19,7 @@
 #include "BRepOffsetAPI_DraftAngle.hxx"
 #include "BRepFeat_MakeCylindricalHole.hxx"
 #include "BRepOffsetAPI_MakePipe.hxx"
+#include "BRepBuilderAPI_Sewing.hxx"
 
 namespace formo {
 
@@ -269,6 +270,16 @@ sweep(const Shape & profile, const Wire & spine)
         return Shape(mk.Shape());
     else
         throw Exception("Sweep was not constructed");
+}
+
+Shape
+sew(const std::vector<Shape> & faces, double tol)
+{
+    BRepBuilderAPI_Sewing sewing_tool(tol);
+    for (auto & face : faces)
+        sewing_tool.Add(face);
+    sewing_tool.Perform();
+    return Shape(sewing_tool.SewedShape());
 }
 
 } // namespace formo

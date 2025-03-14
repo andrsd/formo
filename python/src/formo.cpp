@@ -575,6 +575,9 @@ PYBIND11_MODULE(formo, m)
     m.def("sweep", py::overload_cast<const Shape &, const Wire &>(&sweep),
         py::arg("profile"), py::arg("spine"));
 
+    m.def("sew", &sew,
+        py::arg("faces"), py::arg("tolerance") = 1e-6);
+
     m.def("write", &IO::write,
         py::arg("file_name"), py::arg("shapes"), py::arg("file_format") = "step");
     m.def("read", &IO::read,

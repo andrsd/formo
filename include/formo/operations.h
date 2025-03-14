@@ -198,4 +198,11 @@ Shape hole(const Shape & shape, const Axis1 & axis, double radius, double length
 /// @return Resulting shape
 Shape sweep(const Shape & profile, const Wire & spine);
 
+/// Sew faces into a shell
+///
+/// @param faces Faces to sew
+/// @param tol Tolerance
+/// @return Resulting shell
+Shape sew(const std::vector<Shape> & faces, double tol = 1e-6);
+
 } // namespace formo
