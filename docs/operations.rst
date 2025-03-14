@@ -47,4 +47,6 @@ Operations
 
 .. doxygenfunction:: hole(const Shape &, const Axis1 &, double, double)
 
+.. doxygenfunction:: sew(const std::vector<Shape> &, double tol)
+
 .. doxygenfunction:: sweep(const Shape &, const Wire &)
