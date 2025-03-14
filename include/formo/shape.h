@@ -14,6 +14,7 @@ class Point;
 class Edge;
 class Face;
 class Solid;
+class Shell;
 
 class Shape {
 public:
@@ -71,6 +72,10 @@ private:
     Color clr;
     /// Open CASCADE shape
     TopoDS_Shape shp;
+
+public:
+    static Shell make_shell(const Shape & shape);
+    static Solid make_solid(const Shape & shape);
 };
 
 } // namespace formo
