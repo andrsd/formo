@@ -19,15 +19,17 @@ namespace formo {
 
 IGESFile::IGESFile(const std::string & file_name) : fname(file_name) {}
 
-Shape
+std::vector<Shape>
 IGESFile::read()
 {
     IGESControl_Reader reader;
     if (reader.ReadFile(this->fname.c_str()) != IFSelect_RetDone)
         throw Exception("Unable to load '{}'", this->fname);
-    reader.NbRootsForTransfer();
-    reader.TransferOneRoot();
-    return Shape(reader.OneShape());
+    reader.TransferRoots();
+    std::vector<Shape> shapes;
+    for (int idx = 1; idx <= reader.NbShapes(); ++idx)
+        shapes.push_back(Shape(reader.Shape(idx)));
+    return shapes;
 }
 
 void
