@@ -97,10 +97,13 @@ if(FORMO_CODE_COVERAGE)
         endfunction()
 
     elseif(CMAKE_C_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-        find_program(GCOV_PATH NAMES gcov)
+        set(GCOV "gcov" CACHE STRING "Path to gcov")
+
+        find_program(GCOV_PATH NAMES ${GCOV})
         find_program(LCOV_PATH lcov)
         find_program(GENHTML_PATH genhtml)
         mark_as_advanced(FORCE
+            GCOV
             GCOV_PATH
             LCOV_PATH
             GENHTML_PATH
