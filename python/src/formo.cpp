@@ -51,7 +51,7 @@ using namespace formo;
 PYBIND11_MODULE(formo, m)
 {
     m.doc() = "pybind11 plugin for formo";
-    py::setattr(m, "version", py::str(FORMO_VERSION));
+    m.attr("__version__") = FORMO_VERSION;
 
     // clang-format off
     py::class_<Color>(m, "Color")

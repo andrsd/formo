@@ -1,5 +1,7 @@
 from .formo import *
 
+__version__ = formo.__version__
+
 __all__ = [
     "ArcOfCircle",
     "Axis1",
