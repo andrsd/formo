@@ -4,7 +4,6 @@
 #include "formo/iges_file.h"
 #include "formo/exception.h"
 #include "IGESControl_Reader.hxx"
-#include "Message.hxx"
 #include "Standard_Handle.hxx"
 #include "TDocStd_Document.hxx"
 #include "XCAFDoc_DocumentTool.hxx"
@@ -35,11 +34,6 @@ IGESFile::read()
 void
 IGESFile::write(const std::vector<Shape> & shapes)
 {
-    auto & msgr = Message::DefaultMessenger();
-    auto & printers = msgr->Printers();
-    for (int idx = 0; idx < printers.Size(); idx++)
-        msgr->RemovePrinter(printers.Value(idx + 1));
-
     Handle(TDocStd_Document) doc = new TDocStd_Document(TCollection_ExtendedString("formo-doc"));
     auto shape_tool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
     auto color_tool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
@@ -61,9 +55,6 @@ IGESFile::write(const std::vector<Shape> & shapes)
     if (writer.Transfer(doc)) {
         writer.Write(this->fname.c_str());
     }
-
-    for (int idx = 0; idx < printers.Size(); idx++)
-        msgr->AddPrinter(printers.Value(idx + 1));
 }
 
 } // namespace formo
