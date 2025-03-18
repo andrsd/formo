@@ -18,6 +18,7 @@
 #include "formo/cylinder.h"
 #include "formo/direction.h"
 #include "formo/edge.h"
+#include "formo/env.h"
 #include "formo/exception.h"
 #include "formo/face.h"
 #include "formo/helix.h"
@@ -50,6 +51,8 @@ using namespace formo;
 
 PYBIND11_MODULE(formo, m)
 {
+    auto & env = Env::instance();
+
     m.doc() = "pybind11 plugin for formo";
     m.attr("__version__") = FORMO_VERSION;
 
