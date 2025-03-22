@@ -13,11 +13,6 @@ public:
     Edge();
     explicit Edge(const TopoDS_Edge & edge);
 
-    /// Compute the length of the edge
-    ///
-    /// @return Length of the edge
-    double length() const;
-
     operator TopoDS_Edge() const;
 
 protected:

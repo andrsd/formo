@@ -57,6 +57,21 @@ public:
     /// @return All solid of this shape
     std::vector<Solid> solids() const;
 
+    /// Compute the length of the edge
+    ///
+    /// @return Length of the edge
+    double length() const;
+
+    /// Compute the area of the face
+    ///
+    /// @return Area of the face
+    double area() const;
+
+    /// Compute the volume of the shape
+    ///
+    /// @return Volume of the shape
+    double volume() const;
+
     ///
     operator TopoDS_Shape() const;
 

@@ -21,14 +21,6 @@ Solid::Solid(const Shell & shell)
     set_shape(this->solid);
 }
 
-double
-Solid::volume() const
-{
-    GProp_GProps props;
-    BRepGProp::VolumeProperties(this->solid, props);
-    return props.Mass();
-}
-
 void
 Solid::set_solid(const TopoDS_Solid & solid)
 {

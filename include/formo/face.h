@@ -16,11 +16,6 @@ public:
 
     explicit Face(const TopoDS_Face & face);
 
-    /// Compute the area of the face
-    ///
-    /// @return Area of the face
-    double area() const;
-
     bool is_plane() const;
 
     Plane plane() const;
