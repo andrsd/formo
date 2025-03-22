@@ -35,14 +35,6 @@ Wire::set_wire(const TopoDS_Wire & wire)
     this->wire = wire;
 }
 
-double
-Wire::length() const
-{
-    GProp_GProps props;
-    BRepGProp::LinearProperties(this->wire, props);
-    return props.Mass();
-}
-
 Shell
 Wire::draft(const Direction & dir, double angle, double length) const
 {

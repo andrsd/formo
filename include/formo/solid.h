@@ -21,11 +21,6 @@ public:
     /// @param shell Shell to create the solid from
     explicit Solid(const Shell & shell);
 
-    /// Compute the volume of the shape
-    ///
-    /// @return Volume of the shape
-    double volume() const;
-
     operator TopoDS_Solid() const;
 
 protected:

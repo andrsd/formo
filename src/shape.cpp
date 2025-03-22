@@ -17,6 +17,8 @@
 #include "TopoDS_Shell.hxx"
 #include "TopoDS_Solid.hxx"
 #include "BRep_Tool.hxx"
+#include "GProp_GProps.hxx"
+#include "BRepGProp.hxx"
 #include <vector>
 
 namespace formo {
@@ -145,6 +147,30 @@ Shape::solids() const
         }
     }
     return solids;
+}
+
+double
+Shape::length() const
+{
+    GProp_GProps props;
+    BRepGProp::LinearProperties(this->shp, props);
+    return props.Mass();
+}
+
+double
+Shape::area() const
+{
+    GProp_GProps props;
+    BRepGProp::SurfaceProperties(this->shp, props);
+    return props.Mass();
+}
+
+double
+Shape::volume() const
+{
+    GProp_GProps props;
+    BRepGProp::VolumeProperties(this->shp, props);
+    return props.Mass();
 }
 
 Shape::operator TopoDS_Shape() const

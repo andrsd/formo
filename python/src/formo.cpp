@@ -340,6 +340,9 @@ PYBIND11_MODULE(formo, m)
         .def("edges", &Shape::edges)
         .def("faces", &Shape::faces)
         .def("solids", &Shape::solids)
+        .def("length", &Shape::length)
+        .def("area", &Shape::area)
+        .def("volume", &Shape::volume)
     ;
 
     m.def("make_shell", &Shape::make_shell);
@@ -349,7 +352,6 @@ PYBIND11_MODULE(formo, m)
         .def(py::init<>())
         .def(py::init<const TopoDS_Edge &>(),
             py::arg("edge"))
-        .def("length", &Edge::length)
     ;
 
     py::class_<Face, Shape>(m, "Face")
@@ -357,7 +359,6 @@ PYBIND11_MODULE(formo, m)
             py::arg("wire"))
         .def("is_plane", &Face::is_plane)
         .def("plane", &Face::plane)
-        .def("area", &Face::area)
     ;
 
     py::class_<Wire, Shape>(m, "Wire")
@@ -365,7 +366,6 @@ PYBIND11_MODULE(formo, m)
             py::arg("wire"))
         .def(py::init<const std::vector<Edge> &>(),
             py::arg("edges"))
-        .def("length", &Wire::length)
         .def("draft", &Wire::draft,
             py::arg("dir"), py::arg("angle"), py::arg("length"))
     ;
@@ -381,7 +381,6 @@ PYBIND11_MODULE(formo, m)
             py::arg("shell"))
         .def(py::init<const TopoDS_Solid &>(),
             py::arg("solid"))
-        .def("volume", &Solid::volume)
     ;
 
     py::class_<CircumscribedPolygon, Wire>(m, "CircumscribedPolygon")
