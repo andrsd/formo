@@ -155,7 +155,7 @@ Vector rotate(const Vector & vector, const Axis1 & axis, double angle);
 /// @param axis Axis to rotate about
 /// @param angle Rotation angle (in radians)
 /// @return Resulting `Shape`
-Shape rotate(const Shape & point, const Axis1 & axis, double angle);
+Shape rotate(const Shape & shape, const Axis1 & axis, double angle);
 
 /// Compute section between a shape and a plane
 ///
