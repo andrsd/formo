@@ -37,6 +37,28 @@ public:
     /// Set color
     void set_color(const Color & color);
 
+    /// Get material
+    ///
+    /// @return Material name
+    const std::string & material() const;
+
+    /// Get material description
+    ///
+    /// @return Material description
+    const std::string & material_description() const;
+
+    /// Set material
+    ///
+    /// @param name Material name
+    /// @param description Material description
+    /// @param density Density [g/cm^3]
+    void set_material(const std::string & name, const std::string & description, double density);
+
+    /// Query if this shape has material assigned to it
+    ///
+    /// @return `true` if material is assigned, `false` otherwise
+    bool has_material() const;
+
     /// Get all vertices of this shape
     ///
     /// @return All vertices of this shape
@@ -72,6 +94,11 @@ public:
     /// @return Volume of the shape
     double volume() const;
 
+    /// Return density
+    ///
+    /// @return Density [kg/m^3]
+    double density() const;
+
     ///
     operator TopoDS_Shape() const;
 
@@ -85,6 +112,12 @@ private:
     std::string nm;
     /// Color of this shape
     Color clr;
+    /// Material name
+    std::string material_name_;
+    /// Material description
+    std::string material_description_;
+    /// Density
+    double density_;
     /// Open CASCADE shape
     TopoDS_Shape shp;
 

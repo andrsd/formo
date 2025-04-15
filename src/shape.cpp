@@ -41,9 +41,9 @@ get_next_color()
 
 } // namespace
 
-Shape::Shape() : clr(ColorMap::light_blue) {}
+Shape::Shape() : clr(ColorMap::light_blue), density_(0.) {}
 
-Shape::Shape(const TopoDS_Shape & shape) : clr(ColorMap::light_blue), shp(shape) {}
+Shape::Shape(const TopoDS_Shape & shape) : clr(ColorMap::light_blue), density_(0.), shp(shape) {}
 
 std::string
 Shape::name() const
@@ -67,6 +67,32 @@ void
 Shape::set_color(const Color & color)
 {
     this->clr = color;
+}
+
+const std::string &
+Shape::material() const
+{
+    return this->material_name_;
+}
+
+const std::string &
+Shape::material_description() const
+{
+    return this->material_description_;
+}
+
+void
+Shape::set_material(const std::string & name, const std::string & description, double density)
+{
+    this->material_name_ = name;
+    this->material_description_ = description;
+    this->density_ = density;
+}
+
+bool
+Shape::has_material() const
+{
+    return !this->material_name_.empty();
 }
 
 void
@@ -171,6 +197,12 @@ Shape::volume() const
     GProp_GProps props;
     BRepGProp::VolumeProperties(this->shp, props);
     return props.Mass();
+}
+
+double
+Shape::density() const
+{
+    return this->density_;
 }
 
 Shape::operator TopoDS_Shape() const

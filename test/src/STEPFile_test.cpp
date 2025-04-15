@@ -27,5 +27,6 @@ TEST(STEPFileTest, write)
     STEPFile step(file.string());
     auto box = Box(Point(0, 0, 0), Point(1, 1, 1));
     box.set_name("box");
+    box.set_material("steel", "SS316", 8);
     EXPECT_NO_THROW({ step.write({ box }); });
 }
