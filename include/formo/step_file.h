@@ -4,22 +4,18 @@
 #pragma once
 
 #include "formo/shape.h"
+#include "formo/document_file.h"
 #include <vector>
 #include <string>
 
 namespace formo {
 
-class STEPFile {
+class STEPFile : public DocumentFile {
 public:
     /// New STEP file
     ///
     /// @param file_name Name of the file to read
     explicit STEPFile(const std::string & file_name);
-
-    /// Read the file
-    ///
-    /// @return The shape that is contained on the STEP file
-    Shape read();
 
     /// Write shapes into a file
     ///
@@ -27,7 +23,7 @@ public:
     void write(const std::vector<Shape> & shapes);
 
 private:
-    std::string fname;
+    XSControl_Reader * create_reader() override;
 };
 
 } // namespace formo
