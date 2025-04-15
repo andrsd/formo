@@ -28,7 +28,7 @@ public:
     Spline(const std::vector<Point> & points, const Vector & initial_tg, const Vector & final_tg);
 
 private:
-    Handle(Geom_BSplineCurve) spline;
+    Handle(Geom_BSplineCurve) spline_;
 };
 
 } // namespace formo

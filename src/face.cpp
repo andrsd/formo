@@ -15,15 +15,15 @@ Face::Face(const Wire & wire)
     if (!make_face.IsDone())
         throw Exception("Face was not created");
     set_shape(make_face.Shape());
-    this->face = make_face.Face();
+    this->face_ = make_face.Face();
 }
 
-Face::Face(const TopoDS_Face & face) : Shape(), face(face) {}
+Face::Face(const TopoDS_Face & face) : Shape(), face_(face) {}
 
 bool
 Face::is_plane() const
 {
-    BRepAdaptor_Surface surf(this->face, true);
+    BRepAdaptor_Surface surf(this->face_, true);
     auto surf_type = surf.GetType();
     return surf_type == GeomAbs_Plane;
 }
@@ -31,13 +31,13 @@ Face::is_plane() const
 Plane
 Face::plane() const
 {
-    BRepAdaptor_Surface pln(this->face, true);
+    BRepAdaptor_Surface pln(this->face_, true);
     return Plane(pln.Plane());
 }
 
 Face::operator TopoDS_Face() const
 {
-    return this->face;
+    return this->face_;
 }
 
 } // namespace formo

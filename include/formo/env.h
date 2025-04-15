@@ -18,8 +18,8 @@ private:
     Env & operator=(const Env &) = delete;
     ~Env();
 
-    const opencascade::handle<Message_Messenger> & msgr;
-    const Message_SequenceOfPrinters & printers;
+    const opencascade::handle<Message_Messenger> & msgr_;
+    const Message_SequenceOfPrinters & printers_;
 
 public:
     static Env & instance();

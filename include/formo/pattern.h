@@ -20,7 +20,7 @@ protected:
     void set_points(const std::vector<Point> & point);
 
 private:
-    std::vector<Point> pts;
+    std::vector<Point> pts_;
 };
 
 } // namespace formo

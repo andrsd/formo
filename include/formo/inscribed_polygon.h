@@ -28,9 +28,9 @@ public:
 
 private:
     /// Radius of the circle
-    double radius;
+    double radius_;
     /// Number of sides
-    int n_sides;
+    int n_sides_;
 };
 
 } // namespace formo

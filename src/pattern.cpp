@@ -10,13 +10,13 @@ Pattern::Pattern() {}
 const std::vector<Point> &
 Pattern::points() const
 {
-    return this->pts;
+    return this->pts_;
 }
 
 void
 Pattern::set_points(const std::vector<Point> & points)
 {
-    this->pts = points;
+    this->pts_ = points;
 }
 
 } // namespace formo

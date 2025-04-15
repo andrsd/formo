@@ -5,16 +5,16 @@
 
 namespace formo {
 
-Env::Env() : msgr(Message::DefaultMessenger()), printers(msgr->Printers())
+Env::Env() : msgr_(Message::DefaultMessenger()), printers_(msgr_->Printers())
 {
-    for (int idx = 0; idx < this->printers.Size(); ++idx)
-        this->msgr->RemovePrinter(this->printers.Value(idx + 1));
+    for (int idx = 0; idx < this->printers_.Size(); ++idx)
+        this->msgr_->RemovePrinter(this->printers_.Value(idx + 1));
 }
 
 Env::~Env()
 {
-    for (int idx = 0; idx < this->printers.Size(); ++idx)
-        this->msgr->AddPrinter(this->printers.Value(idx + 1));
+    for (int idx = 0; idx < this->printers_.Size(); ++idx)
+        this->msgr_->AddPrinter(this->printers_.Value(idx + 1));
 }
 
 Env &

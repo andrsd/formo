@@ -51,7 +51,7 @@ public:
     operator gp_Pln() const;
 
 private:
-    gp_Pln pln;
+    gp_Pln pln_;
 };
 
 } // namespace formo

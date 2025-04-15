@@ -72,7 +72,7 @@ public:
     operator gp_Ax2() const;
 
 private:
-    gp_Ax2 ax2;
+    gp_Ax2 ax2_;
 };
 
 } // namespace formo

@@ -32,7 +32,7 @@ protected:
     void set_wire(const TopoDS_Wire & wire);
 
 private:
-    TopoDS_Wire wire;
+    TopoDS_Wire wire_;
 };
 
 } // namespace formo

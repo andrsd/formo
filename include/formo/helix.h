@@ -20,7 +20,7 @@ public:
     Helix(const Axis2 & ax2, double radius, double height, double turns, double start_angle = 0.);
 
 private:
-    Handle(Geom_BSplineCurve) spline;
+    Handle(Geom_BSplineCurve) spline_;
 };
 
 } // namespace formo

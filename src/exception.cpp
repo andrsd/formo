@@ -8,7 +8,7 @@ namespace formo {
 const char *
 Exception::what() const noexcept
 {
-    return this->msg.c_str();
+    return this->msg_.c_str();
 }
 
 } // namespace formo

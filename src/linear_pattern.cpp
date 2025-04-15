@@ -8,11 +8,11 @@ namespace formo {
 
 LinearPattern::LinearPattern(const Axis2 & ax2, int nx, double dx) :
     Pattern(),
-    ax2(ax2),
-    nx(nx),
-    dx(dx),
-    ny(0),
-    dy(0)
+    ax2_(ax2),
+    nx_(nx),
+    dx_(dx),
+    ny_(0),
+    dy_(0)
 {
     std::vector<Point> points;
     auto origin = ax2.location();
@@ -27,11 +27,11 @@ LinearPattern::LinearPattern(const Axis2 & ax2, int nx, double dx) :
 
 LinearPattern::LinearPattern(const Axis2 & ax2, int nx, int ny, double dx, double dy) :
     Pattern(),
-    ax2(ax2),
-    nx(nx),
-    dx(dx),
-    ny(ny),
-    dy(dy)
+    ax2_(ax2),
+    nx_(nx),
+    dx_(dx),
+    ny_(ny),
+    dy_(dy)
 {
     std::vector<Point> points;
     auto origin = ax2.location();

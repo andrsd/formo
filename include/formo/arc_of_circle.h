@@ -43,7 +43,7 @@ public:
     Point end_point() const;
 
 private:
-    Handle(Geom_TrimmedCurve) arc;
+    Handle(Geom_TrimmedCurve) arc_;
 };
 
 } // namespace formo

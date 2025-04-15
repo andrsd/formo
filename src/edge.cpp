@@ -7,17 +7,17 @@ namespace formo {
 
 Edge::Edge() {}
 
-Edge::Edge(const TopoDS_Edge & edge) : Shape(), edge(edge) {}
+Edge::Edge(const TopoDS_Edge & edge) : Shape(), edge_(edge) {}
 
 void
 Edge::set_edge(const TopoDS_Edge & edge)
 {
-    this->edge = edge;
+    this->edge_ = edge;
 }
 
 Edge::operator TopoDS_Edge() const
 {
-    return this->edge;
+    return this->edge_;
 }
 
 } // namespace formo

@@ -14,9 +14,9 @@ const int N_SIDES = 6;
 
 HexagonalPattern::HexagonalPattern(const Axis2 & center, double flat_to_flat, int side_segs) :
     Pattern(),
-    center(center),
-    flat_to_flat(flat_to_flat),
-    num_side_segs(side_segs)
+    center_(center),
+    flat_to_flat_(flat_to_flat),
+    num_side_segs_(side_segs)
 {
     auto ctr_pt = center.location();
     double radius = flat_to_flat / std::sqrt(3.);
@@ -39,8 +39,8 @@ HexagonalPattern::HexagonalPattern(const Axis2 & center, double flat_to_flat, in
     for (int s = 0; s < N_SIDES; s++) {
         Vector side(corners[s], corners[(s + 1) % N_SIDES]);
         Direction side_dir(side);
-        double ds = side.magnitude() / num_side_segs;
-        for (int i = 0; i < num_side_segs; i++) {
+        double ds = side.magnitude() / this->num_side_segs_;
+        for (int i = 0; i < this->num_side_segs_; i++) {
             auto pt = corners[s] + i * ds * side_dir;
             points.emplace_back(pt);
         }

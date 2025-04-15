@@ -13,7 +13,7 @@
 
 namespace formo {
 
-Wire::Wire(const TopoDS_Wire & wire) : wire(wire) {}
+Wire::Wire(const TopoDS_Wire & wire) : wire_(wire) {}
 
 Wire::Wire(const std::vector<Edge> & edges)
 {
@@ -26,19 +26,19 @@ Wire::Wire(const std::vector<Edge> & edges)
     if (!make_wire.IsDone())
         throw Exception("Wire was not created");
     set_shape(make_wire.Shape());
-    this->wire = make_wire.Wire();
+    this->wire_ = make_wire.Wire();
 }
 
 void
 Wire::set_wire(const TopoDS_Wire & wire)
 {
-    this->wire = wire;
+    this->wire_ = wire;
 }
 
 Shell
 Wire::draft(const Direction & dir, double angle, double length) const
 {
-    BRepOffsetAPI_MakeDraft mk(this->wire, dir, angle);
+    BRepOffsetAPI_MakeDraft mk(this->wire_, dir, angle);
     mk.Perform(length);
     mk.Build();
     if (mk.IsDone())
@@ -49,7 +49,7 @@ Wire::draft(const Direction & dir, double angle, double length) const
 
 Wire::operator TopoDS_Wire() const
 {
-    return this->wire;
+    return this->wire_;
 }
 
 } // namespace formo

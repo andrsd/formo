@@ -51,7 +51,7 @@ Helix::Helix(const Axis2 & ax2, double radius, double height, double turns, doub
         throw Exception("Edge was not created");
     set_shape(make_edge.Shape());
     set_edge(make_edge.Edge());
-    this->spline = mk.Curve();
+    this->spline_ = mk.Curve();
 }
 
 } // namespace formo

@@ -41,32 +41,34 @@ get_next_color()
 
 } // namespace
 
-Shape::Shape() : clr(ColorMap::light_blue), density_(0.) {}
+Shape::Shape() : clr_(ColorMap::light_blue), density_(0.) {}
 
-Shape::Shape(const TopoDS_Shape & shape) : clr(ColorMap::light_blue), density_(0.), shp(shape) {}
+Shape::Shape(const TopoDS_Shape & shape) : clr_(ColorMap::light_blue), density_(0.), shape_(shape)
+{
+}
 
 std::string
 Shape::name() const
 {
-    return this->nm;
+    return this->name_;
 }
 
 void
 Shape::set_name(const std::string & name)
 {
-    this->nm = name;
+    this->name_ = name;
 }
 
 Color
 Shape::color() const
 {
-    return this->clr;
+    return this->clr_;
 }
 
 void
 Shape::set_color(const Color & color)
 {
-    this->clr = color;
+    this->clr_ = color;
 }
 
 const std::string &
@@ -98,13 +100,13 @@ Shape::has_material() const
 void
 Shape::set_shape(const TopoDS_Shape & shape)
 {
-    this->shp = shape;
+    this->shape_ = shape;
 }
 
 void
 Shape::assign_color()
 {
-    this->clr = get_next_color();
+    this->clr_ = get_next_color();
 }
 
 std::vector<Point>
@@ -113,7 +115,7 @@ Shape::vertices() const
     std::vector<Point> vertices;
     TopExp_Explorer exp0;
     TopTools_DataMapOfShapeInteger id_map;
-    for (exp0.Init(this->shp, TopAbs_VERTEX); exp0.More(); exp0.Next()) {
+    for (exp0.Init(this->shape_, TopAbs_VERTEX); exp0.More(); exp0.Next()) {
         auto vertex = TopoDS::Vertex(exp0.Current());
         if (!id_map.IsBound(vertex)) {
             auto id = vertices.size() + 1;
@@ -130,7 +132,7 @@ Shape::edges() const
     std::vector<Edge> edges;
     TopExp_Explorer exp0;
     TopTools_DataMapOfShapeInteger id_map;
-    for (exp0.Init(this->shp, TopAbs_EDGE); exp0.More(); exp0.Next()) {
+    for (exp0.Init(this->shape_, TopAbs_EDGE); exp0.More(); exp0.Next()) {
         auto edge = TopoDS::Edge(exp0.Current());
         if (!id_map.IsBound(edge)) {
             auto id = edges.size() + 1;
@@ -147,7 +149,7 @@ Shape::faces() const
     std::vector<Face> faces;
     TopExp_Explorer exp0;
     TopTools_DataMapOfShapeInteger id_map;
-    for (exp0.Init(this->shp, TopAbs_FACE); exp0.More(); exp0.Next()) {
+    for (exp0.Init(this->shape_, TopAbs_FACE); exp0.More(); exp0.Next()) {
         auto face = TopoDS::Face(exp0.Current());
         if (!id_map.IsBound(face)) {
             auto id = faces.size() + 1;
@@ -164,7 +166,7 @@ Shape::solids() const
     std::vector<Solid> solids;
     TopExp_Explorer exp0;
     TopTools_DataMapOfShapeInteger id_map;
-    for (exp0.Init(this->shp, TopAbs_SOLID); exp0.More(); exp0.Next()) {
+    for (exp0.Init(this->shape_, TopAbs_SOLID); exp0.More(); exp0.Next()) {
         auto solid = TopoDS::Solid(exp0.Current());
         if (!id_map.IsBound(solid)) {
             auto id = solids.size() + 1;
@@ -179,7 +181,7 @@ double
 Shape::length() const
 {
     GProp_GProps props;
-    BRepGProp::LinearProperties(this->shp, props);
+    BRepGProp::LinearProperties(this->shape_, props);
     return props.Mass();
 }
 
@@ -187,7 +189,7 @@ double
 Shape::area() const
 {
     GProp_GProps props;
-    BRepGProp::SurfaceProperties(this->shp, props);
+    BRepGProp::SurfaceProperties(this->shape_, props);
     return props.Mass();
 }
 
@@ -195,7 +197,7 @@ double
 Shape::volume() const
 {
     GProp_GProps props;
-    BRepGProp::VolumeProperties(this->shp, props);
+    BRepGProp::VolumeProperties(this->shape_, props);
     return props.Mass();
 }
 
@@ -207,7 +209,7 @@ Shape::density() const
 
 Shape::operator TopoDS_Shape() const
 {
-    return this->shp;
+    return this->shape_;
 }
 
 Shell

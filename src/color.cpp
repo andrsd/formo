@@ -5,44 +5,44 @@
 
 namespace formo {
 
-Color::Color() : r(0), g(0), b(0) {}
+Color::Color() : r_(0), g_(0), b_(0) {}
 
-Color::Color(int r, int g, int b) : r(r), g(g), b(b) {}
+Color::Color(int r, int g, int b) : r_(r), g_(g), b_(b) {}
 
 int
 Color::red() const
 {
-    return this->r;
+    return this->r_;
 }
 
 double
 Color::redF() const
 {
-    return this->r / 255.;
+    return this->r_ / 255.;
 }
 
 int
 Color::green() const
 {
-    return this->g;
+    return this->g_;
 }
 
 double
 Color::greenF() const
 {
-    return this->g / 255.;
+    return this->g_ / 255.;
 }
 
 int
 Color::blue() const
 {
-    return this->b;
+    return this->b_;
 }
 
 double
 Color::blueF() const
 {
-    return this->b / 255.;
+    return this->b_ / 255.;
 }
 
 } // namespace formo

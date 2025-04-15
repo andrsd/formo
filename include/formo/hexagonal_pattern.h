@@ -15,11 +15,11 @@ public:
 
 private:
     /// Center of the pattern
-    Axis2 center;
+    Axis2 center_;
     /// Flat to flat distance
-    double flat_to_flat;
+    double flat_to_flat_;
     /// Number of segments per side
-    int num_side_segs;
+    int num_side_segs_;
 };
 
 } // namespace formo
