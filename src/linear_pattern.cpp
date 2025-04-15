@@ -48,4 +48,28 @@ LinearPattern::LinearPattern(const Axis2 & ax2, int nx, int ny, double dx, doubl
     set_points(points);
 }
 
+double
+LinearPattern::nx() const
+{
+    return this->nx_;
+}
+
+double
+LinearPattern::ny() const
+{
+    return this->ny_;
+}
+
+double
+LinearPattern::dx() const
+{
+    return this->dx_;
+}
+
+double
+LinearPattern::dy() const
+{
+    return this->dy_;
+}
+
 } // namespace formo
