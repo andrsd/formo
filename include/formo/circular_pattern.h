@@ -20,11 +20,11 @@ public:
 
 private:
     /// Center of the pattern
-    Axis2 center;
+    Axis2 center_;
     /// Radius
-    double radius;
+    double radius_;
     /// number of divisions
-    int divs;
+    int divs_;
 };
 
 } // namespace formo

@@ -157,7 +157,7 @@ public:
     Vector operator*(double scalar) const;
 
 private:
-    gp_Vec vec;
+    gp_Vec vec_;
 };
 
 /// Multiply vector by a scalar

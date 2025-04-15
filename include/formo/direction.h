@@ -122,7 +122,7 @@ public:
     Direction operator-() const;
 
 private:
-    gp_Dir dir;
+    gp_Dir dir_;
 };
 
 /// Computes the scalar product between v1 and v2

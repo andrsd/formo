@@ -109,9 +109,9 @@ protected:
 
 private:
     /// Shape name
-    std::string nm;
+    std::string name_;
     /// Color of this shape
-    Color clr;
+    Color clr_;
     /// Material name
     std::string material_name_;
     /// Material description
@@ -119,7 +119,7 @@ private:
     /// Density
     double density_;
     /// Open CASCADE shape
-    TopoDS_Shape shp;
+    TopoDS_Shape shape_;
 
 public:
     static Shell make_shell(const Shape & shape);

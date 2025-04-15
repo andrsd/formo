@@ -13,8 +13,8 @@ ArcOfCircle::ArcOfCircle(const Point & pt1, const Point & pt2, const Point & pt3
     GC_MakeArcOfCircle mk(pt1, pt2, pt3);
     if (!mk.IsDone())
         throw Exception("ArcOfCircle was not created");
-    this->arc = mk.Value();
-    BRepBuilderAPI_MakeEdge make_edge(this->arc);
+    this->arc_ = mk.Value();
+    BRepBuilderAPI_MakeEdge make_edge(this->arc_);
     make_edge.Build();
     if (!make_edge.IsDone())
         throw Exception("Edge was not created");
@@ -28,8 +28,8 @@ ArcOfCircle::ArcOfCircle(const Circle & circ, const Point & pt1, const Point & p
     GC_MakeArcOfCircle mk(circ, pt1, pt2, sense);
     if (!mk.IsDone())
         throw Exception("ArcOfCircle was not created");
-    this->arc = mk.Value();
-    BRepBuilderAPI_MakeEdge make_edge(this->arc);
+    this->arc_ = mk.Value();
+    BRepBuilderAPI_MakeEdge make_edge(this->arc_);
     make_edge.Build();
     if (!make_edge.IsDone())
         throw Exception("Edge was not created");
@@ -42,8 +42,8 @@ ArcOfCircle::ArcOfCircle(const Point & pt1, const Vector & tangent, const Point 
     GC_MakeArcOfCircle mk(pt1, tangent, pt2);
     if (!mk.IsDone())
         throw Exception("ArcOfCircle was not created");
-    this->arc = mk.Value();
-    BRepBuilderAPI_MakeEdge make_edge(this->arc);
+    this->arc_ = mk.Value();
+    BRepBuilderAPI_MakeEdge make_edge(this->arc_);
     make_edge.Build();
     if (!make_edge.IsDone())
         throw Exception("Edge was not created");
@@ -54,13 +54,13 @@ ArcOfCircle::ArcOfCircle(const Point & pt1, const Vector & tangent, const Point 
 Point
 ArcOfCircle::start_point() const
 {
-    return Point(this->arc->StartPoint());
+    return Point(this->arc_->StartPoint());
 }
 
 Point
 ArcOfCircle::end_point() const
 {
-    return Point(this->arc->EndPoint());
+    return Point(this->arc_->EndPoint());
 }
 
 } // namespace formo

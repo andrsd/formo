@@ -18,7 +18,7 @@ public:
     double blueF() const;
 
 private:
-    int r, g, b;
+    int r_, g_, b_;
 };
 
 } // namespace formo

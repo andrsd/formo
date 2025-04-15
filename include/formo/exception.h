@@ -17,7 +17,7 @@ public:
     template <typename... T>
     Exception(fmt::format_string<T...> format, T... args)
     {
-        this->msg = fmt::format(format, std::forward<T>(args)...);
+        this->msg_ = fmt::format(format, std::forward<T>(args)...);
     }
 
     /// Get the exception message
@@ -25,7 +25,7 @@ public:
 
 private:
     /// Error message
-    std::string msg;
+    std::string msg_;
 };
 
 } // namespace formo

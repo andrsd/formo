@@ -10,26 +10,26 @@
 
 namespace formo {
 
-Solid::Solid(const TopoDS_Solid & solid) : Shape(solid), solid(solid) {}
+Solid::Solid(const TopoDS_Solid & solid) : Shape(solid), solid_(solid) {}
 
 Solid::Solid(const Shell & shell)
 {
     BRepBuilderAPI_MakeSolid mk(shell);
     if (!mk.IsDone())
         throw Exception("Solid was not created");
-    this->solid = mk.Solid();
-    set_shape(this->solid);
+    this->solid_ = mk.Solid();
+    set_shape(this->solid_);
 }
 
 void
 Solid::set_solid(const TopoDS_Solid & solid)
 {
-    this->solid = solid;
+    this->solid_ = solid;
 }
 
 Solid::operator TopoDS_Solid() const
 {
-    return this->solid;
+    return this->solid_;
 }
 
 } // namespace formo

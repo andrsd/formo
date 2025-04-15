@@ -15,7 +15,7 @@ public:
     operator TopoDS_Shell() const;
 
 private:
-    TopoDS_Shell shell;
+    TopoDS_Shell shell_;
 };
 
 } // namespace formo

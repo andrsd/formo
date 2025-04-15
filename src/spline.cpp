@@ -25,7 +25,7 @@ Spline::Spline(const std::vector<Point> & points) : Edge()
         throw Exception("Edge was not created");
     set_shape(make_edge.Shape());
     set_edge(make_edge.Edge());
-    this->spline = mk.Curve();
+    this->spline_ = mk.Curve();
 }
 
 Spline::Spline(const std::vector<Point> & points,
@@ -48,7 +48,7 @@ Spline::Spline(const std::vector<Point> & points,
         throw Exception("Edge was not created");
     set_shape(make_edge.Shape());
     set_edge(make_edge.Edge());
-    this->spline = mk.Curve();
+    this->spline_ = mk.Curve();
 }
 
 } // namespace formo

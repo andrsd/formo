@@ -23,7 +23,7 @@ public:
     operator TopoDS_Face() const;
 
 private:
-    TopoDS_Face face;
+    TopoDS_Face face_;
 };
 
 } // namespace formo

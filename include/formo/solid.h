@@ -27,7 +27,7 @@ protected:
     void set_solid(const TopoDS_Solid & solid);
 
 private:
-    TopoDS_Solid solid;
+    TopoDS_Solid solid_;
 };
 
 } // namespace formo

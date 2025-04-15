@@ -21,7 +21,7 @@ Circle::Circle(const Axis2 & origin, double radius) : Edge()
         throw Exception("Circle was not created");
     set_shape(maker.Shape());
     set_edge(maker.Edge());
-    this->circ = make_circ.Value()->Circ();
+    this->circ_ = make_circ.Value()->Circ();
 }
 
 Circle::Circle(const Point & center, double radius, const Direction & normal) : Edge()
@@ -35,7 +35,7 @@ Circle::Circle(const Point & center, double radius, const Direction & normal) : 
         throw Exception("Circle was not created");
     set_shape(maker.Shape());
     set_edge(maker.Edge());
-    this->circ = make_circ.Value()->Circ();
+    this->circ_ = make_circ.Value()->Circ();
 }
 
 Circle::Circle(const Point & center, const Point & pt, const Direction & norm)
@@ -50,7 +50,7 @@ Circle::Circle(const Point & center, const Point & pt, const Direction & norm)
         throw Exception("Circle was not created");
     set_shape(maker.Shape());
     set_edge(maker.Edge());
-    this->circ = make_circ.Value()->Circ();
+    this->circ_ = make_circ.Value()->Circ();
 }
 
 Circle::Circle(const Point & pt1, const Point & pt2, const Point & pt3)
@@ -64,31 +64,31 @@ Circle::Circle(const Point & pt1, const Point & pt2, const Point & pt3)
         throw Exception("Circle was not created");
     set_shape(maker.Shape());
     set_edge(maker.Edge());
-    this->circ = make_circ.Value()->Circ();
+    this->circ_ = make_circ.Value()->Circ();
 }
 
 double
 Circle::area() const
 {
-    return this->circ.Area();
+    return this->circ_.Area();
 }
 
 double
 Circle::radius() const
 {
-    return this->circ.Radius();
+    return this->circ_.Radius();
 }
 
 Point
 Circle::location() const
 {
-    auto pnt = this->circ.Location();
+    auto pnt = this->circ_.Location();
     return Point(pnt.X(), pnt.Y(), pnt.Z());
 }
 
 Circle::operator gp_Circ() const
 {
-    return this->circ;
+    return this->circ_;
 }
 
 } // namespace formo

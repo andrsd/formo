@@ -9,137 +9,137 @@
 
 namespace formo {
 
-Vector::Vector(const gp_Vec & vec) : vec(vec) {}
+Vector::Vector(const gp_Vec & vec) : vec_(vec) {}
 
-Vector::Vector(double x, double y, double z) : vec(x, y, z) {}
+Vector::Vector(double x, double y, double z) : vec_(x, y, z) {}
 
-Vector::Vector(const Direction & dir) : vec(dir) {}
+Vector::Vector(const Direction & dir) : vec_(dir) {}
 
-Vector::Vector(const Point & pt1, const Point & pt2) : vec(pt1, pt2) {}
+Vector::Vector(const Point & pt1, const Point & pt2) : vec_(pt1, pt2) {}
 
 double
 Vector::x() const
 {
-    return this->vec.X();
+    return this->vec_.X();
 }
 
 double
 Vector::y() const
 {
-    return this->vec.Y();
+    return this->vec_.Y();
 }
 
 double
 Vector::z() const
 {
-    return this->vec.Z();
+    return this->vec_.Z();
 }
 
 bool
 Vector::is_equal(const Vector & other, double lin_tol, double ang_tol) const
 {
-    return this->vec.IsEqual(other, lin_tol, ang_tol);
+    return this->vec_.IsEqual(other, lin_tol, ang_tol);
 }
 
 bool
 Vector::is_normal(const Vector & other, double ang_tol) const
 {
-    return this->vec.IsNormal(other, ang_tol);
+    return this->vec_.IsNormal(other, ang_tol);
 }
 
 bool
 Vector::is_opposite(const Vector & other, double ang_tol) const
 {
-    return this->vec.IsOpposite(other, ang_tol);
+    return this->vec_.IsOpposite(other, ang_tol);
 }
 
 bool
 Vector::is_parallel(const Vector & other, double ang_tol) const
 {
-    return this->vec.IsParallel(other, ang_tol);
+    return this->vec_.IsParallel(other, ang_tol);
 }
 
 double
 Vector::magnitude() const
 {
-    return this->vec.Magnitude();
+    return this->vec_.Magnitude();
 }
 
 void
 Vector::mirror(const Vector & v)
 {
-    this->vec.Mirror(v);
+    this->vec_.Mirror(v);
 }
 
 void
 Vector::mirror(const Axis1 & ax1)
 {
-    this->vec.Mirror(ax1);
+    this->vec_.Mirror(ax1);
 }
 
 void
 Vector::mirror(const Axis2 & ax2)
 {
-    this->vec.Mirror(ax2);
+    this->vec_.Mirror(ax2);
 }
 
 Vector
 Vector::mirrored(const Vector & v) const
 {
-    return Vector(this->vec.Mirrored(v));
+    return Vector(this->vec_.Mirrored(v));
 }
 
 Vector
 Vector::mirrored(const Axis1 & ax1) const
 {
-    return Vector(this->vec.Mirrored(ax1));
+    return Vector(this->vec_.Mirrored(ax1));
 }
 
 Vector
 Vector::mirrored(const Axis2 & ax2) const
 {
-    return Vector(this->vec.Mirrored(ax2));
+    return Vector(this->vec_.Mirrored(ax2));
 }
 
 void
 Vector::rotate(const Axis1 & ax1, const double angle)
 {
-    this->vec.Rotate(ax1, angle);
+    this->vec_.Rotate(ax1, angle);
 }
 
 Vector
 Vector::rotated(const Axis1 & ax1, const double angle) const
 {
-    return Vector(this->vec.Rotated(ax1, angle));
+    return Vector(this->vec_.Rotated(ax1, angle));
 }
 
 void
 Vector::scale(double s)
 {
-    this->vec.Scale(s);
+    this->vec_.Scale(s);
 }
 
 Vector
 Vector::scaled(double s) const
 {
-    return Vector(this->vec.Scaled(s));
+    return Vector(this->vec_.Scaled(s));
 }
 
 void
 Vector::normalize()
 {
-    this->vec.Normalize();
+    this->vec_.Normalize();
 }
 
 Vector
 Vector::normalized() const
 {
-    return Vector(this->vec.Normalized());
+    return Vector(this->vec_.Normalized());
 }
 
 Vector::operator gp_Vec() const
 {
-    return this->vec;
+    return this->vec_;
 }
 
 Vector

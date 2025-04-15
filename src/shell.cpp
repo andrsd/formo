@@ -5,11 +5,11 @@
 
 namespace formo {
 
-Shell::Shell(const TopoDS_Shell & shell) : Shape(shell), shell(shell) {}
+Shell::Shell(const TopoDS_Shell & shell) : Shape(shell), shell_(shell) {}
 
 Shell::operator TopoDS_Shell() const
 {
-    return this->shell;
+    return this->shell_;
 }
 
 } // namespace formo

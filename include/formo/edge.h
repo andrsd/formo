@@ -19,7 +19,7 @@ protected:
     void set_edge(const TopoDS_Edge & edge);
 
 private:
-    TopoDS_Edge edge;
+    TopoDS_Edge edge_;
 };
 
 } // namespace formo

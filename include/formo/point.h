@@ -134,8 +134,8 @@ public:
     Point translated(const Point & p1, const Point & p2) const;
 
 private:
-    gp_Pnt pnt;
-    TopoDS_Vertex vtx;
+    gp_Pnt pnt_;
+    TopoDS_Vertex vtx_;
 };
 
 /// Operator for `Point` + `Point`

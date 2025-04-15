@@ -41,7 +41,7 @@ public:
     operator gp_Ax1() const;
 
 private:
-    gp_Ax1 ax1;
+    gp_Ax1 ax1_;
 };
 
 } // namespace formo

@@ -16,15 +16,15 @@ public:
 
 private:
     /// Origin of the pattern
-    Axis2 ax2;
+    Axis2 ax2_;
     /// number of points in x-direction
-    int nx;
+    int nx_;
     ///
-    double dx;
+    double dx_;
     /// number of points in y-direction
-    int ny;
+    int ny_;
     ///
-    double dy;
+    double dy_;
 };
 
 } // namespace formo

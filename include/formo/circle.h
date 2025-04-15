@@ -59,7 +59,7 @@ public:
     operator gp_Circ() const;
 
 private:
-    gp_Circ circ;
+    gp_Circ circ_;
 };
 
 } // namespace formo
