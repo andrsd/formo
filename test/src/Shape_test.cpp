@@ -35,6 +35,17 @@ TEST(ShapeTest, color)
     EXPECT_EQ(shape.color().blue(), 30);
 }
 
+TEST(ShapeTest, material)
+{
+    Shape shape;
+    EXPECT_FALSE(shape.has_material());
+    shape.set_material("steel", "SS316", 7850);
+    EXPECT_TRUE(shape.has_material());
+    EXPECT_EQ(shape.material(), "steel");
+    EXPECT_EQ(shape.material_description(), "SS316");
+    EXPECT_NEAR(shape.density(), 7850, 1e-10);
+}
+
 TEST(ShapeTest, vertices)
 {
     Box box(Point(0, 0, 0), Point(1, 2, 3));
