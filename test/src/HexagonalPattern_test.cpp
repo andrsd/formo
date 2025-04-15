@@ -30,4 +30,6 @@ TEST(HexagonalPatternTest, test)
     EXPECT_TRUE(points[9].is_equal(Point(0, -h, 0.), 1e-14));
     EXPECT_TRUE(points[10].is_equal(Point(r / 2., -h, 0.), 1e-14));
     EXPECT_TRUE(points[11].is_equal(Point(0.75 * r, -h / 2., 0.), 1e-14));
+
+    EXPECT_EQ(hp.flat_to_flat(), flat2flat);
 }

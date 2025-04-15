@@ -49,4 +49,10 @@ HexagonalPattern::HexagonalPattern(const Axis2 & center, double flat_to_flat, in
     set_points(points);
 }
 
+double
+HexagonalPattern::flat_to_flat() const
+{
+    return this->flat_to_flat_;
+}
+
 } // namespace formo

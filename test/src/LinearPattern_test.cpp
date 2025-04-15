@@ -30,12 +30,17 @@ TEST(LinearPatternTest, points_2d)
     Direction v_x(1, 1, 0);
     Axis2 ax2(org, n, v_x);
 
-    LinearPattern lp(ax2, 3, 2, 1, 1);
+    LinearPattern lp(ax2, 3, 2, 1, 2);
     auto points = lp.points();
     EXPECT_TRUE(points[0].is_equal(Point(1, 0, 0)));
     EXPECT_TRUE(points[1].is_equal(Point(1 + sqrt2 / 2., sqrt2 / 2., 0)));
     EXPECT_TRUE(points[2].is_equal(Point(1 + sqrt2, sqrt2, 0)));
-    EXPECT_TRUE(points[3].is_equal(Point(1 - sqrt2 / 2., sqrt2 / 2., 0)));
-    EXPECT_TRUE(points[4].is_equal(Point(1, sqrt2, 0)));
-    EXPECT_TRUE(points[5].is_equal(Point(1 + sqrt2 / 2., 1.5 * sqrt2, 0)));
+    EXPECT_TRUE(points[3].is_equal(Point(1 - sqrt2, 2 * sqrt2 / 2., 0)));
+    EXPECT_TRUE(points[4].is_equal(Point(1 - sqrt2 / 2., 1.5 * sqrt2, 0)));
+    EXPECT_TRUE(points[5].is_equal(Point(1, 2 * sqrt2, 0)));
+
+    EXPECT_EQ(lp.nx(), 3);
+    EXPECT_EQ(lp.ny(), 2);
+    EXPECT_EQ(lp.dx(), 1);
+    EXPECT_EQ(lp.dy(), 2);
 }

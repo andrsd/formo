@@ -18,6 +18,9 @@ public:
     /// @param divisions Number of segments around the circle
     CircularPattern(const Axis2 & center, double radius, int divisions, double start_angle = 0.);
 
+    /// Get radius
+    double radius() const;
+
 private:
     /// Center of the pattern
     Axis2 center_;

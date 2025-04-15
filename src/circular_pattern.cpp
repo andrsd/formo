@@ -31,4 +31,10 @@ CircularPattern::CircularPattern(const Axis2 & center,
     set_points(points);
 }
 
+double
+CircularPattern::radius() const
+{
+    return this->radius_;
+}
+
 } // namespace formo

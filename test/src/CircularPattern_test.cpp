@@ -21,4 +21,6 @@ TEST(CircularPatternTest, points)
     EXPECT_TRUE(points[3].is_equal(Point(-1, 0, 0)));
     EXPECT_TRUE(points[4].is_equal(Point(0, -h, 0)));
     EXPECT_TRUE(points[5].is_equal(Point(2, -h, 0), 2e-15));
+
+    EXPECT_DOUBLE_EQ(cp.radius(), 2.);
 }
