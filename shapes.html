@@ -119,6 +119,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Shape8set_nameERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Shape::set_name()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape5colorEv"><code class="docutils literal notranslate"><span class="pre">Shape::color()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Shape9set_colorERK5Color"><code class="docutils literal notranslate"><span class="pre">Shape::set_color()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape8materialEv"><code class="docutils literal notranslate"><span class="pre">Shape::material()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape20material_descriptionEv"><code class="docutils literal notranslate"><span class="pre">Shape::material_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo5Shape12set_materialERKNSt6stringERKNSt6stringEd"><code class="docutils literal notranslate"><span class="pre">Shape::set_material()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape12has_materialEv"><code class="docutils literal notranslate"><span class="pre">Shape::has_material()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape8verticesEv"><code class="docutils literal notranslate"><span class="pre">Shape::vertices()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape5edgesEv"><code class="docutils literal notranslate"><span class="pre">Shape::edges()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape5facesEv"><code class="docutils literal notranslate"><span class="pre">Shape::faces()</span></code></a></li>
@@ -126,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape6lengthEv"><code class="docutils literal notranslate"><span class="pre">Shape::length()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape4areaEv"><code class="docutils literal notranslate"><span class="pre">Shape::area()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape6volumeEv"><code class="docutils literal notranslate"><span class="pre">Shape::volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo5Shape7densityEv"><code class="docutils literal notranslate"><span class="pre">Shape::density()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4EdgeE"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a></li>
@@ -694,6 +699,54 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape8materialEv">
+<span id="_CPPv3NK5formo5Shape8materialEv"></span><span id="_CPPv2NK5formo5Shape8materialEv"></span><span id="formo::Shape::materialC"></span><span class="target" id="classformo_1_1_shape_1ab4d433d70bb737a8922db2d7294f2f0b"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">material</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape8materialEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get material. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Material name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape20material_descriptionEv">
+<span id="_CPPv3NK5formo5Shape20material_descriptionEv"></span><span id="_CPPv2NK5formo5Shape20material_descriptionEv"></span><span id="formo::Shape::material_descriptionC"></span><span class="target" id="classformo_1_1_shape_1a251cc72fd6bce7da3e3a60bef8250c76"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">material_description</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape20material_descriptionEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get material description. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Material description </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo5Shape12set_materialERKNSt6stringERKNSt6stringEd">
+<span id="_CPPv3N5formo5Shape12set_materialERKNSt6stringERKNSt6stringEd"></span><span id="_CPPv2N5formo5Shape12set_materialERKNSt6stringERKNSt6stringEd"></span><span id="formo::Shape::set_material__ssCR.ssCR.double"></span><span class="target" id="classformo_1_1_shape_1a1a947afce07d33fe0e977dd67a3e3953"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_material</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">description</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">density</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo5Shape12set_materialERKNSt6stringERKNSt6stringEd" title="Link to this definition"></a><br /></dt>
+<dd><p>Set material. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Material name </p></li>
+<li><p><strong>description</strong> – Material description </p></li>
+<li><p><strong>density</strong> – Density [g/cm^3] </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape12has_materialEv">
+<span id="_CPPv3NK5formo5Shape12has_materialEv"></span><span id="_CPPv2NK5formo5Shape12has_materialEv"></span><span id="formo::Shape::has_materialC"></span><span class="target" id="classformo_1_1_shape_1a31dca4b6d907faa9f8784cfa0d65c6cf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">has_material</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape12has_materialEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Query if this shape has material assigned to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if material is assigned, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape8verticesEv">
 <span id="_CPPv3NK5formo5Shape8verticesEv"></span><span id="_CPPv2NK5formo5Shape8verticesEv"></span><span id="formo::Shape::verticesC"></span><span class="target" id="classformo_1_1_shape_1a5b0417ada688f390ca13de69e1118c8f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vertices</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape8verticesEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Get all vertices of this shape. </p>
@@ -766,6 +819,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Volume of the shape </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo5Shape7densityEv">
+<span id="_CPPv3NK5formo5Shape7densityEv"></span><span id="_CPPv2NK5formo5Shape7densityEv"></span><span id="formo::Shape::densityC"></span><span class="target" id="classformo_1_1_shape_1a92764068ce7554d87a754ab8d1ac2a21"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">density</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo5Shape7densityEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Return density. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Density [kg/m^3] </p>
 </dd>
 </dl>
 </dd></dl>
