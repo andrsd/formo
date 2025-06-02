@@ -11,8 +11,17 @@ target_include_directories(
 
 target_link_libraries(formo PUBLIC libformo)
 
+set(PYTHON_SITE lib/python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}/site-packages)
+
 install(
     TARGETS formo
     COMPONENT python
-    LIBRARY DESTINATION "lib/python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}/site-packages/formo"
+    LIBRARY DESTINATION "${PYTHON_SITE}/formo"
+)
+
+install(
+    FILES
+        ${CMAKE_CURRENT_SOURCE_DIR}/formo/__init__.py
+    DESTINATION ${PYTHON_SITE}/formo
+    COMPONENT python
 )
