@@ -101,18 +101,19 @@ mirror(const Point & point, const Axis2 & axis)
 }
 
 Shape
-fuse(const Shape & shape, const Shape & tool)
+fuse(const Shape & shape, const Shape & tool, bool simplify)
 {
     BRepAlgoAPI_Fuse alg(shape, tool);
     alg.Build();
-    alg.SimplifyResult();
+    if (simplify)
+        alg.SimplifyResult();
     if (!alg.IsDone())
         throw Exception("Objects were not fused");
     return Shape(alg.Shape());
 }
 
 Shape
-fuse(const std::vector<Shape> & shapes)
+fuse(const std::vector<Shape> & shapes, bool simplify)
 {
     if (shapes.empty())
         throw Exception("No shapes to fuse");
@@ -124,7 +125,8 @@ fuse(const std::vector<Shape> & shapes)
     for (std::size_t i = 1; i < shapes.size(); ++i) {
         BRepAlgoAPI_Fuse alg(sh, shapes[i]);
         alg.Build();
-        alg.SimplifyResult();
+        if (simplify)
+            alg.SimplifyResult();
         if (!alg.IsDone())
             throw Exception("Objects were not fused");
         sh = alg.Shape();
