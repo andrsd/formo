@@ -186,16 +186,16 @@ Shape draft(const Shape & shape, const Plane & pln, const std::vector<Face> & fa
 ///
 /// @param shape Shape on which hole will be performed
 /// @param axis Axis of the hole
-/// @param radius Radius of the hole
-Shape hole(const Shape & shape, const Axis1 & axis, double radius);
+/// @param diameter Diameter of the hole
+Shape hole(const Shape & shape, const Axis1 & axis, double diameter);
 
 /// Make cylindrical hole on a shape with specified depth
 ///
 /// @param shape Shape on which hole will be performed
 /// @param axis Axis of the hole
-/// @param radius Radius of the hole
+/// @param diameter Diameter of the hole
 /// @param length Length of the hole
-Shape hole(const Shape & shape, const Axis1 & axis, double radius, double length);
+Shape hole(const Shape & shape, const Axis1 & axis, double diameter, double length);
 
 /// Constructs a pipe by sweeping the `profile` along the `spine`
 ///

@@ -189,14 +189,14 @@ TEST(OperationsTest, hole)
 {
     Box box(Point(0, 0, 0), Point(1, 1, 1));
     Axis1 ax1(Point(1.5, 0.5, 0.25), Direction(-1, 0, 0));
-    auto shape = hole(box, ax1, 0.1);
+    auto shape = hole(box, ax1, 0.2);
 }
 
 TEST(OperationsTest, hole_blind)
 {
     Box box(Point(0, 0, 0), Point(1, 1, 1));
     Axis1 ax1(Point(0, 0.5, 0.25), Direction(1, 0, 0));
-    auto shape = hole(box, ax1, 0.1, 0.5);
+    auto shape = hole(box, ax1, 0.2, 0.5);
 }
 
 TEST(OperationsTest, sweep)
