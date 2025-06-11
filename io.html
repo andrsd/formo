@@ -72,11 +72,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo8STEPFileE"><code class="docutils literal notranslate"><span class="pre">STEPFile</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo8STEPFile8STEPFileERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">STEPFile::STEPFile()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo8STEPFile5writeERKNSt6vectorI5ShapeEE"><code class="docutils literal notranslate"><span class="pre">STEPFile::write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo8STEPFile4readEv"><code class="docutils literal notranslate"><span class="pre">STEPFile::read()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo8IGESFileE"><code class="docutils literal notranslate"><span class="pre">IGESFile</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo8IGESFile8IGESFileERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">IGESFile::IGESFile()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo8IGESFile5writeERKNSt6vectorI5ShapeEE"><code class="docutils literal notranslate"><span class="pre">IGESFile::write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo8IGESFile4readEv"><code class="docutils literal notranslate"><span class="pre">IGESFile::read()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -172,6 +174,17 @@
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo8STEPFile4readEv">
+<span id="_CPPv3NK5formo8STEPFile4readEv"></span><span id="_CPPv2NK5formo8STEPFile4readEv"></span><span id="formo::STEPFile::readC"></span><span class="target" id="classformo_1_1_s_t_e_p_file_1a755260acda43d33f5849b62c19cf1c77"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo8STEPFile4readEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Read the file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Shapes that were contained in the STEP file </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -198,6 +211,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>shapes</strong> – Shapes to write </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo8IGESFile4readEv">
+<span id="_CPPv3NK5formo8IGESFile4readEv"></span><span id="_CPPv2NK5formo8IGESFile4readEv"></span><span id="formo::IGESFile::readC"></span><span class="target" id="classformo_1_1_i_g_e_s_file_1a7d931c32213683101ff1dd016839de93"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo8IGESFile4readEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Read the file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Shapes that were contained in the IGES file </p>
 </dd>
 </dl>
 </dd></dl>
