@@ -540,10 +540,10 @@ PYBIND11_MODULE(formo, m)
     m.def("mirror", py::overload_cast<const Point &, const Axis2 &>(&mirror),
         py::arg("point"), py::arg("axis2"));
 
-    m.def("fuse", py::overload_cast<const Shape &, const Shape &>(&fuse),
-        py::arg("shape"), py::arg("tool"));
-    m.def("fuse", py::overload_cast<const std::vector<Shape> &>(&fuse),
-        py::arg("tools"));
+    m.def("fuse", py::overload_cast<const Shape &, const Shape &, bool>(&fuse),
+        py::arg("shape"), py::arg("tool"), py::arg("simplify") = true);
+    m.def("fuse", py::overload_cast<const std::vector<Shape> &, bool>(&fuse),
+        py::arg("tools"), py::arg("simplify") = true);
 
     m.def("cut", py::overload_cast<const Shape &, const Shape &>(&cut),
         py::arg("shape"), py::arg("tool"));

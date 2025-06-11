@@ -82,13 +82,13 @@ Point mirror(const Point & point, const Axis2 & axis);
 /// @param shape Shape
 /// @param tool Tool
 /// @return Resulting fused shape
-Shape fuse(const Shape & shape, const Shape & tool);
+Shape fuse(const Shape & shape, const Shape & tool, bool simplify = true);
 
 /// Fuse multiple shapes
 ///
 /// @param tools Shapes to fuse
 /// @return Resulting fused shape
-Shape fuse(const std::vector<Shape> & tools);
+Shape fuse(const std::vector<Shape> & tools, bool simplify = true);
 
 /// Cut a shape with a tool
 ///
