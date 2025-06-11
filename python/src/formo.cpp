@@ -583,9 +583,9 @@ PYBIND11_MODULE(formo, m)
         py::arg("shape"), py::arg("pln"), py::arg("faces"), py::arg("angle"));
 
     m.def("hole", py::overload_cast<const Shape &, const Axis1 &, double>(&hole),
-        py::arg("shape"), py::arg("axis"), py::arg("radius"));
+        py::arg("shape"), py::arg("axis"), py::arg("diameter"));
     m.def("hole", py::overload_cast<const Shape &, const Axis1 &, double, double>(&hole),
-        py::arg("shape"), py::arg("axis"), py::arg("radius"), py::arg("length"));
+        py::arg("shape"), py::arg("axis"), py::arg("diameter"), py::arg("length"));
 
     m.def("sweep", py::overload_cast<const Shape &, const Wire &>(&sweep),
         py::arg("profile"), py::arg("spine"));

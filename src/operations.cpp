@@ -261,11 +261,11 @@ draft(const Shape & shape, const Plane & pln, const std::vector<Face> & faces, d
 }
 
 Shape
-hole(const Shape & shape, const Axis1 & axis, double radius)
+hole(const Shape & shape, const Axis1 & axis, double diameter)
 {
     BRepFeat_MakeCylindricalHole h;
     h.Init(shape, axis);
-    h.Perform(radius);
+    h.Perform(diameter / 2.);
     h.Build();
     if (h.Status() == BRepFeat_NoError)
         return Shape(h.Shape());
@@ -274,11 +274,11 @@ hole(const Shape & shape, const Axis1 & axis, double radius)
 }
 
 Shape
-hole(const Shape & shape, const Axis1 & axis, double radius, double length)
+hole(const Shape & shape, const Axis1 & axis, double diameter, double length)
 {
     BRepFeat_MakeCylindricalHole h;
     h.Init(shape, axis);
-    h.PerformBlind(radius, length);
+    h.PerformBlind(diameter / 2., length);
     h.Build();
     if (h.Status() == BRepFeat_NoError)
         return Shape(h.Shape());
