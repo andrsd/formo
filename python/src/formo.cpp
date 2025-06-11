@@ -464,7 +464,7 @@ PYBIND11_MODULE(formo, m)
 
     py::class_<Cylinder, Solid>(m, "Cylinder")
         .def(py::init<const Axis2 &, double, double>(),
-            py::arg("axis"), py::arg("radius"), py::arg("height"))
+            py::arg("location"), py::arg("radius"), py::arg("height"))
     ;
 
     py::class_<Prism, Shape>(m, "Prism")

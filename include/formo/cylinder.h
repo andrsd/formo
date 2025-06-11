@@ -12,7 +12,12 @@ namespace formo {
 
 class Cylinder : public Solid {
 public:
-    Cylinder(const Axis2 & axis, double radius, double height);
+    /// Create a cylinder
+    ///
+    /// @param location Location in space
+    /// @param radius Radius
+    /// @param height Height
+    Cylinder(const Axis2 & location, double radius, double height);
 };
 
 } // namespace formo
