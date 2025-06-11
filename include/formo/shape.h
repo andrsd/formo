@@ -52,7 +52,9 @@ public:
     /// @param name Material name
     /// @param description Material description
     /// @param density Density [g/cm^3]
-    void set_material(const std::string & name, const std::string & description, double density);
+    void set_material(const std::string & name,
+                      const std::string & description = "",
+                      double density = 0.);
 
     /// Query if this shape has material assigned to it
     ///

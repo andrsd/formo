@@ -336,6 +336,11 @@ PYBIND11_MODULE(formo, m)
         .def("color", &Shape::color)
         .def("set_color", &Shape::set_color,
             py::arg("color"))
+        .def("material", &Shape::material)
+        .def("material_description", &Shape::material_description)
+        .def("set_material", &Shape::set_material,
+            py::arg("name"), py::arg("description") = "", py::arg("density") = 0.)
+        .def("has_material", &Shape::has_material)
         .def("vertices", &Shape::vertices)
         .def("edges", &Shape::edges)
         .def("faces", &Shape::faces)
@@ -343,6 +348,7 @@ PYBIND11_MODULE(formo, m)
         .def("length", &Shape::length)
         .def("area", &Shape::area)
         .def("volume", &Shape::volume)
+        .def("density", &Shape::density)
     ;
 
     m.def("make_shell", &Shape::make_shell);

@@ -25,16 +25,8 @@ public:
     /// Get file name
     const std::string file_name() const;
 
-    /// Read the file
-    ///
-    /// @return Shapes that were contained in the IGES file
-    std::vector<Shape> read();
-
 protected:
     TDocStd_Document * create_doc(const std::vector<Shape> & shapes);
-
-private:
-    virtual XSControl_Reader * create_reader() = 0;
 
     std::string fname_;
 };

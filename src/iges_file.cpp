@@ -23,10 +23,18 @@ IGESFile::write(const std::vector<Shape> & shapes)
     }
 }
 
-XSControl_Reader *
-IGESFile::create_reader()
+std::vector<Shape>
+IGESFile::read() const
 {
-    return new IGESControl_Reader();
+    IGESControl_Reader reader;
+    if (reader.ReadFile(file_name().c_str()) != IFSelect_RetDone)
+        throw Exception("Unable to load '{}'", file_name());
+    reader.NbRootsForTransfer();
+    reader.TransferRoots();
+    std::vector<Shape> shapes;
+    for (int idx = 1; idx <= reader.NbShapes(); ++idx)
+        shapes.push_back(Shape(reader.Shape(idx)));
+    return shapes;
 }
 
 } // namespace formo
