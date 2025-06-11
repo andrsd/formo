@@ -22,8 +22,10 @@ public:
     /// @param shapes Shapes to write
     void write(const std::vector<Shape> & shapes);
 
-private:
-    XSControl_Reader * create_reader() override;
+    /// Read the file
+    ///
+    /// @return Shapes that were contained in the STEP file
+    std::vector<Shape> read() const;
 };
 
 } // namespace formo
