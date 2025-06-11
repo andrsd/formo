@@ -73,7 +73,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK6VectorRK5Axis2"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK5PointRK5Axis1"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6mirrorERK5PointRK5Axis2"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo4fuseERK5ShapeRK5Shape"><code class="docutils literal notranslate"><span class="pre">fuse()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo3cutERK5ShapeRK5Shape"><code class="docutils literal notranslate"><span class="pre">cut()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo9intersectERK5ShapeRK5Shape"><code class="docutils literal notranslate"><span class="pre">intersect()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo6filletERK5ShapeRKNSt6vectorI4EdgeEEd"><code class="docutils literal notranslate"><span class="pre">fillet()</span></code></a></li>
@@ -273,23 +272,16 @@
 </dl>
 </dd></dl>
 
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5formo4fuseERK5ShapeRK5Shape">
-<span id="_CPPv3N5formo4fuseERK5ShapeRK5Shape"></span><span id="_CPPv2N5formo4fuseERK5ShapeRK5Shape"></span><span id="formo::fuse__ShapeCR.ShapeCR"></span><span class="target" id="operations_8h_1a572225073de86cee2c21e5baf91e22c9"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">fuse</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo4fuseERK5ShapeRK5Shape" title="Link to this definition"></a><br /></dt>
-<dd><p>Fuse 2 shapes. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>shape</strong> – <a class="reference internal" href="shapes.html#classformo_1_1_shape"><span class="std std-ref">Shape</span></a></p></li>
-<li><p><strong>tool</strong> – Tool </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Resulting fused shape </p>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Unable to resolve function “formo::fuse” with arguments (const Shape&amp;, const Shape&amp;) in doxygen xml output for project “formo” from directory: /home/runner/work/formo/formo/build/docs/xml/.
+Potential matches:
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Shape</span> <span class="n">fuse</span><span class="p">(</span><span class="n">const</span> <span class="n">Shape</span> <span class="o">&amp;</span><span class="n">shape</span><span class="p">,</span> <span class="n">const</span> <span class="n">Shape</span> <span class="o">&amp;</span><span class="n">tool</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">simplify</span> <span class="o">=</span> <span class="n">true</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">Shape</span> <span class="n">fuse</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">tools</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">simplify</span> <span class="o">=</span> <span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5formo3cutERK5ShapeRK5Shape">
 <span id="_CPPv3N5formo3cutERK5ShapeRK5Shape"></span><span id="_CPPv2N5formo3cutERK5ShapeRK5Shape"></span><span id="formo::cut__ShapeCR.ShapeCR"></span><span class="target" id="operations_8h_1a18b5724f19025aed870204c7ee336f68"></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">cut</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="shapes.html#_CPPv4N5formo5ShapeE" title="formo::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo3cutERK5ShapeRK5Shape" title="Link to this definition"></a><br /></dt>
