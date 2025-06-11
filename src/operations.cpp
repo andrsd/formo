@@ -20,6 +20,7 @@
 #include "BRepFeat_MakeCylindricalHole.hxx"
 #include "BRepOffsetAPI_MakePipe.hxx"
 #include "BRepBuilderAPI_Sewing.hxx"
+#include "TopoDS_Shape.hxx"
 
 namespace formo {
 
@@ -108,6 +109,28 @@ fuse(const Shape & shape, const Shape & tool)
     if (!alg.IsDone())
         throw Exception("Objects were not fused");
     return Shape(alg.Shape());
+}
+
+Shape
+fuse(const std::vector<Shape> & shapes)
+{
+    if (shapes.empty())
+        throw Exception("No shapes to fuse");
+
+    if (shapes.size() == 1)
+        throw Exception("Only one shape provided");
+
+    TopoDS_Shape sh = shapes[0];
+    for (std::size_t i = 1; i < shapes.size(); ++i) {
+        BRepAlgoAPI_Fuse alg(sh, shapes[i]);
+        alg.Build();
+        alg.SimplifyResult();
+        if (!alg.IsDone())
+            throw Exception("Objects were not fused");
+        sh = alg.Shape();
+    }
+
+    return Shape(sh);
 }
 
 Shape
