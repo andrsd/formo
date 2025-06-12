@@ -6,3 +6,5 @@
 # python
 __pycache__
 python/src/formo.egg-info
+.pytest_cache
+.ropeproject
