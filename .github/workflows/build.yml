@@ -59,6 +59,7 @@ jobs:
       - name: Configure
         run: |
           cmake -S . -B ${{ github.workspace }}/build \
+            -DGCOV_PATH=`which x86_64-conda-linux-gnu-gcov` \
             -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
             -DBUILD_SHARED_LIBS=ON \
             -DFORMO_BUILD_TESTS=ON \

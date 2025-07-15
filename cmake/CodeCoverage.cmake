@@ -100,6 +100,10 @@ if(FORMO_CODE_COVERAGE)
         set(GCOV "gcov" CACHE STRING "Path to gcov")
 
         find_program(GCOV_PATH NAMES ${GCOV})
+        if (NOT GCOV_PATH)
+            message(FATAL_ERROR "gcov not found!")
+        endif()
+
         find_program(LCOV_PATH lcov)
         find_program(GENHTML_PATH genhtml)
         mark_as_advanced(FORCE
@@ -129,6 +133,7 @@ if(FORMO_CODE_COVERAGE)
                 --gcov-tool ${GCOV_PATH}
                 --directory ${PROJECT_BINARY_DIR}
                 --output-file ${COVERAGE_INFO}
+                --gcov-tool ${GCOV_PATH}
                 ${EXCLUDE_REGEX}
         )
 
