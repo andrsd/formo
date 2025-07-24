@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patterns &mdash; formo  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Input/Output" href="io.html" />
+    <link rel="prev" title="Operations" href="operations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">Formo Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="names-and-colors.html">Names and Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export.html">Export</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/2d-geometry.html">2D geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/bottle.html">Bottle</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shapes.html">Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Operations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo7PatternE"><code class="docutils literal notranslate"><span class="pre">Pattern</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo7Pattern6pointsEv"><code class="docutils literal notranslate"><span class="pre">Pattern::points()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo15CircularPatternE"><code class="docutils literal notranslate"><span class="pre">CircularPattern</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo15CircularPattern15CircularPatternERK5Axis2did"><code class="docutils literal notranslate"><span class="pre">CircularPattern::CircularPattern()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo15CircularPattern6radiusEv"><code class="docutils literal notranslate"><span class="pre">CircularPattern::radius()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo16HexagonalPatternE"><code class="docutils literal notranslate"><span class="pre">HexagonalPattern</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo16HexagonalPattern12flat_to_flatEv"><code class="docutils literal notranslate"><span class="pre">HexagonalPattern::flat_to_flat()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo13LinearPatternE"><code class="docutils literal notranslate"><span class="pre">LinearPattern</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo13LinearPattern2nxEv"><code class="docutils literal notranslate"><span class="pre">LinearPattern::nx()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo13LinearPattern2nyEv"><code class="docutils literal notranslate"><span class="pre">LinearPattern::ny()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo13LinearPattern2dxEv"><code class="docutils literal notranslate"><span class="pre">LinearPattern::dx()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo13LinearPattern2dyEv"><code class="docutils literal notranslate"><span class="pre">LinearPattern::dy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Patterns</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="patterns">
+<h1>Patterns<a class="headerlink" href="#patterns" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo7PatternE">
+<span id="_CPPv3N5formo7PatternE"></span><span id="_CPPv2N5formo7PatternE"></span><span id="formo::Pattern"></span><span class="target" id="classformo_1_1_pattern"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Pattern</span></span></span><a class="headerlink" href="#_CPPv4N5formo7PatternE" title="Link to this definition"></a><br /></dt>
+<dd><p>Base class for patterns. </p>
+<p>Subclassed by <a class="reference internal" href="#classformo_1_1_circular_pattern"><span class="std std-ref">formo::CircularPattern</span></a>, <a class="reference internal" href="#classformo_1_1_hexagonal_pattern"><span class="std std-ref">formo::HexagonalPattern</span></a>, <a class="reference internal" href="#classformo_1_1_linear_pattern"><span class="std std-ref">formo::LinearPattern</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo7Pattern6pointsEv">
+<span id="_CPPv3NK5formo7Pattern6pointsEv"></span><span id="_CPPv2NK5formo7Pattern6pointsEv"></span><span id="formo::Pattern::pointsC"></span><span class="target" id="classformo_1_1_pattern_1a2c6b53e9961597fc4f4efd76390831cc"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="shapes.html#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">points</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo7Pattern6pointsEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Return the point generated by the pattern. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The point generated by the pattern </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo15CircularPatternE">
+<span id="_CPPv3N5formo15CircularPatternE"></span><span id="_CPPv2N5formo15CircularPatternE"></span><span id="formo::CircularPattern"></span><span class="target" id="classformo_1_1_circular_pattern"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CircularPattern</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5formo7PatternE" title="formo::Pattern"><span class="n"><span class="pre">Pattern</span></span></a><a class="headerlink" href="#_CPPv4N5formo15CircularPatternE" title="Link to this definition"></a><br /></dt>
+<dd><p>Circular pattern. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo15CircularPattern15CircularPatternERK5Axis2did">
+<span id="_CPPv3N5formo15CircularPattern15CircularPatternERK5Axis2did"></span><span id="_CPPv2N5formo15CircularPattern15CircularPatternERK5Axis2did"></span><span id="formo::CircularPattern::CircularPattern__Axis2CR.double.i.double"></span><span class="target" id="classformo_1_1_circular_pattern_1a5a1360d3864d54c8b393bea30ec70dd8"></span><span class="sig-name descname"><span class="n"><span class="pre">CircularPattern</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="geometry.html#_CPPv4N5formo5Axis2E" title="formo::Axis2"><span class="n"><span class="pre">Axis2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">center</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">divisions</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start_angle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo15CircularPattern15CircularPatternERK5Axis2did" title="Link to this definition"></a><br /></dt>
+<dd><p>Create circular pattern over full circle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center</strong> – Center of the pattern </p></li>
+<li><p><strong>radius</strong> – Radius of the pattern </p></li>
+<li><p><strong>divisions</strong> – Number of segments around the circle </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo15CircularPattern6radiusEv">
+<span id="_CPPv3NK5formo15CircularPattern6radiusEv"></span><span id="_CPPv2NK5formo15CircularPattern6radiusEv"></span><span id="formo::CircularPattern::radiusC"></span><span class="target" id="classformo_1_1_circular_pattern_1a5027811c7ffbe82e4513d483b0b11a49"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">radius</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo15CircularPattern6radiusEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get radius. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo16HexagonalPatternE">
+<span id="_CPPv3N5formo16HexagonalPatternE"></span><span id="_CPPv2N5formo16HexagonalPatternE"></span><span id="formo::HexagonalPattern"></span><span class="target" id="classformo_1_1_hexagonal_pattern"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HexagonalPattern</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5formo7PatternE" title="formo::Pattern"><span class="n"><span class="pre">Pattern</span></span></a><a class="headerlink" href="#_CPPv4N5formo16HexagonalPatternE" title="Link to this definition"></a><br /></dt>
+<dd><p>Hexagonal pattern. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo16HexagonalPattern12flat_to_flatEv">
+<span id="_CPPv3NK5formo16HexagonalPattern12flat_to_flatEv"></span><span id="_CPPv2NK5formo16HexagonalPattern12flat_to_flatEv"></span><span id="formo::HexagonalPattern::flat_to_flatC"></span><span class="target" id="classformo_1_1_hexagonal_pattern_1a379273a5ecf07d9fe7ddda549bad5483"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flat_to_flat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo16HexagonalPattern12flat_to_flatEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get flat to flat distance. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo13LinearPatternE">
+<span id="_CPPv3N5formo13LinearPatternE"></span><span id="_CPPv2N5formo13LinearPatternE"></span><span id="formo::LinearPattern"></span><span class="target" id="classformo_1_1_linear_pattern"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinearPattern</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5formo7PatternE" title="formo::Pattern"><span class="n"><span class="pre">Pattern</span></span></a><a class="headerlink" href="#_CPPv4N5formo13LinearPatternE" title="Link to this definition"></a><br /></dt>
+<dd><p>Linear pattern. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo13LinearPattern2nxEv">
+<span id="_CPPv3NK5formo13LinearPattern2nxEv"></span><span id="_CPPv2NK5formo13LinearPattern2nxEv"></span><span id="formo::LinearPattern::nxC"></span><span class="target" id="classformo_1_1_linear_pattern_1a2cd4c3f16c535ec289ee5785da3d3941"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nx</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo13LinearPattern2nxEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of points in x-direction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo13LinearPattern2nyEv">
+<span id="_CPPv3NK5formo13LinearPattern2nyEv"></span><span id="_CPPv2NK5formo13LinearPattern2nyEv"></span><span id="formo::LinearPattern::nyC"></span><span class="target" id="classformo_1_1_linear_pattern_1a763f6940a16222b4981c8ed7e4edd18d"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ny</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo13LinearPattern2nyEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of points in y-direction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo13LinearPattern2dxEv">
+<span id="_CPPv3NK5formo13LinearPattern2dxEv"></span><span id="_CPPv2NK5formo13LinearPattern2dxEv"></span><span id="formo::LinearPattern::dxC"></span><span class="target" id="classformo_1_1_linear_pattern_1a425506eb7206f88c8056b5fd9007cec9"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dx</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo13LinearPattern2dxEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Distance between 2 points in x-direction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5formo13LinearPattern2dyEv">
+<span id="_CPPv3NK5formo13LinearPattern2dyEv"></span><span id="_CPPv2NK5formo13LinearPattern2dyEv"></span><span id="formo::LinearPattern::dyC"></span><span class="target" id="classformo_1_1_linear_pattern_1a08eb4f2f86dc9c9081cce3010ed9e8eb"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dy</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5formo13LinearPattern2dyEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Distance between 2 points in y-direction. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="operations.html" class="btn btn-neutral float-left" title="Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="io.html" class="btn btn-neutral float-right" title="Input/Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, David Andrs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

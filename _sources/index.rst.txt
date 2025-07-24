@@ -33,4 +33,5 @@ standard file formats (STEP).
    geometry
    shapes
    operations
+   patterns
    io

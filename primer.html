@@ -71,6 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shapes.html">Shapes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patterns.html">Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a></li>
 </ul>
 
@@ -167,7 +168,7 @@ Simple 3D shape</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pt1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">pt2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">pt3</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">triangle</span> <span class="o">=</span> <span class="n">Face</span><span class="p">(</span><span class="n">Polygon</span><span class="p">([</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">,</span> <span class="n">pt3</span><span class="p">])</span><span class="o">.</span><span class="n">wire</span><span class="p">())</span>
+<span class="n">triangle</span> <span class="o">=</span> <span class="n">Face</span><span class="p">(</span><span class="n">Polygon</span><span class="p">([</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">,</span> <span class="n">pt3</span><span class="p">]))</span>
 <span class="n">vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">solid</span> <span class="o">=</span> <span class="n">extrude</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="n">vec</span><span class="p">)</span>
 </pre></div>
