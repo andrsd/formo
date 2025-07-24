@@ -1,7 +1,13 @@
 Shapes
 ======
 
+.. doxygenclass:: formo::Shape
+   :members:
+
 .. doxygenclass:: formo::Point
+   :members:
+
+.. doxygenclass:: formo::Edge
    :members:
 
 .. doxygenclass:: formo::Line
@@ -16,25 +22,13 @@ Shapes
 .. doxygenclass:: formo::Polygon
    :members:
 
+.. doxygenclass:: formo::InscribedPolygon
+   :members:
+
+.. doxygenclass:: formo::CircumscribedPolygon
+   :members:
+
 .. doxygenclass:: formo::Spline
-   :members:
-
-.. doxygenclass:: formo::Box
-   :members:
-
-.. doxygenclass:: formo::Cone
-   :members:
-
-.. doxygenclass:: formo::Cylinder
-   :members:
-
-.. doxygenclass:: formo::Sphere
-   :members:
-
-.. doxygenclass:: formo::Shape
-   :members:
-
-.. doxygenclass:: formo::Edge
    :members:
 
 .. doxygenclass:: formo::Wire
@@ -47,4 +41,16 @@ Shapes
    :members:
 
 .. doxygenclass:: formo::Solid
+   :members:
+
+.. doxygenclass:: formo::Box
+   :members:
+
+.. doxygenclass:: formo::Cone
+   :members:
+
+.. doxygenclass:: formo::Cylinder
+   :members:
+
+.. doxygenclass:: formo::Sphere
    :members:
