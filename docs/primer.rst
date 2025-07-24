@@ -68,7 +68,7 @@ used to build face which can then be used to build solid shapes.
       pt1 = Point(0, 0, 0)
       pt2 = Point(1, 0, 0)
       pt3 = Point(0, 1, 0)
-      triangle = Face(Polygon([pt1, pt2, pt3]).wire())
+      triangle = Face(Polygon([pt1, pt2, pt3]))
       vec = Vector(0, 0, 1)
       solid = extrude(triangle, vec)
 
