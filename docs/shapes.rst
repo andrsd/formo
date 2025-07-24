@@ -1,7 +1,13 @@
 Shapes
 ======
 
+.. doxygenclass:: formo::Shape
+   :members:
+
 .. doxygenclass:: formo::Point
+   :members:
+
+.. doxygenclass:: formo::Edge
    :members:
 
 .. doxygenclass:: formo::Line
@@ -25,6 +31,15 @@ Shapes
 .. doxygenclass:: formo::Spline
    :members:
 
+.. doxygenclass:: formo::Wire
+   :members:
+
+.. doxygenclass:: formo::Face
+   :members:
+
+.. doxygenclass:: formo::Shell
+   :members:
+
 .. doxygenclass:: formo::Box
    :members:
 
@@ -35,21 +50,6 @@ Shapes
    :members:
 
 .. doxygenclass:: formo::Sphere
-   :members:
-
-.. doxygenclass:: formo::Shape
-   :members:
-
-.. doxygenclass:: formo::Edge
-   :members:
-
-.. doxygenclass:: formo::Wire
-   :members:
-
-.. doxygenclass:: formo::Face
-   :members:
-
-.. doxygenclass:: formo::Shell
    :members:
 
 .. doxygenclass:: formo::Solid
