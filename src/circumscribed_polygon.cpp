@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: MIT
 
 #include "formo/circumscribed_polygon.h"
-#include "formo/axis1.h"
 #include "formo/axis2.h"
 #include "formo/point.h"
 #include "formo/polygon.h"
@@ -18,11 +17,12 @@ CircumscribedPolygon::CircumscribedPolygon(const Axis2 & ax2, double radius, int
     n_sides_(sides)
 {
     if (sides < 3)
-        throw Exception("CircumscribedPolygon needs at least 3 sides");
+        throw Exception("InscribedPolygon needs at least 3 sides");
 
-    auto points = build_points(ax2, radius * ax2.x_direction(), n_sides_);
+    auto r_out = radius / (0.5 * std::sqrt(3));
+    auto points = build_points(ax2, r_out * ax2.x_direction(), this->n_sides_);
     auto polygon = build_polygon(points, true);
-    set_wire(polygon.Wire());
+    set_wire(polygon);
     set_shape(polygon.Shape());
 }
 
@@ -32,13 +32,14 @@ CircumscribedPolygon::CircumscribedPolygon(const Axis2 & ax2, const Point & pt1,
     n_sides_(sides)
 {
     if (sides < 3)
-        throw Exception("CircumscribedPolygon needs at least 3 sides");
+        throw Exception("InscribedPolygon needs at least 3 sides");
 
     auto vec = Vector(ax2.location(), pt1);
     this->radius_ = vec.magnitude();
-    auto points = build_points(ax2, vec, n_sides_);
+    auto r_out = this->radius_ / (0.5 * std::sqrt(3));
+    auto points = build_points(ax2, r_out * vec, this->n_sides_);
     auto polygon = build_polygon(points, true);
-    set_wire(polygon.Wire());
+    set_wire(polygon);
     set_shape(polygon.Shape());
 }
 

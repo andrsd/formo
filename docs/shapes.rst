@@ -16,6 +16,12 @@ Shapes
 .. doxygenclass:: formo::Polygon
    :members:
 
+.. doxygenclass:: formo::InscribedPolygon
+   :members:
+
+.. doxygenclass:: formo::CircumscribedPolygon
+   :members:
+
 .. doxygenclass:: formo::Spline
    :members:
 

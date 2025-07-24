@@ -4,7 +4,6 @@
 #pragma once
 
 #include "formo/polygon.h"
-#include <vector>
 
 namespace formo {
 
@@ -12,15 +11,17 @@ class Axis2;
 class Point;
 class Vector;
 
+/// A class representing a regular polygon inscribed in a circle.  That is, the polygon is
+/// constructed such that all of its vertices lie on the circle's circumference.
 class InscribedPolygon : public Polygon {
 public:
-    /// Create circumscribed polygon from radius and number of sides
+    /// Create inscribed polygon from radius and number of sides
     ///
     /// @param radius Radius if the circle
     /// @param sides Number of sides (must be 3 or more)
     InscribedPolygon(const Axis2 & ax2, double radius, int sides);
 
-    /// Create circumscribed polygon from a point and number of sides
+    /// Create inscribed polygon from a point and number of sides
     ///
     /// @param pt1 Point defining the circle and the first point of the polygon
     /// @param sides Number of sides (must be 3 or more)

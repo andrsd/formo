@@ -4,10 +4,11 @@
 #pragma once
 
 #include "formo/polygon.h"
-#include <vector>
 
 namespace formo {
 
+/// A class representing a regular polygon circumscribed around a circle. That is, the polygon is
+/// constructed such that all of its sides touch a circle.
 class CircumscribedPolygon : public Polygon {
 public:
     /// Create circumscribed polygon from radius and number of sides
