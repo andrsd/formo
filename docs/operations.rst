@@ -19,7 +19,9 @@ Operations
 
 .. doxygenfunction:: formo::mirror(const Point &, const Axis2 &)
 
-.. doxygenfunction:: formo::fuse(const Shape &, const Shape &)
+.. doxygenfunction:: formo::fuse(const Shape &, const Shape &, bool)
+
+.. doxygenfunction:: formo::fuse(const std::vector<Shape> &, bool)
 
 .. doxygenfunction:: formo::cut(const Shape &, const Shape &)
 

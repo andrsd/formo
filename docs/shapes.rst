@@ -40,6 +40,9 @@ Shapes
 .. doxygenclass:: formo::Shell
    :members:
 
+.. doxygenclass:: formo::Solid
+   :members:
+
 .. doxygenclass:: formo::Box
    :members:
 
@@ -50,7 +53,4 @@ Shapes
    :members:
 
 .. doxygenclass:: formo::Sphere
-   :members:
-
-.. doxygenclass:: formo::Solid
    :members:
