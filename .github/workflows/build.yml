@@ -18,6 +18,9 @@ jobs:
           - os: ubuntu-22.04
             build-type: Release
             python-version: "3.11"
+          - os: ubuntu-22.04
+            build-type: Release
+            python-version: "3.12"
     runs-on: ubuntu-latest
     defaults:
       run:
