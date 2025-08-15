@@ -34,13 +34,6 @@ jobs:
           auto-update-conda: false
           channels: andrsd,defaults
 
-      - name: Install dependencies
-        uses: ConorMacBride/install-package@v1
-        with:
-          apt:
-          brew:
-          choco:
-
       - name: Install conda packages
         shell: bash -l {0}
         run: |
@@ -73,28 +66,24 @@ jobs:
         run: make -C ${{ github.workspace }}/build
 
       - name: Run tests
-        run: make -C ${{ github.workspace }}/build test
+        run: |
+          ${{ github.workspace }}/build/test/formo-test \
+            --gtest_output=xml:${{ github.workspace }}/build/gtest-results.xml
+
+      - name: Upload test results to codecov.io
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ${{ github.workspace }}/build/gtest-results.xml
+          name: ${{ matrix.os }}-${{ matrix.build-type }}-py-${{ matrix.python-version }}
 
       - name: Generate code coverage
         run: make -C ${{ github.workspace }}/build coverage
 
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-${{ matrix.os }}-${{ matrix.build-type }}-${{ matrix.python-version }}
-          path: ${{ github.workspace }}/build/coverage.info
-
-  upload-to-codecov:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-
-      - name: Upload to Codecov
-        uses: codecov/codecov-action@v4
+      - name: Upload coverage to codecov.io
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ${{ github.workspace }}/build/coverage.info
+          name: ${{ matrix.os }}-${{ matrix.build-type }}-py-${{ matrix.python-version }}
