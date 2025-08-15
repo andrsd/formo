@@ -70,6 +70,13 @@ jobs:
           ${{ github.workspace }}/build/test/formo-test \
             --gtest_output=xml:${{ github.workspace }}/build/gtest-results.xml
 
+      - name: Test summary
+        uses: test-summary/action@v2
+        if: always()
+        with:
+          paths: ${{ github.workspace }}/build/gtest-results.xml
+          show: "fail, skip"
+
       - name: Upload test results to codecov.io
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
@@ -81,9 +88,23 @@ jobs:
       - name: Generate code coverage
         run: make -C ${{ github.workspace }}/build coverage
 
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.os }}-${{ matrix.build-type }}-${{ matrix.python-version }}
+          path: ${{ github.workspace }}/build/coverage.info
+
+  upload-to-codecov:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+
       - name: Upload coverage to codecov.io
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ${{ github.workspace }}/build/coverage.info
-          name: ${{ matrix.os }}-${{ matrix.build-type }}-py-${{ matrix.python-version }}
