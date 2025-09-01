@@ -19,7 +19,7 @@ endif()
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS ${BuildValues})
 option(FORMO_BUILD_TESTS "Build tests" NO)
 
-find_package(fmt 9.0 REQUIRED)
+find_package(fmt 11 REQUIRED)
 find_package(OpenCASCADE REQUIRED)
 if (OpenCASCADE_FOUND)
     message(STATUS "Found OpenCASCADE: ${OpenCASCADE_LIBRARY_DIR} (version ${OpenCASCADE_VERSION})")
