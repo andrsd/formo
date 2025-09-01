@@ -33,7 +33,7 @@ jobs:
             cmake \
             make \
             occt=7.9.* \
-            fmt==9.1.0 \
+            fmt=11.* \
             doxygen \
             pybind11 \
             sphinx \

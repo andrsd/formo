@@ -5,7 +5,7 @@ Requirements:
 
 * C++17 compiler (tested with gcc and clang)
 * OpenCASCADE (>=7.6.0)
-* fmt (>=9.0)
+* fmt (=11.x)
 * pybind (>=2.11)
 
 
