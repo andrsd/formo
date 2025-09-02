@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB SRCS CONFIGURE_DEPENDS src/*.cpp)
 
+find_package(GTest)
+
 add_executable(${PROJECT_NAME} ${SRCS})
 target_code_coverage(${PROJECT_NAME})
 add_compile_definitions("FORMO_UNIT_TESTS_ROOT=\"${FORMO_UNIT_TESTS_ROOT}\"")
@@ -22,8 +24,7 @@ target_link_libraries(
     ${PROJECT_NAME}
     PUBLIC
         libformo
-        gtest_main
-        gmock_main
+        GTest::gmock_main
 )
 
 add_test(

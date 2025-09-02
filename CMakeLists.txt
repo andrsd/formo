@@ -9,7 +9,6 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
-include(FetchContent)
 include(CodeCoverage)
 
 set(BuildValues "Release;Debug;RelWithDebInfo;MinSizeRel")
@@ -69,25 +68,6 @@ configure_file(include/config.h.in include/formo/config.h)
 
 # python
 add_subdirectory(python)
-
-if(FORMO_BUILD_TESTS)
-    fetchcontent_declare(
-        googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG v1.14.0
-    )
-    set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
-    mark_as_advanced(FORCE BUILD_GMOCK INSTALL_GTEST
-        FETCHCONTENT_SOURCE_DIR_GOOGLETEST FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST
-    )
-
-    fetchcontent_makeavailable(googletest)
-    mark_as_advanced(FORCE
-        FETCHCONTENT_BASE_DIR FETCHCONTENT_QUIET
-        FETCHCONTENT_FULLY_DISCONNECTED FETCHCONTENT_UPDATES_DISCONNECTED
-        GTEST_HAS_ABSL
-    )
-endif()
 
 # Tests
 

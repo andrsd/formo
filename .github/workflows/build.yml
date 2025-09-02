@@ -44,6 +44,7 @@ jobs:
             gxx_linux-64 \
             occt=7.9.* \
             fmt=11.* \
+            gtest \
             pybind11 \
             pytest \
             flake8 \
