@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB SRCS CONFIGURE_DEPENDS src/*.cpp)
 
-find_package(GTest)
+find_package(GTest REQUIRED)
 
 add_executable(${PROJECT_NAME} ${SRCS})
 target_code_coverage(${PROJECT_NAME})
