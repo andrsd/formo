@@ -11,6 +11,10 @@ namespace formo {
 
 class Sphere : public Solid {
 public:
+    /// Create a sphere
+    ///
+    /// @param center Location of the sphere center
+    /// @param radius Radius of the sphere
     Sphere(const Point & center, double radius);
 };
 
