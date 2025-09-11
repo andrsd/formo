@@ -17,6 +17,11 @@ class Vector;
 class Polygon : public Wire {
 public:
     Polygon() = default;
+    /// Create a polygon from set of points
+    ///
+    /// @param points List of points
+    /// @param closed Flag that indicates if the last point will be connect to the first point,
+    ///        i.e. creating closed or open polygon.
     Polygon(const std::vector<Point> & points, bool closed = true);
 
 protected:
