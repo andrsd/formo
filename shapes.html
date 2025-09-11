@@ -124,7 +124,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5formo11ArcOfCircle9end_pointEv"><code class="docutils literal notranslate"><span class="pre">ArcOfCircle::end_point()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo7PolygonE"><code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo7PolygonE"><code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo7Polygon7PolygonERKNSt6vectorI5PointEEb"><code class="docutils literal notranslate"><span class="pre">Polygon::Polygon()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N5formo16InscribedPolygonE"><code class="docutils literal notranslate"><span class="pre">InscribedPolygon</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo16InscribedPolygon16InscribedPolygonERK5Axis2di"><code class="docutils literal notranslate"><span class="pre">InscribedPolygon::InscribedPolygon()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5formo16InscribedPolygon16InscribedPolygonERK5Axis2RK5Pointi"><code class="docutils literal notranslate"><span class="pre">InscribedPolygon::InscribedPolygon()</span></code></a></li>
@@ -801,6 +804,23 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5formo7PolygonE">
 <span id="_CPPv3N5formo7PolygonE"></span><span id="_CPPv2N5formo7PolygonE"></span><span id="formo::Polygon"></span><span class="target" id="classformo_1_1_polygon"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Polygon</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">formo</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5formo4WireE" title="formo::Wire"><span class="n"><span class="pre">Wire</span></span></a><a class="headerlink" href="#_CPPv4N5formo7PolygonE" title="Link to this definition"></a><br /></dt>
 <dd><p>Subclassed by <a class="reference internal" href="#classformo_1_1_circumscribed_polygon"><span class="std std-ref">formo::CircumscribedPolygon</span></a>, <a class="reference internal" href="#classformo_1_1_inscribed_polygon"><span class="std std-ref">formo::InscribedPolygon</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5formo7Polygon7PolygonERKNSt6vectorI5PointEEb">
+<span id="_CPPv3N5formo7Polygon7PolygonERKNSt6vectorI5PointEEb"></span><span id="_CPPv2N5formo7Polygon7PolygonERKNSt6vectorI5PointEEb"></span><span id="formo::Polygon::Polygon__std::vector:Point:CR.b"></span><span class="target" id="classformo_1_1_polygon_1ae136bad83765c9342b96fa11563627e9"></span><span class="sig-name descname"><span class="n"><span class="pre">Polygon</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N5formo5PointE" title="formo::Point"><span class="n"><span class="pre">Point</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">points</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">closed</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5formo7Polygon7PolygonERKNSt6vectorI5PointEEb" title="Link to this definition"></a><br /></dt>
+<dd><p>Create a polygon from set of points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> – List of points </p></li>
+<li><p><strong>closed</strong> – Flag that indicates if the last point will be connect to the first point, i.e. creating closed or open polygon. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="cpp class">
