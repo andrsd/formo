@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(formo VERSION 25.09.0 LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+project(formo
+    VERSION 25.09.0
+    LANGUAGES CXX
+)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
@@ -35,6 +35,8 @@ add_library(libformo SHARED ${SRCS})
 if(NOT MSVC)
     set_target_properties(libformo PROPERTIES OUTPUT_NAME formo)
 endif()
+
+target_compile_features(libformo PUBLIC cxx_std_17)
 
 target_code_coverage(libformo)
 
@@ -88,7 +90,7 @@ configure_package_config_file(
 )
 write_basic_package_version_file(formo-config-version.cmake
     VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
+    COMPATIBILITY SameMajorVersion
 )
 
 install(
